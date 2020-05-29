@@ -5,3 +5,5 @@
 /PushNews.Dominio
 /packages
 /.vs
+/PushNews.Seguridad/bin/Debug
+/PushNews.Seguridad/obj/Debug
