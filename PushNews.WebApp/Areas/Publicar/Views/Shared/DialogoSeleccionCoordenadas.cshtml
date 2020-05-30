@@ -1,0 +1,77 @@
+﻿@model string
+@using Txt = PushNews.WebApp.App_LocalResources
+<div class="modal fade" id="DialogoCoordenadas" data-textos="@ViewBag.TextosCoordenadas" data-opciones="@ViewBag.OpcionesCoordenadas"
+     tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><span data-bind="text: titulo"></span></h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6 columna-mapa">
+                        <div id="mapa" style="height: 400px"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-xs-9">
+                                @(Html.Kendo().TextBox()
+                                    .Name("textoBuscar")
+                                    .HtmlAttributes(new
+                                    {
+                                        @class = "form-control campo-form",
+                                        data_bind = "value: textoBuscar",
+                                        placeholder = Txt.Coordenadas.Buscar
+                                    })
+                                )
+                            </div>
+                            <div class="col-xs-3">
+                                <button data-bind="click: buscarDireccion" title="@Txt.Coordenadas.Buscar"class="btn btn-default">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="datos-posicion">
+                            <div class="row">
+                                <div class="col-md-4">@Txt.Coordenadas.Latitud</div>
+                                <div class="col-md-8"><span data-bind="text: latitud" data-format="N6"></span></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">@Txt.Coordenadas.Longitud</div>
+                                <div class="col-md-8"><span data-bind="text: longitud" data-format="N6"></span></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">@Txt.Coordenadas.Direccion</div>
+                                <div class="col-md-8"><span data-bind="text: direccion"></span></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">@Txt.Coordenadas.Localidad</div>
+                                <div class="col-md-8"><span data-bind="text: localidad"></span></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">@Txt.Coordenadas.CodigoPostal</div>
+                                <div class="col-md-8"><span data-bind="text: codigoPostal"></span></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">@Txt.Coordenadas.Provincia</div>
+                                <div class="col-md-8"><span data-bind="text: provincia"></span></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">@Txt.Coordenadas.Pais</div>
+                                <div class="col-md-8"><span data-bind="text: pais"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-bind="click: fnCancelar">
+                    @Txt.Comun.Cancelar
+                </button>
+                <button class="btn btn-primary" data-bind="click: fnAceptar">
+                    @Txt.Comun.Aceptar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

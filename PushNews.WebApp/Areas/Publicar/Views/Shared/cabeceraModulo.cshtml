@@ -1,0 +1,113 @@
+﻿@using PushNews.WebApp.Models.UI
+@using Txt = PushNews.WebApp.App_LocalResources
+@model CabeceraModel
+
+<div class="cabecera-modulo">
+    <div class="row">
+        <div class="col-xs-12">
+            <ol class="breadcrumb">
+                <li>
+                    <i class="@Model.Icono"></i>
+                    <a href="@Model.UrlSeccion" data-bind="text: seccion">@Model.BCSeccion</a>
+                </li>
+                <li class="active">
+                    <span data-bind="text: modulo">@Model.BCModulo</span>
+                </li>
+                @*<li class="search-box">
+                    <form class="sidebar-search">
+                        <div class="form-group">
+                            <input type="text" placeholder="@Txt.Comun.Buscar...">
+                            <button class="submit">
+                                <i class="clip-search-3"></i>
+                            </button>
+                        </div>
+                    </form>
+                </li>*@
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="page-header">
+            <div class="col-xs-12 col-sm-7">
+                <div style="min-height:45px;">
+                    <h1>
+                        <span data-bind="text: titulo">@Model.Titulo</span>
+                        <small data-bind="text: subtitulo">@Model.Subtitulo</small>
+                    </h1>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-5">
+                <div class="botones-cabecera btn-group pull-right ocultar-en-edicion" role="group">
+
+                    @{
+                        IEnumerable<BotonGridModel> botonesInicio, botonesMedio, botonesFinal;
+                        if (Model.BotonesExtra != null && Model.BotonesExtra.Any())
+                        {
+                            botonesInicio = Model.BotonesExtra.Where(b => b.Posicion == BotonGridModel.Posiciones.Inicial);
+                            botonesMedio = Model.BotonesExtra.Where(b => b.Posicion == BotonGridModel.Posiciones.Media);
+                            botonesFinal = Model.BotonesExtra.Where(b => b.Posicion == BotonGridModel.Posiciones.Final);
+                        }
+                        else
+                        {
+                            botonesInicio = new List<BotonGridModel>();
+                            botonesMedio = new List<BotonGridModel>();
+                            botonesFinal = new List<BotonGridModel>();
+                        }
+                    }
+
+                    @foreach (var bt in botonesInicio)
+                    {
+                        string clase = bt.ClaseBoton + " " + bt.ClaseFuncion;
+                        <button type="button" class="@clase deshabilitar-en-edicion" title="@bt.Texto">
+                            <i class="@bt.Icono"></i>
+                        </button>
+                    }
+
+                    @if (Model.ListaOpConfiguracion.Count() == 1)
+                    {
+                        <a class="btn btn-default btn-small deshabilitar-en-edicion" title="@Txt.Comun.Configuracion">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                    }
+                    else if (Model.ListaOpConfiguracion.Count() > 1)
+                    {
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default btn-small dropdown-toggle deshabilitar-en-edicion" data-toggle="dropdown" aria-expanded="false" title="@Txt.Comun.Configuracion">
+                                <i class="fa fa-wrench"></i>
+                            </button>
+                            <ul class="dropdown-menu pull-right" role="menu">
+                                @foreach (var op in Model.ListaOpConfiguracion)
+                                {
+                                    <li><a href="@op.Url">@op.Texto</a></li>
+                                }
+                            </ul>
+                        </div>
+                    }
+
+                    @foreach (var bt in botonesMedio)
+                    {
+                        string clase = bt.ClaseBoton + " " + bt.ClaseFuncion;
+                        <button type="button" class="@clase deshabilitar-en-edicion" title="@bt.Texto">
+                            <i class="@bt.Icono"></i>
+                        </button>
+                    }
+
+                    @if (Model.Recargar)
+                    {
+                        <button type="button" class="btn btn-default btn-small deshabilitar-en-edicion" id="recargar" title="@Txt.Comun.Recargar">
+                            <i class="fa fa-refresh"></i>
+                        </button>
+                    }
+
+                    @foreach (var bt in botonesFinal)
+                    {
+                        string clase = bt.ClaseBoton + " " + bt.ClaseFuncion;
+                        <button type="button" class="@clase deshabilitar-en-edicion" title="@bt.Texto">
+                            <i class="@bt.Icono"></i>
+                        </button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

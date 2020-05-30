@@ -1,0 +1,17 @@
+﻿@using Txt = PushNews.WebApp.App_LocalResources
+
+<html>
+<body>
+    <div class="encabezado" style="margin: auto; text-align: center;">
+        <img src="cid:logo" alt="@Txt.Comun.NombreAplicacion" />
+    </div>
+
+    <div class="cuerpo" style="background-color: white; margin: auto; padding: 50px 20px; max-width: 600px;">
+        @RenderBody()
+    </div>
+
+    <div class="pie" style="color: dimgrey; background-color: lightgray; height: 2.5em; padding: 1em 0 0.5em 0; text-align: center; ">
+        @DateTime.Now.Date.Year &copy; @Txt.Comun.NombreAplicacion 
+    </div>
+</body>
+</html>

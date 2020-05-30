@@ -1,0 +1,115 @@
+﻿@using Txt = PushNews.WebApp.App_LocalResources
+
+<div class="datos-comunicacion">
+
+    <div class="row">
+        <div class="col-xs-12 text-right">
+            <a class="btn btn-default btVolver" href="/">@Txt.Comun.Volver</a>
+        </div>
+    </div>
+
+    <div class="compartir">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <a class="compartir-facebook" target="_blank" data-bind="attr: { href: FacebookShare }">
+                    <i class="fa fa-4x fa-facebook-square color-facebook"></i>
+                </a>
+                <a class="compartir-twitter" target="_blank" data-bind="attr: { href: TwitterShare }">
+                    <i class="fa fa-4x fa-twitter-square color-twitter"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="comunicacion-cabecera">
+        <h1 class="titulo">
+            <i class="fa fa-star golden" data-bind="visible: Destacado"></i>
+            <span data-bind="text: Titulo"></span>
+        </h1>
+        <div class="row">
+            <div class="col-xs-4 categoria">
+                <span class="label label-default </a>" data-bind="text:Categoria"></span>
+            </div>
+            <div class="col-xs-8 text-right">
+                <dl>
+                    <dd><span class="autor" data-bind="text: Autor"></span></dd>
+                    <dd>
+                        <time class="timeago">
+                            <span data-bind="text: FechaPublicacion" data-format="g"></span>
+                        </time>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="comunicacion-cuerpo">
+        <div class="row">
+            <div class="col-xs-12">
+                <article data-bind="text: Descripcion"></article>
+            </div>
+        </div>
+    </div>
+
+    <div class="comunicacion-adjuntos">
+        <div class="row" data-bind="visible: Enlace">
+            <div class="bloque-adjuntos">
+                <div class="col-xs-2 col-sm-1 col-sm-offset-3 text-right">
+                    <a target="_blank" data-bind="attr: {href: Enlace }"><i class="fa fa-2x fa-external-link"></i></a>
+                </div>
+                <div class="col-xs-10 col-sm-5">
+                    <span data-bind="text: EnlaceTitulo"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row" data-bind="visible: AdjuntoDocumentoID" >
+            <div class="bloque-adjuntos">
+                <div class="col-xs-2 col-sm-1 col-sm-offset-3 text-right">
+                    <a target="_blank" data-bind="attr: { href: AdjuntoUrl }"><i class="fa fa-2x fa-cloud-download"></i></a>
+                </div>
+                <div class="col-xs-10 col-sm-5">
+                    <span data-bind="text: AdjuntoTitulo"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="bloque-adjuntos">
+                <div class="text-center">
+                    <div id="galeria">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="comunicacion-ubicacion" data-bind="visible: GeoPosicionLongitud">
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 data-bind="text: GeoPosicionTitulo"></h3>
+            </div>
+        </div>
+        <div class="row" data-bind="visible: GeoPosicionLongitud">
+            <div class="bloque-ubicacion">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                    <div class="mapa"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-kendo-tmpl" id="galeria-imagen">
+    <a class="swipebox" href="#= ImagenUrl #" title="#= ImagenTitulo #">
+        <img src="#= MiniaturaUrl #" alt="#= ImagenTitulo #" class="imagen" />
+    </a>
+</script>
+<script type="text/x-kendo-tmpl" id="galeria-youtube">
+    <a class="swipebox swipebox-video" href="#= videoUrl #" title="#= YoutubeTitulo#">
+        <img class="imagen" src="#= imagenVideoUrl #" alt="#= YoutubeTitulo#" />
+    </a>
+</script>
+    @*<a class="swipebox swipebox-video" href="http://vimeo.com/29193046">
+            <img src="https://i.vimeocdn.com/video/29193046.webp" class="imagen" />
+        </a>*@

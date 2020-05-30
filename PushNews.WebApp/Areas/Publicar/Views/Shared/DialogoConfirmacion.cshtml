@@ -1,0 +1,24 @@
+﻿@using PushNews.WebApp.Areas.Publicar.Models.UI
+@using Txt = PushNews.WebApp.App_LocalResources
+@model DialogoConfirmacionModel
+
+<div class="modal fade" id="@Model.ModalID" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">@Model.Titulo</h4>
+            </div>
+            <div class="modal-body">
+                <p class="cuerpo"></p>
+            </div>
+            <div class="modal-footer">
+                <button aria-hidden="true" data-dismiss="modal" class="btn btn-primary no-button">
+                    @Txt.Comun.No
+                </button>
+                <button class="btn btn-default yes-button" data-dismiss="modal">
+                    @Txt.Comun.Si
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

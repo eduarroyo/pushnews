@@ -1,0 +1,39 @@
+﻿@model PushNews.WebApp.Models.Account.CambiarClaveModel
+
+@using (Html.BeginForm("", "", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="form-group col-xs-12">
+            <div class="control-label">
+                @Html.LabelFor(model => model.ClaveActual)
+            </div>
+            @(Html.PasswordFor(model => model.ClaveActual,
+                new { @class = "form-control campo-form", data_bind = "value:ClaveActual" })
+            )
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-xs-12">
+            <div class="control-label">
+                @Html.LabelFor(model => model.ClaveNueva)
+            </div>
+            @(Html.PasswordFor(model => model.ClaveNueva,
+                new { @class = "form-control campo-form", data_bind = "value:ClaveNueva" })
+            )
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-xs-12">
+            <div class="control-label">
+                @Html.LabelFor(model => model.ConfirmarClave)
+            </div>
+            @(Html.PasswordFor(model => model.ConfirmarClave,
+                new { @class = "form-control campo-form", data_bind = "value:ConfirmarClave" })
+            )
+        </div>
+    </div>
+}

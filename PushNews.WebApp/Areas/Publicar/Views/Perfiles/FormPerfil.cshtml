@@ -1,0 +1,30 @@
+﻿@using Txt = PushNews.WebApp.App_LocalResources
+
+@using (Html.BeginForm("", "", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="form-group col-xs-12">
+            <div class="control-label">
+                @Html.Label(@Txt.Usuarios.Nombre)
+            </div>
+            @(Html.Kendo().TextBox()
+                .Name("Nombre")
+                .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value:Nombre" })
+            )
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-xs-12">
+            <div class="control-label">
+                @Html.Label(@Txt.Usuarios.Apellidos)
+            </div>
+            @(Html.Kendo().TextBox()
+                .Name("Apellidos")
+                .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value:Apellidos" })
+            )
+        </div>
+    </div>
+}

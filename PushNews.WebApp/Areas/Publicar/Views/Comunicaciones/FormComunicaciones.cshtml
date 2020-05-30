@@ -1,0 +1,348 @@
+﻿@using Txt = PushNews.WebApp.App_LocalResources
+@using PushNews.Dominio.Enums
+@model PushNews.WebApp.Models.Comunicaciones.ComunicacionGrid
+
+@{ 
+    IEnumerable<AplicacionCaracteristica> caracteristicas =
+        (IEnumerable<AplicacionCaracteristica>) Session["caracteristicas"];
+    bool coordenadas = caracteristicas.Contains(AplicacionCaracteristica.GeoPosicionamiento);
+    bool youtube = caracteristicas.Contains(AplicacionCaracteristica.AdjuntarVideo);
+    bool asociados = caracteristicas.Contains(AplicacionCaracteristica.Asociados);
+}
+
+<div class="form-comunicaciones k-group desplazar-kanimationcontainer">
+    <div class="container-fluid">
+        @using (Html.BeginForm("", "", FormMethod.Post, new { @class = "" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.ComunicacionID, new { data_bind = "value: ComunicacionID" })
+            @Html.HiddenFor(model => model.Activo, new { data_bind = "value: Activo" })
+
+            <div class="row">
+                <div class="form-group col-xs-12">
+                    <div class="control-label">
+                        @Html.LabelFor(model => model.Titulo)
+                    </div>
+                    @(Html.Kendo().TextBoxFor(model => model.Titulo)
+                    .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value: Titulo" })
+                    )
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-xs-12">
+                    <div class="control-label">
+                        @Html.LabelFor(model => model.Descripcion)
+                    </div>
+                    @Html.TextAreaFor(model => model.Descripcion,
+                 new { @class = "form-control campo-form", data_bind = "value: Descripcion" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-xs-12">
+                    <div class="control-label">
+                        @Html.LabelFor(model => model.Autor)
+                    </div>
+                    @(Html.Kendo().TextBoxFor(model => model.Autor)
+                    .Name("Autor")
+                    .HtmlAttributes(new
+                    {
+                        @class = "form-control campo-form",
+                        data_bind = "value: Autor"
+                    })
+                        )
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-xs-12 col-sm-5">
+                    <div class="control-label">
+                        @Html.LabelFor(model => model.CategoriaID)
+                    </div>
+                    @(Html.Kendo().DropDownListFor(m => m.CategoriaID)
+                        .Name("CategoriaID")
+                        .OptionLabel(Txt.Comunicaciones.SeleccioneCategoria)
+                        .ValuePrimitive(true)
+                        .DataValueField("CategoriaID")
+                        .DataSource(ds => ds.Read("CategoriasUsuario", "Categorias"))
+                        .HtmlAttributes(new
+                        {
+                            @class = "form-control campo-form",
+                            data_bind = "value: CategoriaID, events: {change: cambioCategoria}"
+                        })
+                        .ValueTemplate(@"<i class=""fa fa-2x #= Icono #""></i> &nbsp; #= Nombre # &nbsp; #if(Privada) {# <i class=""fa fa-user-secret""></i> #}#")
+                        .Template(@"<i class=""fa fa-2x #= Icono #""></i> &nbsp; #= Nombre # &nbsp; #if(Privada) {# <i class=""fa fa-user-secret""></i> #}#")
+                    )
+                </div>
+
+                <div class="form-group col-xs-12 col-sm-3">
+                    <div class="control-label"><label>&nbsp;</label></div>
+                    <a data-bind="click: toggleDestacado" class="golden">
+                        <i class="fa fa-2x fa-star" data-bind="visible: Destacado"></i>
+                        <i class="fa fa-2x fa-star-o" data-bind="invisible: Destacado"></i>
+                    </a>
+                    @Html.Label(@Txt.Comunicaciones.Destacado)
+                </div>
+
+                <div class="form-group col-xs-12 col-sm-4">
+                    <div class="control-label">
+                        @Html.LabelFor(model => model.FechaPublicacion)
+                    </div>
+                    @(Html.Kendo().DateTimePickerFor(model => model.FechaPublicacion)
+                        .Name("FechaPublicacion")
+                        .Format("g")
+                        .HtmlAttributes(new
+                        {
+                            @class = "form-control campo-form",
+                            data_bind = "value: FechaPublicacion"
+                        })
+                    )
+                </div>
+            </div>
+            <div class="row" id="filaAyudaPrivadas" style="display:none;">
+                <div class="col-xs-12">
+                    <i class="fa fa-user-secret"></i>&nbsp;@Txt.Comunicaciones.AyudaPrivadas
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-12 col-sm-6">
+                    <div class="control-label"><label>&nbsp;</label></div>
+                    @(Html.CheckBoxFor(model => model.Recordatorio, new { data_bind = "checked: Recordatorio" }))
+                    @Html.LabelFor(model => model.Recordatorio)
+                </div>
+                <div class="form-group col-xs-12 col-sm-6" data-bind="visible: Recordatorio">
+                    <div class="control-label">
+                        @Html.LabelFor(model => model.RecordatorioFecha)
+                    </div>
+                    @(Html.Kendo().DateTimePickerFor(model => model.RecordatorioFecha)
+                        .Name("RecordatorioFecha")
+                        .Format("g")
+                        .HtmlAttributes(new
+                        {
+                            @class = "form-control campo-form",
+                            data_bind = "value: RecordatorioFecha"
+                        })
+                    )
+                </div>
+                <div class="form-group col-xs-12" data-bind="visible: Recordatorio">
+                    <div class="control-label">
+                        @Html.LabelFor(model => model.RecordatorioTitulo)
+                    </div>
+                    @(Html.Kendo().TextBoxFor(model => model.RecordatorioTitulo)
+                        .Name("RecordatorioTitulo")
+                        .HtmlAttributes(new
+                        {
+                            @class = "form-control campo-form",
+                            data_bind = "value: RecordatorioTitulo"
+                        })
+                    )
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-xs-12 col-md-6">
+                    @Html.HiddenFor(model => model.ImagenDocumentoID, new { data_bind = "value: ImagenDocumentoID" })
+                    <div class="control-label">
+                        @Html.LabelFor(model => model.ImagenDocumentoID)
+                    </div>
+                    <div data-bind="visible: ImagenDocumentoID">
+                        <a target="_blank" data-bind="visible: ImagenDocumentoID, attr: { href: ImagenUrl }">
+                            <span data-bind="text: ImagenNombre"></span>
+                        </a>
+                        <a data-bind="click: quitarImagen">
+                            <i class="fa fa-remove" title="@Txt.Comunicaciones.QuitarImagen"></i>
+                        </a>
+                    </div>
+                    @(Html.Kendo().Upload()
+                        .Name("ImagenAdjunta")
+                        .ShowFileList(false)
+                        .Multiple(false)
+                        .HtmlAttributes(new { accept = "image/*", data_bind = "invisible: ImagenDocumentoID" })
+                        .Async(a => a.Save("NuevaImagen", "Adjuntos").AutoUpload(true))
+                    )
+                </div>
+                <div class="form-group col-xs-12 col-md-6">
+                    <div class="control-label">
+                        @Html.LabelFor(model => model.ImagenTitulo)
+                    </div>
+                    @(Html.Kendo().TextBoxFor(model => model.ImagenTitulo)
+                    .HtmlAttributes(new
+                    {
+                        @class = "form-control campo-form",
+                        data_bind = "value: ImagenTitulo"
+                    })
+                    )
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-xs-12 col-md-6">
+                    @Html.HiddenFor(model => model.AdjuntoDocumentoID, new { data_bind = "value: AdjuntoDocumentoID" })
+                    <div class="control-label">
+                        @Html.LabelFor(model => model.AdjuntoDocumentoID)
+                    </div>
+                    <div data-bind="visible: AdjuntoDocumentoID">
+                        <a target="_blank" data-bind="visible: AdjuntoDocumentoID, attr: { href: AdjuntoUrl }">
+                            <span data-bind="text: AdjuntoNombre"></span>
+                        </a>
+                        <a data-bind="click: quitarAdjunto">
+                            <i class="fa fa-remove" title="@Txt.Comunicaciones.QuitarAdjunto"></i>
+                        </a>
+                    </div>
+                    @(Html.Kendo().Upload()
+                        .Name("DocumentoAdjunto")
+                        .ShowFileList(false)
+                        .Multiple(false)
+                        .HtmlAttributes(new { data_bind = "invisible: AdjuntoDocumentoID" })
+                        .Async(a => a.Save("NuevoDocumento", "Adjuntos").AutoUpload(true))
+                    )
+                </div>
+                <div class="form-group col-xs-12 col-md-6">
+                    <div class="control-label">
+                        @Html.LabelFor(model => model.AdjuntoTitulo)
+                    </div>
+                    @(Html.Kendo().TextBoxFor(model => model.AdjuntoTitulo)
+                        .HtmlAttributes(new
+                        {
+                            @class = "form-control campo-form",
+                            data_bind = "value: AdjuntoTitulo"
+                        })
+                    )
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-xs-12 col-md-6">
+                    <div class="control-label">
+                        @Html.LabelFor(model => model.Enlace)
+                    </div>
+                    @(Html.Kendo().TextBoxFor(model => model.Enlace)
+                        .HtmlAttributes(new
+                        {
+                            @class = "form-control campo-form",
+                            data_bind = "value: Enlace"//,
+                            //type = "url"
+                        })
+                    )
+                </div>
+                <div class="form-group col-xs-12  col-md-6">
+                    <div class="control-label">
+                        @Html.LabelFor(model => model.EnlaceTitulo)
+                    </div>
+                    @(Html.Kendo().TextBoxFor(model => model.EnlaceTitulo)
+                .HtmlAttributes(new
+                {
+                    @class = "form-control campo-form",
+                    data_bind = "value: EnlaceTitulo"
+                })
+                    )
+                </div>
+            </div>
+
+            if (youtube)
+            {
+                <div class="row">
+                    <div class="form-group col-xs-12 col-md-6">
+                        <div class="control-label">
+                            @Html.LabelFor(model => model.Youtube)
+                        </div>
+                        @(Html.Kendo().TextBox()
+                        .Name("urlVideo")
+                        .HtmlAttributes(new
+                        {
+                            @class = "form-control campo-form",
+                            data_bind = "value: urlVideo",
+                            type = "url"
+                        })
+                        )
+                    </div>
+                    <div class="form-group col-xs-12  col-md-6">
+                        <div class="control-label">
+                            @Html.LabelFor(model => model.YoutubeTitulo)
+                        </div>
+                        @(Html.Kendo().TextBoxFor(model => model.YoutubeTitulo)
+                        .HtmlAttributes(new
+                        {
+                            @class = "form-control campo-form",
+                            data_bind = "value: YoutubeTitulo"
+                        })
+                        )
+                    </div>
+                </div>
+
+                <div class="row text-center" data-bind="visible: urlImagenVideo">
+                    <div class="col-xs-12">
+                        <div id="galeria">
+                            <a class="swipebox swipebox-video" data-bind="attr: {href: urlVideo}">
+                                <img class="imagen" data-bind="attr: {src: urlImagenVideo}" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            if (coordenadas)
+            {
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="control-label">
+                            @Html.Label(" ")
+                        </div>
+                        @(Html.CheckBox("MostrarCoordenadas", false,
+                        new { data_bind = "events: {change: mostrarOcultarCoordenadas}" })
+                        )
+                        @(Html.Label(@Txt.Comunicaciones.Ubicacion))
+                    </div>
+                    <div class="form-group col-xs-12 col-sm-6">
+                        <div class="control-label">
+                            @Html.LabelFor(model => model.GeoPosicionTitulo)
+                        </div>
+                        @(Html.Kendo().TextBoxFor(model => model.GeoPosicionTitulo)
+                        .HtmlAttributes(new
+                        {
+                            @class = "form-control campo-form",
+                            data_bind = "value: GeoPosicionTitulo"
+                        })
+                        )
+                    </div>
+                </div>
+
+            }
+        }
+        
+        <div class="row">
+            @{
+                string opciones = Json.Encode(new
+                {
+                    noIniciarMapa = true,
+                    latitudInicial = ViewBag.Latitud,
+                    longitudInicial = ViewBag.Longitud
+                });
+                string textos = Json.Encode(new
+                {
+                    contenedorNoEncontrado = Txt.Comunicaciones.ContenedorNoEncontrado,
+                    capaMapaNoEncontrada = Txt.Comunicaciones.CapaMapaNoEncontrada,
+                    geocodingSinResultado = Txt.Comunicaciones.GeocodingSinResultado,
+                    errorGeocoding = Txt.Comunicaciones.ErrorGeocoding,
+                    geocodingInversoSinResultado = Txt.Comunicaciones.GeocodingInversoSinResultado,
+                    errorGeocodingInverso = Txt.Comunicaciones.ErrorGeocodingInverso
+                });
+            }
+            <div id="contenedorCoordenadas" class="collapse" data-opciones="@opciones" data-textos="@textos">
+                @{Html.RenderPartial("~/Areas/Publicar/Views/Shared/EntradaCoordenadas.cshtml");}
+            </div>
+        </div>
+        
+        <hr />
+
+        <div class="row">
+            <div class="col-xs-12 text-right">
+                <div class="form-group">
+                    <button class="btn btn-default btCancelar" data-bind="click: cancelar">@Txt.Comun.Cancelar</button>
+                    <button class="btn btn-orange" data-bind="click: guardar">@Txt.Comun.Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

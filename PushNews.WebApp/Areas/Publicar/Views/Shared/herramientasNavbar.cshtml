@@ -1,0 +1,76 @@
+﻿@using PushNews.Dominio.Entidades
+@using PushNews.WebApp.Models.Aplicaciones
+@using Txt = PushNews.WebApp.App_LocalResources
+
+<ul class="nav navbar-right">
+    @{
+        var aplicacion = (Aplicacion) Session["Aplicacion"];
+        var aplicaciones = (IEnumerable<AplicacionGrid>) ViewBag.Aplicaciones;
+    }
+    @if (aplicacion != null)
+    {
+    <li class="dropdown current-clinic nav-dropdown">
+        <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" data-close-others="true" href="#">
+            <i class="fa  fa-institution"></i>
+            <span class="clinic-name hidden-xs hidden-sm">@aplicacion.Nombre</span>
+            <i class="clip-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu menu-aplicaciones">
+            @foreach (AplicacionGrid ap in aplicaciones)
+            {
+                string clase = "", icono = "";
+                if (aplicacion.AplicacionID == ap.AplicacionID)
+                {
+                    clase = "seleccionada";
+                    icono = "fa-circle";
+                }
+                else
+                {
+                    clase = "";
+                    icono = "fa-circle-o";
+                }
+
+                <li>
+                    <a href="" data-toggle="dropdown" data-target=".menu-aplicaciones"
+                       data-aplicacionid="@ap.AplicacionID" class="@clase">
+                        <i class="fa @icono"></i>
+                        &nbsp;@ap.Nombre
+                    </a>
+                </li>
+            }
+        </ul>
+    </li>
+    }
+    <!-- end: USER DROPDOWN -->
+    <!-- start: USER DROPDOWN -->
+    <li class="dropdown current-user nav-dropdown">
+        <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" data-close-others="true" href="#">
+            <i class="fa fa-user"></i>
+            @*<img src="assets/images/avatar-1-small.jpg" class="circle-img" alt="">*@
+            <span class="username hidden-xs">@ViewBag.NombreUsuario</span>
+            <i class="clip-chevron-down"></i>
+        </a>
+        <ul class="dropdown-menu menu-usuario">
+            @*<li>
+                <a href="#/opciones" data-toggle="dropdown" data-target=".menu-usuario">
+                    <i class="fa fa-cogs"></i>
+                    &nbsp;@Txt.Secciones.Opciones
+                </a>
+            </li>*@
+            <li>
+                <a href="#/perfil" data-toggle="dropdown" data-target=".menu-usuario">
+                    <i class="fa fa-user"></i>
+                    &nbsp;@Txt.Secciones.Perfil
+                </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a href="javascript:void(0)" class="logout-button" data-toggle="dropdown" data-target=".menu-usuario">
+                    <i class="fa fa-sign-out"></i>
+                    &nbsp;@Txt.Account.CerrarSesion
+                </a>
+            </li>
+        </ul>
+    </li>
+    <!-- end: USER DROPDOWN -->
+</ul>

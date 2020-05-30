@@ -1,0 +1,37 @@
+﻿@using Txt = PushNews.WebApp.App_LocalResources
+@using PushNews.WebApp.Helpers
+@using PushNews.WebApp.Models.Opciones
+
+@model CulturaModel
+
+@using (Html.BeginForm("Cultura", "Opciones", FormMethod.Post, 
+    new { id = "formCultura", @class ="form-opciones", data_reload="true" }))
+{
+    <div class="col-xs-12 bloque-form-3">
+        <h3>@Txt.Opciones.SeccionCultura</h3>
+        <div class="row">
+            <div class="col-sm-6 col-lg-5">
+                <div class="form-group">
+                    <div class="control-label">
+                        @Txt.Opciones.Locale
+                    </div>
+                        @(Html.Kendo().DropDownListFor(model => model.Locale)
+                            .Name("Locale")
+                            .DataTextField("Text")
+                            .DataValueField("Value")
+                            .BindTo(CultureHelper.ListaCulturas)
+                        )
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="botonera">
+                <button class="btn btn-primary btGuardar">
+                    <i class="fa fa-check"></i>
+                    @Txt.Comun.Guardar
+                </button>
+            </div>
+        </div>
+    </div>
+}

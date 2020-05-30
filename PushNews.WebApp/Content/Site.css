@@ -1,24 +1,470 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿@font-face {
+    font-family: 'Open+Sans';
+    src: url('/fonts/OpenSans-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+@font-face {
+    font-family: 'Raleway';
+    src: url('/fonts/Raleway-Light.ttf');
+    font-weight: normal;
+    font-style: normal;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+.popover {
+    color: #666;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.k-group {
+    background-color: white;
+}
+
+body {
+    color: #000000;
+    direction: ltr;
+    font-family: 'Open+Sans', sans-serif;
+    font-size: 13px;
+    padding: 0px !important;
+    margin: 0px !important;
+    background: #ffffff;
+}
+
+h1, h2, h3 {
+    font-family: 'Raleway', sans-serif;
+}
+
+.loading {
+    top: calc(50% - 85px);
+    left: calc(50% - 85px);
+}
+
+.btn-primary {
+    background-color: #fbb040;
+    border: solid 1px #fbb040 !important;
+}
+
+    .btn-primary:hover {
+        background-color: #bc3a00;
+        border: solid 1px #fbb040 !important;
+    }
+
+
+.btn-orange {
+    background-color: #DD4400 !important;
+}
+
+    .btn-orange:hover {
+        background-color: #bc3a00 !important;
+        border: solid 1px #DD4400 !important;
+    }
+
+.btn-taxiva {
+    background-color: #93c13e;
+    border-color: #93c13e;
+    color: white;
+}
+
+    .btn-taxiva:hover {
+        background-color: #79860e;
+        border: solid 1px #93c13e;
+    }
+
+.btn-verdeAlt {
+    background-color: #93c13e;
+}
+
+    .btn-verdeAlt:hover {
+        background-color: #839000 !important;
+        border: solid 1px #93c13e !important;
+        color: white !important;
+    }
+
+.botonera {
+    border-top: 1px solid #eee;
+}
+
+    .botonera .btn {
+        margin-top: 5px;
+    }
+
+.bloque-form h3 {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.bloque-form-1 h3 {
+    color: #DD4400;
+}
+
+.bloque-ficha-1 th {
+    color: #DD4400;
+}
+
+.bloque-form-2 h3 {
+    color: #93c13e;
+}
+
+.bloque-ficha-2 th {
+    color: #93c13e;
+}
+
+.bloque-form-3 h3 {
+    color: #fbb040;
+}
+
+.bloque-ficha-3 th {
+    color: #fbb040;
+}
+
+.bloque-form-4 h3 {
+    color: #6616e5;
+}
+
+.bloque-ficha-4 th {
+    color: #6616e5;
+}
+
+@media (max-width: 1200px) {
+    .has-switch {
+        min-width: 50px !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .columna-estadisticas  {
+        padding-left: 15px !important;
+    }
+}
+
+.has-switch span.switch-primary, .has-switch span.switch-left {
+    /*background-image: linear-gradient(to bottom, #93c13e, #93c13e) !important;*/
+    background-image: none !important;
+    background-color: #93c13e !important;
+}
+
+tr .celda-centrada {
+    width: 100%;
+    text-align: center;
+}
+
+tr .celda-derecha {
+    width: 100%;
+    text-align: right;
+}
+
+.total-parcial {
+    font-weight: bold;
+    font-size: larger;
+}
+
+.total-final {
+    font-weight: bold;
+    font-size: x-large;
+}
+
+
+.ideacheck, .radio-custom {
+    opacity: 0;
+    position: absolute;
+}
+
+.ideacheck, .ideacheck-label, .radio-custom, .radio-custom-label {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.ideacheck-label, .radio-custom-label {
+    position: relative;
+}
+
+.ideacheck + .ideacheck-label:before, .radio-custom + .radio-custom-label:before {
+    content: '';
+    background: #fff;
+    border: 2px solid #ddd;
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.ideacheck:checked + .ideacheck-label:before {
+    content: "\f00c";
+    font-family: 'FontAwesome';
+    background: #93c13e;
+    color: #fff;
+}
+
+.radio-custom + .radio-custom-label:before {
+    border-radius: 50%;
+}
+
+.radio-custom:checked + .radio-custom-label:before {
+    content: "\f00c";
+    font-family: 'FontAwesome';
+    color: #bbb;
+}
+
+.label + .etiqueta-lista {
+    margin: 2px 2px;
+}
+
+.etiqueta-lista {
+    display: inline-block;
+}
+
+    .etiqueta-lista + .mostrarExceso {
+        cursor: pointer;
+    }
+
+.contenedor-modulo .k-grid {
+    width: calc(100% - 3px);
+}
+
+/* Evita que el menú emergente de la última fila de la grilla aparezca semi-oculto por el 
+    desbordamiento inferior de la caja de la grilla.*/
+/*.contenedor-modulo .k-grid {
+    position: absolute;
+    width: calc(100% - 30px);
+}*/
+
+.tab-pane:not(.active) {
+    display: none;
+}
+
+.tab-pane {
+    display: block;
+}
+
+/* Estilo de los items de lista de empleados (kendo listview) */
+.empleado-listitem {
+    float: left;
+    position: relative;
+    width: 200px;
+    min-height: 60px;
+    margin: 0px;
+    padding: 0px;
+    background-color: #DDD;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 10px 10px;
+    border-radius: 5px 5px;
+}
+
+.especialidad-listitem {
+    float: left;
+    position: relative;
+    width: 200px;
+    min-height: 20px;
+    margin: 0px;
+    padding: 0px;
+    background-color: #DDD;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 10px 10px;
+    border-radius: 5px 5px;
+}
+
+.avatar {
+    max-height: 230px;
+    border: solid 1px #DDD;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.botonera-video {
+    position: relative;
+    top: -50px;
+}
+
+.capturas {
+    width: 100%;
+    height: 191px;
+    float: left;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.captura-item {
+    height: 213px;
+    width: auto;
+    display: inline;
+    padding: 10px;
+}
+
+.botonera-captura {
+    display: inline;
+    top: -145px;
+    right: 35px;
+    position: relative;
+}
+
+#CaptureDisplay {
+    width: 96%;
+    margin: 2%;
+}
+
+@media(max-width: 768px) {
+    #CaptureDisplay {
+        max-height: 200px;
+    }
+}
+
+.WebcamCapture {
+    border: solid 1px #CCC;
+}
+
+.cell-img {
+    max-width: 100px;
+}
+
+.operaciones-unitarias {
+    text-align: center;
+    margin: 10px;
+}
+
+    .operaciones-unitarias button {
+        width: 100%;
+        margin: 5px 10px 0 0;
+    }
+
+.dato-estatico {
+    font-size: large;
+}
+
+.grid-header-data {
+    border: 1px solid #cccccc;
+    margin-bottom: 10px;
+    padding: 10px;
+    color: black;
+    background-color: whitesmoke;
+    margin-left: -14px;
+    margin-right: -14px;
+    margin-top: -11px;
+}
+
+
+.k-widget.k-notification {
+    width: 275px;
+    padding: 1em .5em .7em .5em;
+    border: 0;
+}
+
+.k-notification h3 {
+    margin-top: 3px;
+    font-size: 1.7em;
+}
+
+.bg-gray {
+    background-color: #EEE;
+}
+
+
+.k-grid.light-grid {
+    border: none;
+}
+
+.k-grid.light-grid .k-header {
+    display: none;
+}
+
+.k-grid.light-grid tbody {
+    background-color: transparent;
+    border: none;
+}
+
+.k-grid.light-grid td {
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid 1px #EEE;
+}
+
+    .k-grid.light-grid tr:last-child > td {
+        border-bottom: none;
+    }
+
+
+.k-grid.light-grid tr {
+    background-color: transparent;
+    border-left: none;
+    border-right: none;
+}
+
+.imagen {    
+    padding: 5px;
+    border: solid 1px #EFEFEF;
+    background-color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Marco foto para las imágenes de galería*/
+.swipebox .imagen {
+    height: 150px;
+}
+
+/* Resaltar con sombra el enlace con imagen incrustada al pasar el ratón */
+a:hover .imagen {
+     border: solid 1px #CCC;
+     -moz-box-shadow: 1px 1px 5px #999;
+     -webkit-box-shadow: 1px 1px 5px #999;
+     box-shadow: 1px 1px 5px #999;
+}
+
+.mapa-entrada {
+    width: 100%;
+    height: 355px;
+    padding: 10px;
+    border: solid 1px #DDD;
+}
+
+.contenedor-mapa {
+    padding-bottom: 10px;
+}
+
+.mapa {
+    width: 100%;
+    height: 300px;
+    border: solid 1px #DDD;
+}
+
+#contenedorCoordenadas fieldset {
+    padding: 10px;
+    border: solid 1px #DDD;
+    margin-bottom: 10px;
+}
+
+.golden, .golden:hover, .golden:focus, .golden:active {
+    color: gold;
+    text-decoration: none;
+}
+
+.columna-mapa {
+    margin-bottom: 20px;
+}
+
+
+.datos-posicion .row {
+    margin-top: 10px;
+    min-height: 30px;
+}
+
+.datos-posicion .row div:first-child {
+    font-weight: bold;
+    text-align: right;
+}
+
+@media (max-device-width: 767px) {
+    .datos-posicion .row div:first-child {
+        font-weight: bold;
+        text-align: left !important;
+        color: red;
+    }
 }

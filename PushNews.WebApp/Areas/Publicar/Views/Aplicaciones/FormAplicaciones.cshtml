@@ -1,0 +1,263 @@
+﻿@using Txt = PushNews.WebApp.App_LocalResources
+@using PushNews.WebApp.Models.Aplicaciones
+@model AplicacionGrid
+
+<div class="formulario-edicion k-group">
+@using (Html.BeginForm("", "", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Activo, new { data_bind = "value: Activo" })
+    @Html.HiddenFor(m => m.AplicacionID, new { data_bind = "value: AplicacionID" })
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-xs-12 bloque-form bloque-form-2">
+                        <h3>@Txt.Aplicaciones.SeccionIdentificacion</h3>
+                        <div class="row">
+
+                            <div class="form-group col-xs-12">
+                                <div class="control-label">
+                                    @Html.LabelFor(model => model.LogotipoID)
+                                </div>
+                                @Html.HiddenFor(model => model.LogotipoID, new { data_bind = "value: LogotipoID" })
+                                <img data-bind="attr: {src: LogotipoUrl}, visible: LogotipoID" style="max-width: 250px; max-height: 200px;" />
+                                @(Html.Kendo().Upload()
+                        .Name("LogotipoAdjunto")
+                        .ShowFileList(false)
+                        .Multiple(false)
+                        .HtmlAttributes(new { accept = "image/*" })
+                        .Async(a => a.Save("NuevoLogotipo", "Adjuntos").AutoUpload(true))
+                                )
+                            </div>
+
+                            <div class="form-group col-xs-12">
+                                <div class="control-label">
+                                    @Html.LabelFor(model => model.Nombre)
+                                </div>
+                                @(Html.Kendo().TextBoxFor(model => model.Nombre)
+                        .HtmlAttributes(new
+                        {
+                            @class = "form-control campo-form",
+                            data_bind = "value:Nombre"
+                        })
+                                )
+                            </div>
+
+                            <div class="form-group col-xs-12">
+                                <div class="control-label">
+                                    @Html.LabelFor(model => model.SubDominio)
+                                </div>
+                                @(Html.Kendo().TextBoxFor(model => model.SubDominio)
+                        .HtmlAttributes(new
+                        {
+                            @class = "form-control campo-form",
+                            data_bind = "value:SubDominio"
+                        }))
+                            </div>
+
+                            <div class="form-group col-xs-12">
+                                <div class="control-label">
+                                    @Html.LabelFor(model => model.Caracteristicas)
+                                </div>
+                                @(Html.Kendo().MultiSelectFor(m => m.Caracteristicas)
+                                    .Name("Caracteristicas")
+                                    .Placeholder(Txt.Aplicaciones.CaracteristicasPlaceholder)
+                                    .DataTextField("Text")
+                                    .DataValueField("Value")
+                                    .ValuePrimitive(true)
+                                    .DataSource(ds => ds.Read("ListaAplicacionesCaracteristicas", "AplicacionesCaracteristicas"))
+                                    .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value: Caracteristicas" })
+                                )
+                            </div>
+
+                            <div class="form-group col-xs-12">
+                                <div class="control-label">
+                                    @Html.LabelFor(model => model.AplicacionesAmigas)
+                                </div>
+                                @(Html.Kendo().MultiSelectFor(model => model.AplicacionesAmigas)
+                                        .Name("Perfiles")
+                                        .Placeholder(Txt.Aplicaciones.AplicacionesAmigasPlaceholder)
+                                        .DataTextField("Text")
+                                        .DataValueField("Value")
+                                        .ValuePrimitive(true)
+                                        .DataSource(ds => ds.Read("ComboAmigas", "Aplicaciones"))
+                                        .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value: AplicacionesAmigas" })
+                                )
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 bloque-form bloque-form-1">
+                        <h3>@Txt.Aplicaciones.SeccionAccesoBajoSuscripcion</h3>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <div class="control-label">
+                                    <label for="RequerirClaveSuscripcion">&nbsp;</label>
+                                </div>
+                                @(Html.CheckBoxFor(model => model.RequerirClaveSuscripcion,
+                                    new
+                                    {
+                                        @class = "campo-form",
+                                        data_bind = "checked:RequerirClaveSuscripcion"
+                                    })
+                                )
+                                @Html.LabelFor(model => model.RequerirClaveSuscripcion)
+                            </div>
+
+                            <div class="form-group col-xs-12">
+                                <div class="control-label">
+                                    @Html.LabelFor(model => model.ClaveSuscripcion)
+                                </div>
+                                @(Html.Kendo().TextBoxFor(model => model.CloudKey)
+                                    .HtmlAttributes(new
+                                    {
+                                        @class = "form-control campo-form",
+                                        data_bind = "value:ClaveSuscripcion"
+                                    })
+                                )
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+
+                    <div class="col-xs-12 bloque-form bloque-form-3">
+                        <h3>@Txt.Aplicaciones.SeccionClavesAPIPush</h3>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <div class="control-label">
+                                    @Html.LabelFor(model => model.Usuario)
+                                </div>
+                                @(Html.Kendo().TextBoxFor(model => model.Usuario)
+                                    .HtmlAttributes(new
+                                    {
+                                        @class = "form-control campo-form",
+                                        data_bind = "value:Usuario"
+                                    })
+                                )
+                            </div>
+
+                            <div class="form-group col-xs-12">
+                                <div class="control-label">
+                                    @Html.LabelFor(model => model.Clave)
+                                </div>
+                                @(Html.Kendo().TextBoxFor(model => model.Clave)
+                                    .HtmlAttributes(new
+                                    {
+                                        @class = "form-control campo-form",
+                                        data_bind = "value:Clave"
+                                    })
+                                )
+                            </div>
+
+                            <div class="form-group col-xs-12">
+                                <div class="control-label">
+                                    @Html.LabelFor(model => model.CloudKey)
+                                </div>
+                                @(Html.Kendo().TextBoxFor(model => model.CloudKey)
+                                    .HtmlAttributes(new
+                                    {
+                                        @class = "form-control campo-form",
+                                        data_bind = "value:CloudKey"
+                                    })
+                                )
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 bloque-form bloque-form-4">
+                        <h3>@Txt.Aplicaciones.SeccionAplicacionesMoviles</h3>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <div class="control-label">
+                                    @Html.LabelFor(model => model.ApiKey)
+                                </div>
+                                @(Html.Kendo().TextBoxFor(model => model.ApiKey)
+                                    .HtmlAttributes(new
+                                    {
+                                        @class = "form-control campo-form",
+                                        data_bind = "value:ApiKey"
+                                    })
+                                )
+                            </div>
+
+                            <div class="form-group col-xs-12">
+                                <div class="control-label">&nbsp;</div>
+                                @(Html.CheckBoxFor(model => model.PermitirAccesoApiExternos,
+                                    new { @class = "campo-form", data_bind = "checked: PermitirAccesoApiExternos" })
+                                        )
+                                @Html.LabelFor(model => model.PermitirAccesoApiExternos)
+                            </div>
+
+                            <div class="form-group col-xs-12">
+                                <div class="control-label">
+                                    @Html.LabelFor(model => model.ApiKeyExternos)
+                                </div>
+                                @(Html.Kendo().TextBoxFor(model => model.ApiKeyExternos)
+                                    .HtmlAttributes(new
+                                    {
+                                        @class = "form-control campo-form",
+                                        data_bind = "value:ApiKeyExternos"
+                                    })
+                                )
+                            </div>
+
+                            <div class="form-group col-xs-12">
+                                <div class="control-label">
+                                    @Html.LabelFor(model => model.PlayStoreUrl)
+                                </div>
+                                @(Html.Kendo().TextBoxFor(model => model.PlayStoreUrl)
+                                    .HtmlAttributes(new
+                                    {
+                                        @class = "form-control campo-form",
+                                        data_bind = "value:PlayStoreUrl"
+                                    })
+                                )
+                            </div>
+
+                            <div class="form-group col-xs-12">
+                                <div class="control-label">
+                                    @Html.LabelFor(model => model.ITunesUrl)
+                                </div>
+                                @(Html.Kendo().TextBoxFor(model => model.ITunesUrl)
+                                    .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value:ITunesUrl" })
+                                )
+                            </div>
+
+                            <div class="form-group col-xs-12">
+                                <div class="control-label">
+                                    @Html.LabelFor(model => model.MicrosoftStoreUrl)
+                                </div>
+                                @(Html.Kendo().TextBoxFor(model => model.MicrosoftStoreUrl)
+                                    .HtmlAttributes(new
+                                    {
+                                        @class = "form-control campo-form",
+                                        data_bind = "value:MicrosoftStoreUrl"
+                                    })
+                                )
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12">
+                <div class="botonera">
+                    <button class="btn btn-default btCancelar">
+                        <i class="fa fa-ban"></i>
+                        @Txt.Comun.Cancelar
+                    </button>
+                    <button class="btn btn-primary btGuardar">
+                        <i class="fa fa-check"></i>
+                        @Txt.Comun.Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+</div>                

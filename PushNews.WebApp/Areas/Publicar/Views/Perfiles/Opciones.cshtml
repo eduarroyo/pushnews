@@ -1,0 +1,19 @@
+﻿@using Txt = PushNews.WebApp.App_LocalResources
+@using PushNews.WebApp.Models.UI
+
+@{
+    var modeloCabecera = new CabeceraModel()
+    {
+        Icono = "clip-settings",
+        BCSeccion = Txt.Secciones.Opciones,
+        BCModulo = "",
+        Titulo = Txt.Secciones.Opciones,
+        Subtitulo = "",
+        UrlSeccion = "#/opciones",
+    };
+    
+
+    string textosJson = Json.Encode( new {});
+}
+
+@{Html.RenderPartial("cabeceraModulo", modeloCabecera);}

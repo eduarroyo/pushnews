@@ -1,0 +1,45 @@
+﻿@using Txt = PushNews.WebApp.App_LocalResources
+@using PushNews.WebApp.Models.UI
+@using PushNews.WebApp.Models.Opciones
+
+@model OpcionesModel
+
+@{
+    var modeloCabecera = new CabeceraModel()
+    {
+        Icono = "fa fa-cogs",
+        BCSeccion = Txt.Secciones.Opciones,
+        UrlSeccion = "#/opciones",
+        BCModulo = Txt.Secciones.Opciones,
+        Titulo = Txt.Secciones.Opciones,
+        Subtitulo = "",
+        Recargar = true
+    };
+}
+
+@{Html.RenderPartial("cabeceraModulo", modeloCabecera);}
+
+<div class="contenedor-modulo">
+    <div class="row">
+        <div class="container-fluid">
+            <div class="col-sm-9">
+                <div class="row" id="cultura">
+                    @{Html.RenderPartial("Cultura", Model.Cultura);}
+                </div>
+                
+                @* Otra sección del módulo de opciones.
+                    <div class="col-xs-12">
+                        <div class="contenedor-modulo">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    @{Html.RenderPartial("OtraVistaParcial", Model.OtroModelo}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                *@
+            </div>
+
+        </div>
+    </div>
+</div>

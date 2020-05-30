@@ -1,0 +1,105 @@
+﻿@using Txt = PushNews.WebApp.App_LocalResources
+@{
+    
+    Layout = null;
+    string configuracion = Json.Encode(new
+    {
+        url = Url.Action("RutasHermandades", "RutasMapa"),
+        latitud = 37.892394,
+        longitud = -4.780709,
+        zoom = 14,
+        tipoMapa = "G_NORMAL_MAP",
+        animacionMarcador = "DROP",
+        refresco = 1, // Minutos
+        polilineaGrosor = 4,
+        refrescoPosicionUsuario = 0.1, // Minutos
+        marcadorCola = true,
+        trazoRecorrido = false,
+        filtroInicial = ViewBag.TagFiltro,
+        bannersHabilitados = ((bool?)ViewBag.BannersHabilitados) ?? true,
+        marcadoresPatrocinadores = false
+    });
+
+    string textos = Json.Encode(new
+    {
+        errorCapaMapaNoEncontrada = Txt.Rutas.ErrorCapaMapaNoEncontrada,
+        salida = Txt.Rutas.Salida,
+        carreraOficial = Txt.Rutas.CarreraOficial,
+        inicioCarreraOficial = Txt.Rutas.InicioCarreraOficial,
+        finCarreraOficial = Txt.Rutas.FinCarreraOficial,
+        cruzDeGuia = Txt.Rutas.CruzDeGuia,
+        finDeCortejo = Txt.Rutas.FinDeCortejo,
+        fin = Txt.Rutas.Fin,
+        posicionCruzGuia = Txt.Rutas.PosicionCruzGuia,
+        posicionCola = Txt.Rutas.PosicionCola,
+        distanciaRecorrida = Txt.Rutas.DistanciaRecorrida,
+        velocidadMedia = Txt.Rutas.VelocidadMedia,
+        iglesiaNombre = Txt.Rutas.IglesiaNombre,
+        iglesiaDireccion = Txt.Rutas.IglesiaDireccion,
+        patrocinadorDireccion = Txt.Rutas.PatrocinadorDireccion,
+        patrocinadorTelefono = Txt.Rutas.PatrocinadorTelefono,
+        patrocinadorWeb = Txt.Rutas.PatrocinadorWeb,
+        patrocinadorFacebook = Txt.Rutas.PatrocinadorFacebook,
+        patrocinadorTwitter = Txt.Rutas.PatrocinadorTwitter,
+        filtroTitulo = Txt.Rutas.FiltroTitulo,
+        hermandadesTodas = Txt.Rutas.HermandadesTodas,
+        domingoRamos = Txt.Rutas.DomingoRamos,
+        lunesSanto = Txt.Rutas.LunesSanto,
+        martesSanto = Txt.Rutas.MartesSanto,
+        miercolesSanto = Txt.Rutas.MiercolesSanto,
+        juevesSanto = Txt.Rutas.JuevesSanto,
+        viernesSanto = Txt.Rutas.ViernesSanto,
+        sabadoSanto = Txt.Rutas.SabadoSanto,
+        domingoResurreccion = Txt.Rutas.DomingoResurreccion,
+        atras = Txt.Comun.Atras
+    });
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Rutas</title>
+
+    @Styles.Render("~/Content/rutasmapa")
+
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/Images/cropped-PushNewsIcon-512-300x300.png")" />
+
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyBfhxET-RblJOnVwu49eoE50vwUkHXl03c&languaje=es-ES"
+            type="text/javascript"></script>
+    @Scripts.Render("~/bundles/jQuery")
+    @Scripts.Render("~/bundles/rutasmapa")
+
+    <!-- Google Analytics -->
+    <script>
+        var idSeguimiento = 'UA-93811813-2';
+        (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', idSeguimiento, 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics -->
+</head>
+<body>
+    <div id="BotonMenuContenedor">
+        <div id="BotonMenu">
+            <span><i class="fa fa-search"></i>&nbsp;<span id="filtroActual">Todas las hermandades</span></span>
+            
+        </div>
+    </div>
+    <div id="menu"></div>
+    <div id="map-wrapper">
+        <div data-opciones="@configuracion" data-textos="@textos" id="mapa" ></div>
+
+        <!-- Iniciar los banners ocultos. Se mostrarán si es necesario. -->
+        <div id="banners" class="banners" style="display:none;">
+
+        </div>
+    </div>
+</body>
+</html>

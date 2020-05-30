@@ -1,0 +1,214 @@
+﻿@using Txt = PushNews.WebApp.App_LocalResources
+@model PushNews.WebApp.Models.Empresas.EmpresaModel
+
+<div class="formulario-edicion">
+    @using (Html.BeginForm("", "", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.EmpresaID, new { data_bind = "value:EmpresaID" })
+        @Html.HiddenFor(model => model.Activo, new { data_bind = "value:Activo" })
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0 bloque-form bloque-form-3">
+                    <h3>@Txt.Empresas.SeccionIdentificacion</h3>
+
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <div class="control-label">
+                                @Html.LabelFor(model => model.LogotipoDocumentoID)
+                            </div>
+                            @Html.HiddenFor(model => model.LogotipoDocumentoID, new { data_bind = "value: LogotipoDocumentoID" })
+                            <img data-bind="attr: {src: LogotipoUrl}, visible: LogotipoDocumentoID" style="max-width: 250px; max-height: 200px;" />
+                            @(Html.Kendo().Upload()
+                                .Name("LogotipoAdjunto")
+                                .ShowFileList(false)
+                                .Multiple(false)
+                                .HtmlAttributes(new { accept = "image/*" })
+                                .Async(a => a.Save("NuevoLogotipo", "Adjuntos").AutoUpload(true))
+                            )
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <div class="control-label">
+                                @Html.LabelFor(model => model.BannerDocumentoID)
+                            </div>
+                            @Html.HiddenFor(model => model.BannerDocumentoID, new { data_bind = "value: BannerDocumentoID" })
+                            <img data-bind="attr: {src: BannerUrl }, visible: BannerDocumentoID" style="max-width: 250px; max-height: 200px;" />
+                            @(Html.Kendo().Upload()
+                                .Name("BannerAdjunto")
+                                .ShowFileList(false)
+                                .Multiple(false)
+                                .HtmlAttributes(new { accept = "image/*" })
+                                .Async(a => a.Save("NuevoBanner", "Adjuntos").AutoUpload(true))
+                            )
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <div class="control-label">
+                                @Html.LabelFor(model => model.Nombre)
+                            </div>
+                            @(Html.Kendo().TextBoxFor(model => model.Nombre)
+                            .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value:Nombre" })
+                            )
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <div class="control-label">
+                                @Html.LabelFor(model => model.Tags)
+                            </div>
+                            @(Html.Kendo().TextBoxFor(model => model.Tags)
+                                                .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value:Tags" })
+                            )
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <div class="control-label">
+                                @Html.LabelFor(model => model.Descripcion)
+                            </div>
+                            @(Html.Kendo().TextBoxFor(model => model.Descripcion)
+                            .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value:Descripcion" })
+                            )
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0 bloque-form bloque-form-2">
+                    <h3>@Txt.Empresas.SeccionContacto</h3>
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <div class="control-label">
+                                @Html.LabelFor(model => model.Direccion)
+                            </div>
+                            @(Html.TextAreaFor(model => model.Direccion,
+                                new { @class = "form-control campo-form", data_bind = "value:Direccion" })
+                            )
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <div class="control-label">
+                                @Html.LabelFor(model => model.Localidad)
+                            </div>
+                            @(Html.Kendo().TextBoxFor(model => model.Localidad)
+                                .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value:Localidad" })
+                            )
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <div class="control-label">
+                                @Html.LabelFor(model => model.CodigoPostal)
+                            </div>
+                            @(Html.Kendo().TextBoxFor(model => model.CodigoPostal)
+                                .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value:CodigoPostal" })
+                            )
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <div class="control-label">
+                                @Html.LabelFor(model => model.Provincia)
+                            </div>
+                            @(Html.Kendo().TextBoxFor(model => model.Provincia)
+                                .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value:Provincia" })
+                            )
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <div class="control-label">
+                                @Html.LabelFor(model => model.Latitud)
+                            </div>
+                            @(Html.Kendo().NumericTextBoxFor(model => model.Latitud)
+                                .Min(-90)
+                                .Max(90)
+                                .Decimals(6)
+                                .Format("N6")
+                                .HtmlAttributes(new { @class = "campo-form", data_bind = "value:Latitud" })
+                            )
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <div class="control-label">
+                                @Html.LabelFor(model => model.Longitud)
+                            </div>
+                            @(Html.Kendo().NumericTextBoxFor(model => model.Longitud)
+                                .Min(-180)
+                                .Max(180)
+                                .Decimals(6)
+                                .Format("N6")
+                                .HtmlAttributes(new { @class = "campo-form", data_bind = "value:Longitud" })
+                            )
+                        </div>
+                        <div class="form-group col-xs-12 center">
+                            <label>&nbsp;</label>
+                            <button class="btn btn-default" id="btSeleccionarCoordenadasEmpresa">
+                                <i class="fa fa-map-marker" title="@Txt.Coordenadas.Titulo"></i>&nbsp;@Txt.Coordenadas.Titulo
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <div class="control-label">
+                                @Html.LabelFor(model => model.Telefono)
+                            </div>
+                            @(Html.Kendo().TextBoxFor(model => model.Telefono)
+                                .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value:Telefono" })
+                            )
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <div class="control-label">
+                                @Html.LabelFor(model => model.Email)
+                            </div>
+                            @(Html.Kendo().TextBoxFor(model => model.Email)
+                                .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value:Email" })
+                            )
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <div class="control-label">
+                                @Html.LabelFor(model => model.Web)
+                            </div>
+                            @(Html.Kendo().TextBoxFor(model => model.Web)
+                                .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value:Web" })
+                            )
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <div class="control-label">
+                                @Html.LabelFor(model => model.Facebook)
+                            </div>
+                            @(Html.Kendo().TextBoxFor(model => model.Facebook)
+                                .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value:Facebook" })
+                            )
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <div class="control-label">
+                                @Html.LabelFor(model => model.Twitter)
+                            </div>
+                            @(Html.Kendo().TextBoxFor(model => model.Twitter)
+                                .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value:Twitter" })
+                            )
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="botonera">
+                <button class="btn btn-default btCancelar">
+                    <i class="fa fa-ban"></i>
+                    @Txt.Comun.Cancelar
+                </button>
+                <button class="btn btn-primary btGuardar">
+                    <i class="fa fa-check"></i>
+                    @Txt.Comun.Guardar
+                </button>
+            </div>
+        </div>
+    }
+</div>

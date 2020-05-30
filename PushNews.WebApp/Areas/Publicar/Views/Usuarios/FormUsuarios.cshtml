@@ -1,0 +1,160 @@
+﻿@using Txt = PushNews.WebApp.App_LocalResources
+@model PushNews.WebApp.Models.Usuarios.UsuarioGrid
+
+<div class="formulario-edicion k-group">
+    @using (Html.BeginForm("", "", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.UsuarioID, new { data_bind = "value:UsuarioID" })
+        @Html.HiddenFor(model => model.Activo, new { data_bind = "value:Activo" })
+
+        @*
+            El formulario se organiza en tres apartados:
+                1. Identificación: naranja
+                2. Contacto: verde
+                3. Información financiera: azul
+        *@
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0 col-lg-4 bloque-form bloque-form-1">
+                    <h3>@Txt.Usuarios.SeccionAcceso</h3>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <div class="control-label">
+                                @Html.LabelFor(model => model.Email)
+                            </div>
+                            @(Html.Kendo().TextBoxFor(model => model.Email)
+                                .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value:Email" })
+                            )
+                        </div>
+                    </div>
+                    <div class="row no-edicion">
+                        <div class="form-group col-xs-12">
+                            <div class="control-label">
+                                @Html.LabelFor(model => model.Clave)
+                            </div>
+                            @(Html.PasswordFor(model => model.Clave,
+                                new { @class = "k-textbox form-control campo-form", data_bind = "value:Clave" })
+                            )
+                            @Html.ValidationMessageFor(model => model.Clave)
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <div class="control-label">
+                                @Html.LabelFor(model => model.ConfirmarClave)
+                            </div>
+                            @(Html.PasswordFor(model => model.ConfirmarClave,
+                                new { @class = "k-textbox form-control campo-form", data_bind = "value:ConfirmarClave" })
+                            )
+                            @Html.ValidationMessageFor(model => model.ConfirmarClave)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <div class="control-label">
+                                @Html.LabelFor(model => model.Aplicaciones)
+                            </div>
+                            @(Html.Kendo().MultiSelectFor(model => model.Aplicaciones)
+                                .Name("Aplicaciones")
+                                .Placeholder(Txt.Usuarios.AplicacionesPlaceholder)
+                                .DataTextField("Nombre")
+                                .DataValueField("AplicacionID")
+                                .ValuePrimitive(true)
+                                .DataSource(ds => ds.Read("ListaAplicaciones", "Aplicaciones"))
+                                .HtmlAttributes(new {
+                                    @class = "form-control campo-form",
+                                    data_bind = "value: Aplicaciones"
+                                })
+                            )
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <div class="control-label">
+                                @Html.LabelFor(model => model.PerfilID)
+                            </div>
+                            @(Html.Kendo().DropDownListFor(model => model.PerfilID)
+                                .Name("PerfilID")
+                                .DataTextField("Text")
+                                .DataValueField("Value")
+                                .ValuePrimitive(true)
+                                .DataSource(ds => ds.Read("ListaPerfiles", "Perfiles"))
+                                .HtmlAttributes(new { @class="form-control campo-form", data_bind="value: PerfilID" })
+                            )
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <div class="control-label">
+                                @Html.LabelFor(model => model.CategoriasIDs)
+                            </div>
+                            @(Html.Kendo().MultiSelectFor(m => m.CategoriasIDs)
+                                    .Name("CategoriasIDs")
+                                    .Placeholder(Txt.Usuarios.CategoriasPlaceholder)
+                                    .DataValueField("CategoriaID")
+                                    .DataTextField("Nombre")
+                                    .ValuePrimitive(true)
+                                    .DataSource(ds => ds.Read("ListaCategorias", "Categorias"))
+                                    .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value: CategoriasIDs" })
+                                    .ItemTemplate(@"<i class=""fa fa-2x #= Icono #""></i> &nbsp; #= Nombre #")
+                                    .TagTemplate(@"<i class=""fa #= Icono #""></i> &nbsp; #= Nombre #")
+                            )
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0 col-lg-4 bloque-form bloque-form-3">
+                    <h3>@Txt.Usuarios.SeccionIdentificacion</h3>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <div class="control-label">
+                                @Html.LabelFor(model => model.Nombre)
+                            </div>
+                            @(Html.Kendo().TextBoxFor(model => model.Nombre)
+                                .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value:Nombre" })
+                            )
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <div class="control-label">
+                                @Html.LabelFor(model => model.Apellidos)
+                            </div>
+                            @(Html.Kendo().TextBoxFor(model => model.Apellidos)
+                                .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value:Apellidos" })
+                            )
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-4 col-lg-offset-0 bloque-form bloque-form-2">
+                    <h3>@Txt.Usuarios.SeccionContacto</h3>
+                    <div class="row">
+                        <div class="form-group col-xs-12 col-sm-6">
+                            <div class="control-label">
+                                @Html.LabelFor(model => model.Movil)
+                            </div>
+                            @(Html.Kendo().TextBoxFor(model => model.Movil)
+                                .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value:Movil" })
+                            )
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="botonera">
+                <button class="btn btn-default btCancelar">
+                    <i class="fa fa-ban"></i>
+                    @Txt.Comun.Cancelar
+                </button>
+                <button class="btn btn-primary btGuardar">
+                    <i class="fa fa-check"></i>
+                    @Txt.Comun.Guardar
+                </button>
+            </div>
+        </div>
+    }
+</div>

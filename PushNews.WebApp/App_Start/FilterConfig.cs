@@ -1,4 +1,4 @@
-﻿using System.Web;
+﻿using PushNews.WebApp.Filters;
 using System.Web.Mvc;
 
 namespace PushNews.WebApp
@@ -7,7 +7,8 @@ namespace PushNews.WebApp
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new HandleErrorAttribute());
+            filters.Add(new SubdomainHandlerAttribute());
+            filters.Add(new PushNewsHandleErrorAttribute());
         }
     }
 }

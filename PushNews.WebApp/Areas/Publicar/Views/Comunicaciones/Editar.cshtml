@@ -1,0 +1,38 @@
+﻿@using Txt = PushNews.WebApp.App_LocalResources
+@using PushNews.WebApp.Models.UI
+
+@{
+    bool permisoModificar = User.IsInRole("ModificarComunicaciones");
+    bool permisoExportar = User.IsInRole("ExportarComunicaciones");
+    bool permisoAgregar = User.IsInRole("CrearComunicaciones");
+    bool permisoEliminar = User.IsInRole("EliminarComunicaciones");
+
+    var modeloCabecera = new CabeceraModel()
+    {
+        Icono = "clip-settings",
+        BCSeccion = Txt.Secciones.Comunicaciones,
+        BCModulo = "",
+        Titulo = Txt.Secciones.Comunicaciones,
+        Subtitulo = "",
+        Recargar = false
+    };
+
+    string textos = Json.Encode(new
+    {
+        ErrorCargarNotificacion = Txt.Comunicaciones.ErrorCargarNotificacion,
+        PublicacionGuardada = @Txt.Comunicaciones.ComunicacionGuardada,
+        TituloErrorGeocoding = Txt.Comunicaciones.TituloErrorGeocoding
+    });
+}
+
+@{Html.RenderPartial("~/Areas/Publicar/Views/Shared/cabeceraModulo.cshtml", modeloCabecera);}
+
+<div id="editarComunicacion" data-id="@ViewBag.ComunicacionID" data-textos="@textos">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 no-padding">
+                @{ Html.RenderPartial("~/Areas/Publicar/Views/Comunicaciones/FormComunicaciones.cshtml");}
+            </div>
+        </div>
+    </div>
+</div>

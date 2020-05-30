@@ -1,0 +1,83 @@
+﻿@using Txt = PushNews.WebApp.App_LocalResources
+@using PushNews.WebApp.Models
+@model CategoriaModel
+
+@{
+    bool caracteristicaAsociados = (ViewBag.Asociados as bool?) ?? false;
+}
+
+<div class="formulario-edicion  k-group">
+@using (Html.BeginForm("", "", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Activo, new { data_bind = "value: Activo" })
+    @Html.HiddenFor(m => m.CategoriaID, new { data_bind = "value: CategoriaID" })
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 col- bloque-form bloque-form-1">
+                
+                <div class="row">
+                    <div class="form-group col-xs-12">
+                        <div class="control-label">
+                            @Html.LabelFor(model => model.Nombre)
+                        </div>
+                        @(Html.Kendo().TextBoxFor(model => model.Nombre)
+                    .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value:Nombre" })
+                        )
+                    </div>
+
+                    <div class="form-group col-xs-12">
+                        <div class="control-label">
+                            @Html.LabelFor(model => model.Icono)
+                        </div>
+                        @(Html.Kendo().DropDownList()
+                    .Name("Icono")
+                    .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value:Icono" })
+                    .BindTo(PushNews.WebApp.Helpers.Listas.Iconos().Select(i => new SelectListItem() { Text = i, Value = i }))
+                    .Template(@"<i class=""fa fa-2x #=Text#""></i> #=Text#")
+                    .ValueTemplate(@"<i class=""fa fa-2x #=Text#""></i> #=Text#")
+                        )
+                    </div>
+
+                    <div class="form-group col-xs-12">
+                        <div class="control-label">
+                            @Html.LabelFor(model => model.Orden)
+                        </div>
+                        @(Html.Kendo().NumericTextBoxFor(model => model.Orden).Min(1).Format("d")
+                            .HtmlAttributes(new { @class = "campo-form", data_bind = "value:Orden" })
+                        )
+                    </div>
+
+                    @if (caracteristicaAsociados)
+                    {
+                    <div class="form-group col-xs-12">
+                        @(Html.CheckBoxFor(
+                            m => m.Privada,
+                            new { @class = "campo-form", data_bind = "checked:Privada" })
+                        )
+                        <div class="control-label" style="display:inline;">
+                            @Html.LabelFor(model => model.Privada)
+                        </div>
+
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12">
+        <div class="botonera">
+            <button class="btn btn-default btCancelar">
+                <i class="fa fa-ban"></i>
+                @Txt.Comun.Cancelar
+            </button>
+            <button class="btn btn-primary btGuardar">
+                <i class="fa fa-check"></i>
+                @Txt.Comun.Guardar
+            </button>
+        </div>
+    </div>
+}
+</div>                

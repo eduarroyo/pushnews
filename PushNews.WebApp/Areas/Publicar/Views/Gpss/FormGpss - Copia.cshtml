@@ -1,0 +1,66 @@
+﻿@*@using Txt = PushNews.WebApp.App_LocalResources
+@using PushNews.WebApp.Models.Gpss
+@model GpsModel
+
+<div class="formulario-edicion">
+@using (Html.BeginForm("", "", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Activo, new { data_bind = "value: Activo" })
+    @Html.HiddenFor(m => m.GpsID, new { data_bind = "value: GpsID" })
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 col- bloque-form bloque-form-1">
+
+                <div class="row">
+                    <div class="form-group col-xs-12">
+                        <div class="control-label">
+                            @Html.LabelFor(model => model.Api)
+                        </div>
+                        @(Html.Kendo().TextBoxFor(model => model.Api)
+                                    .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value:Api" })
+                        )
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-xs-12">
+                        <div class="control-label">
+                            @Html.LabelFor(model => model.Matricula)
+                        </div>
+                        @(Html.Kendo().TextBoxFor(model => model.Matricula)
+                                    .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value:Matricula" })
+                        )
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-xs-12">
+                        <div class="control-label">
+                            @Html.LabelFor(model => model.GpsApiID)
+                        </div>
+                        @(Html.Kendo().NumericTextBoxFor(model => model.GpsApiID)
+                                    .Decimals(0)
+                                    .Min(1)
+                                    .Format("N0")
+                                    .HtmlAttributes(new { @class = "campo-form", data_bind = "value:GpsApiID" })
+                        )
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12">
+        <div class="botonera">
+            <button class="btn btn-default btCancelar">
+                <i class="fa fa-ban"></i>
+                @Txt.Comun.Cancelar
+            </button>
+            <button class="btn btn-primary btGuardar">
+                <i class="fa fa-check"></i>
+                @Txt.Comun.Guardar
+            </button>
+        </div>
+    </div>
+}
+</div>*@                

@@ -1,0 +1,14 @@
+﻿@using Txt = PushNews.WebApp.App_LocalResources
+@model PushNews.WebApp.Areas.Publicar.Models.PlantillasEmail.RestablecerClave
+@{
+    ViewBag.Title = "RestablecerClave";
+    Layout = "~/Areas/Publicar/Views/PlantillasEmail/_Layout.cshtml";
+}
+
+<h2>@Txt.PlantillasEmail.Hola @Model.Nombre</h2>
+<p>@Txt.PlantillasEmail.RestablecerClaveParrafo1</p>
+<p style="text-align: center; margin-top: 50px; margin-bottom: 50px;">
+    <a class="boton" href="@Model.Url"
+       style="color: white; padding: 20px; font-weight: bold; font-size: large; text-decoration: none; border-radius: 10px 10px; background-color: #fbb040;">@Txt.PlantillasEmail.RestablecerClaveBoton</a>
+</p>
+<p>@Txt.PlantillasEmail.RestablecerClaveParrafo2</p>

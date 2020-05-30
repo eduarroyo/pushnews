@@ -1,0 +1,173 @@
+﻿@using Txt = PushNews.WebApp.App_LocalResources
+
+@{
+    var culture = System.Globalization.CultureInfo.CurrentCulture.ToString();
+}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>@Txt.Comun.NombreAplicacion - Backend</title>
+        <link rel="icon" type="image/png" href="@Url.Content("~/Content/Images/cropped-PushNewsIcon-512-300x300.png")" />
+        <meta charset="utf-8" />
+        <!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta content="" name="description" />
+        <meta content="" name="author" />
+        @Styles.Render("~/Content/css")
+
+        @*<link rel="stylesheet" href="assets/plugins/iCheck/skins/all.css">*@
+        @Styles.Render("~/Content/kendoStyles")
+        @Styles.Render("~/Content/kendoPushNews")        
+        @Styles.Render("~/Content/less")
+        @*<link rel="stylesheet" href="assets/css/print.css" type="text/css" media="print" />*@
+
+        @Scripts.Render("~/bundles/jQuery")
+        @RenderSection("styles", false)
+    </head>
+    <body>
+        <!-- start: HEADER -->
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <!-- start: TOP NAVIGATION CONTAINER -->
+            <div class="container">
+                <div class="navbar-header">
+                    <!-- start: RESPONSIVE MENU TOGGLER -->
+                    <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                        <span class="clip-list-2"></span>
+                    </button>
+                    <!-- end: RESPONSIVE MENU TOGGLER -->
+                    <!-- start: LOGO -->
+                    <a class="navbar-brand logo" href="/#/">
+                        <span class="texto-logo">
+                            <img height="30" src="@Url.Content("~/Content/Images/PushNews-150.png")" alt="@Txt.Comun.NombreAplicacion" />
+                        </span>
+                    </a>
+                    <!-- end: LOGO -->
+                </div>
+                <div class="navbar-tools">
+                    <!-- start: TOP NAVIGATION MENU -->
+                    @{Html.RenderPartial("herramientasNavbar");}
+                    <!-- end: TOP NAVIGATION MENU -->
+                </div>
+            </div>
+            <!-- end: TOP NAVIGATION CONTAINER -->
+        </div>
+        <!-- end: HEADER -->
+        <!-- start: MAIN CONTAINER -->
+        <div class="main-container">
+            <div class="navbar-content">
+                <!-- start: SIDEBAR -->
+                    @{Html.RenderPartial("menu");}
+                <!-- end: SIDEBAR -->
+            </div>
+
+            <!-- start: PAGE -->
+            <div class="main-content">
+                <div class="container" id="target">
+                    @RenderBody()
+                </div>
+            </div>
+            <!-- end: PAGE -->
+        </div>
+        <!-- end: MAIN CONTAINER -->
+        <!-- start: FOOTER -->
+        <div class="footer clearfix">
+            <div class="footer-inner">
+                &copy; @Txt.Comun.NombreAplicacion @DateTime.Now.Year
+            </div>
+            <div class="footer-items">
+                <span class="go-top"><i class="clip-chevron-up"></i></span>
+            </div>
+        </div>
+        <!-- end: FOOTER -->
+        <div id="event-management" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title">Event Management</h4>
+                    </div>
+                    <div class="modal-body"></div>
+                    <div class="modal-footer">
+                        <button type="button" data-dismiss="modal" class="btn btn-light-grey">
+                            Close
+                        </button>
+                        <button type="button" class="btn btn-danger remove-event no-display">
+                            <i class='fa fa-trash-o'></i> Delete Event
+                        </button>
+                        <button type='submit' class='btn btn-success save-event'>
+                            <i class='fa fa-check'></i> Save
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logOutForm" }))
+        {
+            @Html.AntiForgeryToken()
+        }
+        
+        <script type="text/html" id="bloqueoTemplate">
+            <div class="loading-spinner" style="position:fixed; width: 30%; min-width: 200px;">
+                <div class="progress progress-striped active">
+                    <div class="progress-bar" style="width: 100%;"></div>
+                </div>
+            </div>
+
+            @*<img class="loading" style="position:fixed;" width="170" height="162"
+                 src="@Url.Content("~/Images/loading/verde_fondoblanco.gif")"/>*@
+        </script>
+
+        <script type="text/x-kendo-template" id="fieldInvalidTemplate">
+            <span class="k-widget k-tooltip k-tooltip-validation k-invalid-msg field-validation-error">
+                <i class="fa fa-exclamation-circle"></i>
+                #=message#
+                <span class="k-callout k-callout-n"></span>
+            </span>
+        </script>
+
+        <span id="notification" style="display:none;"></span>
+        @{Html.RenderPartial("PlantillasNotificaciones");}
+
+        <script src="http://maps.google.com/maps/api/js?key=AIzaSyBfhxET-RblJOnVwu49eoE50vwUkHXl03c&languaje=@culture" type="text/javascript"></script>
+        
+        @Scripts.Render("~/bundles/kendo")
+        @Scripts.Render("~/bundles/kendo/internationalization/" + culture)
+        @Scripts.Render("~/bundles/common")
+        @Scripts.Render("~/bundles/pushnews")
+        <script type="text/javascript" src="@Url.Content("~/Scripts/timeago.locales/jquery.timeago." + culture.Split('-')[0] + ".js")"></script>
+        <script> @* Google Analytics *@
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-75266515-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+        @RenderSection("scripts", false)
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.navbar-content').on('click', 'a', function () {
+                    if ($(window).width() < 768 && $(this).attr("href").slice(0, 2) === "#/") {
+                        $(".navbar-collapse").collapse('hide');
+                    }
+                });
+                window.app.setCulture('@culture');
+                $(".timeago").timeago();
+
+                /////////////////////////////////////////////////////////////////////
+                // Eliminar esta instrucción cuando se quite el dashboard de muestra.
+                Main.init();
+                /////////////////////////////////////////////////////////////////////
+            });
+        </script>
+</body>
+</html>

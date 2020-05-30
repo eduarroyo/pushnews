@@ -1,0 +1,137 @@
+﻿@using Txt = PushNews.WebApp.App_LocalResources
+
+<div class="contenedor-form-mapa">
+
+    <div class="col-xs-12 col-md-6 contenedor-mapa">
+        <div class="mapa-entrada"></div>
+    </div>
+
+    <div class="col-xs-12 col-md-6">
+        <fieldset>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="control-label">
+                            @Html.Label("Longitud")
+                        </div>
+                        @(Html.Kendo().NumericTextBox()
+                            .Name("Longitud")
+                            .Decimals(6)
+                            .Format("{0:0.000000}")
+                            .Step(.01)
+                            .Max(180)
+                            .Min(-180)
+                            .HtmlAttributes(new
+                            {
+                                @class = "campo-form",
+                                data_bind = "value: coordenadas.longitud"
+                            })
+                        )
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="control-label">
+                            @Html.Label("Latitud")
+                        </div>
+                        @(Html.Kendo().NumericTextBox()
+                            .Name("Latitud")
+                            .Decimals(6)
+                            .Format("{0:0.000000}")
+                            .Step(.01)
+                            .Max(90)
+                            .Min(-90)
+                            .HtmlAttributes(new
+                            {
+                                @class = "campo-form",
+                                data_bind = "value: coordenadas.latitud"
+                            })
+                        )
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 text-right">
+                    <button data-bind="click: actualizarDireccion" class="btn btn-default btCalcularDireccion"
+                            title="@Txt.Comunicaciones.ObtenerDireccionTitle">
+                        @Txt.Comunicaciones.ObtenerDireccion
+                    </button>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <div class="control-label">
+                            @Html.Label("Direccion")
+                        </div>
+                        @(Html.TextArea("Direccion", new
+                        {
+                            @class = "form-control campo-form",
+                            data_bind = "value: direccion.direccion"
+                        })
+                        )
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <div class="form-group">
+                        <div class="control-label">
+                            @Html.Label("Localidad")
+                        </div>
+                        @(Html.Kendo().TextBox()
+                            .Name("Localidad")
+                            .HtmlAttributes(new
+                            {
+                                @class = "form-control campo-form",
+                                data_bind = "value: direccion.localidad"
+                            })
+                        )
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="form-group">
+                        <div class="control-label">
+                            @Html.Label("Provincia")
+                        </div>
+                        @(Html.Kendo().TextBox()
+                            .Name("Provincia")
+                            .HtmlAttributes(new
+                            {
+                                @class = "form-control campo-form",
+                                data_bind = "value: direccion.provincia"
+                            })
+                        )
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="form-group">
+                        <div class="control-label">
+                            @Html.Label("Pais")
+                        </div>
+                        @(Html.Kendo().TextBox()
+                            .Name("Pais")
+                            .HtmlAttributes(new
+                            {
+                                @class = "form-control campo-form",
+                                data_bind = "value: direccion.pais"
+                            })
+                        )
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 text-right">
+                    <button data-bind="click: actualizarCoordenadas" class="btn btn-default btCalcularCoordenadas"
+                            title="@Txt.Comunicaciones.ObtenerCoordenadasTitle">
+                        @Txt.Comunicaciones.ObtenerCoordenadas
+                    </button>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+﻿@* Si no es de una categoría asignada al usuario, quitar clase cbActivarDesativar y poner disabled="disabled" *@
+
+<div class="celda-centrada">
+    #if(EdicionPermitida) {#
+        <input class="cbActivarDesactivar icheck" type="checkbox" #= (Activo ?  checked='checked' : '') #>
+    #} else {#
+        <input class="icheck" disabled="disabled" type="checkbox" #=(Activo ? checked='checked' : '' ) #>
+    #}#
+</div>

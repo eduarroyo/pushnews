@@ -1,0 +1,14 @@
+﻿@using PushNews.WebApp.Models.UI
+
+@model TelerikAjaxDropDownList
+
+@(Html.Kendo().DropDownList()
+    .Name(Model.Name)
+        .HtmlAttributes(Model.HtmlAttributes)
+        .DataTextField(Model.DataTextField)
+        .DataValueField(Model.DataValueField)
+        .ValuePrimitive(Model.ValuePrimitive)
+        .DataSource(ds => ds
+            .Read(Model.ReadAction, Model.ReadController)
+        )
+)

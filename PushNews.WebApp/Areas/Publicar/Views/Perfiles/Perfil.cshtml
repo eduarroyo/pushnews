@@ -1,0 +1,75 @@
+﻿@using Txt = PushNews.WebApp.App_LocalResources
+@using PushNews.WebApp.Models.UI
+
+@{
+    var modeloCabecera = new CabeceraModel()
+    {
+        Icono = "clip-settings",
+        BCSeccion = Txt.Secciones.Perfil,
+        BCModulo = "",
+        Titulo = Txt.Secciones.Perfil,
+        Subtitulo = "",
+        UrlSeccion = "#/perfil",
+    };
+
+
+    string textos= Json.Encode(new
+    {
+        perfilActualizado = Txt.Perfiles.PerfilActualizado
+    });
+
+    string opciones = Json.Encode(new
+    {
+        Nombre = ViewBag.NombreActual,
+        Apellidos = ViewBag.ApellidosActuales
+    });
+}
+
+@{Html.RenderPartial("cabeceraModulo", modeloCabecera);}
+<div class="contenedor-modulo" data-opciones="@opciones" data-textos="@textos">
+    <div class="col-xs-12 col-sm-6">
+        <div class="cambiar-nombre panel panel-default">
+            <div class="panel-heading">
+                <i class="fa fa-user"></i>
+                <div class="panel-title">
+                    @Txt.Secciones.Perfil
+                </div>
+            </div>
+            <div class="panel-body">
+                @{ Html.RenderPartial("FormPerfil"); }
+
+                <div class="col-xs-12">
+                    <div class="botonera">
+                        <button class="btn btn-primary" data-bind="click: guardar">
+                            <i class="fa fa-check"></i>
+                            @Txt.Comun.Actualizar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-xs-12 col-sm-6">
+        <div class="cambiar-clave panel panel-default">
+            <div class="panel-heading">
+                <i class="fa fa-lock"></i>
+                <div class="panel-title">
+                    @Txt.Account.CambiarClave
+                </div>
+            </div>
+            <div class="panel-body">
+                @{ Html.RenderPartial("../Account/CambiarClave"); }
+                <div class="col-xs-12">
+                    <div class="botonera">
+                        <button class="btn btn-primary" data-bind="click: guardar">
+                            <i class="fa fa-check"></i>
+                            @Txt.Account.CambiarClave
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

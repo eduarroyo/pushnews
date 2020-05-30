@@ -1,0 +1,54 @@
+﻿@using PushNews.WebApp.Models.UI;
+@using Txt = PushNews.WebApp.App_LocalResources
+
+@model HerramientasInlineModel
+
+<div class="celda-centrada">
+
+@if(Model.Editar || Model.Eliminar || Model.BotonesExtra.Any())
+{
+    IEnumerable<BotonGridModel> botonesInicio = Model.BotonesExtra.Where(b => b.Posicion == BotonGridModel.Posiciones.Inicial);
+    IEnumerable<BotonGridModel> botonesMedio = Model.BotonesExtra.Where(b => b.Posicion == BotonGridModel.Posiciones.Media);
+    IEnumerable<BotonGridModel> botonesFinal = Model.BotonesExtra.Where(b => b.Posicion == BotonGridModel.Posiciones.Final);
+
+    @* Botones extendidos, visibles en md y lg *@
+    <div class="">
+
+        @foreach (var bt in botonesInicio)
+        {
+            <a class="@bt.ClaseBoton @bt.ClaseFuncion" data-toggle="tooltip" data-placement="top" title="@bt.Texto">
+                <i class="@bt.Icono"></i>
+            </a>
+        }
+
+        @if(Model.Editar)
+        { 
+            <a class="btn btn-primary btn-xs btEditar" data-toggle="tooltip" data-placement="top" title="@Txt.Comun.Editar">
+                <i class="fa fa-edit"></i>
+            </a>
+        }
+        
+        @foreach (var bt in botonesMedio)
+        {
+            <a class="@bt.ClaseBoton @bt.ClaseFuncion" data-toggle="tooltip" data-placement="top" title="@bt.Texto">
+                <i class="@bt.Icono"></i>
+            </a>
+        }
+        
+        @if(Model.Eliminar)
+        {
+            <a class="btn btn-orange btn-xs btEliminar" data-toggle="tooltip" data-placement="top" title="@Txt.Comun.Eliminar">
+                <i class="fa fa-times"></i>
+            </a>
+        }
+
+        @foreach (var bt in botonesFinal)
+        {
+        <a class="@bt.ClaseBoton @bt.ClaseFuncion" data-toggle="tooltip" data-placement="top" title="@bt.Texto">
+            <i class="@bt.Icono"></i>
+        </a>
+        }
+    </div>
+    
+}
+</div>

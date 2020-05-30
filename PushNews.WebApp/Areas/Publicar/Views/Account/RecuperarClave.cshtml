@@ -1,0 +1,34 @@
+﻿@using Txt = PushNews.WebApp.App_LocalResources
+@model PushNews.WebApp.Areas.Publicar.Models.Account.RecuperarClaveModel
+
+<h3>@Txt.Account.OlvidoClave</h3>
+<p>
+    @Txt.Account.RestablecerClave
+</p>
+@using (Html.BeginForm("", "", FormMethod.Post, new { @class = "form-forgot" }))
+{
+    @Html.AntiForgeryToken()
+    <fieldset>
+        <div class="form-group">
+            <span class="input-icon">
+                @(Html.Kendo().TextBoxFor(model => model.Email)
+                    .HtmlAttributes(new
+                    {
+                        placeholder = Txt.Account.Email,
+                        @class = "form-control",
+                        type="email"
+                    })
+                )
+                <i class="fa fa-envelope"></i>
+            </span>
+        </div>
+        <div class="form-actions">
+            <a class="btn btn-light-grey go-back">
+                <i class="fa fa-circle-arrow-left"></i> @Txt.Comun.Volver
+            </a>
+            <button type="submit" class="btn btn-bricky pull-right">
+                @Txt.Comun.Aceptar <i class="fa fa-arrow-circle-right"></i>
+            </button>
+        </div>
+    </fieldset>
+}

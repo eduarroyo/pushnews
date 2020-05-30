@@ -1,0 +1,45 @@
+﻿@(Html.Kendo().Notification()
+    .Name("notification")
+    .Position(p => p.Pinned(true).Top(30).Right(30))
+    .Stacking(NotificationStackingSettings.Down)
+    .AutoHideAfter(0)
+    .Templates(t =>
+    {
+        t.Add().Type("informacion").ClientTemplateID("informacionPlantilla");
+        t.Add().Type("error").ClientTemplateID("errorPlantilla");
+        t.Add().Type("exito").ClientTemplateID("exitoPlantilla");
+        t.Add().Type("advertencia").ClientTemplateID("advertenciaPlantilla");
+    })
+)
+
+<script id="informacionPlantilla" type="text/x-kendo-template">
+    <div class="notificacion-informacion">
+        <i class="fa fa-3x fa-info"></i>
+        <h3>#= title #</h3>
+        <p>#= message #</p>
+    </div>
+</script>
+
+<script id="errorPlantilla" type="text/x-kendo-template">
+    <div class="notificacion-error">
+        <i class="fa fa-3x fa-times"></i>
+        <h3>#= title #</h3>
+        <p>#= message #</p>
+    </div>
+</script>
+
+<script id="exitoPlantilla" type="text/x-kendo-template">
+    <div class="notificacion-exito">
+        <i class="fa fa-3x fa-check"></i>
+        <h3>#= title #</h3>
+        <p>#= message #</p>
+    </div>
+</script>
+
+<script id="advertenciaPlantilla" type="text/x-kendo-template">
+    <div class="notificacion-advertencia">
+        <i class="fa fa-3x fa-warning"></i>
+        <h3>#= title #</h3>
+        <p>#= message #</p>
+    </div>
+</script>

@@ -1,31 +1,146 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@using PushNews.Dominio.Entidades
+@using PushNews.WebApp.Models
+
+@{ 
+    Aplicacion app = (Aplicacion) Session["Aplicacion"];
+    IEnumerable<CategoriaModel> categorias = (IEnumerable<CategoriaModel>)ViewBag.Categorias;
+    string jsonCategorias = Json.Encode(categorias);
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+@section scripts
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/kendoCustomDataBinders.js")"></script>
+}
+<div class="contenedor-modulo hidden" data-categorias="@jsonCategorias" data-categoriaid="@ViewBag.CategoriaID">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <div class="logotipo">
+                <img class="logotipo-img" src="@Url.Action("Logotipo")" />
+            </div>
+            <h1>@app.Nombre</h1>
+        </div>
+    </div>
+    
+@*
+ * Bloque de lista de comunicaciones. La visibilidad de este apartado se alterna con la detalles.
+ * Este bloque cuenta con un listado paginado de comunicaciones que utiliza la plantilla de más abajo para
+ * renderizar cada elemento. Además cuenta con un campo de entrada que permite realizar búsquedas.
+ * Haciendo click en el título de un elemento se navega a la vista de detalle de la comunicación.
+ *@
+    <div class="lista-comunicaciones" data-bind="visible: listaVisible">
+        <div class="row visible-xs visible-sm">
+            <div class="col-xs-12 text-center">
+                @(Html.Kendo().DropDownList()
+                    .Name("comboCategorias")
+                    .DataTextField("Nombre")
+                    .DataValueField("CategoriaID")
+                    .HtmlAttributes(new
+                    {
+                        @class = "form-control campo-form combo-categorias",
+                        data_bind = "value: categoriaFiltrar"
+                    })
+                    .Template(@"<i class=""fa fa-2x #= Icono #""></i> &nbsp; #= Nombre #")
+                )
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 no-padding hidden-xs hidden-sm columna-categorias">
+                @(Html.Kendo().ListView<CategoriaModel>()
+                    .Name("listaCategorias")
+                    .TagName("div")
+                    .HtmlAttributes(new { data_bind= "selectedItem: categoriaFiltrar"})
+                    .Selectable()
+                    .ClientTemplateId("CategoriasListaTemplate")
+                )
+        </div>
+
+        <div class="col-xs-12 col-md-10 columna-comunicaciones">
+                @(Html.Kendo().ListView<ComunicacionModel>()
+                    .Name("listaComunicaciones")
+                    .TagName("div")
+                    .AutoBind(false)
+                    .ClientTemplateId("ComunicacionListaTemplate")
+                    .Pageable(p => p.PageSizes(false).Numeric(false))
+                    .HtmlAttributes(new { @class = "nopadding" })
+                    .DataSource(dataSource =>
+                    {
+                        dataSource.Read(read => read.Action("ComunicacionesPublicadas", "Home"));
+                        dataSource.PageSize(6);
+                    })
+                )
+            </div>
+        </div>
+    </div>
+
+@*
+ * Bloque de detalles de la comunicación. La visibilidad de este apartado se alterna con la de lista.
+*@
+    <div class="detalle-comunicacion" data-bind="invisible: listaVisible">
+        @{ Html.RenderPartial("DetalleComunicacion"); }
+    </div>
+
+
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+@* Descomentar para visualizar la lista de iconos *@
+@*@foreach (string icono in PushNews.WebApp.Helpers.Listas.Iconos())
+{
+    <ul>
+        <li><i class="fa fa-2x @icono"></i>  @icono</li>
+    </ul>
+}*@
+
+
+@* Esta es la plantilla para los elementos de la lista de categorías: *@
+<script type="text/x-kendo-tmpl" id="CategoriasListaTemplate">
+    <div class="elemento-categoria" data-categoria-id="#= CategoriaID #">
+        <i class="fa fa-2x #if(CategoriaID == -1) {# golden #}# #= Icono #"></i>
+        <span>#= Nombre #</span>                
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+</script>
+
+@* Esta es la plantilla para los elementos de la lista de comunicaciones: *@
+<script type="text/x-kendo-tmpl" id="ComunicacionListaTemplate">
+    <div class="comunicacion-elemento-lista col-xs-12 col-sm-6 col-md-4">
+        <div class="contenedor-elemento-lista">
+            <a href="\#/#= ComunicacionID #">
+                <div class="titulo">
+                    <h4>#= Titulo.length > 47 ? (Titulo.substring(0, 47) + '...') : Titulo #</h4>
+                </div>
+                <div class="categoria">
+                    <span class="label label-default">#= Categoria #</span>
+                    #if(Destacado) {#
+                    <span class="text-right" style="float: right;">
+                        <i class="fa fa-2x fa-star golden"></i>
+                    </span>
+                    #}#
+                </div>
+                <div class="cuerpo">
+                    # if(Youtube && Youtube.length) {#
+                    <div class="elemento-lista-imagen">
+                        <img src="#='http://img.youtube.com/vi/' + Youtube + '/hqdefault.jpg'#" />
+                    </div>
+                    #} else if(MiniaturaUrl != null) {#
+                    <div class="elemento-lista-imagen">
+                        <img src="#= MiniaturaUrl #" />
+                    </div>
+                    #} else {#
+                    <div class="icono">
+                        <i class="fa fa-4x #= Icono #"></i>
+                    </div>
+                    #}#
+                </div>
+                <div class="pie">
+                    <div>
+                        <span>#= Autor #</span>
+                    </div>
+                    <div>
+                        <time class="timeago" datetime="#=FechaPublicacion.toISOString()#">
+                            #= kendo.toString(FechaPublicacion, "g") #
+                        </time>
+                    </div>
+                </div>                
+            </a>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+</script>

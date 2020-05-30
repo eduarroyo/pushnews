@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -14,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PushNews.WebApp</RootNamespace>
     <AssemblyName>PushNews.WebApp</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -25,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,6 +53,10 @@
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Kendo.Mvc, Version=2015.3.1111.545, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\2015.3.1111.545\Kendo.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
@@ -102,6 +106,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Spatial, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Spatial.5.6.4\lib\net40\System.Spatial.dll</HintPath>
@@ -110,8 +115,7 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
@@ -133,9 +137,7 @@
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -153,6 +155,7 @@
     <Reference Include="System.Web.Optimization">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -163,27 +166,845 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Include="App_LocalResources\Account.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Account.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Account.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Account.en.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Aplicaciones.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Aplicaciones.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\AplicacionesCaracteristicas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AplicacionesCaracteristicas.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Asociados.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Asociados.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Categorias.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Categorias.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Comun.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Comun.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Comun.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Comun.en.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Comunicaciones.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Comunicaciones.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Coordenadas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Coordenadas.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Culturas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Culturas.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Empresas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Empresas.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\ErroresComunes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErroresComunes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Escritorio.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Escritorio.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\FileManager.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FileManager.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Gpss.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Gpss.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Hermandades.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Hermandades.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Kendo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Kendo.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Kendo.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Kendo.en.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Listas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Listas.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Localizaciones.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Localizaciones.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Opciones.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Opciones.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Parametros.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Parametros.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Perfiles.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Perfiles.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\PlantillasEmail.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlantillasEmail.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Rutas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rutas.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Secciones.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Secciones.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Telefonos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Telefonos.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Usuarios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Usuarios.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Validacion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Validacion.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Validacion.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Validacion.en.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\WebcamCapture.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WebcamCapture.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\AppWebViews\AppWebViewsAreaRegistration.cs" />
+    <Compile Include="Areas\AppWebViews\Controllers\AsociadosController.cs" />
+    <Compile Include="Areas\Publicar\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Publicar\Controllers\AdjuntosController.cs" />
+    <Compile Include="Areas\Publicar\Controllers\AplicacionesCaracteristicasController.cs" />
+    <Compile Include="Areas\Publicar\Controllers\AplicacionesController.cs" />
+    <Compile Include="Areas\Publicar\Controllers\AsociadosController.cs" />
+    <Compile Include="Areas\Publicar\Controllers\CategoriasController.cs" />
+    <Compile Include="Areas\Publicar\Controllers\ComunicacionesController.cs" />
+    <Compile Include="Areas\Publicar\Controllers\EmpresasController.cs" />
+    <Compile Include="Areas\Publicar\Controllers\EscritorioController.cs" />
+    <Compile Include="Areas\Publicar\Controllers\GpssController.cs" />
+    <Compile Include="Areas\Publicar\Controllers\HermandadesController.cs" />
+    <Compile Include="Areas\Publicar\Controllers\LocalizacionesController.cs" />
+    <Compile Include="Areas\Publicar\Controllers\ParametrosController.cs" />
+    <Compile Include="Areas\Publicar\Controllers\PerfilesController.cs" />
+    <Compile Include="Areas\Publicar\Controllers\PublicarHomeController.cs" />
+    <Compile Include="Areas\Publicar\Controllers\RutasController.cs" />
+    <Compile Include="Areas\Publicar\Controllers\TelefonosController.cs" />
+    <Compile Include="Areas\Publicar\Controllers\UsuariosController.cs" />
+    <Compile Include="Areas\Publicar\Models\Account\CambiarClavePerfil.cs" />
+    <Compile Include="Areas\Publicar\Models\Account\CambiarClaveUsuarioModel.cs" />
+    <Compile Include="Areas\Publicar\Models\Account\ExternalLoginConfirmationViewModel.cs" />
+    <Compile Include="Areas\Publicar\Models\Account\ForgotPasswordViewModel.cs" />
+    <Compile Include="Areas\Publicar\Models\Account\LoginViewModel.cs" />
+    <Compile Include="Areas\Publicar\Models\Account\ManageUserViewModel.cs" />
+    <Compile Include="Areas\Publicar\Models\Account\RecuperarClave.cs" />
+    <Compile Include="Areas\Publicar\Models\Account\RegisterViewModel.cs" />
+    <Compile Include="Areas\Publicar\Models\Account\ResetPasswordViewModel.cs" />
+    <Compile Include="Areas\Publicar\Models\AplicacionesCaracteristicas\AplicacionCaracteristicaModel.cs" />
+    <Compile Include="Areas\Publicar\Models\Aplicaciones\AplicacionGrid.cs" />
+    <Compile Include="Areas\Publicar\Models\Asociados\AsociadoModel.cs" />
+    <Compile Include="Areas\Publicar\Models\Asociados\EstadisticasAsociadosModel.cs" />
+    <Compile Include="Areas\Publicar\Models\Comunicaciones\ComunicacionGrid.cs" />
+    <Compile Include="Areas\Publicar\Models\Empresas\EmpresaModel.cs" />
+    <Compile Include="Areas\Publicar\Models\Escritorio\EstadisticasModel.cs" />
+    <Compile Include="Areas\Publicar\Models\Gpss\GpsModel - Copia.cs" />
+    <Compile Include="Areas\Publicar\Models\Gpss\GpsModel.cs" />
+    <Compile Include="Areas\Publicar\Models\Hermandades\HermandadModel.cs" />
+    <Compile Include="Areas\Publicar\Models\Localizaciones\LocalizacionModel.cs" />
+    <Compile Include="Areas\Publicar\Models\Opciones\CulturaModel.cs" />
+    <Compile Include="Areas\Publicar\Models\Opciones\OpcionesModel.cs" />
+    <Compile Include="Areas\Publicar\Models\Parametros\ParametroGrid.cs" />
+    <Compile Include="Areas\Publicar\Models\Perfiles\PerfilUsuarioModel.cs" />
+    <Compile Include="Areas\Publicar\Models\PlanitllasEmail\RestablecerClave.cs" />
+    <Compile Include="Areas\Publicar\Models\Rutas\RutaModel.cs" />
+    <Compile Include="Areas\Publicar\Models\Telefonos\TelefonoModel.cs" />
+    <Compile Include="Areas\Publicar\Models\UI\BotonGridModel.cs" />
+    <Compile Include="Areas\Publicar\Models\UI\CabeceraModel.cs" />
+    <Compile Include="Areas\Publicar\Models\UI\CapturarModalModel.cs" />
+    <Compile Include="Areas\Publicar\Models\UI\DialogoConfirmacionModel.cs" />
+    <Compile Include="Areas\Publicar\Models\UI\ElementoMenu.cs" />
+    <Compile Include="Areas\Publicar\Models\UI\GestionArchivosModel.cs" />
+    <Compile Include="Areas\Publicar\Models\UI\GridToolbarModel.cs" />
+    <Compile Include="Areas\Publicar\Models\UI\Grillas.cs" />
+    <Compile Include="Areas\Publicar\Models\UI\HerramientasInlineModel.cs" />
+    <Compile Include="Areas\Publicar\Models\UI\Menu.cs" />
+    <Compile Include="Areas\Publicar\Models\UI\TelerikAjaxComboBox.cs" />
+    <Compile Include="Areas\Publicar\Models\UI\TelerikAjaxDropDownList.cs" />
+    <Compile Include="Areas\Publicar\Models\Usuarios\UsuarioGrid.cs" />
+    <Compile Include="Areas\Publicar\PublicarAreaRegistration.cs" />
+    <Compile Include="Controllers\ControllerBase\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RutasMapaController.cs" />
+    <Compile Include="Filters\PushNewsHandleErrorAttribute.cs" />
+    <Compile Include="Filters\CaracteristicaRequeridaActionFilter.cs" />
+    <Compile Include="Filters\LogTiemposAttribute.cs" />
+    <Compile Include="Filters\SubdomainHandlerAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\CultureHelper.cs" />
+    <Compile Include="Helpers\Excepciones.cs" />
+    <Compile Include="Helpers\Extensions\TelerikMVC\GridAjaxForeignKeyColumn.cs" />
+    <Compile Include="Helpers\Listas.cs" />
+    <Compile Include="Helpers\MenuHelper.cs" />
+    <Compile Include="Helpers\Rutas.cs" />
+    <Compile Include="Helpers\Textos.cs" />
+    <Compile Include="Helpers\Util.cs" />
+    <Compile Include="Helpers\Validation\CustomValidationBaseAttribute.cs" />
+    <Compile Include="Helpers\Validation\RequeridoUnoDelGrupoAttribute.cs" />
+    <Compile Include="Helpers\Validation\RequiredIfAttribute.cs" />
+    <Compile Include="Models\CategoriaModel.cs" />
+    <Compile Include="Models\ComunicacionDetalleModel.cs" />
+    <Compile Include="Models\ComunicacionModel.cs" />
+    <Compile Include="Models\RutasMapa\RutaModel.cs" />
+    <Compile Include="Models\RutasMapa\RutasActivasModel.cs" />
+    <Compile Include="Models\RutasMapa\RutasHermandadesRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\ApplicationOAuthProvider.cs" />
+    <Compile Include="Services\ApplicationRoleManager.cs" />
+    <Compile Include="Services\ApplicationSignInManager.cs" />
+    <Compile Include="Services\ApplicationUserManager.cs" />
+    <Compile Include="Services\AsociadosUserManager.cs" />
+    <Compile Include="Services\CustomUserValidator.cs" />
+    <Compile Include="Services\EmailService.cs" />
+    <Compile Include="Services\FileManagerBase.cs" />
+    <Compile Include="Services\IFileManager.cs" />
+    <Compile Include="Services\LocalFileManager.cs" />
+    <Compile Include="Services\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\SmsService.cs" />
+    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\main-responsive.css" />
+    <Content Include="assets\css\main.css" />
+    <Content Include="assets\css\print.css" />
+    <Content Include="assets\css\rtl-version.css" />
+    <Content Include="assets\css\theme_black_and_white.css" />
+    <Content Include="assets\css\theme_dark.css" />
+    <Content Include="assets\css\theme_green.css" />
+    <Content Include="assets\css\theme_light.css" />
+    <Content Include="assets\css\theme_navy.css" />
+    <Content Include="assets\fonts\fonts\clip-font.svg" />
+    <Content Include="assets\fonts\lte-ie7.js" />
+    <Content Include="assets\fonts\style.css" />
+    <Content Include="assets\images\avatar-1-big.jpg" />
+    <Content Include="assets\images\avatar-1-small.jpg" />
+    <Content Include="assets\images\avatar-1-xl.jpg" />
+    <Content Include="assets\images\avatar-1.jpg" />
+    <Content Include="assets\images\avatar-2.jpg" />
+    <Content Include="assets\images\avatar-3.jpg" />
+    <Content Include="assets\images\avatar-4.jpg" />
+    <Content Include="assets\images\avatar-5.jpg" />
+    <Content Include="assets\images\back-error-page.jpg" />
+    <Content Include="assets\images\bg.png" />
+    <Content Include="assets\images\bg_2.png" />
+    <Content Include="assets\images\bg_3.png" />
+    <Content Include="assets\images\bg_4.png" />
+    <Content Include="assets\images\bg_5.png" />
+    <Content Include="assets\images\blackandwhite.png" />
+    <Content Include="assets\images\darkgrey.png" />
+    <Content Include="assets\images\green.png" />
+    <Content Include="assets\images\image01.jpg" />
+    <Content Include="assets\images\image02.jpg" />
+    <Content Include="assets\images\image03.jpg" />
+    <Content Include="assets\images\image04.jpg" />
+    <Content Include="assets\images\image05.jpg" />
+    <Content Include="assets\images\image06.jpg" />
+    <Content Include="assets\images\image07.jpg" />
+    <Content Include="assets\images\image08.jpg" />
+    <Content Include="assets\images\image09.jpg" />
+    <Content Include="assets\images\image10.jpg" />
+    <Content Include="assets\images\image11.jpg" />
+    <Content Include="assets\images\image12.jpg" />
+    <Content Include="assets\images\lightgrey.png" />
+    <Content Include="assets\images\loading.gif" />
+    <Content Include="assets\images\menu-white-arrow-rtl.png" />
+    <Content Include="assets\images\menu-white-arrow.png" />
+    <Content Include="assets\images\navy.png" />
+    <Content Include="assets\images\timer-piece.png" />
+    <Content Include="assets\images\your-logo-here.png" />
+    <Content Include="assets\js\charts.js" />
+    <Content Include="assets\js\form-calendar.js" />
+    <Content Include="assets\js\form-dropzone.js" />
+    <Content Include="assets\js\form-elements.js" />
+    <Content Include="assets\js\form-image-cropping.js" />
+    <Content Include="assets\js\form-validation.js" />
+    <Content Include="assets\js\form-wizard.js" />
+    <Content Include="assets\js\index.js" />
+    <Content Include="assets\js\login.js" />
+    <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\maps.js" />
+    <Content Include="assets\js\pages-gallery.js" />
+    <Content Include="assets\js\pages-user-profile.js" />
+    <Content Include="assets\js\table-data.js" />
+    <Content Include="assets\js\ui-animation.js" />
+    <Content Include="assets\js\ui-buttons.js" />
+    <Content Include="assets\js\ui-elements.js" />
+    <Content Include="assets\js\ui-modals.js" />
+    <Content Include="assets\js\ui-nestable.js" />
+    <Content Include="assets\js\ui-sliders.js" />
+    <Content Include="assets\js\ui-treeview.js" />
+    <Content Include="assets\js\utility-coming-soon.js" />
+    <Content Include="assets\js\utility-error404.js" />
+    <Content Include="assets\plugins\blockUI\jquery.blockUI.js" />
+    <Content Include="assets\plugins\excanvas.min.js" />
+    <Content Include="assets\plugins\iCheck\green%402x.png" />
+    <Content Include="assets\plugins\iCheck\green.css" />
+    <Content Include="assets\plugins\iCheck\green.png" />
+    <Content Include="assets\plugins\iCheck\icheck.js" />
+    <Content Include="assets\plugins\iCheck\orange%402x.png" />
+    <Content Include="assets\plugins\iCheck\orange.css" />
+    <Content Include="assets\plugins\iCheck\orange.png" />
+    <Content Include="assets\plugins\jquery-cookie\Gruntfile.js" />
+    <Content Include="assets\plugins\jquery-cookie\jquery.cookie.js" />
+    <Content Include="assets\plugins\jquery-cookie\MIT-LICENSE.txt" />
+    <Content Include="assets\plugins\jquery-cookie\test\index.html" />
+    <Content Include="assets\plugins\jquery-cookie\test\malformed_cookie.html" />
+    <Content Include="assets\plugins\jquery-cookie\test\server.js" />
+    <Content Include="assets\plugins\jquery-cookie\test\tests.js" />
+    <Content Include="assets\plugins\perfect-scrollbar\examples\azusa.jpg" />
+    <Content Include="assets\plugins\perfect-scrollbar\examples\options-default.html" />
+    <Content Include="assets\plugins\perfect-scrollbar\examples\options-minScrollbarLength.html" />
+    <Content Include="assets\plugins\perfect-scrollbar\examples\options-suppressScrollAxis.html" />
+    <Content Include="assets\plugins\perfect-scrollbar\examples\options-useBothWheelAxes.html" />
+    <Content Include="assets\plugins\perfect-scrollbar\examples\options-wheelPropagation.html" />
+    <Content Include="assets\plugins\perfect-scrollbar\examples\options-wheelSpeed.html" />
+    <Content Include="assets\plugins\perfect-scrollbar\examples\text-content.html" />
+    <Content Include="assets\plugins\perfect-scrollbar\Gruntfile.js" />
+    <Content Include="assets\plugins\perfect-scrollbar\min\perfect-scrollbar-0.4.6.min.css" />
+    <Content Include="assets\plugins\perfect-scrollbar\min\perfect-scrollbar-0.4.6.min.js" />
+    <Content Include="assets\plugins\perfect-scrollbar\min\perfect-scrollbar-0.4.6.with-mousewheel.min.js" />
+    <Content Include="assets\plugins\perfect-scrollbar\src\jquery.mousewheel.js" />
+    <Content Include="assets\plugins\perfect-scrollbar\src\perfect-scrollbar.css" />
+    <Content Include="assets\plugins\perfect-scrollbar\src\perfect-scrollbar.js" />
+    <Content Include="assets\plugins\respond.min.js" />
+    <Content Include="assets\plugins\swipebox\css\swipebox.css" />
+    <Content Include="assets\plugins\swipebox\css\swipebox.min.css" />
+    <Content Include="assets\plugins\swipebox\img\icons.png" />
+    <Content Include="assets\plugins\swipebox\img\icons.svg" />
+    <Content Include="assets\plugins\swipebox\img\loader.gif" />
+    <Content Include="assets\plugins\swipebox\js\jquery.swipebox.js" />
+    <Content Include="assets\plugins\swipebox\js\jquery.swipebox.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\green%402x.png" />
+    <Content Include="Content\green.png" />
+    <Content Include="Content\Images\PushNews-100.png" />
+    <Content Include="Content\Images\PushNews-150.png" />
+    <Content Include="Content\Images\PushNewsIcon-512.png" />
+    <Content Include="Content\Images\PushNewsLogo.png" />
+    <Content Include="Content\Images\appstore.png" />
+    <Content Include="Content\Images\bg_2.png" />
+    <Content Include="Content\Images\Blanco.png" />
+    <Content Include="Content\Images\cropped-PushNewsIcon-512-300x300.png" />
+    <Content Include="Content\Images\play.png" />
+    <Content Include="Content\kendo.pushnews.css" />
+    <Content Include="Content\kendo\2015.3.1111\Bootstrap\editor.png" />
+    <Content Include="Content\kendo\2015.3.1111\Bootstrap\imagebrowser.png" />
+    <Content Include="Content\kendo\2015.3.1111\Bootstrap\indeterminate.gif" />
+    <Content Include="Content\kendo\2015.3.1111\Bootstrap\loading-image.gif" />
+    <Content Include="Content\kendo\2015.3.1111\Bootstrap\loading.gif" />
+    <Content Include="Content\kendo\2015.3.1111\Bootstrap\loading_2x.gif" />
+    <Content Include="Content\kendo\2015.3.1111\Bootstrap\markers.png" />
+    <Content Include="Content\kendo\2015.3.1111\Bootstrap\markers_2x.png" />
+    <Content Include="Content\kendo\2015.3.1111\Bootstrap\slider-h.gif" />
+    <Content Include="Content\kendo\2015.3.1111\Bootstrap\slider-v.gif" />
+    <Content Include="Content\kendo\2015.3.1111\Bootstrap\sprite.png" />
+    <Content Include="Content\kendo\2015.3.1111\Bootstrap\sprite_2x.png" />
+    <Content Include="Content\kendo\2015.3.1111\Bootstrap\sprite_kpi.png" />
+    <Content Include="Content\kendo\2015.3.1111\Bootstrap\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2015.3.1111\Default\editor.png" />
+    <Content Include="Content\kendo\2015.3.1111\Default\imagebrowser.png" />
+    <Content Include="Content\kendo\2015.3.1111\Default\indeterminate.gif" />
+    <Content Include="Content\kendo\2015.3.1111\Default\loading-image.gif" />
+    <Content Include="Content\kendo\2015.3.1111\Default\loading.gif" />
+    <Content Include="Content\kendo\2015.3.1111\Default\loading_2x.gif" />
+    <Content Include="Content\kendo\2015.3.1111\Default\markers.png" />
+    <Content Include="Content\kendo\2015.3.1111\Default\markers_2x.png" />
+    <Content Include="Content\kendo\2015.3.1111\Default\slider-h.gif" />
+    <Content Include="Content\kendo\2015.3.1111\Default\slider-v.gif" />
+    <Content Include="Content\kendo\2015.3.1111\Default\sprite.png" />
+    <Content Include="Content\kendo\2015.3.1111\Default\sprite_2x.png" />
+    <Content Include="Content\kendo\2015.3.1111\Default\sprite_kpi.png" />
+    <Content Include="Content\kendo\2015.3.1111\Default\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2015.3.1111\fonts\DejaVu\LICENSE.txt" />
+    <Content Include="Content\kendo\2015.3.1111\fonts\glyphs\KendoUIGlyphs.svg" />
+    <Content Include="Content\kendo\2015.3.1111\images\back.png" />
+    <Content Include="Content\kendo\2015.3.1111\images\kendoui.svg" />
+    <Content Include="Content\kendo\2015.3.1111\images\wp8_icons.png" />
+    <Content Include="Content\kendo\2015.3.1111\images\wp8_inverseicons.png" />
+    <Content Include="Content\kendo\2015.3.1111\kendo.bootstrap.min.css" />
+    <Content Include="Content\kendo\2015.3.1111\kendo.bootstrap.mobile.min.css" />
+    <Content Include="Content\kendo\2015.3.1111\kendo.common-bootstrap.core.min.css" />
+    <Content Include="Content\kendo\2015.3.1111\kendo.common-bootstrap.min.css" />
+    <Content Include="Content\kendo\2015.3.1111\kendo.common.core.min.css" />
+    <Content Include="Content\kendo\2015.3.1111\kendo.common.min.css" />
+    <Content Include="Content\kendo\2015.3.1111\kendo.dataviz.bootstrap.min.css" />
+    <Content Include="Content\kendo\2015.3.1111\kendo.dataviz.default.min.css" />
+    <Content Include="Content\kendo\2015.3.1111\kendo.dataviz.min.css" />
+    <Content Include="Content\kendo\2015.3.1111\kendo.dataviz.mobile.min.css" />
+    <Content Include="Content\kendo\2015.3.1111\kendo.default.min.css" />
+    <Content Include="Content\kendo\2015.3.1111\kendo.default.mobile.min.css" />
+    <Content Include="Content\kendo\2015.3.1111\kendo.mobile.all.min.css" />
+    <Content Include="Content\kendo\2015.3.1111\kendo.mobile.android.dark.min.css" />
+    <Content Include="Content\kendo\2015.3.1111\kendo.mobile.android.light.min.css" />
+    <Content Include="Content\kendo\2015.3.1111\kendo.mobile.blackberry.min.css" />
+    <Content Include="Content\kendo\2015.3.1111\kendo.mobile.common.min.css" />
+    <Content Include="Content\kendo\2015.3.1111\kendo.mobile.ios.min.css" />
+    <Content Include="Content\kendo\2015.3.1111\kendo.mobile.meego.min.css" />
+    <Content Include="Content\kendo\2015.3.1111\kendo.mobile.wp8.min.css" />
+    <Content Include="Content\kendo\2015.3.1111\kendo.rtl.css" />
+    <Content Include="Content\kendo\2015.3.1111\kendo.rtl.min.css" />
+    <Content Include="Content\kendo\2015.3.1111\textures\brushed-metal.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\dots1.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\dots10.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\dots11.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\dots12.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\dots13.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\dots2.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\dots3.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\dots4.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\dots5.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\dots6.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\dots7.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\dots8.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\dots9.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\glass-lighter.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\glass.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\highlight.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\hsv-gradient.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\hue.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\leather1.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\leather2.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\noise.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\stripe1.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\stripe2.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\stripe3.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\stripe4.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\stripe5.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\stripe6.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\transparency.png" />
+    <Content Include="Content\kendo\2015.3.1111\textures\transtexture.png" />
+    <Content Include="Content\multilevelpushmenu\jquery.multilevelpushmenu.css" />
+    <Content Include="Content\orange%402x.png" />
+    <Content Include="Content\orange.png" />
+    <Content Include="Content\portada.css" />
+    <Content Include="Content\rutasmapa.css" />
+    <Content Include="Content\rutasmapatomtom.css" />
+    <Content Include="Content\styles-fix.css" />
+    <Content Include="Content\tomtomsdk\images\accident-white.png" />
+    <Content Include="Content\tomtomsdk\images\add-black.png" />
+    <Content Include="Content\tomtomsdk\images\bear_left.png" />
+    <Content Include="Content\tomtomsdk\images\bear_right.png" />
+    <Content Include="Content\tomtomsdk\images\circle-major.png" />
+    <Content Include="Content\tomtomsdk\images\circle-minor.png" />
+    <Content Include="Content\tomtomsdk\images\circle-moderate.png" />
+    <Content Include="Content\tomtomsdk\images\circle-undefined.png" />
+    <Content Include="Content\tomtomsdk\images\circle-unknown.png" />
+    <Content Include="Content\tomtomsdk\images\close-gray.png" />
+    <Content Include="Content\tomtomsdk\images\collapse.png" />
+    <Content Include="Content\tomtomsdk\images\danger-white.png" />
+    <Content Include="Content\tomtomsdk\images\end-black.png" />
+    <Content Include="Content\tomtomsdk\images\end-white.png" />
+    <Content Include="Content\tomtomsdk\images\expand.png" />
+    <Content Include="Content\tomtomsdk\images\ferry.png" />
+    <Content Include="Content\tomtomsdk\images\flag-black.png" />
+    <Content Include="Content\tomtomsdk\images\flag-white.png" />
+    <Content Include="Content\tomtomsdk\images\follow.png" />
+    <Content Include="Content\tomtomsdk\images\freeway.png" />
+    <Content Include="Content\tomtomsdk\images\ice-white.png" />
+    <Content Include="Content\tomtomsdk\images\icon-cog.svg" />
+    <Content Include="Content\tomtomsdk\images\icons.data.svg.css" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_000-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_000-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_001-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_001-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_002.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_003.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_004-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_004-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_005-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_005-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_006-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_006-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_007-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_007-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_008-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_008-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_009-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_009-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_010-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_010-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_011-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_011-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_012-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_012-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_013-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_013-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_014-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_014-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_015-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_015-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_016-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_016-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_017-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_017-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_018-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_018-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_019-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_019-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_020-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_020-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_021-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_021-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_022-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_022-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_023-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_023-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_024-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_024-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_025-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_025-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_026-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_026-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_027-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_027-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_028-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_028-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_029-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_029-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_030.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_031-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_031-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_032-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_032-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_033-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_033-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_034-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_034-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_035-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_035-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_036-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_036-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_037-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_037-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_038-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_038-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_039-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_039-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_040-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_040-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_041-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_041-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_042-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_042-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_043-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_043-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_044-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_044-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_045-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_045-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_046-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_046-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_047-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_047-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_048-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_048-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_049-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_049-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_050-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_050-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_051-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_051-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_052-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_052-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_053-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_053-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_054-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_054-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_055-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_055-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_056-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_056-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_057-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_057-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_058-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_058-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_059-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_059-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_060-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_060-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_061-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_061-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_062-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_062-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_063-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_063-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_064-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_064-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_065-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_065-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_066-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_066-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_067-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_067-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_068-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_068-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_069-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_069-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_070-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_070-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_071.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_072-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_072-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_073-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_073-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_074-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_074-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_075-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_075-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_076-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_076-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_077-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_077-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_078-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_078-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_079-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_079-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_080-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_080-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_081-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_081-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_082-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_082-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_083-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_083-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_084-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_084-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_085-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_085-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_086-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_086-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_087-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_087-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_088-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_088-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_089.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_090-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_090-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_091-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_091-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_092-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_092-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_093-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_093-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_094-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_094-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_095-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_095-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_096-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_096-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_097-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_097-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_098-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_098-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_099-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_099-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_100-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_100-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_101-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_101-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_102-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_102-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_103-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_103-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_104-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_104-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_105-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_105-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_106-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_106-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_107-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_107-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_108-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_108-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_109-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_109-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_110-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_110-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_111-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_111-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_112-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_112-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_113-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_113-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_114-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_114-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_115-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_115-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_116-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_116-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_117-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_117-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_118-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_118-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_119-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_119-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_120-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_120-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_121-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_121-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_122-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_122-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_123-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_123-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_124-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_124-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_125-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_125-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_126-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_126-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_127-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_127-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_128-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_128-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_129-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_129-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_130-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_130-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_131-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_131-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_132-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_132-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_133-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_133-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_134-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_134-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_998-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_998-white.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_999-black.png" />
+    <Content Include="Content\tomtomsdk\images\ic_map_poi_999-white.png" />
+    <Content Include="Content\tomtomsdk\images\incident-white.png" />
+    <Content Include="Content\tomtomsdk\images\keep_left.png" />
+    <Content Include="Content\tomtomsdk\images\keep_right.png" />
+    <Content Include="Content\tomtomsdk\images\laneclosed-black.png" />
+    <Content Include="Content\tomtomsdk\images\laneclosed-white.png" />
+    <Content Include="Content\tomtomsdk\images\layers-2x.png" />
+    <Content Include="Content\tomtomsdk\images\layers.png" />
+    <Content Include="Content\tomtomsdk\images\locate_me_btn.png" />
+    <Content Include="Content\tomtomsdk\images\make_uturn.png" />
+    <Content Include="Content\tomtomsdk\images\make_uturn_left_driving_side.png" />
+    <Content Include="Content\tomtomsdk\images\marker-black.png" />
+    <Content Include="Content\tomtomsdk\images\marker-green.png" />
+    <Content Include="Content\tomtomsdk\images\marker-icon-2x.png" />
+    <Content Include="Content\tomtomsdk\images\marker-icon.png" />
+    <Content Include="Content\tomtomsdk\images\marker-shadow.png" />
+    <Content Include="Content\tomtomsdk\images\marker-white.png" />
+    <Content Include="Content\tomtomsdk\images\remove-black.png" />
+    <Content Include="Content\tomtomsdk\images\roadclosed-white.png" />
+    <Content Include="Content\tomtomsdk\images\roadwork-white.png" />
+    <Content Include="Content\tomtomsdk\images\roundabout_back.png" />
+    <Content Include="Content\tomtomsdk\images\roundabout_back_left_driving_side.png" />
+    <Content Include="Content\tomtomsdk\images\roundabout_cross.png" />
+    <Content Include="Content\tomtomsdk\images\roundabout_cross_45.png" />
+    <Content Include="Content\tomtomsdk\images\roundabout_cross_45_left_driving_side.png" />
+    <Content Include="Content\tomtomsdk\images\roundabout_cross_left_driving_side.png" />
+    <Content Include="Content\tomtomsdk\images\roundabout_cross_minus_45.png" />
+    <Content Include="Content\tomtomsdk\images\roundabout_cross_minus_45_left_driving_side.png" />
+    <Content Include="Content\tomtomsdk\images\roundabout_left.png" />
+    <Content Include="Content\tomtomsdk\images\roundabout_left_left_driving_side.png" />
+    <Content Include="Content\tomtomsdk\images\roundabout_left_minus_135.png" />
+    <Content Include="Content\tomtomsdk\images\roundabout_left_minus_135_left_driving_side.png" />
+    <Content Include="Content\tomtomsdk\images\roundabout_right.png" />
+    <Content Include="Content\tomtomsdk\images\roundabout_right_135.png" />
+    <Content Include="Content\tomtomsdk\images\roundabout_right_135_left_driving_side.png" />
+    <Content Include="Content\tomtomsdk\images\roundabout_right_left_driving_side.png" />
+    <Content Include="Content\tomtomsdk\images\ruler.png" />
+    <Content Include="Content\tomtomsdk\images\search.png" />
+    <Content Include="Content\tomtomsdk\images\sharp_left.png" />
+    <Content Include="Content\tomtomsdk\images\sharp_right.png" />
+    <Content Include="Content\tomtomsdk\images\shield.png" />
+    <Content Include="Content\tomtomsdk\images\start-black.png" />
+    <Content Include="Content\tomtomsdk\images\start-white.png" />
+    <Content Include="Content\tomtomsdk\images\toggle.png" />
+    <Content Include="Content\tomtomsdk\images\toggle.svg" />
+    <Content Include="Content\tomtomsdk\images\trash-black.png" />
+    <Content Include="Content\tomtomsdk\images\turn_left.png" />
+    <Content Include="Content\tomtomsdk\images\turn_right.png" />
+    <Content Include="Content\tomtomsdk\LICENSE.txt" />
+    <Content Include="Content\tomtomsdk\map.css" />
+    <Content Include="Content\tomtomsdk\mapbox-gl-js\mapbox-gl.css" />
+    <Content Include="Content\tomtomsdk\mapbox-gl-js\mapbox-gl.js" />
+    <Content Include="Content\tomtomsdk\sprites\sprite%402x.png" />
+    <Content Include="Content\tomtomsdk\sprites\sprite.png" />
+    <Content Include="Content\tomtomsdk\tomtom.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -197,6 +1018,65 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="img\icons.png" />
+    <Content Include="img\icons.svg" />
+    <Content Include="img\loader.gif" />
+    <Content Include="img\RutasMapa\church.a.png" />
+    <Content Include="img\RutasMapa\church.b.png" />
+    <Content Include="img\RutasMapa\corona.png" />
+    <Content Include="img\RutasMapa\crown-of-thorns.png" />
+    <Content Include="img\RutasMapa\crown.2.png" />
+    <Content Include="img\RutasMapa\crown.3.png" />
+    <Content Include="img\RutasMapa\cruz.png" />
+    <Content Include="img\RutasMapa\cruz2.png" />
+    <Content Include="img\RutasMapa\info.a.png" />
+    <Content Include="img\RutasMapa\info.b.png" />
+    <Content Include="img\RutasMapa\MarcadoresHermandades\0013corona.png" />
+    <Content Include="img\RutasMapa\MarcadoresHermandades\0013cruz.png" />
+    <Content Include="img\RutasMapa\MarcadoresHermandades\0014corona.png" />
+    <Content Include="img\RutasMapa\MarcadoresHermandades\0014cruz.png" />
+    <Content Include="img\RutasMapa\MarcadoresHermandades\0015corona.png" />
+    <Content Include="img\RutasMapa\MarcadoresHermandades\0015cruz.png" />
+    <Content Include="img\RutasMapa\MarcadoresHermandades\0016corona.png" />
+    <Content Include="img\RutasMapa\MarcadoresHermandades\0016cruz.png" />
+    <Content Include="img\RutasMapa\MarcadoresHermandades\0017corona.png" />
+    <Content Include="img\RutasMapa\MarcadoresHermandades\0017cruz.png" />
+    <Content Include="img\RutasMapa\MarcadoresHermandades\0018corona.png" />
+    <Content Include="img\RutasMapa\MarcadoresHermandades\0018cruz.png" />
+    <Content Include="img\RutasMapa\MarcadoresHermandades\0019corona.png" />
+    <Content Include="img\RutasMapa\MarcadoresHermandades\0019cruz.png" />
+    <Content Include="img\RutasMapa\MarcadoresHermandades\0020corona.png" />
+    <Content Include="img\RutasMapa\MarcadoresHermandades\0020cruz.png" />
+    <Content Include="img\RutasMapa\MarcadoresHermandades\0021corona.png" />
+    <Content Include="img\RutasMapa\MarcadoresHermandades\0021cruz.png" />
+    <Content Include="img\RutasMapa\MarcadoresHermandades\0022corona.png" />
+    <Content Include="img\RutasMapa\MarcadoresHermandades\0022cruz.png" />
+    <Content Include="img\RutasMapa\MarcadoresHermandades\0023corona.png" />
+    <Content Include="img\RutasMapa\MarcadoresHermandades\0023cruz.png" />
+    <Content Include="img\RutasMapa\MarcadoresHermandades\0024corona.png" />
+    <Content Include="img\RutasMapa\MarcadoresHermandades\0024cruz.png" />
+    <Content Include="img\RutasMapa\usuario.png" />
+    <Content Include="lib\2015.3.1111.545\bg-BG\Kendo.Mvc.resources.dll" />
+    <Content Include="lib\2015.3.1111.545\cs-CZ\Kendo.Mvc.resources.dll" />
+    <Content Include="lib\2015.3.1111.545\da-DK\Kendo.Mvc.resources.dll" />
+    <Content Include="lib\2015.3.1111.545\de-DE\Kendo.Mvc.resources.dll" />
+    <Content Include="lib\2015.3.1111.545\distribution.xml" />
+    <Content Include="lib\2015.3.1111.545\es-ES\Kendo.Mvc.resources.dll" />
+    <Content Include="lib\2015.3.1111.545\fr-CA\Kendo.Mvc.resources.dll" />
+    <Content Include="lib\2015.3.1111.545\fr-FR\Kendo.Mvc.resources.dll" />
+    <Content Include="lib\2015.3.1111.545\it-IT\Kendo.Mvc.resources.dll" />
+    <Content Include="lib\2015.3.1111.545\Kendo.Mvc.dll" />
+    <Content Include="lib\2015.3.1111.545\Kendo.Mvc.xml" />
+    <Content Include="lib\2015.3.1111.545\nl-NL\Kendo.Mvc.resources.dll" />
+    <Content Include="lib\2015.3.1111.545\pl-PL\Kendo.Mvc.resources.dll" />
+    <Content Include="lib\2015.3.1111.545\pt-BR\Kendo.Mvc.resources.dll" />
+    <Content Include="lib\2015.3.1111.545\pt-PT\Kendo.Mvc.resources.dll" />
+    <Content Include="lib\2015.3.1111.545\ro-RO\Kendo.Mvc.resources.dll" />
+    <Content Include="lib\2015.3.1111.545\ru-RU\Kendo.Mvc.resources.dll" />
+    <Content Include="lib\2015.3.1111.545\sv-SE\Kendo.Mvc.resources.dll" />
+    <Content Include="lib\2015.3.1111.545\tr-TR\Kendo.Mvc.resources.dll" />
+    <Content Include="lib\2015.3.1111.545\uk-UA\Kendo.Mvc.resources.dll" />
+    <Content Include="lib\2015.3.1111.545\zh-CN\Kendo.Mvc.resources.dll" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\FontAwesome.otf" />
@@ -204,6 +1084,1181 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\fonts\fonts\clip-font.eot" />
+    <Content Include="assets\fonts\fonts\clip-font.ttf" />
+    <Content Include="assets\fonts\fonts\clip-font.woff" />
+    <Content Include="assets\less\styles.less" />
+    <Content Include="assets\plugins\jquery-cookie\.gitignore" />
+    <Content Include="assets\plugins\jquery-cookie\.jshintrc" />
+    <Content Include="assets\plugins\jquery-cookie\.tm_properties" />
+    <Content Include="assets\plugins\jquery-cookie\.travis.yml" />
+    <Content Include="assets\plugins\jquery-cookie\bower.json" />
+    <Content Include="assets\plugins\jquery-cookie\CHANGELOG.md" />
+    <Content Include="assets\plugins\jquery-cookie\CONTRIBUTING.md" />
+    <Content Include="assets\plugins\jquery-cookie\cookie.jquery.json" />
+    <Content Include="assets\plugins\jquery-cookie\package.json" />
+    <Content Include="assets\plugins\jquery-cookie\README.md" />
+    <Content Include="assets\plugins\perfect-scrollbar\.csslintrc" />
+    <Content Include="assets\plugins\perfect-scrollbar\.gitignore" />
+    <Content Include="assets\plugins\perfect-scrollbar\.jshintrc" />
+    <Content Include="assets\plugins\perfect-scrollbar\.travis.yml" />
+    <Content Include="assets\plugins\perfect-scrollbar\package.json" />
+    <Content Include="assets\plugins\perfect-scrollbar\perfect-scrollbar.jquery.json" />
+    <Content Include="assets\plugins\perfect-scrollbar\README.md" />
+    <Content Include="Content\fonts\clip-font.ttf" />
+    <Content Include="Content\fonts\clip-font.woff" />
+    <Content Include="Content\Images\kendoui.ttf" />
+    <Content Include="Content\Images\kendoui.woff" />
+    <Content Include="Content\kendo\2015.3.1111\fonts\DejaVu\DejaVuSans-Bold.ttf" />
+    <Content Include="Content\kendo\2015.3.1111\fonts\DejaVu\DejaVuSans-BoldOblique.ttf" />
+    <Content Include="Content\kendo\2015.3.1111\fonts\DejaVu\DejaVuSans-ExtraLight.ttf" />
+    <Content Include="Content\kendo\2015.3.1111\fonts\DejaVu\DejaVuSans-Oblique.ttf" />
+    <Content Include="Content\kendo\2015.3.1111\fonts\DejaVu\DejaVuSans.ttf" />
+    <Content Include="Content\kendo\2015.3.1111\fonts\DejaVu\DejaVuSansMono-Bold.ttf" />
+    <Content Include="Content\kendo\2015.3.1111\fonts\DejaVu\DejaVuSansMono-BoldOblique.ttf" />
+    <Content Include="Content\kendo\2015.3.1111\fonts\DejaVu\DejaVuSansMono-Oblique.ttf" />
+    <Content Include="Content\kendo\2015.3.1111\fonts\DejaVu\DejaVuSansMono.ttf" />
+    <Content Include="Content\kendo\2015.3.1111\fonts\DejaVu\DejaVuSerif-Bold.ttf" />
+    <Content Include="Content\kendo\2015.3.1111\fonts\DejaVu\DejaVuSerif-BoldItalic.ttf" />
+    <Content Include="Content\kendo\2015.3.1111\fonts\DejaVu\DejaVuSerif-Italic.ttf" />
+    <Content Include="Content\kendo\2015.3.1111\fonts\DejaVu\DejaVuSerif.ttf" />
+    <Content Include="Content\kendo\2015.3.1111\fonts\glyphs\KendoUIGlyphs.eot" />
+    <Content Include="Content\kendo\2015.3.1111\fonts\glyphs\KendoUIGlyphs.ttf" />
+    <Content Include="Content\kendo\2015.3.1111\fonts\glyphs\KendoUIGlyphs.woff" />
+    <Content Include="Content\kendo\2015.3.1111\images\kendoui.ttf" />
+    <Content Include="Content\kendo\2015.3.1111\images\kendoui.woff" />
+    <Content Include="Content\multilevelpushmenu\README.md" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\0-255.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\1024-1279.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\10240-10495.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\10496-10751.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\10752-11007.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\11008-11263.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\11264-11519.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\11520-11775.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\11776-12031.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\12032-12287.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\12288-12543.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\12544-12799.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\1280-1535.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\12800-13055.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\13056-13311.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\13312-13567.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\13568-13823.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\13824-14079.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\14080-14335.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\14336-14591.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\14592-14847.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\14848-15103.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\15104-15359.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\1536-1791.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\15360-15615.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\15616-15871.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\15872-16127.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\16128-16383.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\16384-16639.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\16640-16895.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\16896-17151.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\17152-17407.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\17408-17663.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\17664-17919.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\1792-2047.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\17920-18175.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\18176-18431.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\18432-18687.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\18688-18943.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\18944-19199.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\19200-19455.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\19456-19711.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\19712-19967.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\19968-20223.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\20224-20479.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\2048-2303.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\20480-20735.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\20736-20991.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\20992-21247.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\21248-21503.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\21504-21759.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\21760-22015.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\22016-22271.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\22272-22527.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\22528-22783.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\22784-23039.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\2304-2559.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\23040-23295.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\23296-23551.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\23552-23807.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\23808-24063.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\24064-24319.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\24320-24575.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\24576-24831.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\24832-25087.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\25088-25343.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\25344-25599.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\256-511.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\2560-2815.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\25600-25855.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\25856-26111.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\26112-26367.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\26368-26623.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\26624-26879.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\26880-27135.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\27136-27391.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\27392-27647.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\27648-27903.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\27904-28159.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\2816-3071.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\28160-28415.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\28416-28671.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\28672-28927.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\28928-29183.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\29184-29439.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\29440-29695.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\29696-29951.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\29952-30207.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\30208-30463.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\30464-30719.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\3072-3327.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\30720-30975.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\30976-31231.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\31232-31487.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\31488-31743.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\31744-31999.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\32000-32255.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\32256-32511.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\32512-32767.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\32768-33023.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\33024-33279.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\3328-3583.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\33280-33535.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\33536-33791.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\33792-34047.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\34048-34303.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\34304-34559.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\34560-34815.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\34816-35071.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\35072-35327.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\35328-35583.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\35584-35839.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\3584-3839.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\35840-36095.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\36096-36351.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\36352-36607.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\36608-36863.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\36864-37119.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\37120-37375.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\37376-37631.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\37632-37887.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\37888-38143.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\38144-38399.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\3840-4095.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\38400-38655.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\38656-38911.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\38912-39167.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\39168-39423.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\39424-39679.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\39680-39935.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\39936-40191.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\40192-40447.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\40448-40703.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\40704-40959.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\4096-4351.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\40960-41215.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\41216-41471.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\41472-41727.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\41728-41983.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\41984-42239.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\42240-42495.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\42496-42751.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\42752-43007.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\43008-43263.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\43264-43519.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\4352-4607.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\43520-43775.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\43776-44031.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\44032-44287.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\44288-44543.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\44544-44799.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\44800-45055.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\45056-45311.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\45312-45567.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\45568-45823.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\45824-46079.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\4608-4863.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\46080-46335.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\46336-46591.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\46592-46847.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\46848-47103.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\47104-47359.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\47360-47615.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\47616-47871.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\47872-48127.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\48128-48383.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\48384-48639.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\4864-5119.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\48640-48895.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\48896-49151.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\49152-49407.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\49408-49663.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\49664-49919.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\49920-50175.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\50176-50431.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\50432-50687.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\50688-50943.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\50944-51199.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\512-767.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\5120-5375.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\51200-51455.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\51456-51711.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\51712-51967.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\51968-52223.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\52224-52479.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\52480-52735.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\52736-52991.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\52992-53247.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\53248-53503.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\53504-53759.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\5376-5631.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\53760-54015.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\54016-54271.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\54272-54527.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\54528-54783.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\54784-55039.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\55040-55295.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\55296-55551.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\55552-55807.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\55808-56063.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\56064-56319.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\5632-5887.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\56320-56575.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\56576-56831.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\56832-57087.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\57088-57343.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\57344-57599.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\57600-57855.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\57856-58111.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\58112-58367.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\58368-58623.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\58624-58879.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\5888-6143.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\58880-59135.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\59136-59391.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\59392-59647.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\59648-59903.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\59904-60159.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\60160-60415.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\60416-60671.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\60672-60927.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\60928-61183.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\61184-61439.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\6144-6399.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\61440-61695.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\61696-61951.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\61952-62207.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\62208-62463.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\62464-62719.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\62720-62975.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\62976-63231.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\63232-63487.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\63488-63743.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\63744-63999.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\6400-6655.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\64000-64255.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\64256-64511.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\64512-64767.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\64768-65023.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\65024-65279.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\65280-65535.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\6656-6911.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\6912-7167.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\7168-7423.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\7424-7679.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\768-1023.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\7680-7935.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\7936-8191.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\8192-8447.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\8448-8703.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\8704-8959.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\8960-9215.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\9216-9471.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\9472-9727.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\9728-9983.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Bold\9984-10239.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\0-255.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\1024-1279.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\10240-10495.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\10496-10751.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\10752-11007.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\11008-11263.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\11264-11519.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\11520-11775.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\11776-12031.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\12032-12287.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\12288-12543.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\12544-12799.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\1280-1535.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\12800-13055.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\13056-13311.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\13312-13567.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\13568-13823.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\13824-14079.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\14080-14335.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\14336-14591.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\14592-14847.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\14848-15103.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\15104-15359.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\1536-1791.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\15360-15615.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\15616-15871.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\15872-16127.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\16128-16383.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\16384-16639.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\16640-16895.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\16896-17151.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\17152-17407.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\17408-17663.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\17664-17919.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\1792-2047.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\17920-18175.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\18176-18431.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\18432-18687.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\18688-18943.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\18944-19199.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\19200-19455.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\19456-19711.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\19712-19967.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\19968-20223.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\20224-20479.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\2048-2303.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\20480-20735.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\20736-20991.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\20992-21247.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\21248-21503.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\21504-21759.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\21760-22015.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\22016-22271.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\22272-22527.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\22528-22783.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\22784-23039.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\2304-2559.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\23040-23295.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\23296-23551.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\23552-23807.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\23808-24063.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\24064-24319.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\24320-24575.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\24576-24831.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\24832-25087.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\25088-25343.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\25344-25599.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\256-511.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\2560-2815.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\25600-25855.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\25856-26111.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\26112-26367.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\26368-26623.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\26624-26879.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\26880-27135.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\27136-27391.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\27392-27647.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\27648-27903.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\27904-28159.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\2816-3071.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\28160-28415.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\28416-28671.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\28672-28927.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\28928-29183.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\29184-29439.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\29440-29695.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\29696-29951.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\29952-30207.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\30208-30463.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\30464-30719.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\3072-3327.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\30720-30975.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\30976-31231.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\31232-31487.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\31488-31743.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\31744-31999.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\32000-32255.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\32256-32511.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\32512-32767.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\32768-33023.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\33024-33279.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\3328-3583.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\33280-33535.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\33536-33791.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\33792-34047.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\34048-34303.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\34304-34559.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\34560-34815.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\34816-35071.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\35072-35327.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\35328-35583.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\35584-35839.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\3584-3839.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\35840-36095.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\36096-36351.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\36352-36607.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\36608-36863.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\36864-37119.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\37120-37375.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\37376-37631.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\37632-37887.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\37888-38143.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\38144-38399.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\3840-4095.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\38400-38655.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\38656-38911.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\38912-39167.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\39168-39423.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\39424-39679.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\39680-39935.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\39936-40191.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\40192-40447.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\40448-40703.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\40704-40959.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\4096-4351.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\40960-41215.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\41216-41471.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\41472-41727.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\41728-41983.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\41984-42239.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\42240-42495.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\42496-42751.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\42752-43007.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\43008-43263.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\43264-43519.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\4352-4607.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\43520-43775.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\43776-44031.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\44032-44287.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\44288-44543.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\44544-44799.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\44800-45055.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\45056-45311.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\45312-45567.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\45568-45823.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\45824-46079.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\4608-4863.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\46080-46335.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\46336-46591.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\46592-46847.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\46848-47103.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\47104-47359.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\47360-47615.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\47616-47871.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\47872-48127.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\48128-48383.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\48384-48639.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\4864-5119.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\48640-48895.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\48896-49151.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\49152-49407.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\49408-49663.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\49664-49919.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\49920-50175.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\50176-50431.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\50432-50687.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\50688-50943.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\50944-51199.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\512-767.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\5120-5375.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\51200-51455.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\51456-51711.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\51712-51967.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\51968-52223.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\52224-52479.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\52480-52735.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\52736-52991.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\52992-53247.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\53248-53503.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\53504-53759.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\5376-5631.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\53760-54015.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\54016-54271.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\54272-54527.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\54528-54783.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\54784-55039.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\55040-55295.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\55296-55551.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\55552-55807.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\55808-56063.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\56064-56319.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\5632-5887.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\56320-56575.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\56576-56831.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\56832-57087.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\57088-57343.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\57344-57599.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\57600-57855.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\57856-58111.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\58112-58367.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\58368-58623.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\58624-58879.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\5888-6143.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\58880-59135.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\59136-59391.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\59392-59647.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\59648-59903.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\59904-60159.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\60160-60415.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\60416-60671.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\60672-60927.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\60928-61183.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\61184-61439.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\6144-6399.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\61440-61695.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\61696-61951.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\61952-62207.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\62208-62463.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\62464-62719.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\62720-62975.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\62976-63231.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\63232-63487.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\63488-63743.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\63744-63999.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\6400-6655.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\64000-64255.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\64256-64511.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\64512-64767.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\64768-65023.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\65024-65279.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\65280-65535.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\6656-6911.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\6912-7167.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\7168-7423.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\7424-7679.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\768-1023.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\7680-7935.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\7936-8191.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\8192-8447.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\8448-8703.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\8704-8959.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\8960-9215.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\9216-9471.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\9472-9727.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\9728-9983.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Heavy\9984-10239.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\0-255.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\1024-1279.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\10240-10495.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\10496-10751.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\10752-11007.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\11008-11263.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\11264-11519.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\11520-11775.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\11776-12031.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\12032-12287.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\12288-12543.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\12544-12799.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\1280-1535.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\12800-13055.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\13056-13311.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\13312-13567.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\13568-13823.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\13824-14079.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\14080-14335.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\14336-14591.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\14592-14847.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\14848-15103.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\15104-15359.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\1536-1791.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\15360-15615.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\15616-15871.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\15872-16127.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\16128-16383.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\16384-16639.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\16640-16895.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\16896-17151.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\17152-17407.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\17408-17663.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\17664-17919.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\1792-2047.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\17920-18175.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\18176-18431.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\18432-18687.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\18688-18943.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\18944-19199.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\19200-19455.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\19456-19711.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\19712-19967.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\19968-20223.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\20224-20479.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\2048-2303.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\20480-20735.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\20736-20991.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\20992-21247.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\21248-21503.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\21504-21759.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\21760-22015.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\22016-22271.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\22272-22527.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\22528-22783.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\22784-23039.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\2304-2559.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\23040-23295.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\23296-23551.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\23552-23807.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\23808-24063.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\24064-24319.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\24320-24575.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\24576-24831.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\24832-25087.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\25088-25343.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\25344-25599.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\256-511.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\2560-2815.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\25600-25855.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\25856-26111.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\26112-26367.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\26368-26623.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\26624-26879.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\26880-27135.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\27136-27391.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\27392-27647.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\27648-27903.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\27904-28159.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\2816-3071.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\28160-28415.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\28416-28671.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\28672-28927.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\28928-29183.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\29184-29439.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\29440-29695.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\29696-29951.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\29952-30207.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\30208-30463.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\30464-30719.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\3072-3327.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\30720-30975.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\30976-31231.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\31232-31487.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\31488-31743.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\31744-31999.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\32000-32255.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\32256-32511.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\32512-32767.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\32768-33023.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\33024-33279.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\3328-3583.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\33280-33535.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\33536-33791.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\33792-34047.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\34048-34303.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\34304-34559.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\34560-34815.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\34816-35071.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\35072-35327.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\35328-35583.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\35584-35839.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\3584-3839.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\35840-36095.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\36096-36351.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\36352-36607.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\36608-36863.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\36864-37119.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\37120-37375.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\37376-37631.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\37632-37887.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\37888-38143.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\38144-38399.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\3840-4095.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\38400-38655.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\38656-38911.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\38912-39167.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\39168-39423.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\39424-39679.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\39680-39935.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\39936-40191.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\40192-40447.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\40448-40703.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\40704-40959.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\4096-4351.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\40960-41215.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\41216-41471.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\41472-41727.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\41728-41983.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\41984-42239.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\42240-42495.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\42496-42751.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\42752-43007.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\43008-43263.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\43264-43519.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\4352-4607.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\43520-43775.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\43776-44031.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\44032-44287.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\44288-44543.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\44544-44799.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\44800-45055.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\45056-45311.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\45312-45567.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\45568-45823.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\45824-46079.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\4608-4863.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\46080-46335.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\46336-46591.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\46592-46847.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\46848-47103.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\47104-47359.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\47360-47615.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\47616-47871.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\47872-48127.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\48128-48383.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\48384-48639.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\4864-5119.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\48640-48895.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\48896-49151.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\49152-49407.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\49408-49663.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\49664-49919.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\49920-50175.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\50176-50431.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\50432-50687.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\50688-50943.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\50944-51199.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\512-767.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\5120-5375.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\51200-51455.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\51456-51711.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\51712-51967.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\51968-52223.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\52224-52479.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\52480-52735.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\52736-52991.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\52992-53247.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\53248-53503.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\53504-53759.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\5376-5631.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\53760-54015.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\54016-54271.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\54272-54527.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\54528-54783.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\54784-55039.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\55040-55295.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\55296-55551.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\55552-55807.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\55808-56063.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\56064-56319.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\5632-5887.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\56320-56575.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\56576-56831.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\56832-57087.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\57088-57343.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\57344-57599.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\57600-57855.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\57856-58111.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\58112-58367.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\58368-58623.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\58624-58879.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\5888-6143.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\58880-59135.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\59136-59391.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\59392-59647.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\59648-59903.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\59904-60159.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\60160-60415.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\60416-60671.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\60672-60927.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\60928-61183.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\61184-61439.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\6144-6399.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\61440-61695.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\61696-61951.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\61952-62207.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\62208-62463.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\62464-62719.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\62720-62975.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\62976-63231.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\63232-63487.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\63488-63743.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\63744-63999.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\6400-6655.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\64000-64255.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\64256-64511.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\64512-64767.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\64768-65023.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\65024-65279.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\65280-65535.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\6656-6911.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\6912-7167.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\7168-7423.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\7424-7679.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\768-1023.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\7680-7935.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\7936-8191.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\8192-8447.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\8448-8703.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\8704-8959.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\8960-9215.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\9216-9471.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\9472-9727.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\9728-9983.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Medium\9984-10239.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\0-255.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\1024-1279.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\10240-10495.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\10496-10751.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\10752-11007.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\11008-11263.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\11264-11519.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\11520-11775.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\11776-12031.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\12032-12287.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\12288-12543.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\12544-12799.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\1280-1535.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\12800-13055.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\13056-13311.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\13312-13567.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\13568-13823.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\13824-14079.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\14080-14335.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\14336-14591.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\14592-14847.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\14848-15103.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\15104-15359.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\1536-1791.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\15360-15615.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\15616-15871.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\15872-16127.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\16128-16383.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\16384-16639.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\16640-16895.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\16896-17151.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\17152-17407.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\17408-17663.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\17664-17919.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\1792-2047.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\17920-18175.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\18176-18431.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\18432-18687.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\18688-18943.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\18944-19199.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\19200-19455.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\19456-19711.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\19712-19967.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\19968-20223.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\20224-20479.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\2048-2303.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\20480-20735.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\20736-20991.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\20992-21247.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\21248-21503.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\21504-21759.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\21760-22015.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\22016-22271.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\22272-22527.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\22528-22783.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\22784-23039.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\2304-2559.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\23040-23295.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\23296-23551.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\23552-23807.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\23808-24063.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\24064-24319.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\24320-24575.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\24576-24831.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\24832-25087.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\25088-25343.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\25344-25599.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\256-511.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\2560-2815.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\25600-25855.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\25856-26111.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\26112-26367.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\26368-26623.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\26624-26879.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\26880-27135.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\27136-27391.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\27392-27647.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\27648-27903.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\27904-28159.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\2816-3071.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\28160-28415.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\28416-28671.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\28672-28927.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\28928-29183.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\29184-29439.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\29440-29695.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\29696-29951.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\29952-30207.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\30208-30463.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\30464-30719.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\3072-3327.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\30720-30975.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\30976-31231.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\31232-31487.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\31488-31743.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\31744-31999.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\32000-32255.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\32256-32511.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\32512-32767.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\32768-33023.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\33024-33279.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\3328-3583.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\33280-33535.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\33536-33791.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\33792-34047.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\34048-34303.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\34304-34559.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\34560-34815.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\34816-35071.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\35072-35327.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\35328-35583.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\35584-35839.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\3584-3839.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\35840-36095.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\36096-36351.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\36352-36607.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\36608-36863.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\36864-37119.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\37120-37375.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\37376-37631.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\37632-37887.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\37888-38143.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\38144-38399.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\3840-4095.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\38400-38655.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\38656-38911.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\38912-39167.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\39168-39423.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\39424-39679.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\39680-39935.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\39936-40191.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\40192-40447.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\40448-40703.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\40704-40959.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\4096-4351.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\40960-41215.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\41216-41471.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\41472-41727.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\41728-41983.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\41984-42239.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\42240-42495.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\42496-42751.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\42752-43007.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\43008-43263.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\43264-43519.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\4352-4607.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\43520-43775.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\43776-44031.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\44032-44287.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\44288-44543.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\44544-44799.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\44800-45055.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\45056-45311.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\45312-45567.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\45568-45823.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\45824-46079.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\4608-4863.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\46080-46335.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\46336-46591.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\46592-46847.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\46848-47103.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\47104-47359.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\47360-47615.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\47616-47871.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\47872-48127.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\48128-48383.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\48384-48639.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\4864-5119.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\48640-48895.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\48896-49151.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\49152-49407.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\49408-49663.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\49664-49919.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\49920-50175.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\50176-50431.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\50432-50687.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\50688-50943.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\50944-51199.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\512-767.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\5120-5375.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\51200-51455.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\51456-51711.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\51712-51967.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\51968-52223.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\52224-52479.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\52480-52735.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\52736-52991.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\52992-53247.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\53248-53503.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\53504-53759.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\5376-5631.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\53760-54015.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\54016-54271.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\54272-54527.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\54528-54783.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\54784-55039.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\55040-55295.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\55296-55551.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\55552-55807.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\55808-56063.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\56064-56319.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\5632-5887.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\56320-56575.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\56576-56831.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\56832-57087.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\57088-57343.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\57344-57599.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\57600-57855.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\57856-58111.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\58112-58367.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\58368-58623.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\58624-58879.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\5888-6143.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\58880-59135.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\59136-59391.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\59392-59647.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\59648-59903.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\59904-60159.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\60160-60415.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\60416-60671.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\60672-60927.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\60928-61183.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\61184-61439.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\6144-6399.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\61440-61695.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\61696-61951.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\61952-62207.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\62208-62463.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\62464-62719.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\62720-62975.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\62976-63231.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\63232-63487.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\63488-63743.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\63744-63999.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\6400-6655.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\64000-64255.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\64256-64511.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\64512-64767.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\64768-65023.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\65024-65279.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\65280-65535.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\6656-6911.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\6912-7167.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\7168-7423.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\7424-7679.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\768-1023.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\7680-7935.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\7936-8191.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\8192-8447.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\8448-8703.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\8704-8959.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\8960-9215.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\9216-9471.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\9472-9727.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\9728-9983.pbf" />
+    <Content Include="Content\tomtomsdk\glyphs\FrutigerHelveticaMYingHei-Regular\9984-10239.pbf" />
+    <Content Include="Content\tomtomsdk\README.md" />
+    <Content Include="Content\tomtomsdk\sprites\sprite%402x.json" />
+    <Content Include="Content\tomtomsdk\sprites\sprite.json" />
+    <Content Include="Content\tomtomsdk\styles\basic_main.json" />
+    <Content Include="Content\tomtomsdk\styles\basic_night.json" />
+    <Content Include="Content\tomtomsdk\styles\flow_absolute.json" />
+    <Content Include="Content\tomtomsdk\styles\flow_relative-delay.json" />
+    <Content Include="Content\tomtomsdk\styles\flow_relative.json" />
+    <Content Include="Content\tomtomsdk\styles\hybrid_main.json" />
+    <Content Include="Content\tomtomsdk\styles\hybrid_night.json" />
+    <Content Include="Content\tomtomsdk\styles\incidents_night.json" />
+    <Content Include="Content\tomtomsdk\styles\incidents_s1.json" />
+    <Content Include="Content\tomtomsdk\styles\incidents_s2.json" />
+    <Content Include="Content\tomtomsdk\styles\incidents_s3.json" />
+    <Content Include="Content\tomtomsdk\styles\labels_main.json" />
+    <Content Include="Content\tomtomsdk\styles\labels_night.json" />
+    <Content Include="Content\tomtomsdk\tomtom.min.js.map" />
+    <Content Include="Content\variables.less" />
+    <Content Include="Areas\AppWebViews\Views\Asociados\AsociadosCambiarClave.cshtml" />
+    <Content Include="Areas\AppWebViews\Views\Shared\_WebViewLayout.cshtml" />
+    <Content Include="Areas\AppWebViews\Views\web.config" />
+    <Content Include="Areas\Publicar\Views\Account\CambiarClave.cshtml" />
+    <Content Include="Areas\Publicar\Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Areas\Publicar\Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Areas\Publicar\Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Areas\Publicar\Views\Account\Login.cshtml" />
+    <Content Include="Areas\Publicar\Views\Account\RecuperarClave.cshtml" />
+    <Content Include="Areas\Publicar\Views\Account\Register.cshtml" />
+    <Content Include="Areas\Publicar\Views\Account\ResetPassword.cshtml" />
+    <Content Include="Areas\Publicar\Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Areas\Publicar\Views\Account\_Layout.cshtml" />
+    <Content Include="Areas\Publicar\Views\AplicacionesCaracteristicas\AplicacionesCaracteristicas.cshtml" />
+    <Content Include="Areas\Publicar\Views\Aplicaciones\Aplicaciones.cshtml" />
+    <Content Include="Areas\Publicar\Views\Aplicaciones\FormAplicaciones.cshtml" />
+    <Content Include="Areas\Publicar\Views\Asociados\Asociados.cshtml" />
+    <Content Include="Areas\Publicar\Views\Asociados\DialogoCambiarClave.cshtml" />
+    <Content Include="Areas\Publicar\Views\Asociados\DialogoEstadisticasAsociados.cshtml" />
+    <Content Include="Areas\Publicar\Views\Asociados\FormAsociados.cshtml" />
+    <Content Include="Areas\Publicar\Views\Categorias\Categorias.cshtml" />
+    <Content Include="Areas\Publicar\Views\Categorias\FormCategorias.cshtml" />
+    <Content Include="Areas\Publicar\Views\Comunicaciones\ComandosGrillaComunicaciones.cshtml" />
+    <Content Include="Areas\Publicar\Views\Comunicaciones\ComunicacionDetalle.cshtml" />
+    <Content Include="Areas\Publicar\Views\Comunicaciones\Comunicaciones.cshtml" />
+    <Content Include="Areas\Publicar\Views\Comunicaciones\ControlActivarDesactivarComunicaciones.cshtml" />
+    <Content Include="Areas\Publicar\Views\Comunicaciones\Editar.cshtml" />
+    <Content Include="Areas\Publicar\Views\Comunicaciones\FormComunicaciones.cshtml" />
+    <Content Include="Areas\Publicar\Views\Empresas\Empresas.cshtml" />
+    <Content Include="Areas\Publicar\Views\Empresas\FormEmpresas.cshtml" />
+    <Content Include="Areas\Publicar\Views\Escritorio\Escritorio.cshtml" />
+    <Content Include="Areas\Publicar\Views\Escritorio\Estadisticas.cshtml" />
+    <Content Include="Areas\Publicar\Views\Escritorio\FormPublicarRapido.cshtml" />
+    <Content Include="Areas\Publicar\Views\Gpss\FormGpss - Copia.cshtml" />
+    <Content Include="Areas\Publicar\Views\Gpss\FormGpss.cshtml" />
+    <Content Include="Areas\Publicar\Views\Gpss\Gpss - Copia.cshtml" />
+    <Content Include="Areas\Publicar\Views\Gpss\Gpss.cshtml" />
+    <Content Include="Areas\Publicar\Views\Hermandades\FormHermandades.cshtml" />
+    <Content Include="Areas\Publicar\Views\Hermandades\Hermandades.cshtml" />
+    <Content Include="Areas\Publicar\Views\Localizaciones\FormLocalizaciones.cshtml" />
+    <Content Include="Areas\Publicar\Views\Localizaciones\Localizaciones.cshtml" />
+    <Content Include="Areas\Publicar\Views\Opciones\Cultura.cshtml" />
+    <Content Include="Areas\Publicar\Views\Opciones\Opciones.cshtml" />
+    <Content Include="Areas\Publicar\Views\Parametros\Parametros.cshtml" />
+    <Content Include="Areas\Publicar\Views\Perfiles\FormPerfil.cshtml" />
+    <Content Include="Areas\Publicar\Views\Perfiles\Opciones.cshtml" />
+    <Content Include="Areas\Publicar\Views\Perfiles\Perfil.cshtml" />
+    <Content Include="Areas\Publicar\Views\PlantillasEmail\RestablecerClave.cshtml" />
+    <Content Include="Areas\Publicar\Views\PlantillasEmail\_Layout.cshtml" />
+    <Content Include="Areas\Publicar\Views\PublicarHome\Index.cshtml" />
+    <Content Include="Areas\Publicar\Views\Rutas\FormRutas.cshtml" />
+    <Content Include="Areas\Publicar\Views\Rutas\Rutas.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\cabeceraModulo.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\ComandosGrillaEditarEliminar.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\ComandosGrillaEditarEliminarSinCompresion.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\ControlActivarDesactivar.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\DialogoConfirmacion.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\DialogoSeleccionCoordenadas.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\EditorTemplates\ComandosGrillaEditarEliminarEdit.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\EditorTemplates\Currency.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\EditorTemplates\Email.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\EditorTemplates\GridForeignKey.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\EditorTemplates\Integer.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\EditorTemplates\Number.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\EditorTemplates\Password.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\EditorTemplates\PlantillaVacia.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\EditorTemplates\TelerikAjaxComboBox.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\EditorTemplates\TelerikAjaxDropDownList.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\EditorTemplates\Time.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\EditorTemplates\Url.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\EntradaCoordenadas.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\GridToolbar.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\herramientasNavbar.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\menu.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\notificaciones.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\PlantillasNotificaciones.cshtml" />
+    <Content Include="Areas\Publicar\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Publicar\Views\Telefonos\FormTelefonos.cshtml" />
+    <Content Include="Areas\Publicar\Views\Telefonos\Telefonos.cshtml" />
+    <Content Include="Areas\Publicar\Views\Usuarios\DialogoCambiarClave.cshtml" />
+    <Content Include="Areas\Publicar\Views\Usuarios\FormUsuarios.cshtml" />
+    <Content Include="Areas\Publicar\Views\Usuarios\Usuarios.cshtml" />
+    <Content Include="Areas\Publicar\Views\web.config" />
+    <Content Include="Areas\Publicar\Views\_ViewStart.cshtml" />
+    <Content Include="img\RutasMapa\MarcadoresHermandades\cruzcorona.psd" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -222,22 +2277,172 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="Views\Home\DetalleComunicacion.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\RutasMapa\DescargaApps.cshtml" />
+    <Content Include="Views\RutasMapa\RutasMapa.cshtml" />
+    <Content Include="Views\RutasMapa\RutasMapaOSM.cshtml" />
+    <Content Include="Views\RutasMapa\RutasMapaTomTom.cshtml" />
+    <Content Include="Views\Shared\notificaciones.cshtml" />
+    <Content Include="Views\Shared\PlantillasNotificaciones.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="App_LocalResources\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-2.2.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="App_LocalResources\Account.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Account.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Account.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Account.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Aplicaciones.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Aplicaciones.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\AplicacionesCaracteristicas.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AplicacionesCaracteristicas.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Asociados.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Asociados.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Categorias.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Categorias.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Comun.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Comun.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Comun.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Comun.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Comunicaciones.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Comunicaciones.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Coordenadas.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Coordenadas.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Culturas.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Culturas.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Hermandades.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Hermandades.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Empresas.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Empresas.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\ErroresComunes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErroresComunes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Escritorio.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Escritorio.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\FileManager.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>FileManager.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Gpss.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Gpss.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Kendo.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Kendo.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Kendo.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Kendo.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Listas.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Listas.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Localizaciones.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Localizaciones.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Opciones.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Opciones.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Parametros.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Parametros.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Perfiles.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Perfiles.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\PlantillasEmail.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>PlantillasEmail.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Rutas.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Rutas.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Secciones.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Secciones.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Telefonos.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Telefonos.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Usuarios.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Usuarios.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Validacion.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Validacion.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Validacion.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Validacion.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\WebcamCapture.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>WebcamCapture.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PushNews.Dominio\PushNews.Dominio.csproj">
+      <Project>{f225c575-abd3-4e66-b713-f6062b3036bf}</Project>
+      <Name>PushNews.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PushNews.Negocio\PushNews.Negocio.csproj">
+      <Project>{e3990bde-faa2-40e0-aab1-0dbe567f7b99}</Project>
+      <Name>PushNews.Negocio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PushNews.Seguridad\PushNews.Seguridad.csproj">
+      <Project>{1aa4f44a-8118-40f9-9b92-f712761d8c6e}</Project>
+      <Name>PushNews.Seguridad</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -267,12 +2472,6 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

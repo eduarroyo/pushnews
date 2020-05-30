@@ -1,0 +1,69 @@
+﻿@using PushNews.WebApp.Areas.Publicar.Models.UI
+@using Txt = PushNews.WebApp.App_LocalResources
+@using PushNews.WebApp.Models.UI
+
+@{
+    var modeloCabecera = new CabeceraModel()
+    {
+        Icono = "clip-settings",
+        BCSeccion = Txt.Secciones.Configuracion,
+        BCModulo = Txt.Secciones.Parametros,
+        Titulo = Txt.Secciones.Parametros,
+        Subtitulo = Txt.Parametros.Subtitulo,
+        UrlSeccion = "#/parametros",
+        Recargar = true
+    };
+
+    var modeloHerramientasInline = new HerramientasInlineModel(
+        User.IsInRole("ModificarParametros"), User.IsInRole("EliminarParametros"));
+
+    BotonGridModel[] opExportar = User.IsInRole("ExportarParametros")
+        ? new BotonGridModel[]
+        {
+            new BotonGridModel(Txt.Comun.Exportar, "fa fa-file-excel-o", "btExportar" ),
+            //new BotonGridModel(Txt.Comun.Exportar, "fa fa-file-pdf-o", "btExportarPdf"),
+            //new BotonGridModel(Txt.Comun.Imprimir, "fa fa-print", "btImprimir" )
+        }
+        : new BotonGridModel[0];
+        
+    var modeloToolbar = new GridToolbarModel(opExportar,
+        new[] { "Nombre", "Valor", "Descripcion", "Aplicacion" }, Txt.Parametros.Buscar, User.IsInRole("CrearParametros"));
+        
+    string textosJson = Json.Encode(
+       new
+       {
+           confirmacionEliminarCuerpo = Txt.Parametros.ConfirmacionEliminar,
+            confirmacionNavegacion = Txt.Comun.ConfirmarNavegacion
+       });
+}
+
+@{Html.RenderPartial("cabeceraModulo", modeloCabecera);}
+@{Html.RenderPartial("DialogoConfirmacion", new DialogoConfirmacionModel
+    { ModalID = "DialogoConfirmacion", Titulo = @Txt.Comun.ConfirmarEliminacion });}
+
+<!-- start: PAGE CONTENT -->
+<div class="row">
+    <div class="col-xs-12">
+        <div class="contenedor-modulo" data-textos="@textosJson">
+            @(Html.Kendo().Grid<PushNews.WebApp.Models.Parametros.ParametroGrid>()
+                .Columns(columns =>
+                {
+                    columns.Bound(c => c.Nombre);
+                    columns.Bound(c => c.Valor);
+                    columns.ForeignKey(c => c.AplicacionID, (IEnumerable<SelectListItem>) ViewBag.Aplicaciones, "Value", "Text");
+                    columns.Bound(c => c.Descripcion).MinScreenWidth(768);
+                    columns.Bound(c => c.ParametroID).Title("").Filterable(false).Sortable(false)
+                        .Width(80)
+                        .EditorTemplateName("ComandosGrillaEditarEliminarEdit")
+                        .ClientTemplate(Html.Partial("ComandosGrillaEditarEliminar", modeloHerramientasInline).ToString());
+                })
+                .ToolBar(tb => tb.Template(Html.Partial("GridToolbar", modeloToolbar).ToString()))
+                .ConfigurarGrilla("ParametrosGrid", "Parametros", model =>
+                {
+                    model.Id(p => p.ParametroID);
+                    model.Field(p => p.AplicacionID).DefaultValue(0);
+                })
+            )
+        </div>
+    </div>
+</div>

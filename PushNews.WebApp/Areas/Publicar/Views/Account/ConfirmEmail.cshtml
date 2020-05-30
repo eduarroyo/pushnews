@@ -1,0 +1,14 @@
+﻿@using Txt = PushNews.WebApp.App_LocalResources
+
+@{
+    Layout = "./_Layout.cshtml";
+    ViewBag.Title = Txt.Account.EmailConfirmar;
+}
+
+<div>
+    <h2>@ViewBag.Title.</h2>
+    <p>
+        Gracias por confirmar su correo electrónico. 
+        @Html.ActionLink(@Txt.Account.IniciarSesionLargo, "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+    </p>
+</div>

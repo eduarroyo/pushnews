@@ -1,0 +1,64 @@
+﻿@using PushNews.Dominio.Entidades
+@using Txt = PushNews.WebApp.App_LocalResources
+
+@{
+    Aplicacion aplicacion = (Aplicacion) Session["Aplicacion"];
+    string nombreAplicacion = aplicacion != null ? aplicacion.Nombre : "";
+    string culture = System.Globalization.CultureInfo.CurrentCulture.ToString();
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@Txt.Account.IniciarSesion</title>
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/Images/cropped-PushNewsIcon-512-300x300.png")" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+
+    @*<link rel="stylesheet" href="assets/plugins/iCheck/skins/all.css">*@
+    @Styles.Render("~/Content/kendoStyles")
+    @Styles.Render("~/Content/kendoPushNews")
+    @Styles.Render("~/Content/css")
+    @*@Styles.Render("~/Content/less")*@
+    @*<link rel="stylesheet" href="assets/css/print.css" type="text/css" media="print" />*@
+
+    @Scripts.Render("~/bundles/jQuery")
+    @RenderSection("styles", false)
+
+    @*<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/style.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/main-responsive.css">
+    <link rel="stylesheet" href="assets/plugins/iCheck/skins/all.css">
+    <link rel="stylesheet" href="assets/plugins/bootstrap-colorpalette/css/bootstrap-colorpalette.css">
+    <link rel="stylesheet" href="assets/plugins/perfect-scrollbar/src/perfect-scrollbar.css">
+    <link rel="stylesheet" href="assets/css/theme_light.css" type="text/css" id="skin_color">
+    <link rel="stylesheet" href="assets/css/print.css" type="text/css" media="print" />*@
+</head>
+<body class="login example2">
+    <div class="main-login col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
+        <div class="logo img-responsive" style="margin: 0 auto;">
+            <img width="400" src="@Url.Content("~/Content/Images/PushNewsLogo.png")" alt="@Txt.Comun.NombreAplicacion" />
+            <h2>@nombreAplicacion</h2>
+        </div>
+        @RenderBody()
+        <div class="copyright">
+            @DateTime.Now.Year @Html.Raw(Txt.Comun.Copyright)
+        </div>
+    </div>
+
+    <span id="notification" style="display:none;"></span>
+    @{Html.RenderPartial("PlantillasNotificaciones");}
+
+    @Scripts.Render("~/bundles/kendo")
+    @Scripts.Render("~/bundles/kendo/internationalization/" + culture)
+    @Scripts.Render("~/bundles/login")
+    @RenderSection("scripts", false)
+</body>
+</html>

@@ -1,0 +1,15 @@
+﻿@using PushNews.WebApp.Models.UI
+
+@model TelerikAjaxComboBox
+
+@(Html.Kendo().ComboBox()
+    .Name(Model.Name)
+    .Placeholder(Model.Placeholder)
+    .DataValueField(Model.DataValueField)
+    .DataTextField(Model.DataTextField)
+    .ValuePrimitive(Model.ValuePrimitive)
+    .HtmlAttributes(Model.HtmlAttributes)
+    .DataSource(ds => ds
+        .Read(Model.ReadAction, Model.ReadController)
+        .ServerFiltering(Model.ServerFiltering))
+)

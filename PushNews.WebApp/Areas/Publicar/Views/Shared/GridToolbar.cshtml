@@ -1,0 +1,87 @@
+﻿@using PushNews.WebApp.Models.UI;
+@using Txt = PushNews.WebApp.App_LocalResources
+
+@model GridToolbarModel
+
+<div class="toolbar">
+    <div class="row">
+        <div class="col-xs-2 col-sm-2">
+            @if (Model.Agregar)
+            {
+                <button type="button" class="btn btn-primary btAgregar deshabilitar-en-edicion">
+                    <i class="fa fa-plus"></i>
+                    <span class="hidden-xs">@Txt.Comun.Agregar</span>
+                </button>
+            }
+            
+            @if (Model.BotonesExtra != null && Model.BotonesExtra.Any())
+            {
+                <div class="btn-group hidden-xs hidden-sm" role="group">
+                    @foreach (var bt in Model.BotonesExtra)
+                    {
+                        <button class="@bt.ClaseBoton @bt.ClaseFuncion" data-toggle="tooltip" data-placement="top" title="@bt.Texto">
+                            <i class="@bt.Icono"></i>
+                        </button>
+                    }
+                </div>
+                <div class="btn-group hidden-md hidden-lg" role="group">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-gear"></i>
+                    </button>
+                    <ul class="dropdown-menu pull-left" role="menu" style="z-index:100000;">
+                        @foreach (var bt in Model.BotonesExtra)
+                        {
+                            <li class="@bt.ClaseFuncion">
+                                <a>
+                                    <i class="@bt.Icono"></i>
+                                    <span>@bt.Texto</span>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                }
+            </div>
+        <div class="col-xs-8 col-sm-6 col-sm-offset-1 col-md-4 col-md-offset-2">
+            @if (Model.Buscar)
+            {
+                <div class="input-group">
+                    <input type="text" class="form-control txtBuscar deshabilitar-en-edicion"
+                           data-campos-buscar="@Json.Encode(Model.CamposBuscar)"
+                           placeholder="@Model.PlaceHolderBuscar">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default btLimpiarBusqueda hidden deshabilitar-en-edicion" type="button">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <button class="btn btn-default btBuscar deshabilitar-en-edicion" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            }
+        </div>
+
+        <div class="col-xs-2 col-sm-2 col-sm-offset-1 col-md-offset-2">
+            @if(Model.OpcionesExportar != null && Model.OpcionesExportar.Any())
+            { 
+                <div class="btn-group pull-right" role="group">
+                    <button type="button" class="btn btn-verdeAlt dropdown-toggle deshabilitar-en-edicion"
+                            data-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-share"></i>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        @foreach(var bt in Model.OpcionesExportar)
+                        {
+                            <li class="@bt.ClaseFuncion">
+                                <a >
+                                    <i class="@bt.Icono"></i>
+                                    @bt.Texto
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+        </div>
+    </div>
+</div>

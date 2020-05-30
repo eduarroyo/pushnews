@@ -1,0 +1,261 @@
+﻿/*
+    @bgVerde: #93c13e;
+    @bgAzul: #DCEEFC;
+    @bgVerdeClaro: #93c13e;
+    @bgAzulClaro: #E4EEFA;
+    @bgAmarilloClaro: #FFFFDD;
+
+    @txtAlt: #FFFFFF;
+    @txtNaranja: #D86645;
+    @txtVerde: #6E7B35;
+    @txtAzulClaro: #65A7DB;
+    @txtAzulOscuro: #216596;
+
+    @tituloAzul: #fbb040;
+*/
+
+.k-tooltip-validation.k-invalid-msg {
+    right: 15px;
+}
+.k-tooltip-validation .k-callout {
+    display: none;
+}
+
+
+@media only screen and (max-device-width: 768px) and (orientation: landscape) {
+    .navbar-fixed-top {
+        position: relative;
+    }
+
+    .main-container {
+        margin-top: 0px;
+    }
+}
+
+.k-edit-form-container .form-group {
+    clear: both;
+}
+
+/******** Separar los botones de un formulario del pie de página *********/
+.formulario-edicion {
+    padding-bottom: 20px;
+}
+
+/******** Igualar el padding a izquierda y derecha de los toolbar de las grillas kendo **********
+.k-grid-toolbar {
+    /*padding-right: 1em;
+    padding-left: 1em;*
+}*/
+
+/******** Igualar el aspecto de los modales de kendo a los de bootstrap *******/
+
+.k-edit-buttons {
+    padding: 15px;
+    text-align: right;
+    border-top: 1px solid #e5e5e5;
+    background: #FFFFFF;
+    border-radius: 0 0 6px 6px;
+}
+
+.modal-footer {
+    background-color: #FFFFFF;
+}
+
+.campo-form.k-textbox,
+.campo-form.k-dropdown,
+.campo-form.k-datepicker,
+.campo-form.k-combobox,
+.campo-form.k-numerictextbox,
+.campo-form textarea {
+    width: 100%;
+}
+
+.progress-bar {
+    background-color: #93c13e;
+}
+
+/* Ocultamos el indicador de carga interno de los widgets de kendo. 
+    Siempre funciona el indicador global.*/
+.k-loading-mask {
+    display: none;
+}
+
+@media(min-width:768px) {
+    .navbar-right {
+        margin-right: 0px;
+    }
+}
+
+.navbar-brand {
+    height: auto;
+}
+
+.navbar-brand.logo {
+    padding-top: 10px !important;
+    padding-bottom: 7px !important;
+}
+
+.k-widget .border-box-sizing,
+.k-widget .border-box-sizing * {
+    box-sizing: border-box;
+}
+
+
+/* reset everything to the default box model */
+
+/**,
+:before,
+:after
+{
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}*/
+
+/* set a border-box model only to elements that need it */
+
+.form-control, /* if this class is applied to a Kendo UI widget, its layout may change */
+.container,
+.container-fluid,
+.row,
+.col-xs-1,
+.col-sm-1,
+.col-md-1,
+.col-lg-1,
+.col-xs-2,
+.col-sm-2,
+.col-md-2,
+.col-lg-2,
+.col-xs-3,
+.col-sm-3,
+.col-md-3,
+.col-lg-3,
+.col-xs-4,
+.col-sm-4,
+.col-md-4,
+.col-lg-4,
+.col-xs-5,
+.col-sm-5,
+.col-md-5,
+.col-lg-5,
+.col-xs-6,
+.col-sm-6,
+.col-md-6,
+.col-lg-6,
+.col-xs-7,
+.col-sm-7,
+.col-md-7,
+.col-lg-7,
+.col-xs-8,
+.col-sm-8,
+.col-md-8,
+.col-lg-8,
+.col-xs-9,
+.col-sm-9,
+.col-md-9,
+.col-lg-9,
+.col-xs-10,
+.col-sm-10,
+.col-md-10,
+.col-lg-10,
+.col-xs-11,
+.col-sm-11,
+.col-md-11,
+.col-lg-11,
+.col-xs-12,
+.col-sm-12,
+.col-md-12,
+.col-lg-12 {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*************************************************/
+/*        Ajustes para diálogos de kendo         */
+/*************************************************/
+
+/* Ancho automático del contenedor de los elementos del cuerpo. Si no, tiene ancho fijo.*/
+.k-edit-form-container {
+    width: auto;
+}
+
+/* Alinear botones a la derecha. Si al final no usamos los diálogos de kendo para nada, se podrá 
+    quitar.*/
+.botonera {
+    margin-bottom: 5px;
+    text-align: right;
+}
+
+/* Hacer el aspecto de la barra de título parecido al de bootstrap */
+.k-window-titlebar {
+    min-height: 16.42857143px;
+    padding: 15px 0px;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+
+/******* Para que se vean los dropdown de bootstrap dentro de las grillas de kendo *******/
+.k-grid td {
+    overflow: visible;
+}
+
+/*************************************************/
+/*        Ajustes para grillas de kendo          */
+/*************************************************/
+
+/* Evitar desbordamiento de las filas de las grillas kendo por la derecha. */
+.k-grid table {
+    table-layout: fixed;
+}
+
+/* Para que el borde inferior sea visible en Safari. */
+.k-numeric-wrap {
+    padding-bottom: 1px;
+}
+
+/* Para que la caja del multiselect crezca en vertical cuando los elementos seleccionados ocupan
+    más de una línea. */
+.k-multiselect {
+    height: auto;
+}
+
+
+.k-upload-files .k-filename {
+    color: #000;
+}
+
+
+.k-listview {
+    border-style: none;
+    background-color: transparent;
+}
+
+.k-dropzone em {
+    visibility: visible;
+}
+
+.nocolpadding {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.k-grouping-header, .k-grid-toolbar {
+    padding: .75em .97em .8333em 1em;
+}
+
+
+
+.navbar .container {
+    background-color: white;
+}
+
+.k-animation-container {
+    padding-left: 18px !important;
+}
+
+.panel .desplazar-kanimationcontainer .k-animation-container {
+    padding-top: 53px;
+}
