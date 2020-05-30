@@ -1,4 +1,4 @@
-﻿using AppceleratorPush;
+﻿using PushNews.AppceleratorPush;
 using PushNews.WebApp.Controllers;
 using PushNews.WebApp.Filters;
 using PushNews.WebApp.Helpers;

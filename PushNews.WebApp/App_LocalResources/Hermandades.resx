@@ -120,6 +120,9 @@
   <data name="Activo" xml:space="preserve">
     <value>Activa</value>
   </data>
+  <data name="ArtEntidad" xml:space="preserve">
+    <value>la hermandad</value>
+  </data>
   <data name="IglesiaDirección" xml:space="preserve">
     <value>Dirección</value>
   </data>

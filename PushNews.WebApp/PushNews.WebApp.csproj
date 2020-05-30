@@ -2431,6 +2431,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PushNews.AppceleratorPush\PushNews.AppceleratorPush.csproj">
+      <Project>{c3a78c88-653d-4194-9bd9-f3b75e710f5e}</Project>
+      <Name>PushNews.AppceleratorPush</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PushNews.Dominio\PushNews.Dominio.csproj">
       <Project>{f225c575-abd3-4e66-b713-f6062b3036bf}</Project>
       <Name>PushNews.Dominio</Name>

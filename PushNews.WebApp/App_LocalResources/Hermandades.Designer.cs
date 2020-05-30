@@ -70,6 +70,15 @@ namespace PushNews.WebApp.App_LocalResources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a la hermandad.
+        /// </summary>
+        public static string ArtEntidad {
+            get {
+                return ResourceManager.GetString("ArtEntidad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Dirección.
         /// </summary>
         public static string IglesiaDirección {
