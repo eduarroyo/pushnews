@@ -20,7 +20,7 @@ using System;
 using PushNews.Dominio;
 using PushNews.Dominio.Entidades;
 
-namespace PushNews.Security
+namespace PushNews.Seguridad
 {
     public class RoleStore : IPushNewsRoleProfileStore<Rol, Perfil, long>
     {

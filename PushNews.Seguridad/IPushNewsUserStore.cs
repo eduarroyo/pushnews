@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Microsoft.AspNet.Identity;
 using System.Threading.Tasks;
 
-namespace PushNews.Security
+namespace PushNews.Seguridad
 {
     public interface IPushNewsUserStore<TUser, TPerfil, TKey> :
         IUserRoleStore<TUser, TKey>,

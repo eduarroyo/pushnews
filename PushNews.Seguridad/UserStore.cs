@@ -25,7 +25,7 @@ using Claim = System.Security.Claims.Claim;
 using System.Data.Entity;
 using System.Diagnostics.CodeAnalysis;
 
-namespace PushNews.Security
+namespace PushNews.Seguridad
 {
     public class UserStore :
         IPushNewsUserStore<Usuario, Perfil, long>

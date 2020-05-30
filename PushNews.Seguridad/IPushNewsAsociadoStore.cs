@@ -1,7 +1,7 @@
 using Microsoft.AspNet.Identity;
 using System.Threading.Tasks;
 
-namespace PushNews.Security
+namespace PushNews.Seguridad
 {
     public interface IPushNewsAsociadoStore<TUser, TKey> :
         IUserPasswordStore<TUser, TKey>,

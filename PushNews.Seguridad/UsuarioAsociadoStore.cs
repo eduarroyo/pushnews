@@ -4,7 +4,7 @@ using System;
 using PushNews.Dominio;
 using PushNews.Dominio.Entidades;
 
-namespace PushNews.Security
+namespace PushNews.Seguridad
 {
     public class AsociadoStore :
         IPushNewsAsociadoStore<Asociado, long>

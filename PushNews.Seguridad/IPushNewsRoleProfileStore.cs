@@ -3,7 +3,7 @@ using Microsoft.AspNet.Identity;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace PushNews.Security
+namespace PushNews.Seguridad
 {
     public interface IPushNewsRoleProfileStore<TRol, TPerfil, TClave>: IQueryableRoleStore<TRol, TClave> where TRol : IRole<TClave>
     {
