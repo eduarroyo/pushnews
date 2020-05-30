@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace PushNews.Negocio.Excepciones
 {
     /// <summary>
-    /// Clase base para todas las excepciones de la capa de negocio de BandoApp.
+    /// Clase base para todas las excepciones de la capa de negocio de PushNews.
     /// Por el momento no se mantiene ninguna información asociada a la excepción. Cualquier dato
     /// asociado a los errores de dominio se puede almacenar en campos de esta clase de forma que 
     /// puedan ser escritos en el log de error de forma genérica.

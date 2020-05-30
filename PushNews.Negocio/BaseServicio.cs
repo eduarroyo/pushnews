@@ -13,7 +13,7 @@ namespace PushNews.Negocio
     /// Contiene las implementaciones comunes de los métodos de la interfaz IBaseServicio.
     /// Todos los métodos deben poder ser sobrescritos.
     /// </summary>
-    /// <typeparam name="TEntity">Clase del tipo de entidad del dominio de BandoApp.</typeparam>
+    /// <typeparam name="TEntity">Clase del tipo de entidad del dominio de PushNews.</typeparam>
     public abstract class BaseServicio<TEntity> : IBaseServicio<TEntity> where TEntity: class
     {
         protected readonly IPushNewsUnitOfWork unitOfWork;
