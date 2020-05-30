@@ -1,4 +1,4 @@
-﻿namespace BandoApp.Domain.Enums
+﻿namespace PushNews.Dominio.Enums
 {
     public enum DocumentoTipo
     {

@@ -1,4 +1,4 @@
-namespace BandoApp.Domain.Migrations
+namespace PushNews.Dominio.Migrations
 {
     using PushNews.Dominio;
     using PushNews.Dominio.Entidades;
@@ -278,19 +278,19 @@ namespace BandoApp.Domain.Migrations
                 new Parametro
                 {
                     Nombre = "RaizDocumentos",
-                    Valor = @"C:\AppBando\documentos",
-                    Descripcion = "Raíz de documentos de AppBando"
+                    Valor = @"C:\PushNews\documentos",
+                    Descripcion = "Raíz de documentos de PushNews"
                 },
                 //new Parametro
                 //{
                 //    Nombre = "AzureBlobContainer",
-                //    Valor = "appbando",
+                //    Valor = "pushnews",
                 //    Descripcion = "Nombre del contenedor del servicio de blobstorage para los documentos."
                 //},
                 //new Parametro
                 //{
                 //    Nombre = "AzureBlobAccountName",
-                //    Valor = "appbando",
+                //    Valor = "pushnews",
                 //    Descripcion = "Nombre de cuenta de acceso al blob storage de Azure"
                 //},
                 //new Parametro
@@ -391,11 +391,11 @@ namespace BandoApp.Domain.Migrations
 
         private IEnumerable<AplicacionCaracteristica> Caracteristicas()
         {
-            return ((IEnumerable<Enums.AplicacionCaracteristica>)Enum.GetValues(typeof(Enums.AplicacionCaracteristica)))
+            return ((IEnumerable<PushNews.Dominio.Enums.AplicacionCaracteristica>)Enum.GetValues(typeof(PushNews.Dominio.Enums.AplicacionCaracteristica)))
                 .Select(c => new AplicacionCaracteristica
                 {
                     AplicacionCaracteristicaID = (long) c,
-                    Nombre = Enum.GetName(typeof(Enums.AplicacionCaracteristica), c),
+                    Nombre = Enum.GetName(typeof(PushNews.Dominio.Enums.AplicacionCaracteristica), c),
                     Activo = true
                 })
                 .ToList();
@@ -429,7 +429,7 @@ namespace BandoApp.Domain.Migrations
             {
                 new Usuario()
                 {
-                    Email = "administrador@appbando.com",
+                    Email = "administrador@pushnews.com",
                     Clave = @"AHkDIVe+IWL4OkmhKrsS68f4iRlnlVcnKdv2Z8CxioCkz8WBpTBXowsGchdqDk/qJQ==",
                     MarcaSeguridad = @"26796fd7-dd47-4bd3-82e7-979253ec386a",
                     Activo = true,
@@ -442,7 +442,7 @@ namespace BandoApp.Domain.Migrations
                 },
                 new Usuario()
                 {
-                    Email = "editor1@appbando.com",
+                    Email = "editor1@pushnews.com",
                     Clave = @"AHkDIVe+IWL4OkmhKrsS68f4iRlnlVcnKdv2Z8CxioCkz8WBpTBXowsGchdqDk/qJQ==",
                     MarcaSeguridad = @"26796fd7-dd47-4bd3-82e7-979253ec386a",
                     Activo = true,
@@ -455,7 +455,7 @@ namespace BandoApp.Domain.Migrations
                 },
                 new Usuario()
                 {
-                    Email = "editor2@appbando.com",
+                    Email = "editor2@pushnews.com",
                     Clave = @"AHkDIVe+IWL4OkmhKrsS68f4iRlnlVcnKdv2Z8CxioCkz8WBpTBXowsGchdqDk/qJQ==",
                     MarcaSeguridad = @"26796fd7-dd47-4bd3-82e7-979253ec386a",
                     Activo = true,
@@ -471,8 +471,8 @@ namespace BandoApp.Domain.Migrations
 
         private IEnumerable<Categoria> Categorias(IEnumerable<Usuario> editores)
         {
-            Usuario editor1 = editores.Single(u => u.Email == "editor1@appbando.com");
-            Usuario editor2 = editores.Single(u => u.Email == "editor2@appbando.com");
+            Usuario editor1 = editores.Single(u => u.Email == "editor1@pushnews.com");
+            Usuario editor2 = editores.Single(u => u.Email == "editor2@pushnews.com");
 
             return new List<Categoria>
             {

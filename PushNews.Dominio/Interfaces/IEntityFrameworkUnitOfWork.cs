@@ -2,7 +2,7 @@
 using System.Data.Entity;
 using System.Threading.Tasks;
 
-namespace BandoApp.Domain.Interfaces
+namespace PushNews.Dominio.Interfaces
 {
     public interface IEntityFrameworkUnitOfWork: IUnitOfWork
     {

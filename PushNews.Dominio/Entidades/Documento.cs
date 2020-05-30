@@ -1,4 +1,4 @@
-﻿using BandoApp.Domain.Enums;
+﻿using PushNews.Dominio.Enums;
 using System;
 using System.Collections.Generic;
 

@@ -16,7 +16,7 @@
 //        }
 
 //        /// <summary>
-//        /// Identificador único del GPS en AppBando
+//        /// Identificador único del GPS en PushNews
 //        /// </summary>
 //        public long GpsID { get; set; }
 

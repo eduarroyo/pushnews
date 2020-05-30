@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace BandoApp.Domain.Interfaces
+namespace PushNews.Dominio.Interfaces
 {
     public interface IUnitOfWork: IDisposable
     {

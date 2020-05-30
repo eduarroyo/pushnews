@@ -1,4 +1,4 @@
-namespace BandoApp.Domain.Migrations
+namespace PushNews.Dominio.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;

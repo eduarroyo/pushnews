@@ -1,5 +1,5 @@
 ﻿using PushNews.Dominio.Entidades;
-using BandoApp.Domain.Interfaces;
+using PushNews.Dominio.Interfaces;
 using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
