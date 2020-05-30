@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PushNews.WebService", "Push
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PushNews.WebApp", "PushNews.WebApp\PushNews.WebApp.csproj", "{E5365273-9506-4768-8EB1-854781973463}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PushNews.Util", "PushNews.Util", "{D7C7A1C0-CE90-4985-9274-9D7A66140BC9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
