@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E3990BDE-FAA2-40E0-AAB1-0DBE567F7B99}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PushNews.Negocio</RootNamespace>
+    <AssemblyName>PushNews.Negocio</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Device" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AplicacionesCaracteristicasServicio.cs" />
+    <Compile Include="AplicacionesServicio.cs" />
+    <Compile Include="AsociadosServicio.cs" />
+    <Compile Include="BaseServicio.cs" />
+    <Compile Include="CategoriasServicio.cs" />
+    <Compile Include="ComunicacionesAccesosServicios.cs" />
+    <Compile Include="ComunicacionesServicio.cs" />
+    <Compile Include="DocumentosServicio.cs" />
+    <Compile Include="EmpresasServicio.cs" />
+    <Compile Include="Excepciones\AplicacionesCaracteristicas\AplicacionCaracteristicaExisteException.cs" />
+    <Compile Include="Excepciones\Aplicaciones\AplicacionExisteException.cs" />
+    <Compile Include="Excepciones\Aplicaciones\SubdominioExisteException.cs" />
+    <Compile Include="Excepciones\Asociados\AsociadoExisteException.cs" />
+    <Compile Include="Excepciones\PushNewsException.cs" />
+    <Compile Include="Excepciones\Categorias\CategoriaExisteException.cs" />
+    <Compile Include="Excepciones\Comunicaciones\ComunicacionNoEncontradaException.cs" />
+    <Compile Include="Excepciones\Gpss\GpsApiIDExisteException.cs" />
+    <Compile Include="Excepciones\Gpss\GpsMatriculaExisteException.cs" />
+    <Compile Include="Excepciones\Mensajes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Mensajes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Excepciones\Parametros\AplicacionExisteException.cs" />
+    <Compile Include="Excepciones\Rutas\RutaNoExisteException.cs" />
+    <Compile Include="GpsPosicionesServicio.cs" />
+    <Compile Include="GpssServicio.cs" />
+    <Compile Include="HermandadesServicio.cs" />
+    <Compile Include="Interfaces\IAplicacionesCaracteristicasServicio.cs" />
+    <Compile Include="Interfaces\IAplicacionesServicio.cs" />
+    <Compile Include="Interfaces\IAsociadosServicio.cs" />
+    <Compile Include="Interfaces\IBaseServicio.cs" />
+    <Compile Include="Interfaces\ICategoriaServicio.cs" />
+    <Compile Include="Interfaces\IComunicacionesAccesosServicio.cs" />
+    <Compile Include="Interfaces\IComunicacionesServicio.cs" />
+    <Compile Include="Interfaces\IDocumentosServicio.cs" />
+    <Compile Include="Interfaces\IEmpresasServicio.cs" />
+    <Compile Include="Interfaces\IGpssServicio.cs" />
+    <Compile Include="Interfaces\IHermandadesServicio.cs" />
+    <Compile Include="Interfaces\ILocalizacionesServicio.cs" />
+    <Compile Include="Interfaces\IParametrosServicio.cs" />
+    <Compile Include="Interfaces\IPosicionesServicio.cs" />
+    <Compile Include="Interfaces\IRutasServicio.cs" />
+    <Compile Include="Interfaces\IServiciosFactoria.cs" />
+    <Compile Include="Interfaces\ITelefonosServicio.cs" />
+    <Compile Include="Interfaces\ITerminalesServicio.cs" />
+    <Compile Include="Interfaces\IUsuariosServicio.cs" />
+    <Compile Include="LocalizacionesServicio.cs" />
+    <Compile Include="ParametrosServicio.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RutasServicio.cs" />
+    <Compile Include="ServiciosFactoria.cs" />
+    <Compile Include="TelefonosServicio.cs" />
+    <Compile Include="TerminalesServicio.cs" />
+    <Compile Include="UsuariosServicio.cs" />
+    <Compile Include="Util.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Excepciones\Mensajes.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Mensajes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PushNews.Dominio\PushNews.Dominio.csproj">
+      <Project>{f225c575-abd3-4e66-b713-f6062b3036bf}</Project>
+      <Name>PushNews.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PushNews.Seguridad\PushNews.Seguridad.csproj">
+      <Project>{1aa4f44a-8118-40f9-9b92-f712761d8c6e}</Project>
+      <Name>PushNews.Seguridad</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
