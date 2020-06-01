@@ -2431,10 +2431,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PushNews.AppceleratorPush\PushNews.AppceleratorPush.csproj">
-      <Project>{c3a78c88-653d-4194-9bd9-f3b75e710f5e}</Project>
-      <Name>PushNews.AppceleratorPush</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PushNews.Dominio\PushNews.Dominio.csproj">
       <Project>{f225c575-abd3-4e66-b713-f6062b3036bf}</Project>
       <Name>PushNews.Dominio</Name>
@@ -2442,6 +2438,10 @@
     <ProjectReference Include="..\PushNews.Negocio\PushNews.Negocio.csproj">
       <Project>{e3990bde-faa2-40e0-aab1-0dbe567f7b99}</Project>
       <Name>PushNews.Negocio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PushNews.PushMsg\PushNews.AppceleratorPush\PushNews.AppceleratorPush.csproj">
+      <Project>{c3a78c88-653d-4194-9bd9-f3b75e710f5e}</Project>
+      <Name>PushNews.AppceleratorPush</Name>
     </ProjectReference>
     <ProjectReference Include="..\PushNews.Seguridad\PushNews.Seguridad.csproj">
       <Project>{1aa4f44a-8118-40f9-9b92-f712761d8c6e}</Project>

@@ -13,11 +13,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PushNews.WebService", "Push
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PushNews.WebApp", "PushNews.WebApp\PushNews.WebApp.csproj", "{E5365273-9506-4768-8EB1-854781973463}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PushNews.Util", "PushNews.Util", "{D7C7A1C0-CE90-4985-9274-9D7A66140BC9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PushNews.PushMsg", "PushNews.PushMsg", "{D7C7A1C0-CE90-4985-9274-9D7A66140BC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PushNews.AppceleratorPush", "PushNews.AppceleratorPush\PushNews.AppceleratorPush.csproj", "{C3A78C88-653D-4194-9BD9-F3B75E710F5E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PushNews.AppceleratorPush", "PushNews.PushMsg\PushNews.AppceleratorPush\PushNews.AppceleratorPush.csproj", "{C3A78C88-653D-4194-9BD9-F3B75E710F5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PushNews.PublicadorPush", "PushNews.PublicadorPush\PushNews.PublicadorPush.csproj", "{832FCAA5-4F8B-4331-9B75-3856700FD7DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PushNews.PublicadorPush", "PushNews.PushMsg\PushNews.PublicadorPush\PushNews.PublicadorPush.csproj", "{832FCAA5-4F8B-4331-9B75-3856700FD7DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PushNews.Pasarelas", "PushNews.Pasarelas", "{D43181AF-E152-4292-BBAD-2765005E6B57}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

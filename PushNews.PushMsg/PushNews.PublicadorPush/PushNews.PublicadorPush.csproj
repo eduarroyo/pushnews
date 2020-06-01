@@ -99,12 +99,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PushNews.AppceleratorPush\PushNews.AppceleratorPush.csproj">
-      <Project>{c3a78c88-653d-4194-9bd9-f3b75e710f5e}</Project>
-      <Name>PushNews.AppceleratorPush</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="PushNewsModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>PushNewsModel.edmx</DependentUpon>
@@ -118,6 +112,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PushNews.AppceleratorPush\PushNews.AppceleratorPush.csproj">
+      <Project>{c3a78c88-653d-4194-9bd9-f3b75e710f5e}</Project>
+      <Name>PushNews.AppceleratorPush</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
