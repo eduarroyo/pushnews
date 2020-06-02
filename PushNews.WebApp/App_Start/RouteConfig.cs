@@ -9,7 +9,6 @@ namespace PushNews.WebApp
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-
             routes.MapRoute(
                 name: "DetalleCategoria",
                 url: "{id}",

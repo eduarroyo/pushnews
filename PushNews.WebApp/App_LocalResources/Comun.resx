@@ -163,7 +163,7 @@
     <value>¿Desea continuar?</value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>&amp;copy; AppBando - Tecnologias de movilidad</value>
+    <value>&amp;copy; PushNews</value>
   </data>
   <data name="Descargar" xml:space="preserve">
     <value>Descargar</value>
@@ -199,7 +199,7 @@
     <value>No</value>
   </data>
   <data name="NombreAplicacion" xml:space="preserve">
-    <value>AppBando</value>
+    <value>PushNews</value>
   </data>
   <data name="Recargar" xml:space="preserve">
     <value>Recargar</value>

@@ -73,8 +73,8 @@ namespace PushNews.WebApp.Filters
                 {
                     // Si se está accediendo con el subdominio genérico, no se puede dar acceso a la parte
                     // pública (webapp). Salvo que se solicite una url de la parte privada (backend) cuya
-                    // ruta local empieza por "/Publicar", redirigirá a la web comercial.
-                    if (!url.LocalPath.StartsWith("/Publicar"))
+                    // ruta local empieza por "/backend", redirigirá a la web comercial.
+                    if (!url.LocalPath.StartsWith("/backend"))
                     {
                         log.Info($"Solicitud a subdominio genérico fuera del backend. Redirigir a la web comercial. Url de la solicitud: {url.ToString()}");
                         filterContext.Result = new RedirectResult("http://www.pushnews.com");

@@ -259,7 +259,7 @@ namespace PushNews.WebApp.App_LocalResources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Restablecer clave de AppBando.
+        ///   Busca una cadena traducida similar a Restablecer clave de PushNews.
         /// </summary>
         public static string RestablecerClaveEmailAsunto {
             get {
@@ -286,7 +286,7 @@ namespace PushNews.WebApp.App_LocalResources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a BandoApp - Inicio de sesión.
+        ///   Busca una cadena traducida similar a PushNews - Inicio de sesión.
         /// </summary>
         public static string Titulo {
             get {
@@ -295,7 +295,7 @@ namespace PushNews.WebApp.App_LocalResources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Bienvenido a BandoApp.
+        ///   Busca una cadena traducida similar a Bienvenido a PushNews.
         /// </summary>
         public static string TituloPanel {
             get {

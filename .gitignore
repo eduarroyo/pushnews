@@ -22,3 +22,14 @@
 /PushNews.PushMsg/PushNews.AppceleratorPush/obj/Debug
 /PushNews.PushMsg/PushNews.PublicadorPush/bin/Debug
 /PushNews.PushMsg/PushNews.PublicadorPush/obj/Debug
+/PushNews.Negocio/bin/Release
+/PushNews.Negocio/obj/Release
+/PushNews.PushMsg/PushNews.AppceleratorPush/bin/Release
+/PushNews.PushMsg/PushNews.AppceleratorPush/obj/Release
+/PushNews.PushMsg/PushNews.PublicadorPush/obj/Release
+/PushNews.Seguridad/bin/Release
+/PushNews.Seguridad/obj/Release
+/PushNews.WebApp/obj/Release
+/PushNews.WebService/App_Data/logs
+/PushNews.WebService/App_Data/logsAsociados
+/PushNews.WebService/obj/Release

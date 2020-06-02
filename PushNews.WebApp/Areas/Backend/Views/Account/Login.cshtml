@@ -1,0 +1,55 @@
+﻿@using Txt = PushNews.WebApp.App_LocalResources
+@using PushNews.WebApp.Models.Account
+@using PushNews.WebApp.Areas.Backend.Models.Account
+
+@model LoginViewModel
+
+@{  Layout = "~/Areas/Backend/Views/Account/_Layout.cshtml"; }
+
+<div class="box-login">
+	<h3>@Txt.Account.IniciarSesion</h3>
+	@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl },
+			FormMethod.Post, new { role = "form" }))
+	{
+		@Html.AntiForgeryToken()
+		<fieldset>
+			<div class="form-group form-actions">
+				<span class="input-icon">
+					@Html.TextBoxFor(m => m.Usuario, new { @class = "form-control" })
+					<i class="fa fa-user"></i>
+				</span>
+			</div>
+			<div class="form-group form-actions">
+				<span class="input-icon">
+					@Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+					<i class="fa fa-lock"></i>
+					<a class="forgot" href="#">
+						@Txt.Account.OlvidoClave
+					</a>
+				</span>
+			</div>
+			<div class="form-group form-actions">
+				<label class="">
+					@Html.CheckBoxFor(m => m.RememberMe, new { @class = "remember" })
+					@Txt.Account.Recordar
+				</label>
+				<button type="submit" class="btn btn-bricky pull-right">
+					@Txt.Account.IniciarSesion <i class="fa fa-arrow-circle-right"></i>
+				</button>
+			</div>
+		</fieldset>
+	}
+</div>
+
+<div class="box-forgot">
+	@{ Html.RenderPartial("RecuperarClave", new RecuperarClaveModel()); }
+</div>
+
+@section scripts 
+{
+	<script>
+		jQuery(document).ready(function() {
+			Login.init();
+		});
+	</script>
+}

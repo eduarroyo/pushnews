@@ -1,0 +1,198 @@
+﻿@using PushNews.WebApp.Areas.Backend.Models.UI
+@using Txt = PushNews.WebApp.App_LocalResources
+@using PushNews.WebApp.Models.UI
+
+@{
+    bool permisoModificar = User.IsInRole("ModificarRutas");
+    bool permisoExportar = User.IsInRole("ExportarRutas");
+    bool permisoAgregar = User.IsInRole("CrearRutas");
+    bool permisoEliminar = User.IsInRole("EliminarRutas");
+
+    var modeloCabecera = new CabeceraModel()
+    {
+        Icono = "clip-settings",
+        BCSeccion = Txt.Secciones.Comunicaciones,
+        BCModulo = Txt.Secciones.Rutas,
+        Titulo = Txt.Secciones.Rutas,
+        Subtitulo = Txt.Rutas.Subtitulo,
+        UrlSeccion = "#/rutas",
+        Recargar = true
+    };
+
+    var modeloHerramientasInline = new HerramientasInlineModel(
+        permisoModificar, permisoEliminar);
+
+    BotonGridModel[] opExportar = permisoExportar
+        ? new BotonGridModel[]
+        {
+            new BotonGridModel(Txt.Comun.Exportar, "fa fa-file-excel-o", "btExportar" ),
+            //new BotonGridModel(Txt.Comun.Exportar, "fa fa-file-pdf-o", "btExportarPdf"),
+            //new BotonGridModel(Txt.Comun.Imprimir, "fa fa-print", "btImprimir" )
+        }
+        : new BotonGridModel[0];
+
+    var modeloToolbar = new GridToolbarModel(opExportar,
+        new[] { "Hermandad", "Descripcion" }, Txt.Rutas.Buscar, permisoAgregar);
+
+    string textosJson = Json.Encode(
+       new
+       {
+           confirmacionEliminarCuerpo = Txt.Rutas.ConfirmacionEliminar,
+           confirmacionNavegacion = Txt.Comun.ConfirmarNavegacion
+       });
+
+    ViewBag.OpcionesCoordenadas = Json.Encode(new
+    {
+        latitudInicial = 37.884460,
+        longitudInicial = -4.779553,
+        zoom = 14,
+        tipoMapa = "G_NORMAL_MAP",
+        animacionMarcador = "DROP",
+        permitirArrastrarMarcador = true
+    });
+
+    ViewBag.TextosCoordenadas = Json.Encode(new
+    {
+        contenedorNoEncontrado = Txt.Coordenadas.ContenedorNoEncontrado,
+        capaMapaNoEncontrada = Txt.Coordenadas.CapaMapaNoEncontrada,
+        geocodingSinResultado = Txt.Coordenadas.GeocodingSinResultado,
+        errorGeocoding = Txt.Coordenadas.ErrorGeocoding,
+        geocodingInversoSinResultado = Txt.Coordenadas.GeocodingInversoSinResultado,
+        errorGeocodingInverso = Txt.Coordenadas.ErrorGeocodingInverso,
+        titulo = Txt.Coordenadas.Titulo
+    });
+}
+
+@{Html.RenderPartial("cabeceraModulo", modeloCabecera);}
+@{Html.RenderPartial("DialogoConfirmacion", new DialogoConfirmacionModel
+    { ModalID = "DialogoConfirmacion", Titulo = @Txt.Comun.ConfirmarEliminacion });}
+@{Html.RenderPartial("DialogoSeleccionCoordenadas");}
+
+<div class="row">
+    <div class="col-xs-12">
+        @{ Html.RenderPartial("FormRutas"); }
+        <div class="contenedor-modulo" data-textos="@textosJson">
+            @(Html.Kendo().Grid<PushNews.WebApp.Models.Rutas.RutaModel>()
+                .Columns(columns =>
+                {
+                    columns.ForeignKey(c => c.HermandadID, (IEnumerable<SelectListItem>)ViewBag.Hermandades, "Value", "Text")
+                        .Width(250);
+                    columns.Bound(c => c.Descripcion)
+                        .Width(300);
+                    columns.Bound(c => c.InicioDescripcion)
+                        .Width(300)
+                        .ClientTemplate(
+                            @"#if(InicioLatitud !== null && InicioLongitud !== null) {#
+                                <a target='_blank' href='#= '" + ViewBag.UrlMapas + @"'.replace('{latitud}', InicioLatitud.toFixed(6)).replace('{longitud}', InicioLongitud.toFixed(6)) #'
+                                    title='#= InicioLatitud #, #= InicioLongitud #'>
+                                    #if(InicioDescripcion && InicioDescripcion.length) {#
+                                        #= InicioDescripcion #
+                                    #} else {#
+                                        #= InicioLatitud #, #= InicioLongitud #
+                                    #}#
+                                </a>
+                            #} else {#
+                                #=InicioDescripcion#
+                            #}#");
+                    columns.Bound(c => c.InicioFecha)
+                        .Width(200)
+                        .HtmlAttributes(new { @class = "celda-centrada" })
+                        .Format("{0:dd/MM/yyyy HH:mm}");
+                    columns.Bound(c => c.EntradaEnCarreraOficial)
+                        .Width(300)
+                        .ClientTemplate(
+                            @"#if(EntradaEnCarreraOficialLatitud !== null && EntradaEnCarreraOficialLongitud !== null) {#
+                                <a target='_blank' href='#= '" + ViewBag.UrlMapas + @"'.replace('{latitud}', EntradaEnCarreraOficialLatitud.toFixed(6)).replace('{longitud}', EntradaEnCarreraOficialLongitud.toFixed(6)) #'
+                                    title='#= EntradaEnCarreraOficialLatitud #, #= EntradaEnCarreraOficialLongitud #'>
+                                    #if(EntradaEnCarreraOficial && EntradaEnCarreraOficial.length) {#
+                                        #= EntradaEnCarreraOficial #
+                                    #} else {#
+                                        #= EntradaEnCarreraOficialLatitud #, #= EntradaEnCarreraOficialLongitud #
+                                    #}#
+                                </a>
+                            #} else {#
+                                #=EntradaEnCarreraOficial#
+                            #}#");
+                    columns.Bound(c => c.FinDescripcion)
+                        .Width(300)
+                        .ClientTemplate(
+                        @"#if(FinLatitud !== null && FinLongitud !== null) {#
+                            <a target='_blank' href='#= '" + ViewBag.UrlMapas + @"'.replace('{latitud}', FinLatitud.toFixed(6)).replace('{longitud}', FinLongitud.toFixed(6)) #'
+                                title='#= FinLatitud #, #= FinLongitud #'>
+                                #if(FinDescripcion && FinDescripcion.length) {#
+                                    #= FinDescripcion #
+                                #} else {#
+                                    #= FinLatitud #, #= FinLongitud #
+                                #}#
+                            </a>
+                        #} else {#
+                            #=FinDescripcion#
+                        #}#");
+                    columns.Bound(c => c.FinFecha)
+                        .Width(200)
+                        .HtmlAttributes(new { @class = "celda-centrada" })
+                        .Format("{0:dd/MM/yyyy HH:mm}");
+                    columns.ForeignKey(c => c.GpsCabezaID, (IEnumerable<SelectListItem>)ViewBag.Gpss, "Value", "Text").Width(200);
+                    columns.Bound(c => c.CabezaUltimaPosicionDireccion)
+                        .Width(300)
+                        .ClientTemplate(
+                            @"#if(CabezaUltimaPosicionLatitud !== null && CabezaUltimaPosicionLongitud !== null) {#
+                                <a target='_blank' href='#= '" + ViewBag.UrlMapas + @"'.replace('{latitud}', CabezaUltimaPosicionLatitud.toFixed(6)).replace('{longitud}', CabezaUltimaPosicionLongitud.toFixed(6)) #'
+                                    title='#= CabezaUltimaPosicionLatitud #, #= CabezaUltimaPosicionLongitud #'>
+                                    #if(CabezaUltimaPosicionDireccion && CabezaUltimaPosicionDireccion.length) {#
+                                        #= CabezaUltimaPosicionDireccion #
+                                    #} else {#
+                                        #= CabezaUltimaPosicionLatitud #, #= CabezaUltimaPosicionLongitud #
+                                    #}#
+                                </a>
+                            #} else {#
+                                #=CabezaUltimaPosicionDireccion#
+                            #}#");
+                    columns.Bound(c => c.CabezaUltimaPosicionFecha)
+                        .Width(200)
+                        .HtmlAttributes(new { @class = "celda-centrada" })
+                        .Format("{0:dd/MM/yyyy HH:mm}");
+                    columns.ForeignKey(c => c.GpsColaID, (IEnumerable<SelectListItem>)ViewBag.Gpss, "Value", "Text").Width(200);
+                    columns.Bound(c => c.ColaUltimaPosicionDireccion)
+                        .Width(300)
+                        .ClientTemplate(
+                        @"#if(ColaUltimaPosicionLatitud !== null && ColaUltimaPosicionLongitud !== null) {#
+                            <a target='_blank' href='#= '" + ViewBag.UrlMapas + @"'.replace('{latitud}', ColaUltimaPosicionLatitud.toFixed(6)).replace('{longitud}', ColaUltimaPosicionLongitud.toFixed(6)) #'
+                                title='#= ColaUltimaPosicionLatitud #, #= ColaUltimaPosicionLongitud #'>
+                                #if(ColaUltimaPosicionDireccion && ColaUltimaPosicionDireccion.length) {#
+                                    #= ColaUltimaPosicionDireccion #
+                                #} else {#
+                                    #= ColaUltimaPosicionLatitud #, #= ColaUltimaPosicionLongitud #
+                                #}#
+                            </a>
+                        #} else {#
+                            #=ColaUltimaPosicionDireccion#
+                        #}#");
+                    columns.Bound(c => c.ColaUltimaPosicionFecha)
+                        .Width(200)
+                        .HtmlAttributes(new { @class = "celda-centrada" })
+                        .Format("{0:dd/MM/yyyy HH:mm}");
+                    columns.Bound(c => c.CalculoDistancia)
+                        .Width(200)
+                        .Format("{0:N2}")
+                        .HtmlAttributes(new { @class = "celda-derecha" });
+                    columns.Bound(c => c.CalculoTiempo)
+                        .Width(200)
+                        .HtmlAttributes(new { @class = "celda-derecha" })
+                        .ClientTemplate("#=window.Util.formatearTimeSpan(CalculoTiempo)#");
+                    columns.Bound(c => c.CalculoVelocidad)
+                        .Width(200)
+                        .Format("{0:N2}")
+                        .HtmlAttributes(new { @class = "celda-derecha" });
+                    columns.Bound(c => c.RutaID).Title("").Filterable(false).Sortable(false)
+                        .Width(80)
+                        .EditorTemplateName("ComandosGrillaEditarEliminarEdit")
+                        .ClientTemplate(Html.Partial("ComandosGrillaEditarEliminarSinCompresion", modeloHerramientasInline).ToString());
+                })
+                .ToolBar(tb => tb.Template(Html.Partial("GridToolbar", modeloToolbar).ToString()))
+                .ConfigurarGrilla("RutasGrid", "Rutas", model => { model.Id(p => p.RutaID); })
+                .Scrollable(sc => sc.Height("auto"))
+            )
+        </div>
+    </div>
+</div>

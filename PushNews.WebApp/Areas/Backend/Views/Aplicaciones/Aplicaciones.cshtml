@@ -1,0 +1,92 @@
+﻿@using Txt = PushNews.WebApp.App_LocalResources
+@using PushNews.WebApp.Areas.Backend.Models.UI
+@using PushNews.WebApp.Models.UI
+
+@{
+    bool permisoAgregar = User.IsInRole("CrearAplicaciones");
+    bool permisoModificar = User.IsInRole("ModificarAplicaciones");
+    //bool permisoEliminar = User.IsInRole("EliminarAplicaciones");
+    bool permisoExportar = User.IsInRole("ExportarAplicaciones");
+
+    var modeloCabecera = new CabeceraModel()
+    {
+        Icono = "clip-settings",
+        BCSeccion = Txt.Secciones.Configuracion,
+        BCModulo = Txt.Secciones.Aplicaciones,
+        Titulo = Txt.Secciones.Aplicaciones,
+        Subtitulo = Txt.Aplicaciones.Subtitulo,
+        Recargar = true,
+    };
+
+    var modeloHerramientasInline = new HerramientasInlineModel(
+        permisoModificar, false);
+
+    if (permisoAgregar)
+    {
+        modeloHerramientasInline.BotonesExtra = new[]
+        {
+            new BotonGridModel(Txt.Aplicaciones.Clonar, "fa fa-clone", "btClonar", "btn btn-xs btn-taxiva")
+        };
+    }
+
+    BotonGridModel[] opExportar = permisoExportar
+        ? new BotonGridModel[]
+        {
+            new BotonGridModel(Txt.Comun.Exportar, "fa fa-file-excel-o", "btExportar" )
+        }
+        : new BotonGridModel[0];
+
+    var modeloToolbar = new GridToolbarModel(opExportar,
+        new[] { "Nombre", "SubDominio", "Usuario", "Clave" },
+        Txt.Aplicaciones.Buscar,
+        permisoAgregar);
+
+    string textosJson = Json.Encode(
+        new
+        {
+            confirmacionNavegacion = Txt.Comun.ConfirmarNavegacion,
+            confirmacionDesactivar = Txt.Aplicaciones.ConfirmacionDesactivar,
+            confirmacionActivar = Txt.Aplicaciones.ConfirmacionActivar
+        });
+}
+
+@{Html.RenderPartial("cabeceraModulo", modeloCabecera);}
+@{Html.RenderPartial("DialogoConfirmacion", new DialogoConfirmacionModel
+    { ModalID = "DialogoConfirmacion", Titulo = @Txt.Comun.ConfirmarEliminacion });}
+
+<div class="row">
+    <div class="col-xs-12">
+        @{Html.RenderPartial("FormAplicaciones");}
+        <div class="contenedor-modulo" data-textos="@textosJson">
+            @(Html.Kendo().Grid<PushNews.WebApp.Models.Aplicaciones.AplicacionGrid>()
+                .Columns(columns =>
+                {
+                    columns.Bound(c => c.Nombre);
+                    columns.Bound(c => c.SubDominio).MinScreenWidth(590);
+                    if (permisoModificar)
+                    {
+                        columns.Bound(c => c.Activo).Title(@Txt.Comun.Activo)
+                            .Width(80)
+                            .ClientTemplate(Html.Partial("ControlActivarDesactivar").ToString());
+                    }
+                    if (permisoModificar)
+                    {
+                        columns.Bound(c => c.AplicacionID)
+                            .Width(80)
+                            .Title("")
+                            .Filterable(false)
+                            .Sortable(false)
+                            .ClientTemplate(Html.Partial("ComandosGrillaEditarEliminar",
+                                            modeloHerramientasInline).ToString());
+                    }
+                })
+                .ToolBar(tb => tb.Template(Html.Partial("GridToolbar", modeloToolbar).ToString()))
+                .ConfigurarGrilla("AplicacionesGrid", "Aplicaciones", model =>
+                {
+                    model.Id(p => p.AplicacionID);
+                    model.Field(p => p.Activo).DefaultValue(true);
+                }, false)
+            )
+        </div>
+    </div>
+</div>

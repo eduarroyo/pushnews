@@ -3,7 +3,7 @@ using Microsoft.AspNet.Identity;
 using log4net;
 using System.Configuration;
 using System.Net.Mail;
-using PushNews.WebApp.Areas.Publicar.Models.PlantillasEmail;
+using PushNews.WebApp.Areas.Backend.Models.PlantillasEmail;
 using System.Text;
 using Txt = PushNews.WebApp.App_LocalResources;
 

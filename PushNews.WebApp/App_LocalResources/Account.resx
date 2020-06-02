@@ -184,7 +184,7 @@
     <value>Confirmación de restablecimiento de clave</value>
   </data>
   <data name="RestablecerClaveEmailAsunto" xml:space="preserve">
-    <value>Restablecer clave de AppBando</value>
+    <value>Restablecer clave de PushNews</value>
   </data>
   <data name="RestablecerClaveEmailCuerpo" xml:space="preserve">
     <value>Para restablecer la clave haga click &lt;a href="{0}"&gt;aquí&lt;/a&gt;</value>
@@ -193,10 +193,10 @@
     <value>La clave de usuario ha sido restablecida</value>
   </data>
   <data name="Titulo" xml:space="preserve">
-    <value>BandoApp - Inicio de sesión</value>
+    <value>PushNews - Inicio de sesión</value>
   </data>
   <data name="TituloPanel" xml:space="preserve">
-    <value>Bienvenido a BandoApp</value>
+    <value>Bienvenido a PushNews</value>
   </data>
   <data name="Usuario" xml:space="preserve">
     <value>Usuario</value>

@@ -196,7 +196,7 @@ namespace PushNews.WebApp.App_LocalResources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a &amp;copy; AppBando - Tecnologias de movilidad.
+        ///   Busca una cadena traducida similar a &amp;copy; PushNews.
         /// </summary>
         public static string Copyright {
             get {
@@ -304,7 +304,7 @@ namespace PushNews.WebApp.App_LocalResources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a AppBando.
+        ///   Busca una cadena traducida similar a PushNews.
         /// </summary>
         public static string NombreAplicacion {
             get {

@@ -32,7 +32,7 @@ namespace PushNews.WebApp.Helpers
 
         public static string UrlAdjuntoSinEnlazar(long documentoID)
         {
-            return $"Publicar/Adjuntos/AdjuntoSinEnlazar/{documentoID}";
+            return $"Backend/Adjuntos/AdjuntoSinEnlazar/{documentoID}";
         }
 
         public static string UrlImagen(long comunicacionID)
@@ -57,7 +57,7 @@ namespace PushNews.WebApp.Helpers
 
         public static string UrlImagenSinEnlazar(long documentoID)
         {
-            return $"Publicar/Adjuntos/ImagenSinEnlazar/{documentoID}";
+            return $"Backend/Adjuntos/ImagenSinEnlazar/{documentoID}";
         }
 
         public static string UrlLogotipo(long aplicacionID)

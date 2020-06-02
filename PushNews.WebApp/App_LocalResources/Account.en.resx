@@ -185,10 +185,10 @@
     <value>Password has been changed.</value>
   </data>
   <data name="Titulo" xml:space="preserve">
-    <value>BandoApp - Login</value>
+    <value>PushNews - Login</value>
   </data>
   <data name="TituloPanel" xml:space="preserve">
-    <value>Welcome to BandoApp</value>
+    <value>Welcome to PushNews</value>
   </data>
   <data name="Usuario" xml:space="preserve">
     <value>User</value>

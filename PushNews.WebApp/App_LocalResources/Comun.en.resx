@@ -157,7 +157,7 @@
     <value>Continue?</value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>&amp;copy; BandoApp {0}.</value>
+    <value>&amp;copy; PushNews {0}.</value>
   </data>
   <data name="Detalles" xml:space="preserve">
     <value>Details</value>
@@ -181,7 +181,7 @@
     <value>No</value>
   </data>
   <data name="NombreAplicacion" xml:space="preserve">
-    <value>BandoApp</value>
+    <value>PushNews</value>
   </data>
   <data name="Recargar" xml:space="preserve">
     <value>Reload</value>

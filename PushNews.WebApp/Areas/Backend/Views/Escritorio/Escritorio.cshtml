@@ -1,0 +1,135 @@
+﻿@using PushNews.Dominio.Entidades
+@using PushNews.WebApp.Models.Comunicaciones
+@using Txt = PushNews.WebApp.App_LocalResources
+@using PushNews.WebApp.Models.UI
+
+@{
+    var modeloCabecera = new CabeceraModel()
+    {
+        Icono = "clip-home-3",
+        BCSeccion = Txt.Secciones.Escritorio,
+        Titulo = Txt.Secciones.Escritorio,
+        Subtitulo = ""
+    };
+    Aplicacion app = (Aplicacion)@Session["Aplicacion"];
+
+    bool mostrarFormularioPublicar = app != null && User.IsInRole("CrearComunicaciones") && Session["Aplicacion"] != null;
+    bool mostrarUltimasComunicaciones = app != null && User.IsInRole("LeerComunicaciones");
+    bool mostrarEstadisticas = app != null/* && User.IsInRole("LeerEstadisticas")*/;
+}
+
+@{Html.RenderPartial("cabeceraModulo", modeloCabecera);}
+
+@{ 
+    string textosSeccionPublicar = Json.Encode(new
+    {
+        PublicacionGuardada = @Txt.Comunicaciones.ComunicacionGuardada,
+        ErrorSubirFichero = @Txt.Comunicaciones.ErrorSubirFichero
+    });
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10 no-padding">
+
+        @if (mostrarFormularioPublicar)
+        {
+            <div class="seccion-publicar" data-textos="@textosSeccionPublicar">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-plus"></i>
+
+                        <div class="panel-title">
+                            @Txt.Escritorio.NuevaComunicacion
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        @{ Html.RenderPartial("~/Areas/Backend/Views/Comunicaciones/FormComunicaciones.cshtml"); }
+                    </div>
+                </div>
+            </div>
+        }
+        </div>
+
+        <div class="columna-estadisticas col-lg-2 no-padding">
+
+            @if (mostrarEstadisticas)
+            {
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-database"></i>
+
+                        <div class="panel-title">
+                            @Txt.Escritorio.Estadisticas
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        @{ Html.RenderPartial("Estadisticas"); }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 no-padding">
+            @if (mostrarUltimasComunicaciones)
+            {
+                <div class="seccion-ultimas-comunicaciones">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-rss-square"></i>
+
+                            <div class="panel-title">
+                                @Txt.Escritorio.UltimasComunicaciones
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="lista-comunicaciones">
+
+                                @(Html.Kendo().Grid<ComunicacionGrid>()
+                                .Name("UltimasComunicaciones")
+                                .HtmlAttributes(new { @class = "light-grid" })
+                                .Columns(cc =>
+                                {
+                                    cc.Bound(c => c.Icono)
+                                        .MinScreenWidth(700)
+                                        .Width(25)
+                                        .ClientTemplate(@"<i title=""#=Categoria#"" class=""fa #= Icono #""></i>");
+                                    cc.Bound(c => c.Titulo).ClientTemplate(
+                                        @"<a href=""\#/comunicacion/#= ComunicacionID #"">
+                                                                # if(Titulo.length > 47) { #
+                                                                <span title=""#=Titulo#"">#= Titulo.substring(0, 47) #...</span>
+                                                                # } else { #
+                                                                    #= Titulo #
+                                                                # } #
+                                                            </a>");
+                                    cc.Bound(c => c.FechaPublicacion)
+                                        .MinScreenWidth(550)
+                                        .ClientTemplate(
+                                            @"<time class=""timeago"" datetime=""#= FechaPublicacion.toISOString() #"">
+                                                                    #= kendo.toString(FechaPublicacion, ""g"") #
+                                                                </time>").Width(120);
+                                    cc.Bound(c => c.Visualizaciones)
+                                        .MinScreenWidth(650)
+                                        .HtmlAttributes(new { @class = "celda-derecha" })
+                                        .Width(50);
+                                    cc.Bound(c => c.Categoria)
+                                        .HtmlAttributes(new { @class = "celda-derecha" })
+                                        .Width(100)
+                                        .ClientTemplate("<span class=\"label label-default\">#= Categoria #</span>");
+                                })
+                                .DataSource(dataSource => dataSource
+                                    .Ajax()
+                                    .PageSize(15)
+                                    .Model(m => m.Id("ComunicacionID"))
+                                    .Read(read => read.Action("ComunicacionesPublicadas", "Comunicaciones"))
+                                )
+                                )
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+﻿@using Txt = PushNews.WebApp.App_LocalResources
+@using PushNews.WebApp.Models.Localizaciones
+@model LocalizacionModel
+
+<div class="formulario-edicion">
+@using (Html.BeginForm("", "", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Activo, new { data_bind = "value: Activo" })
+    @Html.HiddenFor(m => m.LocalizacionID, new { data_bind = "value: LocalizacionID" })
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="form-group col-xs-12">
+                <div class="control-label">
+                    @Html.LabelFor(model => model.Descripcion)
+                </div>
+                @(Html.Kendo().TextBoxFor(model => model.Descripcion)
+                            .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value:Descripcion" })
+                )
+            </div>
+        </div>
+        <div class="row">
+            <div class="bloque-form bloque-form-1">
+                @{
+                    string opciones = Json.Encode(new
+                    {
+                        noIniciarMapa = true,
+                        latitudInicial = ViewBag.Latitud,
+                        longitudInicial = ViewBag.Longitud
+                    });
+                    string textos = Json.Encode(new
+                    {
+                        contenedorNoEncontrado = Txt.Comunicaciones.ContenedorNoEncontrado,
+                        capaMapaNoEncontrada = Txt.Comunicaciones.CapaMapaNoEncontrada,
+                        geocodingSinResultado = Txt.Comunicaciones.GeocodingSinResultado,
+                        errorGeocoding = Txt.Comunicaciones.ErrorGeocoding,
+                        geocodingInversoSinResultado = Txt.Comunicaciones.GeocodingInversoSinResultado,
+                        errorGeocodingInverso = Txt.Comunicaciones.ErrorGeocodingInverso
+                    });
+                }
+                <div id="contenedorCoordenadas" data-opciones="@opciones" data-textos="@textos">
+                    @{Html.RenderPartial("~/Areas/Backend/Views/Shared/EntradaCoordenadas.cshtml");}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12">
+        <div class="botonera">
+            <button class="btn btn-default btCancelar">
+                <i class="fa fa-ban"></i>
+                @Txt.Comun.Cancelar
+            </button>
+            <button class="btn btn-primary btGuardar">
+                <i class="fa fa-check"></i>
+                @Txt.Comun.Guardar
+            </button>
+        </div>
+    </div>
+}
+</div>                

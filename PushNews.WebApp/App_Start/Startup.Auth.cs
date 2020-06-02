@@ -49,7 +49,7 @@ namespace PushNews.WebApp
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString(value: "/Publicar/Account/Login"),
+                LoginPath = new PathString(value: "/Backend/Account/Login"),
                 Provider = new CookieAuthenticationProvider
                 {
                     OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, Usuario, long>(

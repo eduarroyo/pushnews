@@ -1,0 +1,45 @@
+﻿@using Txt = PushNews.WebApp.App_LocalResources
+@using PushNews.WebApp.Models.UI
+    
+@{
+    bool permisoModificar = User.IsInRole("ModificarComunicaciones");
+    bool permisoExportar = User.IsInRole("ExportarComunicaciones");
+    bool permisoAgregar = User.IsInRole("CrearComunicaciones");
+    bool permisoEliminar = User.IsInRole("EliminarComunicaciones");
+
+
+    IEnumerable<BotonGridModel> botonesExtra = null;
+    if (ViewBag.CaracteristicaAsociados)
+    {
+        botonesExtra = new List<BotonGridModel>
+        {
+            new BotonGridModel(Txt.Escritorio.Estadisticas, "fa fa-bar-chart", "btEstadisticas", "btn btn-default")
+        };
+    }
+
+    var modeloCabecera = new CabeceraModel()
+    {
+        Icono = "clip-settings",
+        BCSeccion = Txt.Secciones.Comunicaciones,
+        BCModulo = "",
+        Titulo = Txt.Secciones.Comunicaciones,
+        Subtitulo = "",
+        Recargar = true,
+        BotonesExtra = botonesExtra
+    };
+
+    string textos = Json.Encode(new
+    {
+        ErrorCargarNotificacion = Txt.Comunicaciones.ErrorCargarNotificacion
+    });
+}
+
+@{Html.RenderPartial("~/Areas/Backend/Views/Shared/cabeceraModulo.cshtml", modeloCabecera);}
+@if (ViewBag.CaracteristicaAsociados)
+{
+    Html.RenderPartial("~/Areas/Backend/Views/Asociados/DialogoEstadisticasAsociados.cshtml");
+}
+
+<div id="detalleComunicacion" data-id="@ViewBag.ComunicacionID" data-textos="@textos">
+    @{ Html.RenderPartial("~/Views/Home/DetalleComunicacion.cshtml");}
+</div>
