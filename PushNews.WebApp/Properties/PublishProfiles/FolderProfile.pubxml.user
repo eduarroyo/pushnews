@@ -16,260 +16,512 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Areas/AppWebViews/Views/web.config">
       <publishTime>05/30/2020 17:15:28</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Account/CambiarClave.cshtml">
+    <File Include="Areas/Backend/Views/Account/CambiarClave.cshtml">
       <publishTime>05/30/2020 17:15:31</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Account/ConfirmEmail.cshtml">
+    <File Include="Areas/Backend/Views/Account/ConfirmEmail.cshtml">
       <publishTime>05/30/2020 17:15:31</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Account/ForgotPassword.cshtml">
+    <File Include="Areas/Backend/Views/Account/ForgotPassword.cshtml">
       <publishTime>05/30/2020 17:15:30</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Account/ForgotPasswordConfirmation.cshtml">
+    <File Include="Areas/Backend/Views/Account/ForgotPasswordConfirmation.cshtml">
       <publishTime>05/30/2020 17:15:30</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Account/Login.cshtml">
+    <File Include="Areas/Backend/Views/Account/Login.cshtml">
+      <publishTime>01/06/2020 18:24:20</publishTime>
+    </File>
+    <File Include="Areas/Backend/Views/Account/RecuperarClave.cshtml">
+      <publishTime>02/06/2020 13:36:31</publishTime>
+    </File>
+    <File Include="Areas/Backend/Views/Account/Register.cshtml">
       <publishTime>05/30/2020 17:15:29</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Account/RecuperarClave.cshtml">
-      <publishTime>05/30/2020 17:15:29</publishTime>
+    <File Include="Areas/Backend/Views/Account/ResetPassword.cshtml">
+      <publishTime>01/06/2020 18:24:20</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Account/Register.cshtml">
-      <publishTime>05/30/2020 17:15:29</publishTime>
+    <File Include="Areas/Backend/Views/Account/ResetPasswordConfirmation.cshtml">
+      <publishTime>01/06/2020 18:24:58</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Account/ResetPassword.cshtml">
-      <publishTime>05/30/2020 17:15:29</publishTime>
-    </File>
-    <File Include="Areas/Publicar/Views/Account/ResetPasswordConfirmation.cshtml">
-      <publishTime>05/30/2020 17:15:29</publishTime>
-    </File>
-    <File Include="Areas/Publicar/Views/Account/_Layout.cshtml">
+    <File Include="Areas/Backend/Views/Account/_Layout.cshtml">
       <publishTime>05/30/2020 17:19:11</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Aplicaciones/Aplicaciones.cshtml">
-      <publishTime>05/30/2020 17:15:31</publishTime>
+    <File Include="Areas/Backend/Views/Aplicaciones/Aplicaciones.cshtml">
+      <publishTime>01/06/2020 18:24:20</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Aplicaciones/FormAplicaciones.cshtml">
+    <File Include="Areas/Backend/Views/Aplicaciones/FormAplicaciones.cshtml">
       <publishTime>05/30/2020 17:15:30</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/AplicacionesCaracteristicas/AplicacionesCaracteristicas.cshtml">
+    <File Include="Areas/Backend/Views/AplicacionesCaracteristicas/AplicacionesCaracteristicas.cshtml">
+      <publishTime>01/06/2020 18:24:20</publishTime>
+    </File>
+    <File Include="Areas/Backend/Views/Asociados/Asociados.cshtml">
+      <publishTime>01/06/2020 18:24:20</publishTime>
+    </File>
+    <File Include="Areas/Backend/Views/Asociados/DialogoCambiarClave.cshtml">
       <publishTime>05/30/2020 17:15:31</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Asociados/Asociados.cshtml">
-      <publishTime>05/30/2020 17:15:31</publishTime>
+    <File Include="Areas/Backend/Views/Asociados/DialogoEstadisticasAsociados.cshtml">
+      <publishTime>01/06/2020 18:24:20</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Asociados/DialogoCambiarClave.cshtml">
-      <publishTime>05/30/2020 17:15:31</publishTime>
-    </File>
-    <File Include="Areas/Publicar/Views/Asociados/DialogoEstadisticasAsociados.cshtml">
-      <publishTime>05/30/2020 17:19:22</publishTime>
-    </File>
-    <File Include="Areas/Publicar/Views/Asociados/FormAsociados.cshtml">
+    <File Include="Areas/Backend/Views/Asociados/FormAsociados.cshtml">
       <publishTime>05/30/2020 17:15:30</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Categorias/Categorias.cshtml">
-      <publishTime>05/30/2020 17:19:29</publishTime>
+    <File Include="Areas/Backend/Views/BackendHome/Index.cshtml">
+      <publishTime>01/06/2020 18:24:20</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Categorias/FormCategorias.cshtml">
+    <File Include="Areas/Backend/Views/Categorias/Categorias.cshtml">
+      <publishTime>01/06/2020 18:24:20</publishTime>
+    </File>
+    <File Include="Areas/Backend/Views/Categorias/FormCategorias.cshtml">
       <publishTime>05/30/2020 17:15:30</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Comunicaciones/ComandosGrillaComunicaciones.cshtml">
+    <File Include="Areas/Backend/Views/Comunicaciones/ComandosGrillaComunicaciones.cshtml">
       <publishTime>05/30/2020 17:15:31</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Comunicaciones/ComunicacionDetalle.cshtml">
-      <publishTime>05/30/2020 17:15:31</publishTime>
+    <File Include="Areas/Backend/Views/Comunicaciones/ComunicacionDetalle.cshtml">
+      <publishTime>01/06/2020 18:24:20</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Comunicaciones/Comunicaciones.cshtml">
-      <publishTime>05/30/2020 17:19:35</publishTime>
+    <File Include="Areas/Backend/Views/Comunicaciones/Comunicaciones.cshtml">
+      <publishTime>01/06/2020 18:24:20</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Comunicaciones/ControlActivarDesactivarComunicaciones.cshtml">
+    <File Include="Areas/Backend/Views/Comunicaciones/ControlActivarDesactivarComunicaciones.cshtml">
       <publishTime>05/30/2020 17:14:21</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Comunicaciones/Editar.cshtml">
+    <File Include="Areas/Backend/Views/Comunicaciones/Editar.cshtml">
+      <publishTime>01/06/2020 18:24:20</publishTime>
+    </File>
+    <File Include="Areas/Backend/Views/Comunicaciones/FormComunicaciones.cshtml">
+      <publishTime>01/06/2020 18:24:20</publishTime>
+    </File>
+    <File Include="Areas/Backend/Views/Empresas/Empresas.cshtml">
+      <publishTime>01/06/2020 18:24:20</publishTime>
+    </File>
+    <File Include="Areas/Backend/Views/Empresas/FormEmpresas.cshtml">
       <publishTime>05/30/2020 17:15:30</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Comunicaciones/FormComunicaciones.cshtml">
-      <publishTime>05/30/2020 17:18:00</publishTime>
+    <File Include="Areas/Backend/Views/Escritorio/Escritorio.cshtml">
+      <publishTime>01/06/2020 18:24:20</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Empresas/Empresas.cshtml">
+    <File Include="Areas/Backend/Views/Escritorio/Estadisticas.cshtml">
       <publishTime>05/30/2020 17:15:30</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Empresas/FormEmpresas.cshtml">
+    <File Include="Areas/Backend/Views/Escritorio/FormPublicarRapido.cshtml">
       <publishTime>05/30/2020 17:15:30</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Escritorio/Escritorio.cshtml">
-      <publishTime>05/30/2020 17:15:54</publishTime>
-    </File>
-    <File Include="Areas/Publicar/Views/Escritorio/Estadisticas.cshtml">
+    <File Include="Areas/Backend/Views/Gpss/FormGpss - Copia.cshtml">
       <publishTime>05/30/2020 17:15:30</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Escritorio/FormPublicarRapido.cshtml">
+    <File Include="Areas/Backend/Views/Gpss/FormGpss.cshtml">
       <publishTime>05/30/2020 17:15:30</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Gpss/FormGpss - Copia.cshtml">
+    <File Include="Areas/Backend/Views/Gpss/Gpss - Copia.cshtml">
+      <publishTime>01/06/2020 18:24:20</publishTime>
+    </File>
+    <File Include="Areas/Backend/Views/Gpss/Gpss.cshtml">
+      <publishTime>01/06/2020 18:24:20</publishTime>
+    </File>
+    <File Include="Areas/Backend/Views/Hermandades/FormHermandades.cshtml">
       <publishTime>05/30/2020 17:15:30</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Gpss/FormGpss.cshtml">
-      <publishTime>05/30/2020 17:15:30</publishTime>
+    <File Include="Areas/Backend/Views/Hermandades/Hermandades.cshtml">
+      <publishTime>01/06/2020 18:24:20</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Gpss/Gpss - Copia.cshtml">
-      <publishTime>05/30/2020 17:15:30</publishTime>
+    <File Include="Areas/Backend/Views/Localizaciones/FormLocalizaciones.cshtml">
+      <publishTime>01/06/2020 18:24:20</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Gpss/Gpss.cshtml">
-      <publishTime>05/30/2020 17:15:30</publishTime>
+    <File Include="Areas/Backend/Views/Localizaciones/Localizaciones.cshtml">
+      <publishTime>01/06/2020 18:24:20</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Hermandades/FormHermandades.cshtml">
-      <publishTime>05/30/2020 17:15:30</publishTime>
-    </File>
-    <File Include="Areas/Publicar/Views/Hermandades/Hermandades.cshtml">
-      <publishTime>05/30/2020 17:15:30</publishTime>
-    </File>
-    <File Include="Areas/Publicar/Views/Localizaciones/FormLocalizaciones.cshtml">
-      <publishTime>05/30/2020 17:15:30</publishTime>
-    </File>
-    <File Include="Areas/Publicar/Views/Localizaciones/Localizaciones.cshtml">
-      <publishTime>05/30/2020 17:15:29</publishTime>
-    </File>
-    <File Include="Areas/Publicar/Views/Opciones/Cultura.cshtml">
+    <File Include="Areas/Backend/Views/Opciones/Cultura.cshtml">
       <publishTime>05/30/2020 17:15:31</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Opciones/Opciones.cshtml">
+    <File Include="Areas/Backend/Views/Opciones/Opciones.cshtml">
       <publishTime>05/30/2020 17:15:29</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Parametros/Parametros.cshtml">
-      <publishTime>05/30/2020 17:15:29</publishTime>
+    <File Include="Areas/Backend/Views/Parametros/Parametros.cshtml">
+      <publishTime>01/06/2020 18:24:20</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Perfiles/FormPerfil.cshtml">
+    <File Include="Areas/Backend/Views/Perfiles/FormPerfil.cshtml">
       <publishTime>05/30/2020 17:15:30</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Perfiles/Opciones.cshtml">
+    <File Include="Areas/Backend/Views/Perfiles/Opciones.cshtml">
       <publishTime>05/30/2020 17:15:29</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Perfiles/Perfil.cshtml">
+    <File Include="Areas/Backend/Views/Perfiles/Perfil.cshtml">
       <publishTime>05/30/2020 17:15:29</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/PlantillasEmail/RestablecerClave.cshtml">
-      <publishTime>05/30/2020 17:15:29</publishTime>
+    <File Include="Areas/Backend/Views/PlantillasEmail/RestablecerClave.cshtml">
+      <publishTime>01/06/2020 18:24:20</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/PlantillasEmail/_Layout.cshtml">
+    <File Include="Areas/Backend/Views/PlantillasEmail/_Layout.cshtml">
       <publishTime>05/30/2020 17:15:28</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/PublicarHome/Index.cshtml">
-      <publishTime>05/30/2020 17:14:21</publishTime>
-    </File>
-    <File Include="Areas/Publicar/Views/Rutas/FormRutas.cshtml">
+    <File Include="Areas/Backend/Views/Rutas/FormRutas.cshtml">
       <publishTime>05/30/2020 17:15:30</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Rutas/Rutas.cshtml">
-      <publishTime>05/30/2020 17:15:29</publishTime>
+    <File Include="Areas/Backend/Views/Rutas/Rutas.cshtml">
+      <publishTime>01/06/2020 18:24:20</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/cabeceraModulo.cshtml">
+    <File Include="Areas/Backend/Views/Shared/cabeceraModulo.cshtml">
       <publishTime>05/30/2020 17:15:31</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/ComandosGrillaEditarEliminar.cshtml">
+    <File Include="Areas/Backend/Views/Shared/ComandosGrillaEditarEliminar.cshtml">
       <publishTime>05/30/2020 17:15:31</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/ComandosGrillaEditarEliminarSinCompresion.cshtml">
+    <File Include="Areas/Backend/Views/Shared/ComandosGrillaEditarEliminarSinCompresion.cshtml">
       <publishTime>05/30/2020 17:15:31</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/ControlActivarDesactivar.cshtml">
+    <File Include="Areas/Backend/Views/Shared/ControlActivarDesactivar.cshtml">
       <publishTime>05/30/2020 17:14:21</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/DialogoConfirmacion.cshtml">
-      <publishTime>05/30/2020 17:15:31</publishTime>
+    <File Include="Areas/Backend/Views/Shared/DialogoConfirmacion.cshtml">
+      <publishTime>01/06/2020 18:14:32</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/DialogoSeleccionCoordenadas.cshtml">
+    <File Include="Areas/Backend/Views/Shared/DialogoSeleccionCoordenadas.cshtml">
       <publishTime>05/30/2020 17:15:30</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/ComandosGrillaEditarEliminarEdit.cshtml">
+    <File Include="Areas/Backend/Views/Shared/EditorTemplates/ComandosGrillaEditarEliminarEdit.cshtml">
       <publishTime>05/30/2020 17:15:31</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/Currency.cshtml">
+    <File Include="Areas/Backend/Views/Shared/EditorTemplates/Currency.cshtml">
       <publishTime>05/30/2020 17:14:21</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/Date.cshtml">
+    <File Include="Areas/Backend/Views/Shared/EditorTemplates/Date.cshtml">
       <publishTime>05/30/2020 17:14:21</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/DateTime.cshtml">
+    <File Include="Areas/Backend/Views/Shared/EditorTemplates/DateTime.cshtml">
       <publishTime>05/30/2020 17:14:21</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/Email.cshtml">
+    <File Include="Areas/Backend/Views/Shared/EditorTemplates/Email.cshtml">
       <publishTime>05/30/2020 17:14:21</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/EmailAddress.cshtml">
+    <File Include="Areas/Backend/Views/Shared/EditorTemplates/EmailAddress.cshtml">
       <publishTime>05/30/2020 17:14:21</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/GridForeignKey.cshtml">
+    <File Include="Areas/Backend/Views/Shared/EditorTemplates/GridForeignKey.cshtml">
       <publishTime>05/30/2020 17:14:21</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/Integer.cshtml">
+    <File Include="Areas/Backend/Views/Shared/EditorTemplates/Integer.cshtml">
       <publishTime>05/30/2020 17:14:21</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/Number.cshtml">
+    <File Include="Areas/Backend/Views/Shared/EditorTemplates/Number.cshtml">
       <publishTime>05/30/2020 17:14:21</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/Password.cshtml">
+    <File Include="Areas/Backend/Views/Shared/EditorTemplates/Password.cshtml">
       <publishTime>05/30/2020 17:14:21</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/PlantillaVacia.cshtml">
+    <File Include="Areas/Backend/Views/Shared/EditorTemplates/PlantillaVacia.cshtml">
       <publishTime>05/30/2020 17:14:21</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/String.cshtml">
+    <File Include="Areas/Backend/Views/Shared/EditorTemplates/String.cshtml">
       <publishTime>05/30/2020 17:14:21</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/TelerikAjaxComboBox.cshtml">
+    <File Include="Areas/Backend/Views/Shared/EditorTemplates/TelerikAjaxComboBox.cshtml">
       <publishTime>05/30/2020 17:15:29</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/TelerikAjaxDropDownList.cshtml">
+    <File Include="Areas/Backend/Views/Shared/EditorTemplates/TelerikAjaxDropDownList.cshtml">
       <publishTime>05/30/2020 17:15:28</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/Time.cshtml">
+    <File Include="Areas/Backend/Views/Shared/EditorTemplates/Time.cshtml">
       <publishTime>05/30/2020 17:14:21</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/Url.cshtml">
+    <File Include="Areas/Backend/Views/Shared/EditorTemplates/Url.cshtml">
       <publishTime>05/30/2020 17:14:21</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/EntradaCoordenadas.cshtml">
+    <File Include="Areas/Backend/Views/Shared/EntradaCoordenadas.cshtml">
       <publishTime>05/30/2020 17:15:30</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/GridToolbar.cshtml">
+    <File Include="Areas/Backend/Views/Shared/GridToolbar.cshtml">
       <publishTime>05/30/2020 17:15:30</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/herramientasNavbar.cshtml">
+    <File Include="Areas/Backend/Views/Shared/herramientasNavbar.cshtml">
       <publishTime>05/30/2020 17:15:54</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/menu.cshtml">
+    <File Include="Areas/Backend/Views/Shared/menu.cshtml">
       <publishTime>05/30/2020 17:15:54</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/notificaciones.cshtml">
+    <File Include="Areas/Backend/Views/Shared/notificaciones.cshtml">
       <publishTime>05/30/2020 17:14:21</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/PlantillasNotificaciones.cshtml">
+    <File Include="Areas/Backend/Views/Shared/PlantillasNotificaciones.cshtml">
       <publishTime>05/30/2020 17:14:21</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Shared/_Layout.cshtml">
+    <File Include="Areas/Backend/Views/Shared/_Layout.cshtml">
       <publishTime>05/30/2020 17:20:42</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Telefonos/FormTelefonos.cshtml">
+    <File Include="Areas/Backend/Views/Telefonos/FormTelefonos.cshtml">
       <publishTime>05/30/2020 17:15:30</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Telefonos/Telefonos.cshtml">
-      <publishTime>05/30/2020 17:15:29</publishTime>
+    <File Include="Areas/Backend/Views/Telefonos/Telefonos.cshtml">
+      <publishTime>01/06/2020 18:24:20</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Usuarios/DialogoCambiarClave.cshtml">
+    <File Include="Areas/Backend/Views/Usuarios/DialogoCambiarClave.cshtml">
       <publishTime>05/30/2020 17:15:31</publishTime>
     </File>
-    <File Include="Areas/Publicar/Views/Usuarios/FormUsuarios.cshtml">
+    <File Include="Areas/Backend/Views/Usuarios/FormUsuarios.cshtml">
       <publishTime>05/30/2020 17:15:30</publishTime>
     </File>
+    <File Include="Areas/Backend/Views/Usuarios/Usuarios.cshtml">
+      <publishTime>01/06/2020 18:24:20</publishTime>
+    </File>
+    <File Include="Areas/Backend/Views/web.config">
+      <publishTime>02/06/2020 13:38:01</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Account/CambiarClave.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Account/ConfirmEmail.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Account/ForgotPassword.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Account/ForgotPasswordConfirmation.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Account/Login.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Account/RecuperarClave.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Account/Register.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Account/ResetPassword.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Account/ResetPasswordConfirmation.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Account/_Layout.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Aplicaciones/Aplicaciones.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Aplicaciones/FormAplicaciones.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/AplicacionesCaracteristicas/AplicacionesCaracteristicas.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Asociados/Asociados.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Asociados/DialogoCambiarClave.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Asociados/DialogoEstadisticasAsociados.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Asociados/FormAsociados.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Categorias/Categorias.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Categorias/FormCategorias.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Comunicaciones/ComandosGrillaComunicaciones.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Comunicaciones/ComunicacionDetalle.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Comunicaciones/Comunicaciones.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Comunicaciones/ControlActivarDesactivarComunicaciones.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Comunicaciones/Editar.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Comunicaciones/FormComunicaciones.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Empresas/Empresas.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Empresas/FormEmpresas.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Escritorio/Escritorio.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Escritorio/Estadisticas.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Escritorio/FormPublicarRapido.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Gpss/FormGpss - Copia.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Gpss/FormGpss.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Gpss/Gpss - Copia.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Gpss/Gpss.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Hermandades/FormHermandades.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Hermandades/Hermandades.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Localizaciones/FormLocalizaciones.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Localizaciones/Localizaciones.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Opciones/Cultura.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Opciones/Opciones.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Parametros/Parametros.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Perfiles/FormPerfil.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Perfiles/Opciones.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Perfiles/Perfil.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/PlantillasEmail/RestablecerClave.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/PlantillasEmail/_Layout.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/PublicarHome/Index.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Rutas/FormRutas.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Rutas/Rutas.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/cabeceraModulo.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/ComandosGrillaEditarEliminar.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/ComandosGrillaEditarEliminarSinCompresion.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/ControlActivarDesactivar.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/DialogoConfirmacion.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/DialogoSeleccionCoordenadas.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/ComandosGrillaEditarEliminarEdit.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/Currency.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/Date.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/DateTime.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/Email.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/EmailAddress.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/GridForeignKey.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/Integer.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/Number.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/Password.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/PlantillaVacia.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/String.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/TelerikAjaxComboBox.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/TelerikAjaxDropDownList.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/Time.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/EditorTemplates/Url.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/EntradaCoordenadas.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/GridToolbar.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/herramientasNavbar.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/menu.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/notificaciones.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/PlantillasNotificaciones.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Shared/_Layout.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Telefonos/FormTelefonos.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Telefonos/Telefonos.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Usuarios/DialogoCambiarClave.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Areas/Publicar/Views/Usuarios/FormUsuarios.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
     <File Include="Areas/Publicar/Views/Usuarios/Usuarios.cshtml">
-      <publishTime>05/30/2020 17:15:28</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Areas/Publicar/Views/web.config">
-      <publishTime>05/30/2020 17:15:28</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Areas/Publicar/Views/_ViewStart.cshtml">
-      <publishTime>05/30/2020 17:14:21</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="assets/css/main-responsive.css">
       <publishTime>05/30/2020 17:09:48</publishTime>
@@ -665,10 +917,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/30/2020 17:09:49</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
-      <publishTime>09/10/2013 16:29:20</publishTime>
+      <publishTime>10/09/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.pdb">
-      <publishTime>09/10/2013 16:29:20</publishTime>
+      <publishTime>10/09/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/bg-BG/Kendo.Mvc.resources.dll">
       <publishTime>05/30/2020 17:55:31</publishTime>
@@ -683,25 +935,28 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/30/2020 17:55:31</publishTime>
     </File>
     <File Include="bin/de/Microsoft.Data.Edm.resources.dll">
-      <publishTime>08/13/2018 23:22:12</publishTime>
+      <publishTime>03/26/2015 01:42:38</publishTime>
     </File>
     <File Include="bin/de/Microsoft.Data.OData.resources.dll">
-      <publishTime>08/13/2018 23:22:24</publishTime>
+      <publishTime>03/26/2015 01:40:48</publishTime>
     </File>
     <File Include="bin/de/Microsoft.Data.Services.Client.resources.dll">
-      <publishTime>08/13/2018 23:22:58</publishTime>
+      <publishTime>03/26/2015 01:42:08</publishTime>
     </File>
     <File Include="bin/de/System.Spatial.resources.dll">
-      <publishTime>08/13/2018 23:22:38</publishTime>
+      <publishTime>03/26/2015 01:42:02</publishTime>
     </File>
     <File Include="bin/dotless.AspNet.dll">
       <publishTime>08/08/2018 19:58:16</publishTime>
     </File>
     <File Include="bin/dotless.Core.dll">
-      <publishTime>08/08/2018 19:58:20</publishTime>
+      <publishTime>02/12/2015 05:41:16</publishTime>
+    </File>
+    <File Include="bin/dotless.Core.pdb">
+      <publishTime>02/12/2015 05:41:16</publishTime>
     </File>
     <File Include="bin/en/PushNews.WebApp.resources.dll">
-      <publishTime>06/01/2020 12:47:31</publishTime>
+      <publishTime>06/04/2020 10:21:17</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>04/16/2020 20:38:42</publishTime>
@@ -713,40 +968,40 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/30/2020 17:55:31</publishTime>
     </File>
     <File Include="bin/es/Microsoft.AspNet.Identity.Core.resources.dll">
-      <publishTime>11/25/2019 11:01:00</publishTime>
+      <publishTime>03/04/2015 17:09:40</publishTime>
     </File>
     <File Include="bin/es/Microsoft.Data.Edm.resources.dll">
-      <publishTime>08/13/2018 23:22:12</publishTime>
+      <publishTime>03/26/2015 01:42:38</publishTime>
     </File>
     <File Include="bin/es/Microsoft.Data.OData.resources.dll">
-      <publishTime>08/13/2018 23:22:24</publishTime>
+      <publishTime>03/26/2015 01:40:48</publishTime>
     </File>
     <File Include="bin/es/Microsoft.Data.Services.Client.resources.dll">
-      <publishTime>08/13/2018 23:22:58</publishTime>
+      <publishTime>03/26/2015 01:42:08</publishTime>
     </File>
     <File Include="bin/es/System.Spatial.resources.dll">
-      <publishTime>08/13/2018 23:22:38</publishTime>
+      <publishTime>03/26/2015 01:42:02</publishTime>
     </File>
     <File Include="bin/es/System.Web.Helpers.resources.dll">
-      <publishTime>11/28/2018 13:04:36</publishTime>
+      <publishTime>01/02/2018 12:21:06</publishTime>
     </File>
     <File Include="bin/es/System.Web.Mvc.resources.dll">
-      <publishTime>11/28/2018 13:00:00</publishTime>
+      <publishTime>01/28/2015 04:02:24</publishTime>
     </File>
     <File Include="bin/es/System.Web.Optimization.resources.dll">
-      <publishTime>02/11/2014 15:28:40</publishTime>
+      <publishTime>11/02/2014 15:28:40</publishTime>
     </File>
     <File Include="bin/es/System.Web.Razor.resources.dll">
-      <publishTime>11/28/2018 13:00:22</publishTime>
+      <publishTime>01/02/2018 12:17:04</publishTime>
     </File>
     <File Include="bin/es/System.Web.WebPages.Deployment.resources.dll">
-      <publishTime>11/28/2018 13:04:36</publishTime>
+      <publishTime>01/02/2018 12:21:06</publishTime>
     </File>
     <File Include="bin/es/System.Web.WebPages.Razor.resources.dll">
-      <publishTime>11/28/2018 13:04:36</publishTime>
+      <publishTime>01/02/2018 12:21:06</publishTime>
     </File>
     <File Include="bin/es/System.Web.WebPages.resources.dll">
-      <publishTime>11/28/2018 13:04:36</publishTime>
+      <publishTime>01/02/2018 12:21:06</publishTime>
     </File>
     <File Include="bin/fr-CA/Kendo.Mvc.resources.dll">
       <publishTime>05/30/2020 17:55:31</publishTime>
@@ -755,121 +1010,124 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/30/2020 17:55:31</publishTime>
     </File>
     <File Include="bin/fr/Microsoft.Data.Edm.resources.dll">
-      <publishTime>08/13/2018 23:22:12</publishTime>
+      <publishTime>03/26/2015 01:42:38</publishTime>
     </File>
     <File Include="bin/fr/Microsoft.Data.OData.resources.dll">
-      <publishTime>08/13/2018 23:22:24</publishTime>
+      <publishTime>03/26/2015 01:40:48</publishTime>
     </File>
     <File Include="bin/fr/Microsoft.Data.Services.Client.resources.dll">
-      <publishTime>08/13/2018 23:22:58</publishTime>
+      <publishTime>03/26/2015 01:42:08</publishTime>
     </File>
     <File Include="bin/fr/System.Spatial.resources.dll">
-      <publishTime>08/13/2018 23:22:38</publishTime>
+      <publishTime>03/26/2015 01:42:02</publishTime>
     </File>
     <File Include="bin/it-IT/Kendo.Mvc.resources.dll">
       <publishTime>05/30/2020 17:55:31</publishTime>
     </File>
     <File Include="bin/it/Microsoft.Data.Edm.resources.dll">
-      <publishTime>08/13/2018 23:22:12</publishTime>
+      <publishTime>03/26/2015 01:42:38</publishTime>
     </File>
     <File Include="bin/it/Microsoft.Data.OData.resources.dll">
-      <publishTime>08/13/2018 23:22:24</publishTime>
+      <publishTime>03/26/2015 01:40:48</publishTime>
     </File>
     <File Include="bin/it/Microsoft.Data.Services.Client.resources.dll">
-      <publishTime>08/13/2018 23:22:58</publishTime>
+      <publishTime>03/26/2015 01:42:08</publishTime>
     </File>
     <File Include="bin/it/System.Spatial.resources.dll">
-      <publishTime>08/13/2018 23:22:38</publishTime>
+      <publishTime>03/26/2015 01:42:02</publishTime>
     </File>
     <File Include="bin/ja/Microsoft.Data.Edm.resources.dll">
-      <publishTime>08/13/2018 23:22:12</publishTime>
+      <publishTime>03/26/2015 01:42:38</publishTime>
     </File>
     <File Include="bin/ja/Microsoft.Data.OData.resources.dll">
-      <publishTime>08/13/2018 23:22:24</publishTime>
+      <publishTime>03/26/2015 01:40:48</publishTime>
     </File>
     <File Include="bin/ja/Microsoft.Data.Services.Client.resources.dll">
-      <publishTime>08/13/2018 23:22:58</publishTime>
+      <publishTime>03/26/2015 01:42:08</publishTime>
     </File>
     <File Include="bin/ja/System.Spatial.resources.dll">
-      <publishTime>08/13/2018 23:22:38</publishTime>
+      <publishTime>03/26/2015 01:42:02</publishTime>
     </File>
     <File Include="bin/Kendo.Mvc.dll">
       <publishTime>05/30/2020 17:55:31</publishTime>
     </File>
     <File Include="bin/ko/Microsoft.Data.Edm.resources.dll">
-      <publishTime>08/13/2018 23:22:12</publishTime>
+      <publishTime>03/26/2015 01:42:38</publishTime>
     </File>
     <File Include="bin/ko/Microsoft.Data.OData.resources.dll">
-      <publishTime>08/13/2018 23:22:24</publishTime>
+      <publishTime>03/26/2015 01:40:48</publishTime>
     </File>
     <File Include="bin/ko/Microsoft.Data.Services.Client.resources.dll">
-      <publishTime>08/13/2018 23:22:58</publishTime>
+      <publishTime>03/26/2015 01:42:08</publishTime>
     </File>
     <File Include="bin/ko/System.Spatial.resources.dll">
-      <publishTime>08/13/2018 23:22:38</publishTime>
+      <publishTime>03/26/2015 01:42:02</publishTime>
     </File>
     <File Include="bin/log4net.dll">
-      <publishTime>03/08/2017 19:26:22</publishTime>
+      <publishTime>08/03/2017 19:26:22</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
-      <publishTime>11/25/2019 10:57:50</publishTime>
+      <publishTime>03/04/2015 17:07:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.EntityFramework.dll">
+      <publishTime>03/04/2015 17:07:22</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.Owin.dll">
-      <publishTime>11/25/2019 10:57:50</publishTime>
+      <publishTime>03/04/2015 17:07:22</publishTime>
     </File>
     <File Include="bin/Microsoft.Azure.KeyVault.Core.dll">
-      <publishTime>02/03/2020 19:31:16</publishTime>
+      <publishTime>07/29/2015 12:56:38</publishTime>
     </File>
     <File Include="bin/Microsoft.Bcl.AsyncInterfaces.dll">
-      <publishTime>04/14/2020 22:39:20</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="bin/Microsoft.Data.Edm.dll">
-      <publishTime>08/13/2018 23:22:10</publishTime>
+      <publishTime>03/26/2015 01:42:38</publishTime>
     </File>
     <File Include="bin/Microsoft.Data.OData.dll">
-      <publishTime>08/13/2018 23:22:22</publishTime>
+      <publishTime>03/26/2015 01:40:46</publishTime>
     </File>
     <File Include="bin/Microsoft.Data.Services.Client.dll">
-      <publishTime>08/13/2018 23:22:58</publishTime>
+      <publishTime>03/26/2015 01:42:08</publishTime>
     </File>
     <File Include="bin/Microsoft.Extensions.DependencyInjection.Abstractions.dll">
-      <publishTime>04/15/2020 03:36:10</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="bin/Microsoft.Extensions.DependencyInjection.dll">
-      <publishTime>04/15/2020 03:35:48</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.dll">
-      <publishTime>11/12/2019 18:46:02</publishTime>
+      <publishTime>12/11/2019 18:46:02</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Host.SystemWeb.dll">
-      <publishTime>11/12/2019 18:47:54</publishTime>
+      <publishTime>12/11/2019 18:47:54</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.Cookies.dll">
-      <publishTime>11/12/2019 18:45:52</publishTime>
+      <publishTime>12/11/2019 18:45:52</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.dll">
-      <publishTime>11/12/2019 18:45:42</publishTime>
+      <publishTime>12/11/2019 18:45:42</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.OAuth.dll">
-      <publishTime>11/12/2019 18:45:44</publishTime>
+      <publishTime>12/11/2019 18:45:44</publishTime>
     </File>
     <File Include="bin/Microsoft.Rest.ClientRuntime.Azure.dll">
-      <publishTime>01/25/2019 00:03:18</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="bin/Microsoft.Rest.ClientRuntime.dll">
-      <publishTime>11/20/2019 19:16:50</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>07/25/2012 11:48:56</publishTime>
     </File>
     <File Include="bin/Microsoft.WindowsAzure.Storage.dll">
-      <publishTime>09/15/2018 01:06:20</publishTime>
+      <publishTime>10/12/2015 13:22:00</publishTime>
     </File>
     <File Include="bin/Microsoft.WindowsAzure.Storage.pdb">
-      <publishTime>09/15/2018 00:34:24</publishTime>
+      <publishTime>10/12/2015 13:22:00</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>11/09/2019 00:56:44</publishTime>
+      <publishTime>09/11/2019 00:56:44</publishTime>
     </File>
     <File Include="bin/nl-NL/Kendo.Mvc.resources.dll">
       <publishTime>05/30/2020 17:55:31</publishTime>
@@ -887,43 +1145,43 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/30/2020 17:55:31</publishTime>
     </File>
     <File Include="bin/PushNews.AppceleratorPush.dll">
-      <publishTime>06/01/2020 12:47:26</publishTime>
+      <publishTime>01/06/2020 12:47:26</publishTime>
     </File>
     <File Include="bin/PushNews.AppceleratorPush.pdb">
-      <publishTime>06/01/2020 12:47:26</publishTime>
+      <publishTime>01/06/2020 12:47:26</publishTime>
     </File>
     <File Include="bin/PushNews.Dominio.dll">
-      <publishTime>06/01/2020 12:43:44</publishTime>
+      <publishTime>04/06/2020 09:56:25</publishTime>
     </File>
     <File Include="bin/PushNews.Dominio.dll.config">
-      <publishTime>06/01/2020 12:05:26</publishTime>
+      <publishTime>03/06/2020 17:09:55</publishTime>
     </File>
     <File Include="bin/PushNews.Dominio.pdb">
-      <publishTime>06/01/2020 12:43:44</publishTime>
+      <publishTime>04/06/2020 09:56:25</publishTime>
     </File>
     <File Include="bin/PushNews.Negocio.dll">
-      <publishTime>06/01/2020 12:43:45</publishTime>
+      <publishTime>04/06/2020 09:56:26</publishTime>
     </File>
     <File Include="bin/PushNews.Negocio.dll.config">
-      <publishTime>06/01/2020 12:05:23</publishTime>
+      <publishTime>01/06/2020 12:05:23</publishTime>
     </File>
     <File Include="bin/PushNews.Negocio.pdb">
-      <publishTime>06/01/2020 12:43:45</publishTime>
+      <publishTime>04/06/2020 09:56:26</publishTime>
     </File>
     <File Include="bin/PushNews.Seguridad.dll">
-      <publishTime>06/01/2020 12:43:44</publishTime>
+      <publishTime>04/06/2020 09:56:26</publishTime>
     </File>
     <File Include="bin/PushNews.Seguridad.dll.config">
-      <publishTime>06/01/2020 12:05:24</publishTime>
+      <publishTime>01/06/2020 12:05:24</publishTime>
     </File>
     <File Include="bin/PushNews.Seguridad.pdb">
-      <publishTime>06/01/2020 12:43:44</publishTime>
+      <publishTime>04/06/2020 09:56:26</publishTime>
     </File>
     <File Include="bin/PushNews.WebApp.dll">
-      <publishTime>06/01/2020 12:47:31</publishTime>
+      <publishTime>06/04/2020 10:21:17</publishTime>
     </File>
     <File Include="bin/PushNews.WebApp.pdb">
-      <publishTime>06/01/2020 12:47:31</publishTime>
+      <publishTime>06/04/2020 10:21:17</publishTime>
     </File>
     <File Include="bin/RestSharp.dll">
       <publishTime>05/18/2020 11:55:38</publishTime>
@@ -935,52 +1193,64 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/30/2020 17:55:31</publishTime>
     </File>
     <File Include="bin/ru/Microsoft.Data.Edm.resources.dll">
-      <publishTime>08/13/2018 23:22:12</publishTime>
+      <publishTime>03/26/2015 01:42:38</publishTime>
     </File>
     <File Include="bin/ru/Microsoft.Data.OData.resources.dll">
-      <publishTime>08/13/2018 23:22:24</publishTime>
+      <publishTime>03/26/2015 01:40:48</publishTime>
     </File>
     <File Include="bin/ru/Microsoft.Data.Services.Client.resources.dll">
-      <publishTime>08/13/2018 23:22:58</publishTime>
+      <publishTime>03/26/2015 01:42:08</publishTime>
     </File>
     <File Include="bin/ru/System.Spatial.resources.dll">
-      <publishTime>08/13/2018 23:22:38</publishTime>
+      <publishTime>03/26/2015 01:42:02</publishTime>
     </File>
     <File Include="bin/sv-SE/Kendo.Mvc.resources.dll">
       <publishTime>05/30/2020 17:55:31</publishTime>
     </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>01/28/2015 04:02:42</publishTime>
+    </File>
     <File Include="bin/System.Runtime.CompilerServices.Unsafe.dll">
-      <publishTime>02/21/2020 03:58:04</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="bin/System.Spatial.dll">
-      <publishTime>08/13/2018 23:22:38</publishTime>
+      <publishTime>03/26/2015 01:42:02</publishTime>
     </File>
     <File Include="bin/System.Threading.Tasks.Extensions.dll">
-      <publishTime>02/19/2020 10:05:18</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
-      <publishTime>11/28/2018 13:04:24</publishTime>
+      <publishTime>01/02/2018 12:20:56</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>01/28/2015 04:02:54</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>01/28/2015 04:03:46</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
-      <publishTime>11/28/2018 12:59:46</publishTime>
+      <publishTime>01/28/2015 04:02:18</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
-      <publishTime>02/11/2014 14:26:04</publishTime>
+      <publishTime>11/02/2014 14:26:04</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.Less.dll">
-      <publishTime>11/13/2019 13:48:06</publishTime>
+      <publishTime>05/08/2015 22:40:56</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.Less.pdb">
+      <publishTime>05/08/2015 22:40:56</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
-      <publishTime>11/28/2018 13:00:12</publishTime>
+      <publishTime>01/02/2018 12:16:56</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Deployment.dll">
-      <publishTime>11/28/2018 13:04:24</publishTime>
+      <publishTime>01/02/2018 12:20:56</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.dll">
-      <publishTime>11/28/2018 13:04:24</publishTime>
+      <publishTime>01/02/2018 12:20:56</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Razor.dll">
-      <publishTime>11/28/2018 13:04:24</publishTime>
+      <publishTime>01/02/2018 12:20:56</publishTime>
     </File>
     <File Include="bin/tr-TR/Kendo.Mvc.resources.dll">
       <publishTime>05/30/2020 17:55:31</publishTime>
@@ -995,70 +1265,82 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/30/2020 17:55:31</publishTime>
     </File>
     <File Include="bin/zh-Hans/Microsoft.Data.Edm.resources.dll">
-      <publishTime>08/13/2018 23:22:12</publishTime>
+      <publishTime>03/26/2015 01:42:38</publishTime>
     </File>
     <File Include="bin/zh-Hans/Microsoft.Data.OData.resources.dll">
-      <publishTime>08/13/2018 23:22:24</publishTime>
+      <publishTime>03/26/2015 01:40:48</publishTime>
     </File>
     <File Include="bin/zh-Hans/Microsoft.Data.Services.Client.resources.dll">
-      <publishTime>08/13/2018 23:22:58</publishTime>
+      <publishTime>03/26/2015 01:42:08</publishTime>
     </File>
     <File Include="bin/zh-Hans/System.Spatial.resources.dll">
-      <publishTime>08/13/2018 23:22:38</publishTime>
+      <publishTime>03/26/2015 01:42:02</publishTime>
     </File>
     <File Include="bin/zh-Hant/Microsoft.Data.Edm.resources.dll">
-      <publishTime>08/13/2018 23:22:12</publishTime>
+      <publishTime>03/26/2015 01:42:38</publishTime>
     </File>
     <File Include="bin/zh-Hant/Microsoft.Data.OData.resources.dll">
-      <publishTime>08/13/2018 23:22:24</publishTime>
+      <publishTime>03/26/2015 01:40:48</publishTime>
     </File>
     <File Include="bin/zh-Hant/Microsoft.Data.Services.Client.resources.dll">
-      <publishTime>08/13/2018 23:22:58</publishTime>
+      <publishTime>03/26/2015 01:42:08</publishTime>
     </File>
     <File Include="bin/zh-Hant/System.Spatial.resources.dll">
-      <publishTime>08/13/2018 23:22:38</publishTime>
+      <publishTime>03/26/2015 01:42:02</publishTime>
     </File>
     <File Include="Content/bootstrap-grid.css">
-      <publishTime>06/01/2020 12:15:36</publishTime>
+      <publishTime>01/06/2020 12:15:36</publishTime>
     </File>
     <File Include="Content/bootstrap-grid.css.map">
-      <publishTime>06/01/2020 12:15:36</publishTime>
+      <publishTime>01/06/2020 12:15:36</publishTime>
     </File>
     <File Include="Content/bootstrap-grid.min.css">
-      <publishTime>06/01/2020 12:15:36</publishTime>
+      <publishTime>01/06/2020 12:15:36</publishTime>
     </File>
     <File Include="Content/bootstrap-grid.min.css.map">
-      <publishTime>06/01/2020 12:15:35</publishTime>
+      <publishTime>01/06/2020 12:15:35</publishTime>
     </File>
     <File Include="Content/bootstrap-reboot.css">
-      <publishTime>06/01/2020 12:15:35</publishTime>
+      <publishTime>01/06/2020 12:15:35</publishTime>
     </File>
     <File Include="Content/bootstrap-reboot.css.map">
-      <publishTime>06/01/2020 12:15:35</publishTime>
+      <publishTime>01/06/2020 12:15:35</publishTime>
     </File>
     <File Include="Content/bootstrap-reboot.min.css">
-      <publishTime>06/01/2020 12:15:35</publishTime>
+      <publishTime>01/06/2020 12:15:35</publishTime>
     </File>
     <File Include="Content/bootstrap-reboot.min.css.map">
-      <publishTime>06/01/2020 12:15:35</publishTime>
+      <publishTime>01/06/2020 12:15:35</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.css">
+      <publishTime>02/06/2020 09:29:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.css.map">
+      <publishTime>02/06/2020 09:29:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.min.css">
+      <publishTime>02/06/2020 09:29:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.min.css.map">
+      <publishTime>02/06/2020 09:29:38</publishTime>
     </File>
     <File Include="Content/bootstrap.css">
-      <publishTime>06/01/2020 12:15:35</publishTime>
+      <publishTime>02/06/2020 09:29:38</publishTime>
     </File>
     <File Include="Content/bootstrap.css.map">
-      <publishTime>06/01/2020 12:15:35</publishTime>
+      <publishTime>02/06/2020 09:29:38</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css">
-      <publishTime>06/01/2020 12:15:35</publishTime>
+      <publishTime>02/06/2020 09:29:38</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css.map">
-      <publishTime>06/01/2020 12:15:35</publishTime>
+      <publishTime>02/06/2020 09:29:38</publishTime>
     </File>
     <File Include="Content/font-awesome.css">
-      <publishTime>06/01/2020 12:15:15</publishTime>
+      <publishTime>02/06/2020 09:32:53</publishTime>
     </File>
     <File Include="Content/font-awesome.min.css">
-      <publishTime>06/01/2020 12:15:14</publishTime>
+      <publishTime>02/06/2020 09:32:53</publishTime>
     </File>
     <File Include="Content/fonts/clip-font.ttf">
       <publishTime>05/30/2020 17:10:16</publishTime>
@@ -5615,22 +5897,46 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/30/2020 13:49:37</publishTime>
     </File>
     <File Include="fonts/fontawesome-webfont.eot">
-      <publishTime>06/01/2020 12:15:14</publishTime>
+      <publishTime>02/06/2020 09:32:52</publishTime>
     </File>
     <File Include="fonts/fontawesome-webfont.svg">
-      <publishTime>06/01/2020 12:15:14</publishTime>
+      <publishTime>02/06/2020 09:32:52</publishTime>
     </File>
     <File Include="fonts/fontawesome-webfont.ttf">
-      <publishTime>06/01/2020 12:15:14</publishTime>
+      <publishTime>02/06/2020 09:32:52</publishTime>
     </File>
     <File Include="fonts/fontawesome-webfont.woff">
-      <publishTime>06/01/2020 12:15:14</publishTime>
+      <publishTime>02/06/2020 09:32:52</publishTime>
     </File>
     <File Include="fonts/fontawesome-webfont.woff2">
-      <publishTime>06/01/2020 12:15:14</publishTime>
+      <publishTime>02/06/2020 09:32:52</publishTime>
     </File>
     <File Include="fonts/FontAwesome.otf">
-      <publishTime>06/01/2020 12:15:14</publishTime>
+      <publishTime>02/06/2020 09:32:52</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>02/06/2020 09:29:37</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>02/06/2020 09:29:37</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>02/06/2020 09:29:37</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>02/06/2020 09:29:37</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>02/06/2020 09:29:37</publishTime>
+    </File>
+    <File Include="fonts/OpenSans-Regular.ttf">
+      <publishTime>01/06/2020 19:13:16</publishTime>
+    </File>
+    <File Include="fonts/Raleway-Light.ttf">
+      <publishTime>01/06/2020 19:13:16</publishTime>
+    </File>
+    <File Include="fonts/Sansation_Bold.ttf">
+      <publishTime>01/06/2020 19:13:16</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>05/30/2020 13:49:37</publishTime>
@@ -5813,106 +6119,2350 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/30/2020 17:55:31</publishTime>
     </File>
     <File Include="Scripts/bootstrap.bundle.js">
-      <publishTime>06/01/2020 12:15:35</publishTime>
+      <publishTime>01/06/2020 12:15:35</publishTime>
     </File>
     <File Include="Scripts/bootstrap.bundle.js.map">
-      <publishTime>06/01/2020 12:15:35</publishTime>
+      <publishTime>01/06/2020 12:15:35</publishTime>
     </File>
     <File Include="Scripts/bootstrap.bundle.min.js">
-      <publishTime>06/01/2020 12:15:35</publishTime>
+      <publishTime>01/06/2020 12:15:35</publishTime>
     </File>
     <File Include="Scripts/bootstrap.bundle.min.js.map">
-      <publishTime>06/01/2020 12:15:35</publishTime>
+      <publishTime>01/06/2020 12:15:35</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
-      <publishTime>06/01/2020 12:15:34</publishTime>
+      <publishTime>02/06/2020 09:29:36</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js.map">
-      <publishTime>06/01/2020 12:15:34</publishTime>
+      <publishTime>01/06/2020 12:15:34</publishTime>
     </File>
     <File Include="Scripts/bootstrap.min.js">
-      <publishTime>06/01/2020 12:15:34</publishTime>
+      <publishTime>02/06/2020 09:29:36</publishTime>
     </File>
     <File Include="Scripts/bootstrap.min.js.map">
-      <publishTime>06/01/2020 12:15:34</publishTime>
+      <publishTime>01/06/2020 12:15:34</publishTime>
+    </File>
+    <File Include="Scripts/coordenadas.js">
+      <publishTime>02/06/2020 13:54:51</publishTime>
     </File>
     <File Include="Scripts/esm/popper-utils.js">
-      <publishTime>06/01/2020 12:17:40</publishTime>
+      <publishTime>01/06/2020 12:17:40</publishTime>
     </File>
     <File Include="Scripts/esm/popper-utils.js.map">
-      <publishTime>06/01/2020 12:17:40</publishTime>
+      <publishTime>01/06/2020 12:17:40</publishTime>
     </File>
     <File Include="Scripts/esm/popper-utils.min.js">
-      <publishTime>06/01/2020 12:17:40</publishTime>
+      <publishTime>01/06/2020 12:17:40</publishTime>
     </File>
     <File Include="Scripts/esm/popper-utils.min.js.map">
-      <publishTime>06/01/2020 12:17:39</publishTime>
+      <publishTime>01/06/2020 12:17:39</publishTime>
     </File>
     <File Include="Scripts/esm/popper.js">
-      <publishTime>06/01/2020 12:17:39</publishTime>
+      <publishTime>01/06/2020 12:17:39</publishTime>
     </File>
     <File Include="Scripts/esm/popper.js.map">
-      <publishTime>06/01/2020 12:17:39</publishTime>
+      <publishTime>01/06/2020 12:17:39</publishTime>
     </File>
     <File Include="Scripts/esm/popper.min.js">
-      <publishTime>06/01/2020 12:17:39</publishTime>
+      <publishTime>01/06/2020 12:17:39</publishTime>
     </File>
     <File Include="Scripts/esm/popper.min.js.map">
-      <publishTime>06/01/2020 12:17:39</publishTime>
+      <publishTime>01/06/2020 12:17:39</publishTime>
     </File>
     <File Include="Scripts/index.js.flow">
-      <publishTime>06/01/2020 12:17:39</publishTime>
+      <publishTime>01/06/2020 12:17:39</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.2.0.js">
+      <publishTime>01/06/2020 19:46:13</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.2.0.min.js">
+      <publishTime>01/06/2020 19:46:13</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.2.0.min.map">
+      <publishTime>01/06/2020 19:46:13</publishTime>
     </File>
     <File Include="Scripts/jquery-3.5.1.js">
-      <publishTime>06/01/2020 12:15:15</publishTime>
+      <publishTime>01/06/2020 12:15:15</publishTime>
     </File>
     <File Include="Scripts/jquery-3.5.1.min.js">
-      <publishTime>06/01/2020 12:15:15</publishTime>
+      <publishTime>01/06/2020 12:15:15</publishTime>
     </File>
     <File Include="Scripts/jquery-3.5.1.min.map">
-      <publishTime>06/01/2020 12:15:15</publishTime>
+      <publishTime>01/06/2020 12:15:15</publishTime>
     </File>
     <File Include="Scripts/jquery-3.5.1.slim.js">
-      <publishTime>06/01/2020 12:15:15</publishTime>
+      <publishTime>01/06/2020 12:15:15</publishTime>
     </File>
     <File Include="Scripts/jquery-3.5.1.slim.min.js">
-      <publishTime>06/01/2020 12:15:15</publishTime>
+      <publishTime>01/06/2020 12:15:15</publishTime>
     </File>
     <File Include="Scripts/jquery-3.5.1.slim.min.map">
-      <publishTime>06/01/2020 12:15:15</publishTime>
+      <publishTime>01/06/2020 12:15:15</publishTime>
     </File>
     <File Include="Scripts/jquery.timeago.js">
       <publishTime>05/30/2020 14:10:29</publishTime>
     </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.af-ZA.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.af.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.am-ET.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.am.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ar-AE.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ar-BH.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ar-DZ.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ar-EG.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ar-IQ.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ar-JO.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ar-KW.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ar-LB.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ar-LY.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ar-MA.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ar-OM.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ar-QA.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ar-SA.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ar-SY.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ar-TN.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ar-YE.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ar.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.arn-CL.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.arn.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.as-IN.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.as.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.az-Cyrl-AZ.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.az-Cyrl.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.az-Latn-AZ.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.az-Latn.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.az.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ba-RU.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ba.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.be-BY.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.be.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.bg-BG.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.bg.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.bn-BD.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.bn-IN.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.bn.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.bo-CN.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.bo.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.br-FR.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.br.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.bs-Cyrl-BA.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.bs-Cyrl.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.bs-Latn-BA.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.bs-Latn.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.bs.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ca-ES-valencia.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ca-ES.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ca.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.chr-Cher-US.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.chr-Cher.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.chr.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.co-FR.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.co.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.cs-CZ.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.cs.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.cy-GB.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.cy.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.da-DK.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.da.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.de-AT.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.de-CH.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.de-DE.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.de-LI.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.de-LU.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.de.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.dsb-DE.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.dsb.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.dv-MV.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.dv.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.el-GR.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.el.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.en-029.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.en-AU.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.en-BZ.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.en-CA.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.en-GB.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.en-HK.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.en-IE.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.en-IN.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.en-JM.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.en-MY.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.en-NZ.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.en-PH.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.en-SG.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.en-TT.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.en-US.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.en-ZA.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.en-ZW.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.en.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.es-419.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.es-AR.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.es-BO.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.es-CL.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.es-CO.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.es-CR.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.es-DO.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.es-EC.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.es-ES.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.es-GT.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.es-HN.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.es-MX.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.es-NI.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.es-PA.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.es-PE.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.es-PR.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.es-PY.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.es-SV.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.es-US.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.es-UY.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.es-VE.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.es.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.et-EE.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.et.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.eu-ES.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.eu.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.fa-IR.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.fa.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ff-Latn-SN.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ff-Latn.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ff.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.fi-FI.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.fi.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.fil-PH.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.fil.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.fo-FO.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.fo.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.fr-BE.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.fr-CA.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.fr-CD.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.fr-CH.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.fr-CI.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.fr-CM.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.fr-FR.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.fr-HT.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.fr-LU.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.fr-MA.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.fr-MC.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.fr-ML.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.fr-RE.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.fr-SN.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.fr.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.fy-NL.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.fy.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ga-IE.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ga.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.gd-GB.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.gd.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.gl-ES.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.gl.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.gn-PY.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.gn.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.gsw-FR.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.gsw.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.gu-IN.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.gu.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ha-Latn-NG.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ha-Latn.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ha.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.haw-US.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.haw.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.he-IL.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.he.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.hi-IN.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.hi.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.hr-BA.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.hr-HR.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.hr.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.hsb-DE.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.hsb.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.hu-HU.js">
+      <publishTime>01/06/2020 18:58:45</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.hu.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.hy-AM.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.hy.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.id-ID.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.id.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ig-NG.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ig.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ii-CN.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ii.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.is-IS.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.is.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.it-CH.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.it-IT.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.it.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.iu-Cans-CA.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.iu-Cans.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.iu-Latn-CA.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.iu-Latn.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.iu.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ja-JP.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ja.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.jv-Latn-ID.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.jv-Latn.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.jv.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ka-GE.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ka.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.kk-KZ.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.kk.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.kl-GL.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.kl.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.km-KH.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.km.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.kn-IN.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.kn.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ko-KR.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ko.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.kok-IN.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.kok.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ku-Arab-IQ.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ku-Arab.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ku.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ky-KG.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ky.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.lb-LU.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.lb.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.lo-LA.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.lo.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.lt-LT.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.lt.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.lv-LV.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.lv.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.mg-MG.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.mg.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.mi-NZ.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.mi.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.mk-MK.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.mk.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ml-IN.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ml.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.mn-Cyrl.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.mn-MN.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.mn-Mong-CN.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.mn-Mong-MN.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.mn-Mong.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.mn.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.moh-CA.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.moh.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.mr-IN.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.mr.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ms-BN.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ms-MY.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ms.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.mt-MT.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.mt.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.my-MM.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.my.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ne-IN.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ne-NP.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ne.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.nl-BE.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.nl-NL.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.nl.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.nqo-GN.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.nqo.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.nso-ZA.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.nso.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.oc-FR.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.oc.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.om-ET.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.om.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.or-IN.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.or.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.pa-Arab-PK.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.pa-Arab.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.pa-IN.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.pa.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.pl-PL.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.pl.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.prs-AF.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.prs.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ps-AF.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ps.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.pt-AO.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.pt-BR.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.pt-PT.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.pt.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.qut-GT.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.qut.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.quz-BO.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.quz-EC.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.quz-PE.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.quz.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.rm-CH.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.rm.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ro-MD.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ro-RO.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ro.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ru-RU.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ru-UA.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ru.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.rw-RW.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.rw.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sa-IN.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sa.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sah-RU.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sah.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sd-Arab-PK.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sd-Arab.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sd.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.se-FI.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.se-NO.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.se-SE.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.se.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.si-LK.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.si.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sk-SK.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sk.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sl-SI.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sl.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sma-NO.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sma-SE.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sma.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.smj-NO.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.smj-SE.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.smj.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.smn-FI.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.smn.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sms-FI.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sms.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sn-Latn-ZW.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sn-Latn.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sn.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.so-SO.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.so.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sq-AL.js">
+      <publishTime>01/06/2020 18:58:46</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sq.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sr-Cyrl-BA.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sr-Cyrl-CS.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sr-Cyrl-ME.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sr-Cyrl-RS.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sr-Cyrl.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sr-Latn-BA.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sr-Latn-CS.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sr-Latn-ME.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sr-Latn-RS.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sr-Latn.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sr.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.st-ZA.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.st.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sv-FI.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sw-KE.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.sw.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.syr-SY.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.syr.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ta-IN.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ta-LK.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ta.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.te-IN.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.te.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.tg-Cyrl-TJ.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.tg-Cyrl.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.tg.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.th-TH.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.th.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ti-ER.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ti-ET.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ti.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.tk-TM.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.tk.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.tn-BW.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.tn-ZA.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.tn.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.tr-TR.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.tr.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ts-ZA.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ts.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.tt-RU.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.tt.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.tzm-Latn-DZ.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.tzm-Latn.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.tzm-Tfng-MA.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.tzm-Tfng.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.tzm.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ug-CN.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ug.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.uk-UA.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.uk.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ur-IN.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ur-PK.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.ur.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.uz-Cyrl-UZ.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.uz-Cyrl.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.uz-Latn-UZ.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.uz-Latn.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.uz.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.vi-VN.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.vi.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.wo-SN.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.wo.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.xh-ZA.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.xh.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.yo-NG.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.yo.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.zgh-Tfng-MA.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.zgh-Tfng.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.zgh.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.zh-CHS.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.zh-CHT.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.zh-CN.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.zh-Hans.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.zh-Hant.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.zh-HK.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.zh-MO.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.zh-SG.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.zh-TW.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.zh.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.zu-ZA.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.culture.zu.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.messages.bg-BG.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.messages.cs-CZ.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.messages.da-DK.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.messages.de-DE.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.messages.en-US.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.messages.es-ES.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.messages.fr-FR.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.messages.it-IT.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.messages.nb-NO.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.messages.nl-NL.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.messages.pl-PL.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.messages.pt-BR.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.messages.pt-PT.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.messages.ro-RO.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.messages.ru-RU.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.messages.sk-SK.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.messages.sv-SE.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.messages.tr-TR.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.messages.uk-UA.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.messages.zh-CN.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.messages.zh-HK.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/cultures/kendo.messages.zh-TW.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/messages/kendo.messages.bg-BG.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/messages/kendo.messages.cs-CZ.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/messages/kendo.messages.da-DK.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/messages/kendo.messages.de-DE.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/messages/kendo.messages.en-US.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/messages/kendo.messages.es-ES.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/messages/kendo.messages.fr-FR.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/messages/kendo.messages.it-IT.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/messages/kendo.messages.nb-NO.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/messages/kendo.messages.nl-NL.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/messages/kendo.messages.pl-PL.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/messages/kendo.messages.pt-BR.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/messages/kendo.messages.pt-PT.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/messages/kendo.messages.ro-RO.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/messages/kendo.messages.ru-RU.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/messages/kendo.messages.sk-SK.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/messages/kendo.messages.sv-SE.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/messages/kendo.messages.tr-TR.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/messages/kendo.messages.uk-UA.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/messages/kendo.messages.zh-CN.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/messages/kendo.messages.zh-HK.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo-global/messages/kendo.messages.zh-TW.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/kendo.modernizr.custom.js">
+      <publishTime>01/06/2020 19:04:07</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/angular.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/jquery.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/jquery.min.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/jszip.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.all.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.all.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.angular.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.angular.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.angular2.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.angular2.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.aspnetmvc.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.aspnetmvc.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.autocomplete.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.autocomplete.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.binder.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.binder.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.button.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.button.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.calendar.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.calendar.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.color.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.color.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.colorpicker.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.colorpicker.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.columnmenu.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.columnmenu.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.columnsorter.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.columnsorter.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.combobox.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.combobox.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.core.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.core.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.data.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.data.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.data.odata.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.data.odata.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.data.signalr.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.data.signalr.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.data.xml.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.data.xml.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.barcode.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.barcode.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.chart.funnel.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.chart.funnel.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.chart.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.chart.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.chart.polar.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.chart.polar.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.core.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.core.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.diagram.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.diagram.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.gauge.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.gauge.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.map.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.map.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.mobile.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.mobile.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.qrcode.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.qrcode.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.sparkline.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.sparkline.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.stock.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.stock.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.themes.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.themes.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.treemap.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dataviz.treemap.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.datepicker.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.datepicker.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.datetimepicker.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.datetimepicker.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dom.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dom.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.draganddrop.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.draganddrop.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.drawing.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.drawing.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dropdownlist.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.dropdownlist.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.editable.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.editable.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.editor.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.editor.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.excel.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.excel.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.filebrowser.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.filebrowser.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.filtercell.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.filtercell.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.filtermenu.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.filtermenu.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.fx.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.fx.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.gantt.list.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.gantt.list.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.gantt.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.gantt.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.gantt.timeline.min.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.gantt.timeline.min.js.map">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.grid.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.grid.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.groupable.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.groupable.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.imagebrowser.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.imagebrowser.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.list.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.list.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.listview.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.listview.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.maskedtextbox.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.maskedtextbox.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.menu.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.menu.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.actionsheet.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.actionsheet.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.application.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.application.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.button.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.button.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.buttongroup.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.buttongroup.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.collapsible.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.collapsible.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.drawer.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.drawer.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.listview.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.listview.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.loader.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.loader.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.modalview.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.modalview.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.navbar.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.navbar.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.pane.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.pane.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.popover.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.popover.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.scroller.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.scroller.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.scrollview.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.scrollview.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.shim.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.shim.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.splitview.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.splitview.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.switch.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.switch.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.tabstrip.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.tabstrip.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.view.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.mobile.view.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.multiselect.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.multiselect.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.notification.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.notification.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.numerictextbox.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.numerictextbox.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.ooxml.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.ooxml.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.pager.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.pager.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.panelbar.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.panelbar.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.pdf.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.pdf.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.pivot.configurator.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.pivot.configurator.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.pivot.fieldmenu.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.pivot.fieldmenu.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.pivotgrid.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.pivotgrid.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.popup.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.popup.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.progressbar.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.progressbar.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.reorderable.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.reorderable.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.resizable.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.resizable.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.responsivepanel.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.responsivepanel.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.router.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.router.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.scheduler.agendaview.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.scheduler.agendaview.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.scheduler.dayview.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.scheduler.dayview.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.scheduler.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.scheduler.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.scheduler.monthview.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.scheduler.monthview.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.scheduler.recurrence.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.scheduler.recurrence.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.scheduler.timelineview.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.scheduler.timelineview.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.scheduler.view.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.scheduler.view.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.selectable.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.selectable.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.slider.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.slider.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.sortable.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.sortable.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.splitter.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.splitter.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.spreadsheet.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.spreadsheet.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.tabstrip.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.tabstrip.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.timepicker.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.timepicker.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.timezones.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.toolbar.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.toolbar.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.tooltip.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.tooltip.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.touch.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.touch.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.treelist.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.treelist.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.treeview.draganddrop.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.treeview.draganddrop.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.treeview.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.treeview.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.upload.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.upload.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.userevents.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.userevents.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.validator.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.validator.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.view.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.view.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.virtuallist.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.virtuallist.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.web.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.web.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.webcomponents.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.webcomponents.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.window.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/kendo.window.min.js.map">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendo/2015.3.1111/pako_deflate.min.js">
+      <publishTime>01/06/2020 18:58:44</publishTime>
+    </File>
+    <File Include="Scripts/kendoCustomDataBinders.js">
+      <publishTime>01/06/2020 19:04:07</publishTime>
+    </File>
     <File Include="Scripts/modernizr-2.8.3.js">
       <publishTime>05/30/2020 13:49:41</publishTime>
     </File>
+    <File Include="Scripts/multilevelpushmenu/jquery.multilevelpushmenu.js">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
+    <File Include="Scripts/multilevelpushmenu/README.md">
+      <publishTime>01/06/2020 18:58:47</publishTime>
+    </File>
     <File Include="Scripts/popper-utils.js">
-      <publishTime>06/01/2020 12:17:39</publishTime>
+      <publishTime>01/06/2020 12:17:39</publishTime>
     </File>
     <File Include="Scripts/popper-utils.js.map">
-      <publishTime>06/01/2020 12:17:39</publishTime>
+      <publishTime>01/06/2020 12:17:39</publishTime>
     </File>
     <File Include="Scripts/popper-utils.min.js">
-      <publishTime>06/01/2020 12:17:38</publishTime>
+      <publishTime>01/06/2020 12:17:38</publishTime>
     </File>
     <File Include="Scripts/popper-utils.min.js.map">
-      <publishTime>06/01/2020 12:17:38</publishTime>
+      <publishTime>01/06/2020 12:17:38</publishTime>
     </File>
     <File Include="Scripts/popper.js">
-      <publishTime>06/01/2020 12:17:38</publishTime>
+      <publishTime>01/06/2020 12:17:38</publishTime>
     </File>
     <File Include="Scripts/popper.js.map">
-      <publishTime>06/01/2020 12:17:38</publishTime>
+      <publishTime>01/06/2020 12:17:38</publishTime>
     </File>
     <File Include="Scripts/popper.min.js">
-      <publishTime>06/01/2020 12:17:38</publishTime>
+      <publishTime>01/06/2020 12:17:38</publishTime>
     </File>
     <File Include="Scripts/popper.min.js.map">
-      <publishTime>06/01/2020 12:17:38</publishTime>
+      <publishTime>01/06/2020 12:17:38</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/capturar.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/coordenadas2.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/customvalidationrules.js">
+      <publishTime>01/06/2020 19:34:04</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/home.js">
+      <publishTime>01/06/2020 19:58:25</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/modulos/aplicaciones.js">
+      <publishTime>01/06/2020 19:32:16</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/modulos/aplicacionescaracteristicas.js">
+      <publishTime>01/06/2020 19:32:23</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/modulos/asociados.js">
+      <publishTime>01/06/2020 19:34:04</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/modulos/base/archivosmodal.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/modulos/base/detalles.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/modulos/base/formulario.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/modulos/base/grilla-arbol.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/modulos/base/grilla-simple.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/modulos/categorias.js">
+      <publishTime>01/06/2020 19:32:33</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/modulos/comunicacion.js">
+      <publishTime>01/06/2020 19:32:37</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/modulos/comunicaciones.js">
+      <publishTime>01/06/2020 19:32:40</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/modulos/editar.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/modulos/empresas.js">
+      <publishTime>01/06/2020 19:34:04</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/modulos/escritorio.js">
+      <publishTime>01/06/2020 19:34:03</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/modulos/formcomunicaciones.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/modulos/gpss.js">
+      <publishTime>01/06/2020 19:33:04</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/modulos/hermandades.js">
+      <publishTime>01/06/2020 19:33:07</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/modulos/localizaciones.js">
+      <publishTime>01/06/2020 19:33:09</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/modulos/opciones.js">
+      <publishTime>01/06/2020 19:33:13</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/modulos/parametros.js">
+      <publishTime>01/06/2020 19:33:16</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/modulos/perfil.js">
+      <publishTime>01/06/2020 19:33:27</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/modulos/rutas.js">
+      <publishTime>01/06/2020 19:33:31</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/modulos/telefonos.js">
+      <publishTime>01/06/2020 19:33:34</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/modulos/usuarios.js">
+      <publishTime>01/06/2020 19:33:38</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/pushnews.js">
+      <publishTime>01/06/2020 19:34:30</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/rutasmapa.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/rutasmapaosm.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/rutasmapatomtom.js">
+      <publishTime>01/06/2020 19:31:47</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/util.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/viewmodels/albaranentrada.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/viewmodels/caja.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/viewmodels/cliente.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/viewmodels/paciente.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/viewmodels/pedido.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/pushnews/viewmodels/producto.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
     </File>
     <File Include="Scripts/README.md">
-      <publishTime>06/01/2020 12:17:38</publishTime>
+      <publishTime>01/06/2020 12:17:38</publishTime>
     </File>
     <File Include="Scripts/respond.js">
       <publishTime>05/30/2020 14:18:03</publishTime>
@@ -5933,220 +8483,403 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/30/2020 14:18:21</publishTime>
     </File>
     <File Include="Scripts/src/index.js">
-      <publishTime>06/01/2020 12:17:38</publishTime>
+      <publishTime>01/06/2020 12:17:38</publishTime>
     </File>
     <File Include="Scripts/src/methods/defaults.js">
-      <publishTime>06/01/2020 12:17:38</publishTime>
+      <publishTime>01/06/2020 12:17:38</publishTime>
     </File>
     <File Include="Scripts/src/methods/destroy.js">
-      <publishTime>06/01/2020 12:17:38</publishTime>
+      <publishTime>01/06/2020 12:17:38</publishTime>
     </File>
     <File Include="Scripts/src/methods/disableEventListeners.js">
-      <publishTime>06/01/2020 12:17:38</publishTime>
+      <publishTime>01/06/2020 12:17:38</publishTime>
     </File>
     <File Include="Scripts/src/methods/enableEventListeners.js">
-      <publishTime>06/01/2020 12:17:38</publishTime>
+      <publishTime>01/06/2020 12:17:38</publishTime>
     </File>
     <File Include="Scripts/src/methods/placements.js">
-      <publishTime>06/01/2020 12:17:38</publishTime>
+      <publishTime>01/06/2020 12:17:38</publishTime>
     </File>
     <File Include="Scripts/src/methods/update.js">
-      <publishTime>06/01/2020 12:17:37</publishTime>
+      <publishTime>01/06/2020 12:17:37</publishTime>
     </File>
     <File Include="Scripts/src/modifiers/applyStyle.js">
-      <publishTime>06/01/2020 12:17:37</publishTime>
+      <publishTime>01/06/2020 12:17:37</publishTime>
     </File>
     <File Include="Scripts/src/modifiers/arrow.js">
-      <publishTime>06/01/2020 12:17:37</publishTime>
+      <publishTime>01/06/2020 12:17:37</publishTime>
     </File>
     <File Include="Scripts/src/modifiers/computeStyle.js">
-      <publishTime>06/01/2020 12:17:37</publishTime>
+      <publishTime>01/06/2020 12:17:37</publishTime>
     </File>
     <File Include="Scripts/src/modifiers/flip.js">
-      <publishTime>06/01/2020 12:17:37</publishTime>
+      <publishTime>01/06/2020 12:17:37</publishTime>
     </File>
     <File Include="Scripts/src/modifiers/hide.js">
-      <publishTime>06/01/2020 12:17:37</publishTime>
+      <publishTime>01/06/2020 12:17:37</publishTime>
     </File>
     <File Include="Scripts/src/modifiers/index.js">
-      <publishTime>06/01/2020 12:17:37</publishTime>
+      <publishTime>01/06/2020 12:17:37</publishTime>
     </File>
     <File Include="Scripts/src/modifiers/inner.js">
-      <publishTime>06/01/2020 12:17:37</publishTime>
+      <publishTime>01/06/2020 12:17:37</publishTime>
     </File>
     <File Include="Scripts/src/modifiers/keepTogether.js">
-      <publishTime>06/01/2020 12:17:37</publishTime>
+      <publishTime>01/06/2020 12:17:37</publishTime>
     </File>
     <File Include="Scripts/src/modifiers/offset.js">
-      <publishTime>06/01/2020 12:17:37</publishTime>
+      <publishTime>01/06/2020 12:17:37</publishTime>
     </File>
     <File Include="Scripts/src/modifiers/preventOverflow.js">
-      <publishTime>06/01/2020 12:17:37</publishTime>
+      <publishTime>01/06/2020 12:17:37</publishTime>
     </File>
     <File Include="Scripts/src/modifiers/shift.js">
-      <publishTime>06/01/2020 12:17:37</publishTime>
+      <publishTime>01/06/2020 12:17:37</publishTime>
     </File>
     <File Include="Scripts/src/utils/clockwise.js">
-      <publishTime>06/01/2020 12:17:36</publishTime>
+      <publishTime>01/06/2020 12:17:36</publishTime>
     </File>
     <File Include="Scripts/src/utils/computeAutoPlacement.js">
-      <publishTime>06/01/2020 12:17:36</publishTime>
+      <publishTime>01/06/2020 12:17:36</publishTime>
     </File>
     <File Include="Scripts/src/utils/debounce.js">
-      <publishTime>06/01/2020 12:17:36</publishTime>
+      <publishTime>01/06/2020 12:17:36</publishTime>
     </File>
     <File Include="Scripts/src/utils/find.js">
-      <publishTime>06/01/2020 12:17:36</publishTime>
+      <publishTime>01/06/2020 12:17:36</publishTime>
     </File>
     <File Include="Scripts/src/utils/findCommonOffsetParent.js">
-      <publishTime>06/01/2020 12:17:36</publishTime>
+      <publishTime>01/06/2020 12:17:36</publishTime>
     </File>
     <File Include="Scripts/src/utils/findIndex.js">
-      <publishTime>06/01/2020 12:17:36</publishTime>
+      <publishTime>01/06/2020 12:17:36</publishTime>
     </File>
     <File Include="Scripts/src/utils/getBordersSize.js">
-      <publishTime>06/01/2020 12:17:36</publishTime>
+      <publishTime>01/06/2020 12:17:36</publishTime>
     </File>
     <File Include="Scripts/src/utils/getBoundaries.js">
-      <publishTime>06/01/2020 12:17:36</publishTime>
+      <publishTime>01/06/2020 12:17:36</publishTime>
     </File>
     <File Include="Scripts/src/utils/getBoundingClientRect.js">
-      <publishTime>06/01/2020 12:17:36</publishTime>
+      <publishTime>01/06/2020 12:17:36</publishTime>
     </File>
     <File Include="Scripts/src/utils/getClientRect.js">
-      <publishTime>06/01/2020 12:17:35</publishTime>
+      <publishTime>01/06/2020 12:17:35</publishTime>
     </File>
     <File Include="Scripts/src/utils/getFixedPositionOffsetParent.js">
-      <publishTime>06/01/2020 12:17:35</publishTime>
+      <publishTime>01/06/2020 12:17:35</publishTime>
     </File>
     <File Include="Scripts/src/utils/getOffsetParent.js">
-      <publishTime>06/01/2020 12:17:35</publishTime>
+      <publishTime>01/06/2020 12:17:35</publishTime>
     </File>
     <File Include="Scripts/src/utils/getOffsetRect.js">
-      <publishTime>06/01/2020 12:17:35</publishTime>
+      <publishTime>01/06/2020 12:17:35</publishTime>
     </File>
     <File Include="Scripts/src/utils/getOffsetRectRelativeToArbitraryNode.js">
-      <publishTime>06/01/2020 12:17:35</publishTime>
+      <publishTime>01/06/2020 12:17:35</publishTime>
     </File>
     <File Include="Scripts/src/utils/getOppositePlacement.js">
-      <publishTime>06/01/2020 12:17:35</publishTime>
+      <publishTime>01/06/2020 12:17:35</publishTime>
     </File>
     <File Include="Scripts/src/utils/getOppositeVariation.js">
-      <publishTime>06/01/2020 12:17:35</publishTime>
+      <publishTime>01/06/2020 12:17:35</publishTime>
     </File>
     <File Include="Scripts/src/utils/getOuterSizes.js">
-      <publishTime>06/01/2020 12:17:35</publishTime>
+      <publishTime>01/06/2020 12:17:35</publishTime>
     </File>
     <File Include="Scripts/src/utils/getParentNode.js">
-      <publishTime>06/01/2020 12:17:35</publishTime>
+      <publishTime>01/06/2020 12:17:35</publishTime>
     </File>
     <File Include="Scripts/src/utils/getPopperOffsets.js">
-      <publishTime>06/01/2020 12:17:35</publishTime>
+      <publishTime>01/06/2020 12:17:35</publishTime>
     </File>
     <File Include="Scripts/src/utils/getReferenceNode.js">
-      <publishTime>06/01/2020 12:17:35</publishTime>
+      <publishTime>01/06/2020 12:17:35</publishTime>
     </File>
     <File Include="Scripts/src/utils/getReferenceOffsets.js">
-      <publishTime>06/01/2020 12:17:35</publishTime>
+      <publishTime>01/06/2020 12:17:35</publishTime>
     </File>
     <File Include="Scripts/src/utils/getRoot.js">
-      <publishTime>06/01/2020 12:17:35</publishTime>
+      <publishTime>01/06/2020 12:17:35</publishTime>
     </File>
     <File Include="Scripts/src/utils/getRoundedOffsets.js">
-      <publishTime>06/01/2020 12:17:34</publishTime>
+      <publishTime>01/06/2020 12:17:34</publishTime>
     </File>
     <File Include="Scripts/src/utils/getScroll.js">
-      <publishTime>06/01/2020 12:17:34</publishTime>
+      <publishTime>01/06/2020 12:17:34</publishTime>
     </File>
     <File Include="Scripts/src/utils/getScrollParent.js">
-      <publishTime>06/01/2020 12:17:34</publishTime>
+      <publishTime>01/06/2020 12:17:34</publishTime>
     </File>
     <File Include="Scripts/src/utils/getStyleComputedProperty.js">
-      <publishTime>06/01/2020 12:17:34</publishTime>
+      <publishTime>01/06/2020 12:17:34</publishTime>
     </File>
     <File Include="Scripts/src/utils/getSupportedPropertyName.js">
-      <publishTime>06/01/2020 12:17:34</publishTime>
+      <publishTime>01/06/2020 12:17:34</publishTime>
     </File>
     <File Include="Scripts/src/utils/getViewportOffsetRectRelativeToArtbitraryNode.js">
-      <publishTime>06/01/2020 12:17:34</publishTime>
+      <publishTime>01/06/2020 12:17:34</publishTime>
     </File>
     <File Include="Scripts/src/utils/getWindow.js">
-      <publishTime>06/01/2020 12:17:34</publishTime>
+      <publishTime>01/06/2020 12:17:34</publishTime>
     </File>
     <File Include="Scripts/src/utils/getWindowSizes.js">
-      <publishTime>06/01/2020 12:17:34</publishTime>
+      <publishTime>01/06/2020 12:17:34</publishTime>
     </File>
     <File Include="Scripts/src/utils/includeScroll.js">
-      <publishTime>06/01/2020 12:17:34</publishTime>
+      <publishTime>01/06/2020 12:17:34</publishTime>
     </File>
     <File Include="Scripts/src/utils/index.js">
-      <publishTime>06/01/2020 12:17:34</publishTime>
+      <publishTime>01/06/2020 12:17:34</publishTime>
     </File>
     <File Include="Scripts/src/utils/isBrowser.js">
-      <publishTime>06/01/2020 12:17:34</publishTime>
+      <publishTime>01/06/2020 12:17:34</publishTime>
     </File>
     <File Include="Scripts/src/utils/isFixed.js">
-      <publishTime>06/01/2020 12:17:34</publishTime>
+      <publishTime>01/06/2020 12:17:34</publishTime>
     </File>
     <File Include="Scripts/src/utils/isFunction.js">
-      <publishTime>06/01/2020 12:17:33</publishTime>
+      <publishTime>01/06/2020 12:17:33</publishTime>
     </File>
     <File Include="Scripts/src/utils/isIE.js">
-      <publishTime>06/01/2020 12:17:33</publishTime>
+      <publishTime>01/06/2020 12:17:33</publishTime>
     </File>
     <File Include="Scripts/src/utils/isModifierEnabled.js">
-      <publishTime>06/01/2020 12:17:33</publishTime>
+      <publishTime>01/06/2020 12:17:33</publishTime>
     </File>
     <File Include="Scripts/src/utils/isModifierRequired.js">
-      <publishTime>06/01/2020 12:17:33</publishTime>
+      <publishTime>01/06/2020 12:17:33</publishTime>
     </File>
     <File Include="Scripts/src/utils/isNumeric.js">
-      <publishTime>06/01/2020 12:17:33</publishTime>
+      <publishTime>01/06/2020 12:17:33</publishTime>
     </File>
     <File Include="Scripts/src/utils/isOffsetContainer.js">
-      <publishTime>06/01/2020 12:17:33</publishTime>
+      <publishTime>01/06/2020 12:17:33</publishTime>
     </File>
     <File Include="Scripts/src/utils/removeEventListeners.js">
-      <publishTime>06/01/2020 12:17:33</publishTime>
+      <publishTime>01/06/2020 12:17:33</publishTime>
     </File>
     <File Include="Scripts/src/utils/runModifiers.js">
-      <publishTime>06/01/2020 12:17:33</publishTime>
+      <publishTime>01/06/2020 12:17:33</publishTime>
     </File>
     <File Include="Scripts/src/utils/setAttributes.js">
-      <publishTime>06/01/2020 12:17:33</publishTime>
+      <publishTime>01/06/2020 12:17:33</publishTime>
     </File>
     <File Include="Scripts/src/utils/setStyles.js">
-      <publishTime>06/01/2020 12:17:32</publishTime>
+      <publishTime>01/06/2020 12:17:32</publishTime>
     </File>
     <File Include="Scripts/src/utils/setupEventListeners.js">
-      <publishTime>06/01/2020 12:17:32</publishTime>
+      <publishTime>01/06/2020 12:17:32</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.af.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.ar.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.bg.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.bs.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.ca.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.cs.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.cy.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.da.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.de.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.dv.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.el.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.en-short.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.en.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.es-short.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.es.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.et.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.eu.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.fa-short.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.fa.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.fi.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.fr-short.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.fr.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.gl.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.he.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.hr.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.hu.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.hy.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.id.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.is.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.it-short.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.it.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.ja.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.jv.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.ko.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.ky.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.lt.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.lv.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.mk.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.nl.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.no.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.pl.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.pt-br-short.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.pt-br.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.pt-short.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.pt.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.ro.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.rs.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.ru.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.rw.js">
+      <publishTime>01/06/2020 18:58:42</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.si.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.sk.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.sl.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.sv.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.th.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.tr.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.uk.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.uz.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.vi.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.zh-CN.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/jquery.timeago.zh-TW.js">
+      <publishTime>01/06/2020 18:58:43</publishTime>
+    </File>
+    <File Include="Scripts/timeago.locales/README.md">
+      <publishTime>01/06/2020 18:58:43</publishTime>
     </File>
     <File Include="Scripts/umd/popper-utils.js">
-      <publishTime>06/01/2020 12:17:32</publishTime>
+      <publishTime>01/06/2020 12:17:32</publishTime>
     </File>
     <File Include="Scripts/umd/popper-utils.js.map">
-      <publishTime>06/01/2020 12:17:32</publishTime>
+      <publishTime>01/06/2020 12:17:32</publishTime>
     </File>
     <File Include="Scripts/umd/popper-utils.min.js">
-      <publishTime>06/01/2020 12:17:32</publishTime>
+      <publishTime>01/06/2020 12:17:32</publishTime>
     </File>
     <File Include="Scripts/umd/popper-utils.min.js.map">
-      <publishTime>06/01/2020 12:17:32</publishTime>
+      <publishTime>01/06/2020 12:17:32</publishTime>
     </File>
     <File Include="Scripts/umd/popper.js">
-      <publishTime>06/01/2020 12:17:32</publishTime>
+      <publishTime>01/06/2020 12:17:32</publishTime>
     </File>
     <File Include="Scripts/umd/popper.js.flow">
-      <publishTime>06/01/2020 12:17:32</publishTime>
+      <publishTime>01/06/2020 12:17:32</publishTime>
     </File>
     <File Include="Scripts/umd/popper.js.map">
-      <publishTime>06/01/2020 12:17:32</publishTime>
+      <publishTime>01/06/2020 12:17:32</publishTime>
     </File>
     <File Include="Scripts/umd/popper.min.js">
-      <publishTime>06/01/2020 12:17:32</publishTime>
+      <publishTime>01/06/2020 12:17:32</publishTime>
     </File>
     <File Include="Scripts/umd/popper.min.js.map">
-      <publishTime>06/01/2020 12:17:31</publishTime>
+      <publishTime>01/06/2020 12:17:31</publishTime>
     </File>
     <File Include="Views/Home/DetalleComunicacion.cshtml">
       <publishTime>05/30/2020 17:22:32</publishTime>
@@ -6158,7 +8891,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/30/2020 17:22:16</publishTime>
     </File>
     <File Include="Views/RutasMapa/RutasMapa.cshtml">
-      <publishTime>05/30/2020 17:25:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Views/RutasMapa/RutasMapaOSM.cshtml">
       <publishTime>05/30/2020 17:25:05</publishTime>
@@ -6173,16 +8906,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/30/2020 17:22:16</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>05/30/2020 17:25:18</publishTime>
+      <publishTime>01/06/2020 19:15:55</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>05/30/2020 17:25:26</publishTime>
+      <publishTime>01/06/2020 18:01:49</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
       <publishTime>05/30/2020 17:22:16</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/01/2020 12:56:59</publishTime>
+      <publishTime>04/06/2020 09:57:21</publishTime>
     </File>
   </ItemGroup>
 </Project>
