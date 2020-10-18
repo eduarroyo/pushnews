@@ -8,8 +8,6 @@
     bool permisoAgregar = User.IsInRole("CrearCategorias");
     bool permisoEliminar = false;
 
-    bool caracteristicaAsociados = (ViewBag.Asociados as bool?) ?? false;
-
     var modeloCabecera = new CabeceraModel()
     {
         Icono = "clip-settings",
@@ -65,12 +63,6 @@
                         .MinScreenWidth(768)
                         .ClientTemplate(@"<i class=""fa fa-2x #=Icono#""></i> &nbsp; #= Icono #");
                     columns.Bound(c => c.Orden).Width(100).HtmlAttributes(new { @class = "celda-derecha" });
-                    if(caracteristicaAsociados)
-                    {
-                        columns.Bound(c => c.Privada).Width(80)
-                            .HtmlAttributes(new { @class = "celda-centrada" })
-                            .ClientTemplate("#if(Privada) {# <i class=\"fa fa-2x fa-user-secret\"></i> #}#");
-                    }
                     if (permisoModificar)
                     {
                         columns.Bound(c => c.Activo).Title(Txt.Comun.Activa)

@@ -15,8 +15,6 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
     {
         public ActionResult Perfil()
         {
-            ViewBag.TipoAplicacion = Aplicacion.Tipo;
-
             var usuario = Usuario;
             ViewBag.NombreActual = usuario.Nombre;
             ViewBag.ApellidosActuales = usuario.Apellidos;
@@ -26,7 +24,6 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
 
         public ActionResult Opciones()
         {
-            ViewBag.TipoAplicacion = Aplicacion.Tipo;
             return PartialView("Opciones");
         }
 

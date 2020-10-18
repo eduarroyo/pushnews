@@ -23,10 +23,9 @@
           <Property Name="Tipo" Type="nvarchar" MaxLength="100" />
           <Property Name="ApiKey" Type="nvarchar" MaxLength="500" />
           <Property Name="PlayStoreUrl" Type="nvarchar" MaxLength="1000" />
-          <Property Name="ITunesUrl" Type="nvarchar" MaxLength="1000" />
-          <Property Name="MicrosoftStoreUrl" Type="nvarchar" MaxLength="1000" />
           <Property Name="ApiKeyExternos" Type="nvarchar" MaxLength="500" />
           <Property Name="PermitirAccesoApiExternos" Type="bit" Nullable="false" />
+          <Property Name="AppStoreUrl" Type="nvarchar" MaxLength="1000" />
         </EntityType>
         <EntityType Name="Categorias">
           <Key>
@@ -149,31 +148,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PushNewsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Aplicacion">
-          <Key>
-            <PropertyRef Name="AplicacionID" />
-          </Key>
-          <Property Name="AplicacionID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Version" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Activo" Type="Boolean" Nullable="false" />
-          <Property Name="CloudKey" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="SubDominio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Usuario" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Clave" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ClaveSuscripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="RequerirClaveSuscripcion" Type="Boolean" Nullable="false" />
-          <Property Name="LogotipoID" Type="Int64" />
-          <Property Name="Tipo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ApiKey" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="PlayStoreUrl" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="ITunesUrl" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="MicrosoftStoreUrl" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="ApiKeyExternos" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="PermitirAccesoApiExternos" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Categorias" Relationship="Self.FK_dbo_Categorias_dbo_Aplicaciones_AplicacionID" FromRole="Aplicaciones" ToRole="Categorias" />
-          <NavigationProperty Name="Parametros" Relationship="PushNewsModel.FK_dbo_Parametros_dbo_Aplicaciones_AplicacionID" FromRole="Aplicacion" ToRole="Parametros" />
-        </EntityType>
         <EntityType Name="Categoria">
           <Key>
             <PropertyRef Name="CategoriaID" />
@@ -186,8 +160,8 @@
           <Property Name="Orden" Type="Int32" Nullable="false" />
           <Property Name="Activo" Type="Boolean" Nullable="false" />
           <Property Name="Privada" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Aplicacion" Relationship="Self.FK_dbo_Categorias_dbo_Aplicaciones_AplicacionID" FromRole="Categorias" ToRole="Aplicaciones" />
           <NavigationProperty Name="Comunicaciones" Relationship="Self.FK_dbo_Comunicaciones_dbo_Categorias_CategoriaID" FromRole="Categorias" ToRole="Comunicaciones" />
+          <NavigationProperty Name="Aplicacion" Relationship="PushNewsModel.FK_dbo_Categorias_dbo_Aplicaciones_AplicacionID" FromRole="Categoria" ToRole="Aplicaciones" />
         </EntityType>
         <EntityType Name="Comunicacion">
           <Key>
@@ -230,18 +204,6 @@
           <Property Name="Instantanea" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Categoria" Relationship="Self.FK_dbo_Comunicaciones_dbo_Categorias_CategoriaID" FromRole="Comunicaciones" ToRole="Categorias" />
         </EntityType>
-        <Association Name="FK_dbo_Categorias_dbo_Aplicaciones_AplicacionID">
-          <End Role="Aplicaciones" Type="PushNewsModel.Aplicacion" Multiplicity="1" />
-          <End Role="Categorias" Type="PushNewsModel.Categoria" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Aplicaciones">
-              <PropertyRef Name="AplicacionID" />
-            </Principal>
-            <Dependent Role="Categorias">
-              <PropertyRef Name="AplicacionID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_dbo_Comunicaciones_dbo_Categorias_CategoriaID">
           <End Role="Categorias" Type="PushNewsModel.Categoria" Multiplicity="1" />
           <End Role="Comunicaciones" Type="PushNewsModel.Comunicacion" Multiplicity="*" />
@@ -255,21 +217,21 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="PushNewsEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Aplicaciones" EntityType="PushNewsModel.Aplicacion" />
           <EntitySet Name="Categorias" EntityType="PushNewsModel.Categoria" />
           <EntitySet Name="Comunicaciones" EntityType="PushNewsModel.Comunicacion" />
-          <AssociationSet Name="FK_dbo_Categorias_dbo_Aplicaciones_AplicacionID" Association="Self.FK_dbo_Categorias_dbo_Aplicaciones_AplicacionID">
-            <End Role="Aplicaciones" EntitySet="Aplicaciones" />
-            <End Role="Categorias" EntitySet="Categorias" />
-          </AssociationSet>
           <AssociationSet Name="FK_dbo_Comunicaciones_dbo_Categorias_CategoriaID" Association="Self.FK_dbo_Comunicaciones_dbo_Categorias_CategoriaID">
             <End Role="Categorias" EntitySet="Categorias" />
             <End Role="Comunicaciones" EntitySet="Comunicaciones" />
           </AssociationSet>
           <EntitySet Name="Parametros" EntityType="PushNewsModel.Parametro" />
+          <EntitySet Name="Aplicaciones" EntityType="PushNewsModel.Aplicacion" />
+          <AssociationSet Name="FK_dbo_Categorias_dbo_Aplicaciones_AplicacionID" Association="PushNewsModel.FK_dbo_Categorias_dbo_Aplicaciones_AplicacionID">
+            <End Role="Aplicaciones" EntitySet="Aplicaciones" />
+            <End Role="Categoria" EntitySet="Categorias" />
+          </AssociationSet>
           <AssociationSet Name="FK_dbo_Parametros_dbo_Aplicaciones_AplicacionID" Association="PushNewsModel.FK_dbo_Parametros_dbo_Aplicaciones_AplicacionID">
-            <End Role="Aplicacion" EntitySet="Aplicaciones" />
-            <End Role="Parametros" EntitySet="Parametros" />
+            <End Role="Aplicaciones" EntitySet="Aplicaciones" />
+            <End Role="Parametro" EntitySet="Parametros" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Parametro">
@@ -281,16 +243,51 @@
           <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Valor" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Aplicacion" Relationship="PushNewsModel.FK_dbo_Parametros_dbo_Aplicaciones_AplicacionID" FromRole="Parametros" ToRole="Aplicacion" />
+          <NavigationProperty Name="Aplicacion" Relationship="PushNewsModel.FK_dbo_Parametros_dbo_Aplicaciones_AplicacionID" FromRole="Parametro" ToRole="Aplicaciones" />
         </EntityType>
-        <Association Name="FK_dbo_Parametros_dbo_Aplicaciones_AplicacionID">
-          <End Type="PushNewsModel.Aplicacion" Role="Aplicacion" Multiplicity="0..1" />
-          <End Type="PushNewsModel.Parametro" Role="Parametros" Multiplicity="*" />
+        <EntityType Name="Aplicacion">
+          <Key>
+            <PropertyRef Name="AplicacionID" />
+          </Key>
+          <Property Name="AplicacionID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Version" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Name="CloudKey" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SubDominio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Usuario" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Clave" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ClaveSuscripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RequerirClaveSuscripcion" Type="Boolean" Nullable="false" />
+          <Property Name="LogotipoID" Type="Int64" />
+          <Property Name="ApiKey" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="PlayStoreUrl" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="ApiKeyExternos" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="PermitirAccesoApiExternos" Type="Boolean" Nullable="false" />
+          <Property Name="AppStoreUrl" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Categorias" Relationship="PushNewsModel.FK_dbo_Categorias_dbo_Aplicaciones_AplicacionID" FromRole="Aplicaciones" ToRole="Categoria" />
+          <NavigationProperty Name="Parametros" Relationship="PushNewsModel.FK_dbo_Parametros_dbo_Aplicaciones_AplicacionID" FromRole="Aplicaciones" ToRole="Parametro" />
+        </EntityType>
+        <Association Name="FK_dbo_Categorias_dbo_Aplicaciones_AplicacionID">
+          <End Type="PushNewsModel.Aplicacion" Role="Aplicaciones" Multiplicity="1" />
+          <End Type="PushNewsModel.Categoria" Role="Categoria" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Aplicacion">
+            <Principal Role="Aplicaciones">
               <PropertyRef Name="AplicacionID" />
             </Principal>
-            <Dependent Role="Parametros">
+            <Dependent Role="Categoria">
+              <PropertyRef Name="AplicacionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Parametros_dbo_Aplicaciones_AplicacionID">
+          <End Type="PushNewsModel.Aplicacion" Role="Aplicaciones" Multiplicity="0..1" />
+          <End Type="PushNewsModel.Parametro" Role="Parametro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aplicaciones">
+              <PropertyRef Name="AplicacionID" />
+            </Principal>
+            <Dependent Role="Parametro">
               <PropertyRef Name="AplicacionID" />
             </Dependent>
           </ReferentialConstraint>
@@ -301,30 +298,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="PushNewsModelStoreContainer" CdmEntityContainer="PushNewsEntities">
-          <EntitySetMapping Name="Aplicaciones">
-            <EntityTypeMapping TypeName="PushNewsModel.Aplicacion">
-              <MappingFragment StoreEntitySet="Aplicaciones">
-                <ScalarProperty Name="AplicacionID" ColumnName="AplicacionID" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Version" ColumnName="Version" />
-                <ScalarProperty Name="Activo" ColumnName="Activo" />
-                <ScalarProperty Name="CloudKey" ColumnName="CloudKey" />
-                <ScalarProperty Name="SubDominio" ColumnName="SubDominio" />
-                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
-                <ScalarProperty Name="Clave" ColumnName="Clave" />
-                <ScalarProperty Name="ClaveSuscripcion" ColumnName="ClaveSuscripcion" />
-                <ScalarProperty Name="RequerirClaveSuscripcion" ColumnName="RequerirClaveSuscripcion" />
-                <ScalarProperty Name="LogotipoID" ColumnName="LogotipoID" />
-                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-                <ScalarProperty Name="ApiKey" ColumnName="ApiKey" />
-                <ScalarProperty Name="PlayStoreUrl" ColumnName="PlayStoreUrl" />
-                <ScalarProperty Name="ITunesUrl" ColumnName="ITunesUrl" />
-                <ScalarProperty Name="MicrosoftStoreUrl" ColumnName="MicrosoftStoreUrl" />
-                <ScalarProperty Name="ApiKeyExternos" ColumnName="ApiKeyExternos" />
-                <ScalarProperty Name="PermitirAccesoApiExternos" ColumnName="PermitirAccesoApiExternos" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Categorias">
             <EntityTypeMapping TypeName="PushNewsModel.Categoria">
               <MappingFragment StoreEntitySet="Categorias">
@@ -388,6 +361,28 @@
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="AplicacionID" ColumnName="AplicacionID" />
                 <ScalarProperty Name="ParametroID" ColumnName="ParametroID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Aplicaciones">
+            <EntityTypeMapping TypeName="PushNewsModel.Aplicacion">
+              <MappingFragment StoreEntitySet="Aplicaciones">
+                <ScalarProperty Name="AppStoreUrl" ColumnName="AppStoreUrl" />
+                <ScalarProperty Name="PermitirAccesoApiExternos" ColumnName="PermitirAccesoApiExternos" />
+                <ScalarProperty Name="ApiKeyExternos" ColumnName="ApiKeyExternos" />
+                <ScalarProperty Name="PlayStoreUrl" ColumnName="PlayStoreUrl" />
+                <ScalarProperty Name="ApiKey" ColumnName="ApiKey" />
+                <ScalarProperty Name="LogotipoID" ColumnName="LogotipoID" />
+                <ScalarProperty Name="RequerirClaveSuscripcion" ColumnName="RequerirClaveSuscripcion" />
+                <ScalarProperty Name="ClaveSuscripcion" ColumnName="ClaveSuscripcion" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="SubDominio" ColumnName="SubDominio" />
+                <ScalarProperty Name="CloudKey" ColumnName="CloudKey" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="AplicacionID" ColumnName="AplicacionID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

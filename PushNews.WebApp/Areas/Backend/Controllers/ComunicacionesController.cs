@@ -3,7 +3,6 @@ using PushNews.WebApp.Controllers;
 using PushNews.WebApp.Filters;
 using PushNews.WebApp.Helpers;
 using PushNews.WebApp.Models;
-using PushNews.WebApp.Models.Asociados;
 using PushNews.WebApp.Models.Comunicaciones;
 using PushNews.Dominio.Entidades;
 using PushNews.Negocio.Interfaces;
@@ -35,19 +34,15 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         [Authorize(Roles = "LeerComunicaciones")]
         public ActionResult Comunicacion(long comunicacionID)
         {
-            ViewBag.TipoAplicacion = Aplicacion.Tipo;
             ViewBag.ComunicacionID = comunicacionID;
-            ViewBag.CaracteristicaAsociados = Aplicacion.Caracteristicas.Any(c => c.Nombre == "Asociados");
             return PartialView("~/Areas/Backend/Views/Comunicaciones/ComunicacionDetalle.cshtml");
         }
 
         [Authorize(Roles="LeerComunicaciones")]
         public ActionResult Index()
         {
-            ViewBag.TipoAplicacion = Aplicacion.Tipo;
             ICategoriasServicio srv = Servicios.CategoriasServicio();
             ViewBag.Categorias = srv.Get().Select(CategoriaModel.FromEntity);
-            ViewBag.CaracteristicaAsociados = Aplicacion.Caracteristicas.Any(c => c.Nombre == "Asociados");
             return PartialView("Comunicaciones");
         }
 
@@ -205,7 +200,6 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         [Authorize(Roles = "ModificarComunicaciones")]
         public ActionResult Editar(long? comunicacionID = null)
         {
-            ViewBag.TipoAplicacion = Aplicacion.Tipo;
             ViewBag.ComunicacionID = comunicacionID ?? 0;
             return PartialView("~/Areas/Backend/Views/Comunicaciones/Editar.cshtml");
         }
@@ -572,7 +566,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
             {
                 // Obtener el canal, según si la comunicación pertenece a una categoría pública o privada.
                 IParametrosServicio pSrv = Servicios.ParametrosServicio();
-                string claveCanal = comunicacion.Categoria.Privada ? "CanalPushPrivado" : "CanalPush";
+                string claveCanal = "CanalPush";
                 Parametro canal = pSrv.GetByName(claveCanal);
                 if(canal == null || string.IsNullOrWhiteSpace(canal.Valor))
                 {

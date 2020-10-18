@@ -2,10 +2,6 @@
 @using PushNews.WebApp.Models
 @model CategoriaModel
 
-@{
-    bool caracteristicaAsociados = (ViewBag.Asociados as bool?) ?? false;
-}
-
 <div class="formulario-edicion  k-group">
 @using (Html.BeginForm("", "", FormMethod.Post))
 {
@@ -47,19 +43,6 @@
                         @(Html.Kendo().NumericTextBoxFor(model => model.Orden).Min(1).Format("d")
                             .HtmlAttributes(new { @class = "campo-form", data_bind = "value:Orden" })
                         )
-                    </div>
-
-                    @if (caracteristicaAsociados)
-                    {
-                    <div class="form-group col-xs-12">
-                        @(Html.CheckBoxFor(
-                            m => m.Privada,
-                            new { @class = "campo-form", data_bind = "checked:Privada" })
-                        )
-                        <div class="control-label" style="display:inline;">
-                            @Html.LabelFor(model => model.Privada)
-                        </div>
-
                     </div>
                     }
                 </div>

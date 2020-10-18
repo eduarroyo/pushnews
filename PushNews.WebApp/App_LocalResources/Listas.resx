@@ -123,9 +123,6 @@
   <data name="AplicacionCaracteristicaAdjuntosMultiples" xml:space="preserve">
     <value>Adjuntos múltiples</value>
   </data>
-  <data name="AplicacionCaracteristicaAsociados" xml:space="preserve">
-    <value>Asociados</value>
-  </data>
   <data name="AplicacionCaracteristicaDirectorioComercial" xml:space="preserve">
     <value>Directorio comercial</value>
   </data>
@@ -134,9 +131,6 @@
   </data>
   <data name="AplicacionCaracteristicaGeoPosicionamiento" xml:space="preserve">
     <value>Adjuntar coordenadas</value>
-  </data>
-  <data name="AplicacionCaracteristicaHermandades" xml:space="preserve">
-    <value>Hermandades</value>
   </data>
   <data name="AplicacionCaracteristicaImagenesMultiples" xml:space="preserve">
     <value>Imágenes múltiples</value>

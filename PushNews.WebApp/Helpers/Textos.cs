@@ -66,17 +66,8 @@ namespace PushNews.WebApp.Helpers
         {
             switch (caracteristica)
             {
-                case Dominio.Enums.AplicacionCaracteristica.Asociados:
-                    return Txt.Listas.AplicacionCaracteristicaAsociados;
-
                 case Dominio.Enums.AplicacionCaracteristica.DirectorioComercial:
                     return Txt.Listas.AplicacionCaracteristicaDirectorioComercial;
-
-                case Dominio.Enums.AplicacionCaracteristica.SincronizacionFacebook:
-                    return Txt.Listas.AplicacionCaracteristicaSincronizacionFacebook;
-
-                case Dominio.Enums.AplicacionCaracteristica.SincronizacionTwitter:
-                    return Txt.Listas.AplicacionCaracteristicaSincronizacionTwitter;
 
                 case Dominio.Enums.AplicacionCaracteristica.ImagenesMultiples:
                     return Txt.Listas.AplicacionCaracteristicaImagenesMultiples;
@@ -87,14 +78,8 @@ namespace PushNews.WebApp.Helpers
                 case Dominio.Enums.AplicacionCaracteristica.AdjuntarVideo:
                     return Txt.Listas.AplicacionCaracteristicaAdjuntarVideo;
 
-                case Dominio.Enums.AplicacionCaracteristica.GeoPosicionamiento:
-                    return Txt.Listas.AplicacionCaracteristicaGeoPosicionamiento;
-
                 case Dominio.Enums.AplicacionCaracteristica.Empresas:
                     return Txt.Listas.AplicacionCaracteristicaEmpresas;
-
-                case Dominio.Enums.AplicacionCaracteristica.Hermandades:
-                    return Txt.Listas.AplicacionCaracteristicaHermandades;
 
                 default:
                     return "";

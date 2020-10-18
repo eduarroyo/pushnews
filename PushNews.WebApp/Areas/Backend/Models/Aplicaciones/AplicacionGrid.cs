@@ -6,7 +6,6 @@ using Entity = PushNews.Dominio.Entidades.Aplicacion;
 using Txt = PushNews.WebApp.App_LocalResources;
 using System.Collections.Generic;
 using System.Linq;
-using PushNews.WebApp.Helpers.Validation;
 
 namespace PushNews.WebApp.Models.Aplicaciones
 {
@@ -21,16 +20,10 @@ namespace PushNews.WebApp.Models.Aplicaciones
                 Activo = a.Activo,
                 CloudKey = Util.AsegurarNulos(a.CloudKey),
                 SubDominio = Util.AsegurarNulos(a.SubDominio),
-                ClaveSuscripcion = a.ClaveSuscripcion,
-                RequerirClaveSuscripcion = a.RequerirClaveSuscripcion,
                 Usuario = Util.AsegurarNulos(a.Usuario),
                 Clave = a.Clave,
-                AplicacionesAmigas = a.AplicacionesAmigas.Select(aa => aa.AplicacionID),
                 ApiKey = a.ApiKey,
-                PermitirAccesoApiExternos = a.PermitirAccesoApiExternos,
-                ApiKeyExternos = a.ApiKeyExternos,
-                ITunesUrl = a.ITunesUrl,
-                MicrosoftStoreUrl = a.MicrosoftStoreUrl,
+                AppStoreUrl = a.AppStoreUrl,
                 PlayStoreUrl = a.PlayStoreUrl,
 
                 LogotipoUrl = a.Logotipo != null ? $"/Home/Logotipo/{a.AplicacionID}" : "",
@@ -46,15 +39,10 @@ namespace PushNews.WebApp.Models.Aplicaciones
             entidad.Activo = Activo;
             entidad.CloudKey = CloudKey;
             entidad.SubDominio = SubDominio;
-            entidad.ClaveSuscripcion = ClaveSuscripcion;
-            entidad.RequerirClaveSuscripcion = RequerirClaveSuscripcion;
             entidad.Usuario = Usuario;
             entidad.Clave = Clave;
             entidad.ApiKey = ApiKey;
-            entidad.PermitirAccesoApiExternos = PermitirAccesoApiExternos;
-            entidad.ApiKeyExternos = ApiKeyExternos;
-            entidad.ITunesUrl = ITunesUrl;
-            entidad.MicrosoftStoreUrl = MicrosoftStoreUrl;
+            entidad.AppStoreUrl = AppStoreUrl;
             entidad.PlayStoreUrl = PlayStoreUrl;
             entidad.Activo = Activo;
         }
@@ -93,15 +81,6 @@ namespace PushNews.WebApp.Models.Aplicaciones
         [StringLength(100, ErrorMessageResourceType = typeof(Txt.Validacion), ErrorMessageResourceName = "CadenaLongitudMaxima")]
         public string SubDominio { get; set; }
         
-        [Display(ResourceType = typeof(Txt.Aplicaciones), Name = "ClaveSuscripcion")]
-        [RequiredIf("RequerirClaveSuscripcion", ErrorMessageResourceType = typeof(Txt.Validacion), ErrorMessageResourceName = "Requerido")]
-        [StringLength(100, ErrorMessageResourceType = typeof(Txt.Validacion), ErrorMessageResourceName = "CadenaLongitudMaxima")]
-        public string ClaveSuscripcion { get; set; }
-
-        [Display(ResourceType = typeof(Txt.Aplicaciones), Name = "RequerirClaveSuscripcion")]
-        [Required(ErrorMessageResourceType = typeof(Txt.Validacion), ErrorMessageResourceName = "Requerido")]
-        public bool RequerirClaveSuscripcion { get; set; }
-
         [Display(ResourceType = typeof(Txt.Aplicaciones), Name = "Usuario")]
         [StringLength(100, ErrorMessageResourceType = typeof(Txt.Validacion), ErrorMessageResourceName = "CadenaLongitudMaxima")]
         public string Usuario { get; set; }
@@ -114,30 +93,14 @@ namespace PushNews.WebApp.Models.Aplicaciones
         [HiddenInput(DisplayValue = false)]
         public bool Activo { get; set; }
 
-        [Display(ResourceType = typeof(Txt.Aplicaciones), Name = "AplicacionesAmigas")]
-        public IEnumerable<long> AplicacionesAmigas { get; set; }
-
         [Display(ResourceType = typeof(Txt.Aplicaciones), Name = "ApiKey")]
         [Required(ErrorMessageResourceType = typeof(Txt.Validacion), ErrorMessageResourceName = "Requerido")]
         [StringLength(500, ErrorMessageResourceType = typeof(Txt.Validacion), ErrorMessageResourceName = "CadenaLongitudMaxima")]
         public string ApiKey { get; set; }
 
-        [Display(ResourceType = typeof(Txt.Aplicaciones), Name = "PermitirAccesoApiExternos")]
-        [Required(ErrorMessageResourceType = typeof(Txt.Validacion), ErrorMessageResourceName = "Requerido")]
-        public bool PermitirAccesoApiExternos { get; set; }
-
-        [Display(ResourceType = typeof(Txt.Aplicaciones), Name = "ApiKeyExternos")]
-        [Required(ErrorMessageResourceType = typeof(Txt.Validacion), ErrorMessageResourceName = "Requerido")]
-        [StringLength(500, ErrorMessageResourceType = typeof(Txt.Validacion), ErrorMessageResourceName = "CadenaLongitudMaxima")]
-        public string ApiKeyExternos { get; set; }
-
-        [Display(ResourceType = typeof(Txt.Aplicaciones), Name = "ITunesUrl")]
+        [Display(ResourceType = typeof(Txt.Aplicaciones), Name = "AppStoreUrl")]
         [StringLength(1000, ErrorMessageResourceType = typeof(Txt.Validacion), ErrorMessageResourceName = "CadenaLongitudMaxima")]
-        public string ITunesUrl { get; set; }
-
-        [Display(ResourceType = typeof(Txt.Aplicaciones), Name = "MicrosoftStoreUrl")]
-        [StringLength(1000, ErrorMessageResourceType = typeof(Txt.Validacion), ErrorMessageResourceName = "CadenaLongitudMaxima")]
-        public string MicrosoftStoreUrl { get; set; }
+        public string AppStoreUrl { get; set; }
 
         [Display(ResourceType = typeof(Txt.Aplicaciones), Name = "PlayStoreUrl")]
         [StringLength(1000, ErrorMessageResourceType = typeof(Txt.Validacion), ErrorMessageResourceName = "CadenaLongitudMaxima")]

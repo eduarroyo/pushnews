@@ -43,8 +43,6 @@ namespace PushNews.WebApp.Models
                 TwitterShare = Helpers.Rutas.TwitterShare(c),
                 Url = Helpers.Rutas.RutaAbsolutaComunicacion(c),
                 Categoria = c.Categoria.Nombre,
-                Privada = c.Categoria.Privada
-
             };
 
         public long ComunicacionID { get; set; }
@@ -124,6 +122,5 @@ namespace PushNews.WebApp.Models
         public string FacebookShare { get; set; }
         public string TwitterShare { get; set; }
         public string Url { get; set; }
-        public bool Privada { get; set; }
     }
 }

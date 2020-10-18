@@ -21,8 +21,7 @@ namespace PushNews.WebApp.Models
                 MiniaturaUrl = c.ImagenDocumentoID.HasValue ? Helpers.Rutas.UrlMiniatura(c.ComunicacionID) : null,
                 Youtube = c.Youtube,
                 Categoria = c.Categoria.Nombre,
-                Destacado = c.Destacado,
-                Privada = c.Categoria.Privada
+                Destacado = c.Destacado
             };
 
         public long ComunicacionID { get; set; }
@@ -54,6 +53,5 @@ namespace PushNews.WebApp.Models
         public string ImagenUrl { get; set; }
 
         public string MiniaturaUrl { get; set; }
-        public bool Privada { get; set; }
     }
 }

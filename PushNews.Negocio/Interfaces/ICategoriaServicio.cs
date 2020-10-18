@@ -16,8 +16,6 @@ namespace PushNews.Negocio.Interfaces
         /// <summary>
         /// Proporciona las categorías activas de la aplicación.
         /// </summary>
-        /// <param name="incluirPrivadas">Si es false se obtendrán sólo las categorías activas y públicas.
-        /// Si es true, todas las activas.</param>
-        IEnumerable<Categoria> ListaCategorias(bool incluirPrivadas = false);
+        IEnumerable<Categoria> ListaCategorias();
     }
 }

@@ -12,8 +12,7 @@ namespace PushNews.WebService.Models
                 Nombre = c.Nombre,
                 Orden = c.Orden,
                 Icono = c.Icono,
-                Activo = c.Activo,
-                Privada = c.Privada
+                Activo = c.Activo
             };
 
         public void ActualizarEntidad(Entity modificar)
@@ -22,13 +21,11 @@ namespace PushNews.WebService.Models
             modificar.Icono = Icono;
             modificar.Orden = Orden;
             modificar.Activo = Activo;
-            modificar.Privada = Privada;
         }
         public long CategoriaID { get; set; }
         public string Nombre { get; set; }
         public int Orden { get; set; }
         public string Icono { get; set; }
         public bool Activo { get; set; }
-        public bool Privada { get; set; }
     }
 }

@@ -23,8 +23,6 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         [Authorize(Roles="LeerCategorias")]
         public ActionResult Index()
         {
-            ViewBag.TipoAplicacion = Aplicacion.Tipo;
-            ViewBag.Asociados = Aplicacion.Caracteristicas.Any(c => c.Nombre == "Asociados");
             return PartialView("Categorias");
         }
 
@@ -66,10 +64,6 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
                         if (modificar != null)
                         {
                             srv.CambiarOrdenCategoria(model.CategoriaID, model.Orden);
-
-                            // Sólo aceptamos categorías privadas si la aplicación tiene la característica de Asociados.
-                            model.Privada = model.Privada && Aplicacion.Caracteristicas.Any(c => c.Nombre == "Asociados");
-
                             model.ActualizarEntidad(modificar);
                             await srv.ApplyChangesAsync();
                             result = new[] { CategoriaModel.FromEntity(modificar) }.ToDataSourceResult(request, ModelState);
@@ -116,10 +110,6 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
                     {
                         var srv = Servicios.CategoriasServicio();
                         var nuevo = srv.Create();
-
-                        // Sólo aceptamos categorías privadas si la aplicación tiene la característica de Asociados.
-                        model.Privada = model.Privada && Aplicacion.Caracteristicas.Any(c => c.Nombre == "Asociados");
-
                         model.ActualizarEntidad(nuevo);
                         nuevo.UsuarioID = CurrentUserID();
                         srv.Insert(nuevo);
@@ -147,10 +137,9 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         [Authorize(Roles = "LeerCategorias")]
         public ActionResult ListaCategorias()
         {
-            bool caracteristicaAsociados = Aplicacion.Caracteristicas.Any(c => c.Nombre == "Asociados");
             var srv = Servicios.CategoriasServicio();
             var registros = srv
-                .ListaCategorias(caracteristicaAsociados)
+                .ListaCategorias()
                 .Select(CategoriaModel.FromEntity);
             return Json(registros, JsonRequestBehavior.AllowGet);
         }
@@ -162,12 +151,10 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         [Authorize(Roles = "LeerCategorias")]
         public ActionResult CategoriasUsuario()
         {
-            bool caracteristicaAsociados = Aplicacion.Caracteristicas.Any(c => c.Nombre == "Asociados");
             long aplicacionActualId = Aplicacion.AplicacionID;
             // Categorias del usuario y la aplicación actual, activas e inactivas.
             IEnumerable<Categoria> registros = Usuario.Categorias
-                .Where(c => c.AplicacionID == aplicacionActualId
-                         && (!c.Privada || caracteristicaAsociados));
+                .Where(c => c.AplicacionID == aplicacionActualId);
 
             // Si el usuario tiene alguna categoría asignada y no es administrador, hay que quedarse sólo con
             // las que estén activas.
@@ -181,7 +168,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
             else
             {
                 var srv = Servicios.CategoriasServicio();
-                registros = srv.ListaCategorias(caracteristicaAsociados);
+                registros = srv.ListaCategorias();
             }
 
             IEnumerable<CategoriaModel> categorias = registros

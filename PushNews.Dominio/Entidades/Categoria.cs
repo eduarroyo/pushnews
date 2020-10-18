@@ -13,7 +13,6 @@ namespace PushNews.Dominio.Entidades
         public long AplicacionID { get; set; }
         public long UsuarioID { get; set; }
         public string Nombre { get; set; }
-        public bool Privada { get; set; } = false;
         public string Icono { get; set; }
         public int Orden { get; set; }
         public bool Activo { get; set; }

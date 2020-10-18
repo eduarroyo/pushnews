@@ -146,52 +146,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Validacion.en.resx</DependentUpon>
     </Compile>
-    <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AplicacionesAmigasController.cs" />
-    <Compile Include="Controllers\AsociadosController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CategoriasController.cs" />
     <Compile Include="Controllers\ComunicacionesController.cs" />
     <Compile Include="Controllers\EmpresasController.cs" />
-    <Compile Include="Controllers\HermandadesController.cs" />
     <Compile Include="Controllers\LocalizacionesController.cs" />
-    <Compile Include="Controllers\PerfilesAsociadosController.cs" />
     <Compile Include="Controllers\TelefonosController.cs" />
-    <Compile Include="Filters\AsociadosHandleErrorAttribute.cs" />
     <Compile Include="Filters\_PushNewsHandleErrorAttribute.cs" />
     <Compile Include="Filters\RequireHttpsAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\APIClientesExternos\AsociadoModel.cs" />
-    <Compile Include="Models\APIClientesExternos\CrearAsociadoModel.cs" />
-    <Compile Include="Models\APIClientesExternos\EliminarAsociadoModel.cs" />
-    <Compile Include="Models\APIClientesExternos\ModificarAsociadoModel.cs" />
-    <Compile Include="Models\APIClientesExternos\SolicitudAsociadosModel.cs" />
-    <Compile Include="Models\AplicacionAmigaModel.cs" />
-    <Compile Include="Models\CambiarClaveAsociadoModel.cs" />
     <Compile Include="Models\CategoriaModel.cs" />
     <Compile Include="Models\ComunicacionDetalleModel.cs" />
     <Compile Include="Models\EmpresaModel.cs" />
-    <Compile Include="Models\HermandadModel.cs" />
     <Compile Include="Models\LocalizacionModel.cs" />
-    <Compile Include="Models\ModificarAsociadoModel.cs" />
     <Compile Include="Models\Requests\SolicitudComunicacionesModel.cs" />
     <Compile Include="Models\Requests\SolicitudModel.cs" />
-    <Compile Include="Models\Requests\SolicitudRutasActivasModel.cs" />
-    <Compile Include="Models\RutaModel.cs" />
-    <Compile Include="Models\RutasActivasModel.cs" />
     <Compile Include="Models\TelefonoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Filters\PushNewsHandleErrorAttribute.cs" />
-    <Compile Include="Services\ApplicationRoleManager.cs" />
-    <Compile Include="Services\ApplicationUserManager.cs" />
-    <Compile Include="Services\CustomUserValidator.cs" />
-    <Compile Include="Services\EmailService.cs" />
-    <Compile Include="Services\Resources.Designer.cs" />
-    <Compile Include="Services\SmsService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -239,7 +214,6 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Validacion.en.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Services\Resources.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

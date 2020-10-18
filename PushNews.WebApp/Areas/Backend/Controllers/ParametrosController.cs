@@ -24,7 +24,6 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         [Authorize(Roles="LeerParametros")]
         public ActionResult Index()
         {
-            ViewBag.TipoAplicacion = Aplicacion.Tipo;
             IUsuariosServicio srv = Servicios.UsuariosServicio();
             long userID = CurrentUserID();
             Usuario usr = srv.GetSingle(u => u.UsuarioID == userID);

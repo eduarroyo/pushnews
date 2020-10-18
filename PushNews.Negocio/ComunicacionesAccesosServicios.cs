@@ -27,7 +27,7 @@ namespace PushNews.Negocio
             periodoNoConteo = new TimeSpan(0, minutosNoConteo, 0);
         }
 
-        public void AccesoTerminal(Comunicacion comunicacion, string uid, string ip, long? asociadoId = null)
+        public void AccesoTerminal(Comunicacion comunicacion, string uid, string ip)
         {
             DateTime ahora = DateTime.Now;
             // Obtener el terminal actualizado con los datos del último acceso. Si no existe, se crea.
@@ -50,7 +50,6 @@ namespace PushNews.Negocio
                 nueva.Terminal = t;
                 nueva.Comunicacion = comunicacion;
                 nueva.Fecha = ahora;
-                nueva.AsociadoID = asociadoId;
                 Insert(nueva);
             }
         }

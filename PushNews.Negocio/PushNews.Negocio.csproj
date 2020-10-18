@@ -58,7 +58,6 @@
   <ItemGroup>
     <Compile Include="AplicacionesCaracteristicasServicio.cs" />
     <Compile Include="AplicacionesServicio.cs" />
-    <Compile Include="AsociadosServicio.cs" />
     <Compile Include="BaseServicio.cs" />
     <Compile Include="CategoriasServicio.cs" />
     <Compile Include="ComunicacionesAccesosServicios.cs" />
@@ -68,37 +67,25 @@
     <Compile Include="Excepciones\AplicacionesCaracteristicas\AplicacionCaracteristicaExisteException.cs" />
     <Compile Include="Excepciones\Aplicaciones\AplicacionExisteException.cs" />
     <Compile Include="Excepciones\Aplicaciones\SubdominioExisteException.cs" />
-    <Compile Include="Excepciones\Asociados\AsociadoExisteException.cs" />
     <Compile Include="Excepciones\PushNewsException.cs" />
     <Compile Include="Excepciones\Categorias\CategoriaExisteException.cs" />
     <Compile Include="Excepciones\Comunicaciones\ComunicacionNoEncontradaException.cs" />
-    <Compile Include="Excepciones\Gpss\GpsApiIDExisteException.cs" />
-    <Compile Include="Excepciones\Gpss\GpsMatriculaExisteException.cs" />
     <Compile Include="Excepciones\Mensajes.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Mensajes.resx</DependentUpon>
     </Compile>
     <Compile Include="Excepciones\Parametros\AplicacionExisteException.cs" />
-    <Compile Include="Excepciones\Rutas\RutaNoExisteException.cs" />
-    <Compile Include="GpsPosicionesServicio.cs" />
-    <Compile Include="GpssServicio.cs" />
-    <Compile Include="HermandadesServicio.cs" />
     <Compile Include="Interfaces\IAplicacionesCaracteristicasServicio.cs" />
     <Compile Include="Interfaces\IAplicacionesServicio.cs" />
-    <Compile Include="Interfaces\IAsociadosServicio.cs" />
     <Compile Include="Interfaces\IBaseServicio.cs" />
     <Compile Include="Interfaces\ICategoriaServicio.cs" />
     <Compile Include="Interfaces\IComunicacionesAccesosServicio.cs" />
     <Compile Include="Interfaces\IComunicacionesServicio.cs" />
     <Compile Include="Interfaces\IDocumentosServicio.cs" />
     <Compile Include="Interfaces\IEmpresasServicio.cs" />
-    <Compile Include="Interfaces\IGpssServicio.cs" />
-    <Compile Include="Interfaces\IHermandadesServicio.cs" />
     <Compile Include="Interfaces\ILocalizacionesServicio.cs" />
     <Compile Include="Interfaces\IParametrosServicio.cs" />
-    <Compile Include="Interfaces\IPosicionesServicio.cs" />
-    <Compile Include="Interfaces\IRutasServicio.cs" />
     <Compile Include="Interfaces\IServiciosFactoria.cs" />
     <Compile Include="Interfaces\ITelefonosServicio.cs" />
     <Compile Include="Interfaces\ITerminalesServicio.cs" />
@@ -106,7 +93,6 @@
     <Compile Include="LocalizacionesServicio.cs" />
     <Compile Include="ParametrosServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RutasServicio.cs" />
     <Compile Include="ServiciosFactoria.cs" />
     <Compile Include="TelefonosServicio.cs" />
     <Compile Include="TerminalesServicio.cs" />
@@ -121,6 +107,7 @@
     <EmbeddedResource Include="Excepciones\Mensajes.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Mensajes.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -76,34 +76,9 @@ namespace PushNews.Negocio
             return new AplicacionesCaracteristicasServicio(db);
         }
 
-        public IAsociadosServicio AsociadosServicio()
-        {
-            return new AsociadosServicio(db, aplicacion);
-        }
-
         public IEmpresasServicio EmpresasServicio()
         {
             return new EmpresasServicio(db, aplicacion);
-        }
-
-        public IHermandadesServicio HermandadesServicio()
-        {
-            return new HermandadesServicio(db, aplicacion);
-        }
-
-        public IGpssServicio GpssServicio()
-        {
-            return new GpssServicio(db, aplicacion);
-        }
-
-        public IGpsPosicionesServicio GpsPosicionesServicio()
-        {
-            return new GpsPosicionesServicio(db);
-        }
-
-        public IRutasServicio RutasServicio()
-        {
-            return new RutasServicio(db);
         }
     }
 }

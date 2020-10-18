@@ -25,7 +25,6 @@ namespace PushNews.WebApp.Controllers
         private IServiciosFactoria servicios;
         private ApplicationUserManager userManager;
         private ApplicationRoleManager roleManager;
-        private AsociadosUserManager asociadosManager;
         private IFileManager fileManager;
         protected readonly ILog log;
         private Aplicacion aplicacion;
@@ -71,18 +70,6 @@ namespace PushNews.WebApp.Controllers
                     userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 }
                 return userManager;
-            }
-        }
-
-        protected AsociadosUserManager AsociadosManager
-        {
-            get
-            {
-                if(asociadosManager == null)
-                {
-                    asociadosManager = HttpContext.GetOwinContext().Get<AsociadosUserManager>();
-                }
-                return asociadosManager;
             }
         }
 

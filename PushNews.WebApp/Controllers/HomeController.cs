@@ -20,11 +20,6 @@ namespace PushNews.WebApp.Controllers
     {
         public ActionResult Index(long? id = null)
         {
-            if(!User.Identity.IsAuthenticated && Aplicacion.Caracteristicas.Any(c => c.Nombre == "Asociados"))
-            {
-                return new EmptyResult();
-            }
-
             if(id.HasValue)
             {
                 var comSrv = Servicios.ComunicacionesServicio();
@@ -68,11 +63,6 @@ namespace PushNews.WebApp.Controllers
         /// <returns>DataSourceResult para un componente telerik tipo Grid, ListView o similar.</returns>
         public async Task<ActionResult> ComunicacionesPublicadas([DataSourceRequest] DataSourceRequest request)
         {
-            if (!User.Identity.IsAuthenticated && Aplicacion.Caracteristicas.Any(c => c.Nombre == "Asociados"))
-            {
-                return new EmptyResult();
-            }
-
             // Si el único filtro es CategoriaID == -1, tenemos que devolver sólo las comunicaciones destacadas
             if (request.Filters.Count == 1)
             {
@@ -103,11 +93,6 @@ namespace PushNews.WebApp.Controllers
         /// <param name="comunicacionID">ID de la comunicación solicitada.</param>
         public async Task<ActionResult> ComunicacionDetalle(long comunicacionID)
         {
-            if (!User.Identity.IsAuthenticated && Aplicacion.Caracteristicas.Any(car => car.Nombre == "Asociados"))
-            {
-                return new EmptyResult();
-            }
-
             IComunicacionesServicio srv = Servicios.ComunicacionesServicio();
             Comunicacion c = srv.ConsultarComunicacion(comunicacionID, $"{Request.UserHostName}-{Request.Browser.Browser}", Request.UserHostAddress);
             await srv.ApplyChangesAsync();
@@ -291,69 +276,6 @@ namespace PushNews.WebApp.Controllers
                 Response.AppendHeader(name: "Content-Disposition", value: cd.ToString());
                 return new FileStreamResult(str, mime);
             }            
-        }
-
-        [OutputCache(NoStore = true, Duration = 0)]
-        public ActionResult LogotipoHermandad(long id)
-        {
-            IHermandadesServicio srv = Servicios.HermandadesServicio();
-            Hermandad hermandad = srv.GetSingle(h => h.HermandadID == id);
-
-            if (hermandad != null)
-            {
-                if (hermandad.Logotipo == null)
-                {
-                    return File("~/Content/Images/Blanco.png", contentType: "image/png");
-                }
-                else
-                {
-                    var cd = new ContentDisposition
-                    {
-                        FileName = hermandad.Logotipo.Nombre,
-                        Inline = false,
-                    };
-                    Response.AppendHeader(name: "Content-Disposition", value: cd.ToString());
-                    FileStream str = FileManager.ObtenerDocumento(hermandad.Logotipo);
-
-                    return new FileStreamResult(str, hermandad.Logotipo.Mime);
-                }
-            }
-            else
-            {
-                return HttpNotFound();
-            }
-        }
-
-        [OutputCache(NoStore = true, Duration = 0)]
-        public ActionResult MiniaturaHermandad(long id)
-        {
-            IHermandadesServicio srv = Servicios.HermandadesServicio();
-            Hermandad hermandad = srv.Get(h => h.HermandadID == id, includeProperties: "Logotipo").FirstOrDefault();
-
-            if (hermandad != null)
-            {
-                if (hermandad.Logotipo == null)
-                {
-                    return File("~/Content/Images/Blanco.png", contentType: "image/png");
-                }
-                else
-                {
-                    var cd = new ContentDisposition
-                    {
-                        FileName = Path.GetFileNameWithoutExtension(hermandad.Logotipo.Nombre) + "_thumb"
-                                    + Path.GetExtension(hermandad.Logotipo.Nombre),
-                        Inline = false,
-                    };
-                    Response.AppendHeader(name: "Content-Disposition", value: cd.ToString());
-                    FileStream str = FileManager.ObtenerMiniatura(hermandad.Logotipo);
-
-                    return new FileStreamResult(str, hermandad.Logotipo.Mime);
-                }
-            }
-            else
-            {
-                return HttpNotFound();
-            }
         }
 
         public ActionResult ListaCategorias()

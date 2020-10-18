@@ -207,11 +207,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AplicacionesCaracteristicas.resx</DependentUpon>
     </Compile>
-    <Compile Include="App_LocalResources\Asociados.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Asociados.resx</DependentUpon>
-    </Compile>
     <Compile Include="App_LocalResources\Categorias.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -231,11 +226,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Comunicaciones.resx</DependentUpon>
-    </Compile>
-    <Compile Include="App_LocalResources\Coordenadas.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Coordenadas.resx</DependentUpon>
     </Compile>
     <Compile Include="App_LocalResources\Culturas.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -261,16 +251,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FileManager.resx</DependentUpon>
-    </Compile>
-    <Compile Include="App_LocalResources\Gpss.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Gpss.resx</DependentUpon>
-    </Compile>
-    <Compile Include="App_LocalResources\Hermandades.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Hermandades.resx</DependentUpon>
     </Compile>
     <Compile Include="App_LocalResources\Kendo.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -312,11 +292,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PlantillasEmail.resx</DependentUpon>
     </Compile>
-    <Compile Include="App_LocalResources\Rutas.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Rutas.resx</DependentUpon>
-    </Compile>
     <Compile Include="App_LocalResources\Secciones.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -351,30 +326,23 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Areas\AppWebViews\AppWebViewsAreaRegistration.cs" />
-    <Compile Include="Areas\AppWebViews\Controllers\AsociadosController.cs" />
     <Compile Include="Areas\Backend\BackendAreaRegistration.cs" />
     <Compile Include="Areas\Backend\Controllers\AccountController.cs" />
     <Compile Include="Areas\Backend\Controllers\AdjuntosController.cs" />
     <Compile Include="Areas\Backend\Controllers\AplicacionesCaracteristicasController.cs" />
     <Compile Include="Areas\Backend\Controllers\AplicacionesController.cs" />
-    <Compile Include="Areas\Backend\Controllers\AsociadosController.cs" />
     <Compile Include="Areas\Backend\Controllers\CategoriasController.cs" />
     <Compile Include="Areas\Backend\Controllers\ComunicacionesController.cs" />
     <Compile Include="Areas\Backend\Controllers\EmpresasController.cs" />
     <Compile Include="Areas\Backend\Controllers\EscritorioController.cs" />
-    <Compile Include="Areas\Backend\Controllers\GpssController.cs" />
-    <Compile Include="Areas\Backend\Controllers\HermandadesController.cs" />
     <Compile Include="Areas\Backend\Controllers\LocalizacionesController.cs" />
     <Compile Include="Areas\Backend\Controllers\ParametrosController.cs" />
     <Compile Include="Areas\Backend\Controllers\PerfilesController.cs" />
     <Compile Include="Areas\Backend\Controllers\BackendHomeController.cs" />
-    <Compile Include="Areas\Backend\Controllers\RutasController.cs" />
     <Compile Include="Areas\Backend\Controllers\TelefonosController.cs" />
     <Compile Include="Areas\Backend\Controllers\UsuariosController.cs" />
     <Compile Include="Areas\Backend\Models\Account\CambiarClavePerfil.cs" />
     <Compile Include="Areas\Backend\Models\Account\CambiarClaveUsuarioModel.cs" />
-    <Compile Include="Areas\Backend\Models\Account\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="Areas\Backend\Models\Account\ForgotPasswordViewModel.cs" />
     <Compile Include="Areas\Backend\Models\Account\LoginViewModel.cs" />
     <Compile Include="Areas\Backend\Models\Account\ManageUserViewModel.cs" />
@@ -383,21 +351,15 @@
     <Compile Include="Areas\Backend\Models\Account\ResetPasswordViewModel.cs" />
     <Compile Include="Areas\Backend\Models\AplicacionesCaracteristicas\AplicacionCaracteristicaModel.cs" />
     <Compile Include="Areas\Backend\Models\Aplicaciones\AplicacionGrid.cs" />
-    <Compile Include="Areas\Backend\Models\Asociados\AsociadoModel.cs" />
-    <Compile Include="Areas\Backend\Models\Asociados\EstadisticasAsociadosModel.cs" />
     <Compile Include="Areas\Backend\Models\Comunicaciones\ComunicacionGrid.cs" />
     <Compile Include="Areas\Backend\Models\Empresas\EmpresaModel.cs" />
     <Compile Include="Areas\Backend\Models\Escritorio\EstadisticasModel.cs" />
-    <Compile Include="Areas\Backend\Models\Gpss\GpsModel - Copia.cs" />
-    <Compile Include="Areas\Backend\Models\Gpss\GpsModel.cs" />
-    <Compile Include="Areas\Backend\Models\Hermandades\HermandadModel.cs" />
     <Compile Include="Areas\Backend\Models\Localizaciones\LocalizacionModel.cs" />
     <Compile Include="Areas\Backend\Models\Opciones\CulturaModel.cs" />
     <Compile Include="Areas\Backend\Models\Opciones\OpcionesModel.cs" />
     <Compile Include="Areas\Backend\Models\Parametros\ParametroGrid.cs" />
     <Compile Include="Areas\Backend\Models\Perfiles\PerfilUsuarioModel.cs" />
     <Compile Include="Areas\Backend\Models\PlanitllasEmail\RestablecerClave.cs" />
-    <Compile Include="Areas\Backend\Models\Rutas\RutaModel.cs" />
     <Compile Include="Areas\Backend\Models\Telefonos\TelefonoModel.cs" />
     <Compile Include="Areas\Backend\Models\UI\BotonGridModel.cs" />
     <Compile Include="Areas\Backend\Models\UI\CabeceraModel.cs" />
@@ -414,7 +376,6 @@
     <Compile Include="Areas\Backend\Models\Usuarios\UsuarioGrid.cs" />
     <Compile Include="Controllers\ControllerBase\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\RutasMapaController.cs" />
     <Compile Include="Filters\PushNewsHandleErrorAttribute.cs" />
     <Compile Include="Filters\CaracteristicaRequeridaActionFilter.cs" />
     <Compile Include="Filters\LogTiemposAttribute.cs" />
@@ -436,16 +397,11 @@
     <Compile Include="Models\CategoriaModel.cs" />
     <Compile Include="Models\ComunicacionDetalleModel.cs" />
     <Compile Include="Models\ComunicacionModel.cs" />
-    <Compile Include="Models\RutasMapa\RutaModel.cs" />
-    <Compile Include="Models\RutasMapa\RutasActivasModel.cs" />
-    <Compile Include="Models\RutasMapa\RutasHermandadesRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Services\ApplicationRoleManager.cs" />
     <Compile Include="Services\ApplicationSignInManager.cs" />
     <Compile Include="Services\ApplicationUserManager.cs" />
-    <Compile Include="Services\AsociadosUserManager.cs" />
-    <Compile Include="Services\CustomUserValidator.cs" />
     <Compile Include="Services\EmailService.cs" />
     <Compile Include="Services\FileManagerBase.cs" />
     <Compile Include="Services\IFileManager.cs" />
@@ -2176,9 +2132,6 @@
     <Content Include="Content\tomtomsdk\styles\labels_night.json" />
     <Content Include="Content\tomtomsdk\tomtom.min.js.map" />
     <Content Include="Content\variables.less" />
-    <Content Include="Areas\AppWebViews\Views\Asociados\AsociadosCambiarClave.cshtml" />
-    <Content Include="Areas\AppWebViews\Views\Shared\_WebViewLayout.cshtml" />
-    <Content Include="Areas\AppWebViews\Views\web.config" />
     <Content Include="Areas\Backend\Views\Account\CambiarClave.cshtml" />
     <Content Include="Areas\Backend\Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Areas\Backend\Views\Account\ForgotPassword.cshtml" />
@@ -2192,10 +2145,6 @@
     <Content Include="Areas\Backend\Views\AplicacionesCaracteristicas\AplicacionesCaracteristicas.cshtml" />
     <Content Include="Areas\Backend\Views\Aplicaciones\Aplicaciones.cshtml" />
     <Content Include="Areas\Backend\Views\Aplicaciones\FormAplicaciones.cshtml" />
-    <Content Include="Areas\Backend\Views\Asociados\Asociados.cshtml" />
-    <Content Include="Areas\Backend\Views\Asociados\DialogoCambiarClave.cshtml" />
-    <Content Include="Areas\Backend\Views\Asociados\DialogoEstadisticasAsociados.cshtml" />
-    <Content Include="Areas\Backend\Views\Asociados\FormAsociados.cshtml" />
     <Content Include="Areas\Backend\Views\Categorias\Categorias.cshtml" />
     <Content Include="Areas\Backend\Views\Categorias\FormCategorias.cshtml" />
     <Content Include="Areas\Backend\Views\Comunicaciones\ComandosGrillaComunicaciones.cshtml" />
@@ -2209,12 +2158,6 @@
     <Content Include="Areas\Backend\Views\Escritorio\Escritorio.cshtml" />
     <Content Include="Areas\Backend\Views\Escritorio\Estadisticas.cshtml" />
     <Content Include="Areas\Backend\Views\Escritorio\FormPublicarRapido.cshtml" />
-    <Content Include="Areas\Backend\Views\Gpss\FormGpss - Copia.cshtml" />
-    <Content Include="Areas\Backend\Views\Gpss\FormGpss.cshtml" />
-    <Content Include="Areas\Backend\Views\Gpss\Gpss - Copia.cshtml" />
-    <Content Include="Areas\Backend\Views\Gpss\Gpss.cshtml" />
-    <Content Include="Areas\Backend\Views\Hermandades\FormHermandades.cshtml" />
-    <Content Include="Areas\Backend\Views\Hermandades\Hermandades.cshtml" />
     <Content Include="Areas\Backend\Views\Localizaciones\FormLocalizaciones.cshtml" />
     <Content Include="Areas\Backend\Views\Localizaciones\Localizaciones.cshtml" />
     <Content Include="Areas\Backend\Views\Opciones\Cultura.cshtml" />
@@ -2226,8 +2169,6 @@
     <Content Include="Areas\Backend\Views\PlantillasEmail\RestablecerClave.cshtml" />
     <Content Include="Areas\Backend\Views\PlantillasEmail\_Layout.cshtml" />
     <Content Include="Areas\Backend\Views\BackendHome\Index.cshtml" />
-    <Content Include="Areas\Backend\Views\Rutas\FormRutas.cshtml" />
-    <Content Include="Areas\Backend\Views\Rutas\Rutas.cshtml" />
     <Content Include="Areas\Backend\Views\Shared\cabeceraModulo.cshtml" />
     <Content Include="Areas\Backend\Views\Shared\ComandosGrillaEditarEliminar.cshtml" />
     <Content Include="Areas\Backend\Views\Shared\ComandosGrillaEditarEliminarSinCompresion.cshtml" />
@@ -2292,7 +2233,6 @@
     <Content Include="Scripts\pushnews\home.js" />
     <Content Include="Scripts\pushnews\modulos\aplicaciones.js" />
     <Content Include="Scripts\pushnews\modulos\aplicacionescaracteristicas.js" />
-    <Content Include="Scripts\pushnews\modulos\asociados.js" />
     <Content Include="Scripts\pushnews\modulos\base\archivosmodal.js" />
     <Content Include="Scripts\pushnews\modulos\base\detalles.js" />
     <Content Include="Scripts\pushnews\modulos\base\formulario.js" />
@@ -2994,10 +2934,6 @@
     </Content>
     <Content Include="Views\Home\DetalleComunicacion.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\RutasMapa\DescargaApps.cshtml" />
-    <Content Include="Views\RutasMapa\RutasMapa.cshtml" />
-    <Content Include="Views\RutasMapa\RutasMapaOSM.cshtml" />
-    <Content Include="Views\RutasMapa\RutasMapaTomTom.cshtml" />
     <Content Include="Views\Shared\notificaciones.cshtml" />
     <Content Include="Views\Shared\PlantillasNotificaciones.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -3152,10 +3088,6 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AplicacionesCaracteristicas.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="App_LocalResources\Asociados.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Asociados.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="App_LocalResources\Categorias.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Categorias.Designer.cs</LastGenOutput>
@@ -3172,17 +3104,9 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Comunicaciones.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="App_LocalResources\Coordenadas.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Coordenadas.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="App_LocalResources\Culturas.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Culturas.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="App_LocalResources\Hermandades.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Hermandades.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="App_LocalResources\Empresas.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -3199,10 +3123,6 @@
     <EmbeddedResource Include="App_LocalResources\FileManager.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>FileManager.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="App_LocalResources\Gpss.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Gpss.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="App_LocalResources\Kendo.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -3235,10 +3155,6 @@
     <EmbeddedResource Include="App_LocalResources\PlantillasEmail.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>PlantillasEmail.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="App_LocalResources\Rutas.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Rutas.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="App_LocalResources\Secciones.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

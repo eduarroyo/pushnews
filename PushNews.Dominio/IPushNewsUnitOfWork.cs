@@ -11,7 +11,6 @@ namespace PushNews.Dominio
     {
         DbSet<Usuario> Usuarios { get; set; }
         DbSet<Claim> Claims { get; set; }
-        DbSet<Login> Logins { get; set; }
         DbSet<Parametro> Parametros { get; set; }
         DbSet<Perfil> Perfiles { get; set; }
         DbSet<Rol> Roles { get; set; }
@@ -24,12 +23,7 @@ namespace PushNews.Dominio
         DbSet<Telefono> Telefonos { get; set; }
         DbSet<Localizacion> Localizaciones { get; set; }
         DbSet<AplicacionCaracteristica> AplicacionesCaracteristicas { get; set; }
-        DbSet<Asociado> Asociados { get; set; }
         DbSet<Empresa> Empresas { get; set; }
-        DbSet<Hermandad> Hermandades { get; set; }
-        DbSet<Gps> Gpss { get; set; }
-        DbSet<Ruta> Rutas { get; set; }
-        DbSet<GpsPosicion> RutasPosiciones { get; set; }
 
         DbChangeTracker ChangeTracker { get; }
 

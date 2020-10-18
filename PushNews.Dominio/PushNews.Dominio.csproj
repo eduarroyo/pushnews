@@ -55,26 +55,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\202010151341251_quitar_exceso_complejidad.cs" />
+    <Compile Include="Migrations\202010151341251_quitar_exceso_complejidad.designer.cs">
+      <DependentUpon>202010151341251_quitar_exceso_complejidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010151748206_quitar_url_microsoft_store.cs" />
+    <Compile Include="Migrations\202010151748206_quitar_url_microsoft_store.designer.cs">
+      <DependentUpon>202010151748206_quitar_url_microsoft_store.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010170610545_CambiarITunesPorAppStore.cs" />
+    <Compile Include="Migrations\202010170610545_CambiarITunesPorAppStore.designer.cs">
+      <DependentUpon>202010170610545_CambiarITunesPorAppStore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010170830261_QuitarTipoAplicacion.cs" />
+    <Compile Include="Migrations\202010170830261_QuitarTipoAplicacion.designer.cs">
+      <DependentUpon>202010170830261_QuitarTipoAplicacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010171713521_quitar-asociados.cs" />
+    <Compile Include="Migrations\202010171713521_quitar-asociados.designer.cs">
+      <DependentUpon>202010171713521_quitar-asociados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010180945530_QuitarAsociados2.cs" />
+    <Compile Include="Migrations\202010180945530_QuitarAsociados2.designer.cs">
+      <DependentUpon>202010180945530_QuitarAsociados2.cs</DependentUpon>
+    </Compile>
     <Compile Include="PushNewsModel.cs" />
     <Compile Include="Entidades\Aplicacion.cs" />
     <Compile Include="Entidades\AplicacionCaracteristica.cs" />
-    <Compile Include="Entidades\Asociado.cs" />
     <Compile Include="Entidades\Categoria.cs" />
     <Compile Include="Entidades\Claim.cs" />
     <Compile Include="Entidades\Comunicacion.cs" />
     <Compile Include="Entidades\ComunicacionAcceso.cs" />
     <Compile Include="Entidades\Documento.cs" />
     <Compile Include="Entidades\Empresa.cs" />
-    <Compile Include="Entidades\Gps - Copia.cs" />
-    <Compile Include="Entidades\Gps.cs" />
-    <Compile Include="Entidades\GpsPosicion.cs" />
-    <Compile Include="Entidades\Hermandad.cs" />
     <Compile Include="Entidades\Localizacion.cs" />
-    <Compile Include="Entidades\Login.cs" />
     <Compile Include="Entidades\Parametro.cs" />
     <Compile Include="Entidades\Perfil.cs" />
     <Compile Include="Entidades\Rol.cs" />
-    <Compile Include="Entidades\Ruta.cs" />
     <Compile Include="Entidades\Telefono.cs" />
     <Compile Include="Entidades\Terminal.cs" />
     <Compile Include="Entidades\Usuario.cs" />
@@ -343,6 +360,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904121116344_PosicionGpsNuevoCampoBateria.resx">
       <DependentUpon>201904121116344_PosicionGpsNuevoCampoBateria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010151341251_quitar_exceso_complejidad.resx">
+      <DependentUpon>202010151341251_quitar_exceso_complejidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010151748206_quitar_url_microsoft_store.resx">
+      <DependentUpon>202010151748206_quitar_url_microsoft_store.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010170610545_CambiarITunesPorAppStore.resx">
+      <DependentUpon>202010170610545_CambiarITunesPorAppStore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010170830261_QuitarTipoAplicacion.resx">
+      <DependentUpon>202010170830261_QuitarTipoAplicacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010171713521_quitar-asociados.resx">
+      <DependentUpon>202010171713521_quitar-asociados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010180945530_QuitarAsociados2.resx">
+      <DependentUpon>202010180945530_QuitarAsociados2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

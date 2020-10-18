@@ -70,15 +70,6 @@ namespace PushNews.WebApp.App_LocalResources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a ApiKey para clientes externos.
-        /// </summary>
-        public static string ApiKeyExternos {
-            get {
-                return ResourceManager.GetString("ApiKeyExternos", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a Aplicación.
         /// </summary>
         public static string Aplicacion {
@@ -97,20 +88,11 @@ namespace PushNews.WebApp.App_LocalResources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Aplicaciones amigas.
+        ///   Busca una cadena traducida similar a Url de la app en la AppStore.
         /// </summary>
-        public static string AplicacionesAmigas {
+        public static string AppStoreUrl {
             get {
-                return ResourceManager.GetString("AplicacionesAmigas", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Seleccione aplicaciones amigas.
-        /// </summary>
-        public static string AplicacionesAmigasPlaceholder {
-            get {
-                return ResourceManager.GetString("AplicacionesAmigasPlaceholder", resourceCulture);
+                return ResourceManager.GetString("AppStoreUrl", resourceCulture);
             }
         }
         
@@ -196,15 +178,6 @@ namespace PushNews.WebApp.App_LocalResources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Clave de suscripción.
-        /// </summary>
-        public static string ClaveSuscripcion {
-            get {
-                return ResourceManager.GetString("ClaveSuscripcion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a Clonar aplicación.
         /// </summary>
         public static string Clonar {
@@ -241,29 +214,11 @@ namespace PushNews.WebApp.App_LocalResources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Url de la app en iTunes.
-        /// </summary>
-        public static string ITunesUrl {
-            get {
-                return ResourceManager.GetString("ITunesUrl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a Logotipo.
         /// </summary>
         public static string Logotipo {
             get {
                 return ResourceManager.GetString("Logotipo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Url de la app en la tienda de Microsoft.
-        /// </summary>
-        public static string MicrosoftStoreUrl {
-            get {
-                return ResourceManager.GetString("MicrosoftStoreUrl", resourceCulture);
             }
         }
         
@@ -295,38 +250,11 @@ namespace PushNews.WebApp.App_LocalResources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Permitir acceso a la API para clientes externos.
-        /// </summary>
-        public static string PermitirAccesoApiExternos {
-            get {
-                return ResourceManager.GetString("PermitirAccesoApiExternos", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a Url de la app en Play Store.
         /// </summary>
         public static string PlayStoreUrl {
             get {
                 return ResourceManager.GetString("PlayStoreUrl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Requiere clave de suscripción.
-        /// </summary>
-        public static string RequerirClaveSuscripcion {
-            get {
-                return ResourceManager.GetString("RequerirClaveSuscripcion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Acceso bajo suscripción.
-        /// </summary>
-        public static string SeccionAccesoBajoSuscripcion {
-            get {
-                return ResourceManager.GetString("SeccionAccesoBajoSuscripcion", resourceCulture);
             }
         }
         

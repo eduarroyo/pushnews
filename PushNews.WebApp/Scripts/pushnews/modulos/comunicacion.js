@@ -12,7 +12,6 @@
         var modulosInternos = {};
         var id, contenedorDetalle, contenedorMapa, mapa, marcador, infoWindow;
         var dialogoEstadisticas;
-        var modulosInternos = {};
 
         function init() {
             contenedorDetalle = _contenedor.find("#detalleComunicacion");
@@ -30,24 +29,6 @@
             });
 
             _contenedor.find(".botones-cabecera").on("click", "#recargar", cargarDatos);
-            
-            dialogoEstadisticas = _contenedor.find("#DialogoEstadisticasAsociados");
-            if (dialogoEstadisticas.length) {
-                _contenedor.find(".botones-cabecera").on("click", ".btEstadisticas", abrirDialogoEstadisticas);
-                modulosInternos.estadisticasAsociados =
-                    ModuloGrilla(dialogoEstadisticas, "", "AsociadoID", "estadisticasAsociados", {
-                        edicionInline: false,
-                        confirmarActivarDesactivar: false,
-                    });
-                modulosInternos.estadisticasAsociados.init();
-                dialogoEstadisticas.on("bsmodal.show", function (ev) {
-                    modulosInternos.estadisticasAsociados.grid().dataSource.read();
-                });
-                dialogoEstadisticas.one("bsmodal.hide", function () {
-                    dialogoEStadisticas.off("bsmodal.show");
-                });
-            }
-            
 
             galeria = $("#galeria");
             youtubeTmpl = k.template($("#galeria-youtube").html());

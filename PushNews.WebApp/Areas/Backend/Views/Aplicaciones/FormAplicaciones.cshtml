@@ -71,53 +71,6 @@
                                     .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value: Caracteristicas" })
                                 )
                             </div>
-
-                            <div class="form-group col-xs-12">
-                                <div class="control-label">
-                                    @Html.LabelFor(model => model.AplicacionesAmigas)
-                                </div>
-                                @(Html.Kendo().MultiSelectFor(model => model.AplicacionesAmigas)
-                                        .Name("Perfiles")
-                                        .Placeholder(Txt.Aplicaciones.AplicacionesAmigasPlaceholder)
-                                        .DataTextField("Text")
-                                        .DataValueField("Value")
-                                        .ValuePrimitive(true)
-                                        .DataSource(ds => ds.Read("ComboAmigas", "Aplicaciones"))
-                                        .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value: AplicacionesAmigas" })
-                                )
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-12 bloque-form bloque-form-1">
-                        <h3>@Txt.Aplicaciones.SeccionAccesoBajoSuscripcion</h3>
-                        <div class="row">
-                            <div class="form-group col-xs-12">
-                                <div class="control-label">
-                                    <label for="RequerirClaveSuscripcion">&nbsp;</label>
-                                </div>
-                                @(Html.CheckBoxFor(model => model.RequerirClaveSuscripcion,
-                                    new
-                                    {
-                                        @class = "campo-form",
-                                        data_bind = "checked:RequerirClaveSuscripcion"
-                                    })
-                                )
-                                @Html.LabelFor(model => model.RequerirClaveSuscripcion)
-                            </div>
-
-                            <div class="form-group col-xs-12">
-                                <div class="control-label">
-                                    @Html.LabelFor(model => model.ClaveSuscripcion)
-                                </div>
-                                @(Html.Kendo().TextBoxFor(model => model.CloudKey)
-                                    .HtmlAttributes(new
-                                    {
-                                        @class = "form-control campo-form",
-                                        data_bind = "value:ClaveSuscripcion"
-                                    })
-                                )
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -186,27 +139,6 @@
                             </div>
 
                             <div class="form-group col-xs-12">
-                                <div class="control-label">&nbsp;</div>
-                                @(Html.CheckBoxFor(model => model.PermitirAccesoApiExternos,
-                                    new { @class = "campo-form", data_bind = "checked: PermitirAccesoApiExternos" })
-                                        )
-                                @Html.LabelFor(model => model.PermitirAccesoApiExternos)
-                            </div>
-
-                            <div class="form-group col-xs-12">
-                                <div class="control-label">
-                                    @Html.LabelFor(model => model.ApiKeyExternos)
-                                </div>
-                                @(Html.Kendo().TextBoxFor(model => model.ApiKeyExternos)
-                                    .HtmlAttributes(new
-                                    {
-                                        @class = "form-control campo-form",
-                                        data_bind = "value:ApiKeyExternos"
-                                    })
-                                )
-                            </div>
-
-                            <div class="form-group col-xs-12">
                                 <div class="control-label">
                                     @Html.LabelFor(model => model.PlayStoreUrl)
                                 </div>
@@ -221,23 +153,10 @@
 
                             <div class="form-group col-xs-12">
                                 <div class="control-label">
-                                    @Html.LabelFor(model => model.ITunesUrl)
+                                    @Html.LabelFor(model => model.AppStoreUrl)
                                 </div>
-                                @(Html.Kendo().TextBoxFor(model => model.ITunesUrl)
-                                    .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value:ITunesUrl" })
-                                )
-                            </div>
-
-                            <div class="form-group col-xs-12">
-                                <div class="control-label">
-                                    @Html.LabelFor(model => model.MicrosoftStoreUrl)
-                                </div>
-                                @(Html.Kendo().TextBoxFor(model => model.MicrosoftStoreUrl)
-                                    .HtmlAttributes(new
-                                    {
-                                        @class = "form-control campo-form",
-                                        data_bind = "value:MicrosoftStoreUrl"
-                                    })
+                                @(Html.Kendo().TextBoxFor(model => model.AppStoreUrl)
+                                    .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value:AppStoreUrl" })
                                 )
                             </div>
                         </div>

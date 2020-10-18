@@ -61,10 +61,6 @@ namespace PushNews.Dominio.Migrations
                 Tuple<string, bool>[] tablas =
                 {
                     #region Lista de tablas de la base de datos
-                    new Tuple<string, bool>("GpsPosiciones", context.RutasPosiciones.Any()),
-                    new Tuple<string, bool>("Rutas", context.Rutas.Any()),
-                    new Tuple<string, bool>("Gpss", context.Gpss.Any()),
-                    new Tuple<string, bool>("Hermandades", context.Hermandades.Any()),
                     new Tuple<string, bool>("Empresas", context.Empresas.Any()),
                     new Tuple<string, bool>("AplicacionesAplicacionesAmigas", false),
                     new Tuple<string, bool>("ComunicacionesAccesos", context.Accesos.Any()),
@@ -77,15 +73,12 @@ namespace PushNews.Dominio.Migrations
                     new Tuple<string, bool>("UsuariosCategorias", false),
                     new Tuple<string, bool>("Categorias", context.Categorias.Any()),
                     new Tuple<string, bool>("AplicacionesUsuarios", false),
-                    new Tuple<string, bool>("Logins", false),
                     new Tuple<string, bool>("Parametros", context.Parametros.Any()),
-                    new Tuple<string, bool>("Claims", context.Claims.Any()),
                     new Tuple<string, bool>("Usuarios", context.Usuarios.Any()),
                     new Tuple<string, bool>("Documentos", context.Documentos.Any()),
                     new Tuple<string, bool>("Telefonos", context.Telefonos.Any()),
                     new Tuple<string, bool>("Localizaciones", context.Localizaciones.Any()),
                     new Tuple<string, bool>("AplicacionesAplicacionesCaracteristicas", false),
-                    new Tuple<string, bool>("Asociados", context.Asociados.Any()),
                     new Tuple<string, bool>("AplicacionesCaracteristicas", false),
                     new Tuple<string, bool>("Aplicaciones", context.Aplicaciones.Any()),
                 #endregion
@@ -105,7 +98,6 @@ namespace PushNews.Dominio.Migrations
                 var parametros = Parametros();
                 var telefonos = Telefonos(aplicaciones);
                 var localizaciones = Localizaciones(aplicaciones);
-                var gpss = GPSs(aplicaciones);
 
                 context.Roles.AddRange(roles);
                 context.Perfiles.AddRange(perfiles);
@@ -117,7 +109,6 @@ namespace PushNews.Dominio.Migrations
                 context.Parametros.AddRange(parametros);
                 context.Telefonos.AddRange(telefonos);
                 context.Localizaciones.AddRange(localizaciones);
-                context.Gpss.AddRange(gpss);
 
                 context.SaveChanges();
             }
@@ -417,7 +408,6 @@ namespace PushNews.Dominio.Migrations
                 Version = "1.0.0.0",
                 Activo = true,
                 SubDominio = "campinasur",
-                AplicacionesAmigas = new List<Aplicacion> { ap1 },
                 Caracteristicas = caracteristicas.ToList()
             };
             return new List<Aplicacion> { ap1, ap2 };
@@ -1756,21 +1746,6 @@ Pariatur aliquip qui magna consectetur cupidatat sit officia eu dolor cillum con
         Activo = true
     }
 };
-        }
-
-        private IEnumerable<Gps> GPSs(IEnumerable<Aplicacion> aplicaciones)
-        {
-            var app = aplicaciones.Single(a => a.SubDominio == "santaella");
-            return new List<Gps>
-            {
-                new Gps { Aplicacion = app, Activo = true, Matricula = "v1", GpsApiID = 205 },
-                new Gps { Aplicacion = app, Activo = true, Matricula = "v2", GpsApiID = 206 },
-                new Gps { Aplicacion = app, Activo = true, Matricula = "v3", GpsApiID = 207 },
-                new Gps { Aplicacion = app, Activo = true, Matricula = "v4", GpsApiID = 208 },
-                new Gps { Aplicacion = app, Activo = true, Matricula = "v5", GpsApiID = 209 },
-                new Gps { Aplicacion = app, Activo = true, Matricula = "v6", GpsApiID = 212 },
-                new Gps { Aplicacion = app, Activo = true, Matricula = "v6_old", GpsApiID = 210 }
-            };
         }
 
         private string LoremPalabras(int palabras, int? longitudMaxima = null)

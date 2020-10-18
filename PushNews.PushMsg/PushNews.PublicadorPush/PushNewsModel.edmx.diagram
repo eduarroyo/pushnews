@@ -5,12 +5,12 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="94510568d50e4334ac6e42f18a4e25a5" Name="Diagram1">
-        <EntityTypeShape EntityType="PushNewsModel.Aplicacion" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="PushNewsModel.Categoria" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PushNewsModel.Comunicacion" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
-        <AssociationConnector Association="PushNewsModel.FK_dbo_Categorias_dbo_Aplicaciones_AplicacionID" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PushNewsModel.Categoria" Width="1.5" PointX="6" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PushNewsModel.Comunicacion" Width="1.5" PointX="8" PointY="1.25" IsExpanded="true" />
         <AssociationConnector Association="PushNewsModel.FK_dbo_Comunicaciones_dbo_Categorias_CategoriaID" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="PushNewsModel.Parametro" Width="1.5" PointX="3" PointY="8.25" />
+        <EntityTypeShape EntityType="PushNewsModel.Parametro" Width="1.5" PointX="2" PointY="1.25" />
+        <EntityTypeShape EntityType="PushNewsModel.Aplicacion" Width="1.5" PointX="4" PointY="1.25" />
+        <AssociationConnector Association="PushNewsModel.FK_dbo_Categorias_dbo_Aplicaciones_AplicacionID" />
         <AssociationConnector Association="PushNewsModel.FK_dbo_Parametros_dbo_Aplicaciones_AplicacionID" />
       </Diagram>
     </edmx:Diagrams>

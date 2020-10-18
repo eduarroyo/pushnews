@@ -79,15 +79,6 @@ namespace PushNews.Negocio.Excepciones {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Ya existe un asociado de la aplicación {1} con el código {0}..
-        /// </summary>
-        internal static string AsociadoExisteException {
-            get {
-                return ResourceManager.GetString("AsociadoExisteException", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a Ya existe una categoría con el nombre {0} en la aplicación {1}..
         /// </summary>
         internal static string CategoriaExisteException {
@@ -102,24 +93,6 @@ namespace PushNews.Negocio.Excepciones {
         internal static string ComunicacionNoEncontradaException {
             get {
                 return ResourceManager.GetString("ComunicacionNoEncontradaException", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Ya existe un GPS asociado al ID de GPS de la API {0}..
-        /// </summary>
-        internal static string GpsApiIDExisteException {
-            get {
-                return ResourceManager.GetString("GpsApiIDExisteException", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Ya existe un GPS asociado a la matrícula {0}..
-        /// </summary>
-        internal static string GpsMatriculaExisteException {
-            get {
-                return ResourceManager.GetString("GpsMatriculaExisteException", resourceCulture);
             }
         }
         

@@ -18,14 +18,14 @@ namespace PushNews.WebService.Controllers
         [HttpPost]
         public async Task<IHttpActionResult> Lista(SolicitudComunicacionesModel model)
         {
-            if(!ComprobarClaves(model))
-            {
-                return Unauthorized();
-            }
             // Validación del modelo: Subdominio se ha especificado.
             if (string.IsNullOrWhiteSpace(model.Subdominio))
             {
                 return BadRequest("Subdominio no válido");
+            }
+            if(!ComprobarClaves(model))
+            {
+                return Unauthorized();
             }
 
             IComunicacionesServicio srv = Servicios.ComunicacionesServicio();
@@ -61,16 +61,9 @@ namespace PushNews.WebService.Controllers
 
             try
             {
-                long? asociadoId = null;
                 Aplicacion app = Aplicacion(model.Subdominio);
-                bool aplicacionTieneAsociados = app.Caracteristicas.Any(ac => ac.Nombre == "Asociados");
-                if (aplicacionTieneAsociados && User.Identity.IsAuthenticated)
-                {
-                    asociadoId = RequestContext.Principal.Identity.GetUserId<long>();
-                }
-
                 IComunicacionesServicio srv = Servicios.ComunicacionesServicio();
-                Comunicacion c = srv.ConsultarComunicacion(model.ComunicacionID.Value, model.UID, GetClientIp(), asociadoId);
+                Comunicacion c = srv.ConsultarComunicacion(model.ComunicacionID.Value, model.UID, GetClientIp());
                 await srv.ApplyChangesAsync();
                 resul = ComunicacionDetalleModel.FromEntity(c);
                 return Ok(resul);

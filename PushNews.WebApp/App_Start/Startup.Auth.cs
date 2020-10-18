@@ -43,7 +43,6 @@ namespace PushNews.WebApp
             app.CreatePerOwinContext<IPushNewsUnitOfWork>(CreateModel);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationRoleManager>(ApplicationRoleManager.Create);
-            app.CreatePerOwinContext<AsociadosUserManager>(AsociadosUserManager.Create);
 
             // Permitir que la aplicación use una cookie para almacenar información para el usuario que inicia sesión
             app.UseCookieAuthentication(new CookieAuthenticationOptions

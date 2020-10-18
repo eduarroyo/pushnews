@@ -32,6 +32,6 @@ namespace PushNews.Negocio.Interfaces
         /// descargado.</param>
         Task<IEnumerable<Comunicacion>> PublicadasAsync(long? categoriaID = null, bool soloDestacadas = false, long? timestamp = null, bool incluirPrivadas = false);
 
-        Comunicacion ConsultarComunicacion(long comunicacionID, string uid, string ip, long? asociadoId = null);
+        Comunicacion ConsultarComunicacion(long comunicacionID, string uid, string ip);
     }
 }

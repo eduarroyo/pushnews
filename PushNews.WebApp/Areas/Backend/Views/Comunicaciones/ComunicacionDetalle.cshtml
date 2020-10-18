@@ -7,16 +7,6 @@
     bool permisoAgregar = User.IsInRole("CrearComunicaciones");
     bool permisoEliminar = User.IsInRole("EliminarComunicaciones");
 
-
-    IEnumerable<BotonGridModel> botonesExtra = null;
-    if (ViewBag.CaracteristicaAsociados)
-    {
-        botonesExtra = new List<BotonGridModel>
-        {
-            new BotonGridModel(Txt.Escritorio.Estadisticas, "fa fa-bar-chart", "btEstadisticas", "btn btn-default")
-        };
-    }
-
     var modeloCabecera = new CabeceraModel()
     {
         Icono = "clip-settings",
@@ -24,8 +14,7 @@
         BCModulo = "",
         Titulo = Txt.Secciones.Comunicaciones,
         Subtitulo = "",
-        Recargar = true,
-        BotonesExtra = botonesExtra
+        Recargar = true
     };
 
     string textos = Json.Encode(new

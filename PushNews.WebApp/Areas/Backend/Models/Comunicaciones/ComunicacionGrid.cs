@@ -57,7 +57,6 @@ namespace PushNews.WebApp.Models.Comunicaciones
 
                     Categoria = c.Categoria.Nombre,
                     Icono = c.Categoria.Icono,
-                    Privada = c.Categoria.Privada,
 
                     Visualizaciones = c.Accesos.Count(),
                     VisualizacionesUltimoMes = c.Accesos.Where(a => a.Fecha >= haceUnMes).Count(),
@@ -111,7 +110,6 @@ namespace PushNews.WebApp.Models.Comunicaciones
 
                     Categoria = c.Categoria.Nombre,
                     Icono = c.Categoria.Icono,
-                    Privada = c.Categoria.Privada,
                     Visualizaciones = c.Accesos.Count(),
                     VisualizacionesUltimoMes = c.Accesos.Where(a => a.Fecha >= haceUnMes).Count(),
                     Terminales = c.Accesos.Select(acc => acc.Terminal).Distinct().Count()

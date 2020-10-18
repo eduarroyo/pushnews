@@ -88,15 +88,6 @@ namespace PushNews.WebApp.App_LocalResources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Asociados.
-        /// </summary>
-        public static string Asociados {
-            get {
-                return ResourceManager.GetString("Asociados", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a Categorías.
         /// </summary>
         public static string Categorias {
@@ -138,24 +129,6 @@ namespace PushNews.WebApp.App_LocalResources {
         public static string Escritorio {
             get {
                 return ResourceManager.GetString("Escritorio", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a GPSs.
-        /// </summary>
-        public static string Gpss {
-            get {
-                return ResourceManager.GetString("Gpss", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Hermandades.
-        /// </summary>
-        public static string Hermandades {
-            get {
-                return ResourceManager.GetString("Hermandades", resourceCulture);
             }
         }
         
@@ -210,15 +183,6 @@ namespace PushNews.WebApp.App_LocalResources {
         public static string Regiones {
             get {
                 return ResourceManager.GetString("Regiones", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Rutas.
-        /// </summary>
-        public static string Rutas {
-            get {
-                return ResourceManager.GetString("Rutas", resourceCulture);
             }
         }
         

@@ -17,9 +17,7 @@ namespace PushNews.WebApp.Models.UI
             bool ocultarCategorias = false, bool ocultarTelefonos = false, bool ocultarLocalizaciones = false)
         {
             // Flags correspondientes a características de la aplicación.
-            bool asociados = caracteristicas.Contains(Dominio.Enums.AplicacionCaracteristica.Asociados);
             bool empresas = caracteristicas.Contains(Dominio.Enums.AplicacionCaracteristica.Empresas);
-            bool hermandades = caracteristicas.Contains(Dominio.Enums.AplicacionCaracteristica.Hermandades);
 
             // Elementos del submenú Comunicaciones.
             var Comunicaciones = new List<ElementoMenu>();
@@ -45,20 +43,9 @@ namespace PushNews.WebApp.Models.UI
                 Comunicaciones.Add(new ElementoMenu(Txt.Secciones.Empresas, "Backend", "empresas", "LeerEmpresas", ""));
             }
 
-            if (hermandades)
-            {
-                Comunicaciones.Add(new ElementoMenu(Txt.Secciones.Hermandades, "Backend", "hermandades", "LeerHermandades", ""));
-                Comunicaciones.Add(new ElementoMenu(Txt.Secciones.Rutas, "Backend", "rutas", "LeerRutas", ""));
-                Comunicaciones.Add(new ElementoMenu(Txt.Secciones.Gpss, "Backend", "gpss", "LeerGpss", ""));
-            }
-
             // Elementos del submenú Administración.
             var Administracion = new List<ElementoMenu>();
             Administracion.Add(new ElementoMenu(Txt.Secciones.Aplicaciones, "Backend", "aplicaciones", "LeerAplicaciones", ""));
-            if(asociados)
-            {
-                Administracion.Add(new ElementoMenu(Txt.Secciones.Asociados, "Backend", "asociados", "LeerAsociados", ""));
-            }
             Administracion.Add(new ElementoMenu(Txt.Secciones.AplicacionesCaracteristicas, "Backend", "aplicacionesCaracteristicas", "LeerAplicacionesCaracteristicas", ""));
             Administracion.Add(new ElementoMenu(Txt.Secciones.Usuarios, "Backend", "usuarios", "LeerUsuarios", ""));
             Administracion.Add(new ElementoMenu(Txt.Secciones.Parametros, "Backend", "parametros", "LeerParametros", ""));

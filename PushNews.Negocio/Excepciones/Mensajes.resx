@@ -125,10 +125,6 @@
     <value>Ya existe una aplicación con el nombre {0}.</value>
     <comment>NombreAplicacion</comment>
   </data>
-  <data name="AsociadoExisteException" xml:space="preserve">
-    <value>Ya existe un asociado de la aplicación {1} con el código {0}.</value>
-    <comment>Código, NombreAplicacion</comment>
-  </data>
   <data name="CategoriaExisteException" xml:space="preserve">
     <value>Ya existe una categoría con el nombre {0} en la aplicación {1}.</value>
     <comment>NombreCategoria, NombreAplicacion</comment>
@@ -136,14 +132,6 @@
   <data name="ComunicacionNoEncontradaException" xml:space="preserve">
     <value>No existe la comunicación con id={2} o no pertenece a la aplicación {0} (id={1}).</value>
     <comment>NombreAplicacion, AplicacionID, ComunicacionID</comment>
-  </data>
-  <data name="GpsApiIDExisteException" xml:space="preserve">
-    <value>Ya existe un GPS asociado al ID de GPS de la API {0}.</value>
-    <comment>GpsApiID</comment>
-  </data>
-  <data name="GpsMatriculaExisteException" xml:space="preserve">
-    <value>Ya existe un GPS asociado a la matrícula {0}.</value>
-    <comment>Matricula</comment>
   </data>
   <data name="ParametroAplicacionExisteException" xml:space="preserve">
     <value>Ya existe un parámetro con el nombre {0} en la aplicación {1}.</value>

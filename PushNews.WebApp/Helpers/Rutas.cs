@@ -73,7 +73,7 @@ namespace PushNews.WebApp.Helpers
         {
             return $"Home/LogotipoEmpresa/{empresaId}";
         }
-        
+
         public static string UrlBannerEmpresa(Empresa empresa)
         {
             return UrlBannerEmpresa(empresa.EmpresaID);
@@ -81,24 +81,6 @@ namespace PushNews.WebApp.Helpers
         public static string UrlBannerEmpresa(long empresaId)
         {
             return $"/Home/BannerEmpresa/{empresaId}";
-        }
-
-        public static string UrlLogotipoHermandad(Hermandad hermandad)
-        {
-            return UrlLogotipoHermandad(hermandad.HermandadID);
-        }
-        public static string UrlLogotipoHermandad(long hermandadId)
-        {
-            return $"Home/LogotipoHermandad/{hermandadId}";
-        }
-
-        public static string UrlMiniaturaHermandad(Hermandad hermandad)
-        {
-            return UrlMiniaturaHermandad(hermandad.HermandadID);
-        }
-        public static string UrlMiniaturaHermandad(long hermandadId)
-        {
-            return $"Home/MiniaturaHermandad/{hermandadId}";
         }
 
         public static string UrlLogotipo(Aplicacion aplicacion)

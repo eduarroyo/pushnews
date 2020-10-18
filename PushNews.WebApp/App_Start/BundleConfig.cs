@@ -46,22 +46,6 @@ namespace PushNews.WebApp
                  "~/Content/kendo.pushnews.css",
                  "~/Content/styles-fix.css"));
 
-            bundles.Add(new StyleBundle("~/Content/rutasmapa").Include(
-                "~/Content/font-awesome.css",
-                "~/Content/multilevelpushmenu/jquery.multilevelpushmenu.css",
-                "~/Content/rutasmapa.css"));
-
-            bundles.Add(new StyleBundle("~/Content/rutasmapaosm").Include(
-                "~/Content/font-awesome.css",
-                "~/Content/multilevelpushmenu/jquery.multilevelpushmenu.css",
-                "~/Content/rutasmapa.css"));
-
-            bundles.Add(new StyleBundle("~/Content/rutasmapatomtom").Include(
-                "~/Content/font-awesome.css",
-                "~/Content/tomtomsdk/map.css",
-                "~/Content/multilevelpushmenu/jquery.multilevelpushmenu.css",
-                "~/Content/rutasmapatomtom.css"));
-
             bundles.Add(new ScriptBundle("~/bundles/jQuery").Include(
                 "~/Scripts/jquery-{version}.js"));
 
@@ -109,22 +93,7 @@ namespace PushNews.WebApp
                 "~/Scripts/kendo-global/messages/kendo.messages.en-US.js"));
             #endregion
 
-            // Página de mapa de rutas para incrustar en webs externas
-            bundles.Add(new ScriptBundle("~/bundles/rutasmapa").Include(
-                "~/Scripts/multilevelpushmenu/jquery.multilevelpushmenu.js",
-                "~/Scripts/pusnews/rutasmapa.js"));
-
-            // Página de mapa de rutas para incrustar en webs externas
-            bundles.Add(new ScriptBundle("~/bundles/rutasmapatomtom").Include(
-                "~/Scripts/multilevelpushmenu/jquery.multilevelpushmenu.js",
-                "~/Content/tomtomsdk/tomtom.min.js",
-                "~/Scripts/pushnews/rutasmapatomtom.js"));
-
-            // Página de mapa de rutas para incrustar en webs externas
-            bundles.Add(new ScriptBundle("~/bundles/rutasmapaosm").Include(
-                "~/Scripts/multilevelpushmenu/jquery.multilevelpushmenu.js",
-                "~/Scripts/pushnews/rutasmapaosm.js"));
-
+           
             #region PushNews app
             bundles.Add(new ScriptBundle("~/bundles/home").Include(
                 "~/Scripts/pushnews/util.js",
@@ -166,14 +135,6 @@ namespace PushNews.WebApp
                 // Empresas
                 "~/Scripts/pushnews/modulos/empresas.js",
 
-                // Hermandades
-                "~/Scripts/pushnews/modulos/hermandades.js",
-                "~/Scripts/pushnews/modulos/gpss.js",
-                "~/Scripts/pushnews/modulos/rutas.js",
-
-                // Asociados
-                "~/Scripts/pushnews/modulos/asociados.js",
-
                 // Comunicaciones
                 "~/Scripts/pushnews/modulos/formcomunicaciones.js",
                 "~/Scripts/pushnews/modulos/comunicaciones.js",
@@ -186,15 +147,6 @@ namespace PushNews.WebApp
                 "~/Scripts/pushnews/modulos/perfil.js"
             ));
             #endregion
-
-            #region Bundles para las vistas de la app
-
-            bundles.Add(new ScriptBundle("~/Scripts/AppWebViews/AsociadosCambiarClave").Include(
-                "~/Scripts/appwebviews/asociadoscambiarclave.js"
-            ));
-
-            #endregion
-
 
             // Poner a true para forzar las optimizaciones en debug.
             // es importante probar con los scripts optimizados antes de publicar.

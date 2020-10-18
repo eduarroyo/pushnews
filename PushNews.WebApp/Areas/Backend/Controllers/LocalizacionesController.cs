@@ -23,7 +23,6 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
             double[] coordenadas = CoordenadasPorDefecto();
             ViewBag.Latitud = coordenadas[0];
             ViewBag.Longitud = coordenadas[1];
-            ViewBag.TipoAplicacion = Aplicacion.Tipo;
             return PartialView("Localizaciones");
         }
 

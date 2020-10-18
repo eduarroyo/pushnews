@@ -120,20 +120,14 @@
   <data name="ApiKey" xml:space="preserve">
     <value>Clave de la API</value>
   </data>
-  <data name="ApiKeyExternos" xml:space="preserve">
-    <value>ApiKey para clientes externos</value>
-  </data>
   <data name="Aplicacion" xml:space="preserve">
     <value>Aplicación</value>
   </data>
   <data name="AplicacionCambiada" xml:space="preserve">
     <value>La nueva aplicación de trabajo es {0}. Espere a que la página se recargue.</value>
   </data>
-  <data name="AplicacionesAmigas" xml:space="preserve">
-    <value>Aplicaciones amigas</value>
-  </data>
-  <data name="AplicacionesAmigasPlaceholder" xml:space="preserve">
-    <value>Seleccione aplicaciones amigas</value>
+  <data name="AppStoreUrl" xml:space="preserve">
+    <value>Url de la app en la AppStore</value>
   </data>
   <data name="ArtEntidad" xml:space="preserve">
     <value>la aplicación</value>
@@ -162,9 +156,6 @@
   <data name="ClaveNueva" xml:space="preserve">
     <value>Clave nueva</value>
   </data>
-  <data name="ClaveSuscripcion" xml:space="preserve">
-    <value>Clave de suscripción</value>
-  </data>
   <data name="Clonar" xml:space="preserve">
     <value>Clonar aplicación</value>
   </data>
@@ -177,14 +168,8 @@
   <data name="ConfirmacionDesactivar" xml:space="preserve">
     <value>Se va a desactivar la aplicación</value>
   </data>
-  <data name="ITunesUrl" xml:space="preserve">
-    <value>Url de la app en iTunes</value>
-  </data>
   <data name="Logotipo" xml:space="preserve">
     <value>Logotipo</value>
-  </data>
-  <data name="MicrosoftStoreUrl" xml:space="preserve">
-    <value>Url de la app en la tienda de Microsoft</value>
   </data>
   <data name="NoExisteNoAsignada" xml:space="preserve">
     <value>La aplicación solicitada no existe o no está asignada al usuario actual.</value>
@@ -195,17 +180,8 @@
   <data name="Observaciones" xml:space="preserve">
     <value>Observaciones</value>
   </data>
-  <data name="PermitirAccesoApiExternos" xml:space="preserve">
-    <value>Permitir acceso a la API para clientes externos</value>
-  </data>
   <data name="PlayStoreUrl" xml:space="preserve">
     <value>Url de la app en Play Store</value>
-  </data>
-  <data name="RequerirClaveSuscripcion" xml:space="preserve">
-    <value>Requiere clave de suscripción</value>
-  </data>
-  <data name="SeccionAccesoBajoSuscripcion" xml:space="preserve">
-    <value>Acceso bajo suscripción</value>
   </data>
   <data name="SeccionAplicacionesMoviles" xml:space="preserve">
     <value>Aplicaciones móviles</value>

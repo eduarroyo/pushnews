@@ -25,7 +25,6 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         [Authorize(Roles = "LeerAplicaciones")]
         public ActionResult Index()
         {
-            ViewBag.TipoAplicacion = Aplicacion.Tipo;
             return PartialView("Aplicaciones");
         }
 
@@ -64,7 +63,6 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
                         LoguearCambiosApiKey(modificar, model);
                         model.ActualizarEntidad(modificar);
 
-                        ActualizarAplicacionesAmigas(modificar, model.AplicacionesAmigas);
                         ActualizarCaracteristicas(modificar, model.Caracteristicas);
 
                         await srv.ApplyChangesAsync();
@@ -116,10 +114,6 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
                     IAplicacionesServicio srv = Servicios.AplicacionesServicio();
                     Aplicacion nueva = srv.Create();
                     model.ActualizarEntidad(nueva);
-                    if (model.AplicacionesAmigas != null && model.AplicacionesAmigas.Any())
-                    {
-                        nueva.AplicacionesAmigas.AddRange(srv.Get(aa => model.AplicacionesAmigas.Contains(aa.AplicacionID)));
-                    }
                     if(model.Caracteristicas != null && model.Caracteristicas.Any())
                     {
                         IAplicacionesCaracteristicasServicio acSrv = Servicios.AplicacionesCaracteristicasServicio();
@@ -162,15 +156,6 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
             IAplicacionesServicio srv = Servicios.AplicacionesServicio();
             IEnumerable<AplicacionGrid> consulta = srv.Get().Select(AplicacionGrid.FromEntity);
             return Json(consulta, JsonRequestBehavior.AllowGet);
-        }
-
-        [Authorize(Roles = "LeerAplicaciones")]
-        public ActionResult ComboAmigas(long? aplicacionID = -1)
-        {
-            IAplicacionesServicio srv = Servicios.AplicacionesServicio();
-            IEnumerable<Aplicacion> consulta = srv.Get(a => a.AplicacionID != aplicacionID);
-            SelectList resul = new SelectList(consulta, "AplicacionID", "Nombre");
-            return Json(resul, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -237,32 +222,6 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         //}
 
         /// <summary>
-        /// Actualiza la lista de aplicaciones amigas de una aplicación quitando y añadiendo las necesarias
-        /// para que coincida con las indicadas en <paramref name="nuevaListaAmigas"/>.
-        /// </summary>
-        /// <param name="aplicacion">Objeto correspondiente a la entidad Aplicación cuyas aplicaciones amigas
-        /// van a ser modificadas.</param>
-        /// <param name="nuevaListaAmigas">IDs del nuevo conjunto de aplicaciones amigas de la aplicación.</param>
-        private void ActualizarAplicacionesAmigas(Aplicacion aplicacion, IEnumerable<long> nuevaListaAmigas)
-        {
-            IAplicacionesServicio srv = Servicios.AplicacionesServicio();
-            // Obtener las aplicaciones amigas que no se eliminan y las que se añaden como nuevas
-            IEnumerable<long> amigasActuales = aplicacion.AplicacionesAmigas.Select(cl => cl.AplicacionID);
-            IEnumerable<long> amigasAniadirIDs = nuevaListaAmigas == null
-                ? new long[0]
-                : nuevaListaAmigas.Where(aaid => !amigasActuales.Contains(aaid));
-            IEnumerable<Aplicacion> amigasNuevas = srv.Get(a => amigasAniadirIDs.Contains(a.AplicacionID));
-            IEnumerable<Aplicacion> amigasMantener = aplicacion.AplicacionesAmigas
-                .Where(aa => nuevaListaAmigas.Contains(aa.AplicacionID));
-
-            // Limpiar las amigas actuales de la aplicación y establecer el conjunto unión de las
-            // dos colecciones obtenidas antes.
-            IEnumerable<Aplicacion> amigas = amigasNuevas.Union(amigasMantener);
-            aplicacion.AplicacionesAmigas.Clear();
-            aplicacion.AplicacionesAmigas.AddRange(amigas);
-        }
-
-        /// <summary>
         /// Actualiza la lista de características de una aplicación quitando y añadiendo las necesarias
         /// para que coincida con las indicadas en <paramref name="nuevaListaCaracteristicas"/>.
         /// </summary>
@@ -296,10 +255,6 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
             if (aplicacion.ApiKey != nuevosDatos.ApiKey)
             {
                 log.Info($"APIKEY CAMBIADA: Aplicación {aplicacion.Nombre} ({aplicacion.AplicacionID}) | ApiKey original: {aplicacion.ApiKey} | ApiKey nueva: {nuevosDatos.ApiKey}");
-            }
-            if (aplicacion.ApiKeyExternos != nuevosDatos.ApiKeyExternos)
-            {
-                log.Info($"APIKEY EXTERNOS CAMBIADA: Aplicación {aplicacion.Nombre} ({aplicacion.AplicacionID}) | ApiKey original: {aplicacion.ApiKeyExternos} | ApiKey nueva: {nuevosDatos.ApiKeyExternos}");
             }
         }
     }

@@ -29,16 +29,10 @@ namespace PushNews.PublicadorPush
         public string SubDominio { get; set; }
         public string Usuario { get; set; }
         public string Clave { get; set; }
-        public string ClaveSuscripcion { get; set; }
-        public bool RequerirClaveSuscripcion { get; set; }
         public Nullable<long> LogotipoID { get; set; }
-        public string Tipo { get; set; }
         public string ApiKey { get; set; }
         public string PlayStoreUrl { get; set; }
-        public string ITunesUrl { get; set; }
-        public string MicrosoftStoreUrl { get; set; }
-        public string ApiKeyExternos { get; set; }
-        public bool PermitirAccesoApiExternos { get; set; }
+        public string AppStoreUrl { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Categoria> Categorias { get; set; }

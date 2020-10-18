@@ -101,10 +101,10 @@ namespace PushNews.Negocio
         }
 
 
-        public IEnumerable<Categoria> ListaCategorias(bool incluirPrivadas = false)
+        public IEnumerable<Categoria> ListaCategorias()
         {
             return base
-                .Get(c => c.Activo && (!c.Privada || incluirPrivadas))
+                .Get(c => c.Activo)
                 .OrderBy(c => c.Orden);
         }
     }

@@ -38,8 +38,7 @@ namespace PushNews.WebService.Models
                 TimeStamp = c.TimeStamp,
                 Categoria = c.Categoria.Nombre,
                 Orden = c.Categoria.Orden,
-                Icono = c.Categoria.Icono,
-                Privada = c.Categoria.Privada
+                Icono = c.Categoria.Icono
             };
 
         public void ActualizarEntidad(Entity modificar)
@@ -116,6 +115,5 @@ namespace PushNews.WebService.Models
         public bool Activo { get; set; }
 
         public long TimeStamp { get; set; }
-        public bool Privada { get; set; }
     }
 }

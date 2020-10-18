@@ -13,7 +13,6 @@ namespace PushNews.Seguridad
         IUserPhoneNumberStore<TUser, TKey>,
         IUserTwoFactorStore<TUser, TKey>,
         IUserLockoutStore<TUser, TKey>,
-        IUserLoginStore<TUser, TKey>,
         IQueryableUserStore<TUser, TKey>
         where TUser : class, IUser<TKey>
     {

@@ -21,7 +21,6 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         public ActionResult Index()
         {
             ViewBag.UrlMapas = ObtenerPlantillaUrlMapas();
-            ViewBag.TipoAplicacion = Aplicacion.Tipo;
             return PartialView("Empresas");
         }
 

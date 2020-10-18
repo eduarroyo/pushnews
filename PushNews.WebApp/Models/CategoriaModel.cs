@@ -16,7 +16,6 @@ namespace PushNews.WebApp.Models
                 Nombre = Util.AsegurarNulos(r.Nombre),
                 Icono = Util.AsegurarNulos(r.Icono),
                 Orden = r.Orden,
-                Privada = r.Privada,
                 Activo = r.Activo,
                 
             };
@@ -27,7 +26,6 @@ namespace PushNews.WebApp.Models
             editar.Icono = Icono;
             editar.Activo = Activo;
             editar.Orden = Orden;
-            editar.Privada = Privada;
         }
 
         [Required(ErrorMessageResourceType = typeof(Txt.Validacion), ErrorMessageResourceName = "Requerido")]
@@ -53,8 +51,5 @@ namespace PushNews.WebApp.Models
         [Range(1, int.MaxValue,ErrorMessageResourceType = typeof(Txt.Validacion), ErrorMessageResourceName = "MayorIgualQue")]
         [UIHint("Integer")]
         public int Orden { get; set; }
-
-        [Display(ResourceType = typeof(Txt.Categorias), Name = "Privada")]
-        public bool Privada { get; set; }
     }
 }

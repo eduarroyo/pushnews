@@ -31,7 +31,6 @@
 
                 if (regEdicion.get("AplicacionID") === 0) {
                     regEdicion.set("ApiKey", util.generarCadenaAleatoria(20));
-                    regEdicion.set("ApiKeyExternos", util.generarCadenaAleatoria(20));
                 }
             });
 
@@ -70,8 +69,6 @@
             var nuevo = grid.dataSource.insert();
             nuevo.set("Tipo", dato.get("Tipo"));
             nuevo.set("Caracteristicas", dato.get("Caracteristicas"));
-            nuevo.set("AplicacionesAmigas", dato.get("AplicacionesAmigas"));
-            nuevo.set("RequerirClaveSuscripcion", dato.get("RequerirClaveSuscripcion"));
             nuevo.set("Activo", true);
             modulosInternos.aplicacionesGrid.editarRegistro(nuevo);
         }

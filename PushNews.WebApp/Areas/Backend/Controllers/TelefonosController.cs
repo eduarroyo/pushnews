@@ -20,7 +20,6 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         [Authorize(Roles="LeerTelefonos")]
         public ActionResult Index()
         {
-            ViewBag.TipoAplicacion = Aplicacion.Tipo;
             return PartialView("Telefonos");
         }
 

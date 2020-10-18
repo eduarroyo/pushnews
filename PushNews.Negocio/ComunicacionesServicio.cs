@@ -119,7 +119,7 @@ namespace PushNews.Negocio
                             // parámetro.
                             filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo && p.Destacado
                                        && p.FechaPublicacion <= ahora && p.CategoriaID == categoriaID.Value
-                                       && p.TimeStamp > timestamp && !p.Categoria.Privada;
+                                       && p.TimeStamp > timestamp;
                         }
                     }
                     else
@@ -138,8 +138,7 @@ namespace PushNews.Negocio
                             // destacadas, con fecha depublicación anterior a la fecha actual y 
                             // pertenecientes a la categoría del parámetro.
                             filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo && p.Destacado
-                                   && p.FechaPublicacion <= ahora && p.CategoriaID == categoriaID.Value
-                                   && !p.Categoria.Privada;
+                                   && p.FechaPublicacion <= ahora && p.CategoriaID == categoriaID.Value;
                         }
                     }
                 }
@@ -163,7 +162,7 @@ namespace PushNews.Negocio
                             // parámetro y con timestamp posterior al del parámetro.
                             filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo
                                        && p.FechaPublicacion <= ahora && p.CategoriaID == categoriaID.Value
-                                       && p.TimeStamp > timestamp && !p.Categoria.Privada;
+                                       && p.TimeStamp > timestamp;
                         }
                     }
                     else
@@ -182,8 +181,7 @@ namespace PushNews.Negocio
                             // de publicación anterior a la fecha actual y pertenecientes a la categoría del
                             // parámetro.
                             filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo
-                                   && p.FechaPublicacion <= ahora && p.CategoriaID == categoriaID.Value
-                                   && !p.Categoria.Privada;
+                                   && p.FechaPublicacion <= ahora && p.CategoriaID == categoriaID.Value;
                         }
                     }
                 }
@@ -208,8 +206,7 @@ namespace PushNews.Negocio
                             // destacadas, con fecha de publicación anterior a la fecha actual y con
                             // timestamp posterior al del parámetro.
                             filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo && p.Destacado
-                                       && p.FechaPublicacion <= ahora && p.TimeStamp > timestamp
-                                       && !p.Categoria.Privada;
+                                       && p.FechaPublicacion <= ahora && p.TimeStamp > timestamp;
                         }
                     }
                     else
@@ -226,7 +223,7 @@ namespace PushNews.Negocio
                             // Comunicaciones activas, no borradas, destacadas, con categoría activa y 
                             // pública y con fecha de publicaciónanterior a la fecha actual.
                             filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo && p.Destacado
-                                   && p.FechaPublicacion <= ahora && !p.Categoria.Privada;
+                                   && p.FechaPublicacion <= ahora;
                         }
                     }
                 }
@@ -248,8 +245,7 @@ namespace PushNews.Negocio
                             // de publicación anterior a la fecha actual y con timestamp posterior al del
                             // parámetro.
                             filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo
-                                   && p.FechaPublicacion <= ahora && p.TimeStamp > timestamp
-                                   && !p.Categoria.Privada;
+                                   && p.FechaPublicacion <= ahora && p.TimeStamp > timestamp;
                         }
                     }
                     else
@@ -266,7 +262,7 @@ namespace PushNews.Negocio
                             // Comunicaciones activas, no borradas, con categoría activa y pública y con
                             // fecha de publicación anterior a la fecha actual.
                             filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo
-                               && p.FechaPublicacion <= ahora && !p.Categoria.Privada;
+                               && p.FechaPublicacion <= ahora;
                         }
                     }
                 }
@@ -275,7 +271,7 @@ namespace PushNews.Negocio
             return filtro;
         }
 
-        public Comunicacion ConsultarComunicacion(long comunicacionID, string uid, string ip, long? asociadoId = null)
+        public Comunicacion ConsultarComunicacion(long comunicacionID, string uid, string ip)
         {
             Comunicacion com = GetSingle(c => c.ComunicacionID == comunicacionID && !c.Borrado && c.Activo);
 
@@ -283,13 +279,9 @@ namespace PushNews.Negocio
             {
                 throw new ComunicacionNoEncontradaException(comunicacionID, aplicacion);
             }
-            else if(com.Categoria.Privada && !asociadoId.HasValue)
-            {
-                throw new UnauthorizedAccessException($"Acceso no autorizado a la comunicación {comunicacionID} privada desde el terminal {uid} con la ip {ip}.");
-            }
 
             IComunicacionesAccesosServicio asrv = new ComunicacionesAccesosServicio(unitOfWork, aplicacion);
-            asrv.AccesoTerminal(com, uid, ip, asociadoId);
+            asrv.AccesoTerminal(com, uid, ip);
 
             return com;
         }

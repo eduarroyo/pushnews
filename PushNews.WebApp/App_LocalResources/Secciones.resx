@@ -126,9 +126,6 @@
   <data name="AplicacionesCaracteristicas" xml:space="preserve">
     <value>Características de aplicaciones</value>
   </data>
-  <data name="Asociados" xml:space="preserve">
-    <value>Asociados</value>
-  </data>
   <data name="Categorias" xml:space="preserve">
     <value>Categorías</value>
   </data>
@@ -143,12 +140,6 @@
   </data>
   <data name="Escritorio" xml:space="preserve">
     <value>Escritorio</value>
-  </data>
-  <data name="Gpss" xml:space="preserve">
-    <value>GPSs</value>
-  </data>
-  <data name="Hermandades" xml:space="preserve">
-    <value>Hermandades</value>
   </data>
   <data name="Localizaciones" xml:space="preserve">
     <value>Localizaciones</value>
@@ -167,9 +158,6 @@
   </data>
   <data name="Regiones" xml:space="preserve">
     <value>Regiones</value>
-  </data>
-  <data name="Rutas" xml:space="preserve">
-    <value>Rutas</value>
   </data>
   <data name="Telefonos" xml:space="preserve">
     <value>Telefonos de interés</value>

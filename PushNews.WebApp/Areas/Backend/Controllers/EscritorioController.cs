@@ -15,7 +15,6 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.TipoAplicacion = Aplicacion != null ? Aplicacion.Tipo : "";
             double[] coordenadas = CoordenadasPorDefecto();
             ViewBag.Latitud = coordenadas[0];
             ViewBag.Longitud = coordenadas[1];

@@ -18,11 +18,8 @@ namespace PushNews.WebService.Controllers
                 return Unauthorized();
             }
 
-            bool aplicacionTieneAsociados = Aplicacion(model.Subdominio).Caracteristicas.Any(c => c.Nombre == "Asociados");
-            log.Debug("Asociados: " + aplicacionTieneAsociados);
-            log.Debug("Autenticado: " + User.Identity.IsAuthenticated);
             ICategoriasServicio srv = Servicios.CategoriasServicio();
-            return Ok(srv.ListaCategorias(incluirPrivadas: User.Identity.IsAuthenticated)
+            return Ok(srv.ListaCategorias()
                     .Select(CategoriaModel.FromEntity)
                     .AsQueryable());
         }

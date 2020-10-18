@@ -25,7 +25,6 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         [Authorize(Roles="LeerAplicacionesCaracteristicas")]
         public ActionResult Index()
         {
-            ViewBag.TipoAplicacion = Aplicacion.Tipo;
             return PartialView("AplicacionesCaracteristicas");
         }
 

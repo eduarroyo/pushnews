@@ -32,7 +32,6 @@ namespace PushNews.Dominio
         public virtual DbSet<Perfil> Perfiles { get; set; }
         public virtual DbSet<Rol> Roles { get; set; }
         public virtual DbSet<Claim> Claims { get; set; }
-        public virtual DbSet<Login> Logins { get; set; }
         public virtual DbSet<Parametro> Parametros { get; set; }
         public virtual DbSet<Comunicacion> Comunicaciones { get; set; }
         public virtual DbSet<ComunicacionAcceso> Accesos { get; set; }
@@ -43,12 +42,7 @@ namespace PushNews.Dominio
         public virtual DbSet<Telefono> Telefonos { get; set; }
         public virtual DbSet<Localizacion> Localizaciones { get; set; }
         public DbSet<AplicacionCaracteristica> AplicacionesCaracteristicas { get; set; }
-        public DbSet<Asociado> Asociados { get; set; }
         public DbSet<Empresa> Empresas { get; set; }
-        public DbSet<Hermandad> Hermandades { get; set; }
-        public DbSet<Gps> Gpss { get; set; }
-        public DbSet<Ruta> Rutas { get; set; }
-        public DbSet<GpsPosicion> RutasPosiciones { get; set; }
 
         public string ConnectionString
         {
@@ -77,7 +71,6 @@ namespace PushNews.Dominio
             // Configuración de los tipos de entidad y sus relaciones
             MapRoles(modelBuilder);
             MapPerfiles(modelBuilder);
-            MapLogins(modelBuilder);
             MapClaims(modelBuilder);
             MapUsuarios(modelBuilder);
             MapParametros(modelBuilder);
@@ -90,12 +83,7 @@ namespace PushNews.Dominio
             MapTelefonos(modelBuilder);
             MapLocalizaciones(modelBuilder);
             MapAplicacionesCaracteristicas(modelBuilder);
-            MapAsociados(modelBuilder);
             MapEmpresas(modelBuilder);
-            MapHermandades(modelBuilder);
-            MapRutas(modelBuilder);
-            MapGpss(modelBuilder);
-            MapRutasPosiciones(modelBuilder);
         }
 
         private void MapCategorias(DbModelBuilder modelBuilder)
@@ -131,30 +119,17 @@ namespace PushNews.Dominio
 
             tabla.Property(a => a.Nombre).HasMaxLength(100);
             tabla.Property(a => a.Version).HasMaxLength(100);
-            tabla.Property(a => a.Tipo).HasMaxLength(100);
             tabla.Property(a => a.CloudKey).HasMaxLength(100);
             tabla.Property(a => a.Usuario).HasMaxLength(100);
             tabla.Property(a => a.Clave).HasMaxLength(100);
-            tabla.Property(a => a.ClaveSuscripcion).HasMaxLength(100);
 
             tabla.Property(a => a.ApiKey).HasMaxLength(500);
-            tabla.Property(a => a.ApiKeyExternos).HasMaxLength(500);
             tabla.Property(a => a.PlayStoreUrl).HasMaxLength(1000);
-            tabla.Property(a => a.ITunesUrl).HasMaxLength(1000);
-            tabla.Property(a => a.MicrosoftStoreUrl).HasMaxLength(1000);
+            tabla.Property(a => a.AppStoreUrl).HasMaxLength(1000);
 
             tabla.HasOptional(a => a.Logotipo)
                     .WithMany()
                     .HasForeignKey(a => a.LogotipoID);
-
-            tabla.HasMany(a => a.AplicacionesAmigas)
-                .WithMany()
-                .Map(m =>
-                {
-                    m.MapLeftKey("AplicacionID");
-                    m.MapRightKey("AplicacionAmigaID");
-                    m.ToTable("AplicacionesAplicacionesAmigas");
-                });
         }
 
         private void MapTerminales(DbModelBuilder modelBuilder)
@@ -296,32 +271,6 @@ namespace PushNews.Dominio
                 .HasRequired(l => l.Usuario)
                 .WithMany(e => e.Claims)
                 .HasForeignKey(c => c.UsuarioID);
-        }
-
-        private void MapLogins(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Login>()
-                .ToTable("Logins")
-                .HasKey(l => new { l.ProveedorLogin, l.ProveedorClave, l.UsuarioID });
-
-            modelBuilder.Entity<Login>()
-                .Property(l => l.ProveedorLogin)
-                .HasColumnOrder(1)
-                .HasMaxLength(128);
-
-            modelBuilder.Entity<Login>()
-                .Property(l => l.ProveedorClave)
-                .HasColumnOrder(2)
-                .HasMaxLength(128);
-
-            modelBuilder.Entity<Login>()
-                .Property(l => l.UsuarioID)
-                .HasColumnOrder(3);
-
-            modelBuilder.Entity<Login>()
-                .HasRequired(l => l.Usuario)
-                .WithMany(e => e.Logins)
-                .HasForeignKey(l => l.UsuarioID);
         }
 
         private void MapUsuarios(DbModelBuilder modelBuilder)
@@ -507,39 +456,6 @@ namespace PushNews.Dominio
                 });
         }
 
-        private void MapAsociados(DbModelBuilder modelBuilder)
-        {
-            EntityTypeConfiguration<Asociado> tabla = modelBuilder.Entity<Asociado>()
-                .ToTable("Asociados")
-                .HasKey(a => a.AsociadoID);
-
-            tabla.Property(a => a.AsociadoID)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-
-            tabla.Property(a => a.Codigo).HasMaxLength(100);
-            tabla.Property(a => a.Nombre).HasMaxLength(100);
-            tabla.Property(a => a.Apellidos).HasMaxLength(100);
-            tabla.Property(a => a.Direccion).HasMaxLength(500);
-            tabla.Property(a => a.CodigoPostal).HasMaxLength(10);
-            tabla.Property(a => a.Localidad).HasMaxLength(100);
-            tabla.Property(a => a.Provincia).HasMaxLength(100);
-            tabla.Property(a => a.Observaciones).HasMaxLength(500);
-            tabla.Property(a => a.Telefono).HasMaxLength(20);
-            tabla.Property(a => a.Email).HasMaxLength(250);
-
-            tabla
-                .Ignore(a => a.Id)
-                .Ignore(a => a.UserName);
-
-            tabla.HasRequired(asoc => asoc.Aplicacion)
-                .WithMany(apl => apl.Asociados)
-                .HasForeignKey(apl => apl.AplicacionID);
-
-            tabla.HasMany(asoc => asoc.ComunicacionesAccesos)
-                .WithOptional(ca => ca.Asociado)
-                .HasForeignKey(ca => ca.AsociadoID);
-        }
-
         private void MapEmpresas(DbModelBuilder modelBuilder)
         {
             EntityTypeConfiguration<Empresa> tabla = modelBuilder.Entity<Empresa>()
@@ -574,96 +490,6 @@ namespace PushNews.Dominio
                 .WithMany()
                 .HasForeignKey(e => e.BannerDocumentoID);
         }
-
-        private void MapHermandades(DbModelBuilder modelBuilder)
-        {
-            EntityTypeConfiguration<Hermandad> tabla = modelBuilder.Entity<Hermandad>()
-                .ToTable("Hermandades")
-                .HasKey(h => h.HermandadID);
-
-            tabla.Property(h => h.HermandadID)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-
-            tabla.Property(h => h.Nombre).HasMaxLength(200).IsRequired();
-            tabla.Property(h => h.IglesiaNombre).HasMaxLength(200).IsRequired();
-            tabla.Property(h => h.IglesiaDireccion).HasMaxLength(500).IsRequired();
-            tabla.Property(e => e.Tags).HasMaxLength(500).IsRequired();
-
-            tabla.HasRequired(h => h.Aplicacion)
-                .WithMany(apl => apl.Hermandades)
-                .HasForeignKey(h => h.AplicacionID);
-
-            tabla.HasOptional(h => h.Logotipo)
-                .WithMany()
-                .HasForeignKey(h => h.LogotipoDocumentoID);
-        }
-
-        private void MapRutas(DbModelBuilder modelBuilder)
-        {
-            EntityTypeConfiguration<Ruta> tabla = modelBuilder.Entity<Ruta>()
-                .ToTable("Rutas")
-                .HasKey(r => r.RutaID);
-
-            tabla.Property(r => r.RutaID)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-
-            tabla.Property(r => r.Descripcion).HasMaxLength(500).IsRequired();
-            tabla.Property(r => r.InicioDescripcion).HasMaxLength(200).IsRequired();
-            tabla.Property(r => r.EntradaEnCarreraOficial).HasMaxLength(200).IsRequired();
-            tabla.Property(r => r.FinDescripcion).HasMaxLength(200).IsRequired();
-            tabla.Property(r => r.CabezaUltimaPosicionDireccion).HasMaxLength(200).IsRequired();
-            tabla.Property(r => r.ColaUltimaPosicionDireccion).HasMaxLength(200).IsRequired();
-            tabla.Ignore(r => r.CalculoTiempo);
-
-            tabla.HasRequired(r => r.Hermandad)
-                .WithMany(h => h.Rutas)
-                .HasForeignKey(r => r.HermandadID);
-
-            tabla.HasRequired(r => r.GpsCabeza)
-                .WithMany()
-                .HasForeignKey(r => r.GpsCabezaID);
-
-            tabla.HasOptional(r => r.GpsCola)
-                .WithMany()
-                .HasForeignKey(r => r.GpsColaID);
-        }
-
-        private void MapGpss(DbModelBuilder modelBuilder)
-        {
-            EntityTypeConfiguration<Gps> tabla = modelBuilder.Entity<Gps>()
-                .ToTable("Gpss")
-                .HasKey(g => g.GpsID);
-
-            tabla.Property(g => g.GpsID)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-
-            tabla.Property(g => g.Api).HasMaxLength(100).IsRequired();
-            tabla.Property(g => g.Estado).HasMaxLength(200).IsRequired();
-            tabla.Property(g => g.Sensores).HasMaxLength(200).IsRequired();
-            tabla.Property(g => g.Matricula).HasMaxLength(200).IsRequired();
-            tabla.Property(g => g.UltimaPosicionDireccion).HasMaxLength(200).IsRequired();
-
-            tabla.HasRequired(g => g.Aplicacion)
-                .WithMany(a => a.Gpss)
-                .HasForeignKey(g => g.AplicacionID);
-        }
-
-        private void MapRutasPosiciones(DbModelBuilder modelBuilder)
-        {
-            EntityTypeConfiguration<GpsPosicion> tabla = modelBuilder.Entity<GpsPosicion>()
-                .ToTable("GpsPosiciones")
-                .HasKey(rp => rp.GpsPosicionID);
-
-            tabla.Property(rp => rp.GpsPosicionID)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-
-            tabla.Property(rp => rp.Direccion).IsRequired().HasMaxLength(200);
-
-            tabla.HasRequired(rp => rp.Gps)
-                .WithMany(g => g.Posiciones)
-                .HasForeignKey(rp => rp.GpsID);
-        }
-
 
         #region IEntityFrameworkUnitOfWork
         public void Attach<TEntity>(TEntity entity) where TEntity : class

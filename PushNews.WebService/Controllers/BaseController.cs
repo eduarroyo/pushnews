@@ -9,10 +9,8 @@ using PushNews.Dominio;
 using PushNews.Dominio.Entidades;
 using System.Web.Http;
 using System.Net.Http;
-using PushNews.WebService.Services;
 using System.Collections.Generic;
 using PushNews.WebService.Models;
-using PushNews.WebService.Models.ApiClientesExternos;
 
 namespace PushNews.WebService.Controllers
 {
@@ -22,7 +20,6 @@ namespace PushNews.WebService.Controllers
         protected readonly ILog log;
         private Aplicacion aplicacion;
         private string subdominio;
-        private AsociadosUserManager userManager;
 
         public BaseController()
         {
@@ -43,37 +40,11 @@ namespace PushNews.WebService.Controllers
             }
         }
 
-        protected AsociadosUserManager UserManager
-        {
-            get
-            {
-                if (userManager == null)
-                {
-                    userManager = Request.GetOwinContext().GetUserManager<AsociadosUserManager>();
-                }
-                return userManager;
-            }
-        }
-        
         private IPushNewsUnitOfWork DataContext
         {
             get
             {
                 return Request.GetOwinContext().Get<IPushNewsUnitOfWork>();
-            }
-        }
-        
-        private Asociado usuario = null;
-        protected Asociado Usuario
-        {
-            get
-            {
-                if (usuario == null && User.Identity.IsAuthenticated)
-                {
-                    long usuarioID = long.Parse(User.Identity.GetUserId());
-                    usuario = UserManager.Users.Single(u => u.AsociadoID == usuarioID);
-                }
-                return usuario;
             }
         }
 
@@ -110,33 +81,12 @@ namespace PushNews.WebService.Controllers
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing && UserManager != null)
-            {
-                UserManager.Dispose();
-                userManager = null;
-            }
             base.Dispose(disposing);
         }
 
         protected string GetClientIp()
         {
             return HttpContext.Current.Request.UserHostAddress;
-        }
-        
-        /// <summary>
-        /// Valida una solicitud para la sección de asociados. Para que la solcitud sea válida, debe aportar
-        /// la ApiKey de clientes externos correspondiente a la aplicación asociada al subdominio de la
-        /// solicitud, y dicha aplicación debe tener activa la característica "Asociados".
-        /// </summary>
-        protected bool ComprobarClavesAsociados(SolicitudAsociadosModel model)
-        {
-            Aplicacion ap = Aplicacion(model.Subdominio);
-
-            // Para autorizar la solicitud debe cumplirse que la ApiKey coincida con la de la aplicación
-            // y que, si la aplicación requiere clave de suscripción, la clave coincida también.
-            // Tanto en la ApiKey guardada en la aplicación como en la recibida en el modelo, se considera
-            // que el valor nulo es igual que el de cadena vacía.
-            return ap.PermitirAccesoApiExternos && (ap.ApiKeyExternos ?? "") == (model.ApiKey ?? "");
         }
 
         protected virtual bool ComprobarClaves(SolicitudModel model)
@@ -147,8 +97,7 @@ namespace PushNews.WebService.Controllers
             // y que, si la aplicación requiere clave de suscripción, la clave coincida también.
             // Tanto en la ApiKey guardada en la aplicación como en la recibida en el modelo, se considera
             // que el valor nulo es igual que el de cadena vacía.
-            return (ap.ApiKey ?? "") == (model.ApiKey ?? "")
-                && (!ap.RequerirClaveSuscripcion || model.Clave == ap.ClaveSuscripcion);
+            return (ap.ApiKey ?? "") == (model.ApiKey ?? "");
         }
     }
 }
