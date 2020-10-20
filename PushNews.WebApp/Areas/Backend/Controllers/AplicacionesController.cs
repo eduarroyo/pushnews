@@ -22,13 +22,13 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
             : base()
         { }
 
-        [Authorize(Roles = "Administrador")]
+     //   [Authorize(Roles = "Administrador")]
         public ActionResult Index()
         {
             return PartialView("Aplicaciones");
         }
 
-        [Authorize(Roles = "Administrador")]
+     //   [Authorize(Roles = "Administrador")]
         public ActionResult Leer([DataSourceRequest] DataSourceRequest request)
         {
             IAplicacionesServicio srv = Servicios.AplicacionesServicio();

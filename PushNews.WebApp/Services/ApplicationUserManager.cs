@@ -8,6 +8,7 @@ using PushNews.Dominio;
 using PushNews.Seguridad;
 using PushNews.Dominio.Entidades;
 using System;
+using System.Drawing.Imaging;
 
 namespace PushNews.WebApp.Services
 {
@@ -47,6 +48,34 @@ namespace PushNews.WebApp.Services
             if (guardarCambios)
             {
                 await PushNewsUserStore.SaveChangesAsync();
+            }
+        }
+
+        public override async Task<bool> IsInRoleAsync(long userId, string role)
+        {
+            Usuario u = await PushNewsUserStore.FindByIdAsync(userId);
+            return String.Compare(u.Rol.Nombre, role, ignoreCase: true) == 0;
+        }
+
+        public override async Task<IdentityResult> AddToRoleAsync(long userId, string role)
+        {
+            Usuario u = await PushNewsUserStore.FindByIdAsync(userId);
+            if(u == null)
+            {
+                return IdentityResult.Failed("Usuario no encontrado");
+            }
+            return await PushNewsUserStore.AsignarRol(u, role);
+        }
+
+        public override async Task<IdentityResult> AddToRolesAsync(long userId, params string[] roles)
+        {
+            if (roles != null && roles.Length > 0)
+            {
+                return await AddToRoleAsync(userId, roles[0]);
+            }
+            else
+            {
+                return IdentityResult.Failed("No se especificó el rol.");
             }
         }
 
@@ -107,7 +136,7 @@ namespace PushNews.WebApp.Services
 
         internal async Task EstablecerRol(Usuario modificar, long rolId)
         {
-            PushNewsUserStore.AsignarRol(modificar, rolId);
+            await PushNewsUserStore.AsignarRol(modificar, rolId);
             await PushNewsUserStore.SaveChangesAsync();
         }
     }

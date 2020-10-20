@@ -375,39 +375,35 @@ namespace PushNews.Seguridad
             return Task.FromResult(user.DosFactoresHabilitado);
         }
 
-        public void ActualizarPerfiles(Usuario usuario, IEnumerable<long> perfilesAniadir, IEnumerable<long> perfilesQuitar)
+        public async Task<IdentityResult> AsignarRol(long usuarioId, long rolId)
         {
-            throw new NotImplementedException();
+            Usuario u = await FindByIdAsync(usuarioId);
+            if(u == null)
+            {
+                return IdentityResult.Failed("Usuario no encontrado");
+            }
+            return await AsignarRol(u, rolId);
         }
 
-        public Task CreateAsync(Rol role)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateAsync(Rol role)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task DeleteAsync(Rol role)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<Rol> IRoleStore<Rol, long>.FindByIdAsync(long roleId)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<Rol> IRoleStore<Rol, long>.FindByNameAsync(string roleName)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AsignarRol(Usuario usuario, long rolId)
+        public async Task<IdentityResult> AsignarRol(Usuario usuario, long rolId)
         {
             usuario.RolID = rolId;
+            await SaveChangesAsync();
+            return IdentityResult.Success;
+        }
+
+        public async Task<IdentityResult> AsignarRol(Usuario usuario, string rol)
+        {
+            Rol r = context.Roles.SingleOrDefault(rr => rr.Nombre == rol);
+
+            if(rol == null)
+            {
+                return IdentityResult.Failed("Rol no encontrado");
+            }
+
+            usuario.RolID = r.RolID;
+            await SaveChangesAsync();
+            return IdentityResult.Success;
         }
 
         #endregion

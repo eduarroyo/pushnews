@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 namespace PushNews.Seguridad
 {
     public interface IPushNewsUserStore<TUser, TRol, TKey> :
-        IQueryableRoleStore<TRol, TKey>,
         IQueryableUserStore<TUser, TKey>,
         IUserPasswordStore<TUser, TKey>,
         IUserSecurityStampStore<TUser, TKey>,
@@ -16,7 +15,9 @@ namespace PushNews.Seguridad
         where TUser : class, IUser<TKey> 
         where TRol: class, IRole<TKey>
     {
-        void AsignarRol(TUser usuario, TKey rolId);
+        Task<IdentityResult> AsignarRol(TUser usuario, TKey rolId);
+        Task<IdentityResult> AsignarRol(TUser usuario, string rol);
+        Task<IdentityResult> AsignarRol(TKey usuario, TKey rolId);
         int SaveChanges();
         Task<int> SaveChangesAsync();
     }
