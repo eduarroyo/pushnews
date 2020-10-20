@@ -13,9 +13,9 @@
     };
     Aplicacion app = (Aplicacion)@Session["Aplicacion"];
 
-    bool mostrarFormularioPublicar = app != null && User.IsInRole("CrearComunicaciones") && Session["Aplicacion"] != null;
-    bool mostrarUltimasComunicaciones = app != null && User.IsInRole("LeerComunicaciones");
-    bool mostrarEstadisticas = app != null/* && User.IsInRole("LeerEstadisticas")*/;
+    bool mostrarFormularioPublicar = app != null && User.Identity.IsAuthenticated && Session["Aplicacion"] != null;
+    bool mostrarUltimasComunicaciones = app != null;
+    bool mostrarEstadisticas = app != null;
 }
 
 @{Html.RenderPartial("cabeceraModulo", modeloCabecera);}

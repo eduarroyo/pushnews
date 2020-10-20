@@ -69,8 +69,8 @@
                             @class = "form-control campo-form",
                             data_bind = "value: CategoriaID, events: {change: cambioCategoria}"
                         })
-                        .ValueTemplate(@"<i class=""fa fa-2x #= Icono #""></i> &nbsp; #= Nombre # &nbsp; #if(Privada) {# <i class=""fa fa-user-secret""></i> #}#")
-                        .Template(@"<i class=""fa fa-2x #= Icono #""></i> &nbsp; #= Nombre # &nbsp; #if(Privada) {# <i class=""fa fa-user-secret""></i> #}#")
+                        .ValueTemplate(@"<i class=""fa fa-2x #= Icono #""></i> &nbsp; #= Nombre # &nbsp;")
+                        .Template(@"<i class=""fa fa-2x #= Icono #""></i> &nbsp; #= Nombre # &nbsp;")
                     )
                 </div>
 
@@ -96,11 +96,6 @@
                             data_bind = "value: FechaPublicacion"
                         })
                     )
-                </div>
-            </div>
-            <div class="row" id="filaAyudaPrivadas" style="display:none;">
-                <div class="col-xs-12">
-                    <i class="fa fa-user-secret"></i>&nbsp;@Txt.Comunicaciones.AyudaPrivadas
                 </div>
             </div>
             <div class="row">

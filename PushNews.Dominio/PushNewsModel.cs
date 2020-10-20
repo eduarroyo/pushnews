@@ -29,9 +29,7 @@ namespace PushNews.Dominio
         #region ############################################################################################ TABLAS
 
         public virtual DbSet<Usuario> Usuarios { get; set; }
-        public virtual DbSet<Perfil> Perfiles { get; set; }
         public virtual DbSet<Rol> Roles { get; set; }
-        public virtual DbSet<Claim> Claims { get; set; }
         public virtual DbSet<Parametro> Parametros { get; set; }
         public virtual DbSet<Comunicacion> Comunicaciones { get; set; }
         public virtual DbSet<ComunicacionAcceso> Accesos { get; set; }
@@ -70,8 +68,6 @@ namespace PushNews.Dominio
 
             // Configuración de los tipos de entidad y sus relaciones
             MapRoles(modelBuilder);
-            MapPerfiles(modelBuilder);
-            MapClaims(modelBuilder);
             MapUsuarios(modelBuilder);
             MapParametros(modelBuilder);
             MapComunicaciones(modelBuilder);
@@ -224,53 +220,9 @@ namespace PushNews.Dominio
             modelBuilder.Entity<Rol>().Property(l => l.Nombre)
                 .HasMaxLength(50);
 
-            modelBuilder.Entity<Rol>().Property(l => l.Modulo)
-                .HasMaxLength(50);
-
             modelBuilder.Entity<Rol>()
                 .Ignore(t => t.Id)
                 .Ignore(t => t.Name);
-        }
-
-        private void MapPerfiles(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Perfil>()
-                .ToTable("Perfiles")
-                .HasKey(l => l.PerfilID);
-
-            modelBuilder.Entity<Perfil>()
-                .Property(l => l.PerfilID)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-
-            modelBuilder.Entity<Perfil>()
-                .Property(l => l.Nombre)
-                .HasMaxLength(50);
-
-            modelBuilder.Entity<Perfil>()
-                .HasMany(c => c.Roles)
-                .WithMany(r => r.Perfiles)
-                .Map(c =>
-                {
-                    c.ToTable("PerfilesRoles");
-                    c.MapLeftKey("PerfilID");
-                    c.MapRightKey("RolID");
-                });
-        }
-
-        private void MapClaims(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Claim>()
-                .ToTable("Claims")
-                .HasKey(l => l.ClaimID);
-
-            modelBuilder.Entity<Claim>()
-                .Property(l => l.ClaimID)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-
-            modelBuilder.Entity<Claim>()
-                .HasRequired(l => l.Usuario)
-                .WithMany(e => e.Claims)
-                .HasForeignKey(c => c.UsuarioID);
         }
 
         private void MapUsuarios(DbModelBuilder modelBuilder)
@@ -319,15 +271,9 @@ namespace PushNews.Dominio
                     c.MapRightKey("AplicacionID");
                 });
 
-            tabla
-                .HasMany(c => c.Perfiles)
-                .WithMany(r => r.Usuarios)
-                .Map(c =>
-                {
-                    c.ToTable("UsuariosPerfiles");
-                    c.MapLeftKey("UsuarioID");
-                    c.MapRightKey("PerfilID");
-                });
+            tabla.HasRequired(c => c.Rol)
+                .WithMany()
+                .HasForeignKey(u => u.RolID);
 
             tabla
                 .HasMany(c => c.Categorias)

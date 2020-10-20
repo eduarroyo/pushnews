@@ -22,13 +22,13 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
             : base()
         { }
 
-        [Authorize(Roles = "LeerAplicaciones")]
+        [Authorize(Roles = "Administrador")]
         public ActionResult Index()
         {
             return PartialView("Aplicaciones");
         }
 
-        [Authorize(Roles = "LeerAplicaciones")]
+        [Authorize(Roles = "Administrador")]
         public ActionResult Leer([DataSourceRequest] DataSourceRequest request)
         {
             IAplicacionesServicio srv = Servicios.AplicacionesServicio();
@@ -38,7 +38,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "ExportarAplicaciones")]
+        [Authorize(Roles = "Administrador")]
         public ActionResult ExcelExportSave(string contentType, string base64, string fileName)
         {
             byte[] fileContents = Convert.FromBase64String(base64);
@@ -47,7 +47,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
 
         
         [HttpPost]
-        [Authorize(Roles = "ModificarAplicaciones")]
+        [Authorize(Roles = "Administrador")]
         public async Task<ActionResult> Modificar([DataSourceRequest] DataSourceRequest request, AplicacionGrid model)
         {
             DataSourceResult result = new[] { model }.ToDataSourceResult(request, ModelState);
@@ -103,7 +103,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "CrearAplicaciones")]
+        [Authorize(Roles = "Administrador")]
         public async Task<ActionResult> Nuevo([DataSourceRequest] DataSourceRequest request, AplicacionGrid model)
         {
             DataSourceResult result = new[] { model }.ToDataSourceResult(request, ModelState);
@@ -150,7 +150,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         /// </param>
         /// <param name="provinciaID">Si se especifica valor, se obtienen sólo las aplicaciones de
         /// la provincia.</param>
-        [Authorize(Roles="LeerAplicaciones")]
+        [Authorize(Roles= "Administrador")]
         public ActionResult ListaAplicaciones()
         {
             IAplicacionesServicio srv = Servicios.AplicacionesServicio();

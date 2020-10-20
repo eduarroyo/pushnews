@@ -150,7 +150,4 @@
   <data name="NoPermitido" xml:space="preserve">
     <value>Operación no autorizada</value>
   </data>
-  <data name="Privada" xml:space="preserve">
-    <value>Privada</value>
-  </data>
 </root>

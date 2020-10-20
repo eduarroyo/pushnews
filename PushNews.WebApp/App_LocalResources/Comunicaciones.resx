@@ -316,7 +316,4 @@
     <value>No tiene autorización para crear o editar comunicaciones de la categoría {0}.</value>
     <comment>Nombre de la categoría.</comment>
   </data>
-  <data name="AyudaPrivadas" xml:space="preserve">
-    <value>Ha seleccionado una categoría privada: sólo los usuarios autenticados podrán ver la comunicación.</value>
-  </data>
 </root>

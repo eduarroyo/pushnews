@@ -6,8 +6,8 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.DataProtection;
 using PushNews.Dominio;
 using PushNews.Seguridad;
-using System.Collections.Generic;
 using PushNews.Dominio.Entidades;
+using System;
 
 namespace PushNews.WebApp.Services
 {
@@ -16,15 +16,15 @@ namespace PushNews.WebApp.Services
     // Configure el administrador de inicios de sesión que se usa en esta aplicación.
     public class ApplicationUserManager : UserManager<Usuario, long>
     {
-        private IPushNewsUserStore<Usuario, Perfil, long> SivStore
+        private IPushNewsUserStore<Usuario, Rol, long> PushNewsUserStore
         {
             get
             {
-                return (IPushNewsUserStore<Usuario, Perfil, long>)Store;
+                return (IPushNewsUserStore<Usuario, Rol, long>)Store;
             }
         }
 
-        public ApplicationUserManager(IPushNewsUserStore<Usuario, Perfil, long> store) : base(store)
+        public ApplicationUserManager(IPushNewsUserStore<Usuario, Rol, long> store) : base(store)
         {
         }
 
@@ -41,27 +41,12 @@ namespace PushNews.WebApp.Services
             }
         }
 
-        public async Task EstablecerPerfilesAsync(Usuario emp, IEnumerable<long> perfiles, bool guardarCambios = true)
+        public async Task EstablecerRolAsync(Usuario emp, long rolId, bool guardarCambios = true)
         {
-            IEnumerable<long> perfilesActuales = emp.Perfiles.Select(p => p.PerfilID);
-            long[] perfilesAniadir = perfiles.Where(p => !perfilesActuales.Contains(p)).ToArray();
-            long[] perfilesQuitar = perfilesActuales.Where(p => !perfiles.Contains(p)).ToArray();
-            SivStore.ActualizarPerfiles(emp, perfilesAniadir, perfilesQuitar);
+            emp.RolID = rolId;
             if (guardarCambios)
             {
-                await SivStore.SaveChangesAsync();
-            }
-        }
-
-        public void EstablecerPerfiles(Usuario emp, IEnumerable<long> perfiles, bool guardarCambios = true)
-        {
-            IEnumerable<long> perfilesActuales = emp.Perfiles.Select(p => p.PerfilID);
-            long[] perfilesAniadir = perfiles.Where(p => !perfilesActuales.Contains(p)).ToArray();
-            long[] perfilesQuitar = perfilesActuales.Where(p => !perfiles.Contains(p)).ToArray();
-            SivStore.ActualizarPerfiles(emp, perfilesAniadir, perfilesQuitar);
-            if (guardarCambios)
-            {
-                SivStore.SaveChanges();
+                await PushNewsUserStore.SaveChangesAsync();
             }
         }
 
@@ -120,54 +105,10 @@ namespace PushNews.WebApp.Services
             return manager;
         }
 
-        public async Task QuitarPerfilAsync(Usuario usuario, Perfil perfil, bool guardarCambios = true)
+        internal async Task EstablecerRol(Usuario modificar, long rolId)
         {
-            List<long> perfilesActuales = usuario.Perfiles.Select(p => p.PerfilID).ToList();
-            if (perfilesActuales.Contains(perfil.PerfilID))
-            {
-                SivStore.ActualizarPerfiles(usuario, new long[0], new long[] { perfil.PerfilID });
-                if (guardarCambios)
-                {
-                    await SivStore.SaveChangesAsync();
-                }
-            }
-        }
-
-        public async Task AniadirPerfilAsync(Usuario usuario, Perfil perfil, bool guardarCambios = true)
-        {
-            if (!usuario.Perfiles.Any(p => p.PerfilID == perfil.PerfilID))
-            {
-                SivStore.ActualizarPerfiles(usuario, new long[] { perfil.PerfilID }, new long[0]);
-                if (guardarCambios)
-                {
-                    await SivStore.SaveChangesAsync();
-                }
-            }
-        }
-
-        public void QuitarPerfil(Usuario usuario, Perfil perfil, bool guardarCambios = true)
-        {
-            List<long> perfilesActuales = usuario.Perfiles.Select(p => p.PerfilID).ToList();
-            if (perfilesActuales.Contains(perfil.PerfilID))
-            {
-                SivStore.ActualizarPerfiles(usuario, new long[0], new long[] { perfil.PerfilID });
-                if (guardarCambios)
-                {
-                    SivStore.SaveChanges();
-                }
-            }
-        }
-
-        public void AniadirPerfil(Usuario usuario, Perfil perfil, bool guardarCambios = true)
-        {
-            if (!usuario.Perfiles.Any(p => p.PerfilID == perfil.PerfilID))
-            {
-                SivStore.ActualizarPerfiles(usuario, new long[] { perfil.PerfilID }, new long[0]);
-                if (guardarCambios)
-                {
-                    SivStore.SaveChanges();
-                }
-            }
+            PushNewsUserStore.AsignarRol(modificar, rolId);
+            await PushNewsUserStore.SaveChangesAsync();
         }
     }
 }

@@ -79,18 +79,20 @@
     <Compile Include="Migrations\202010180945530_QuitarAsociados2.designer.cs">
       <DependentUpon>202010180945530_QuitarAsociados2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010201613058_SimplificarIdentity.cs" />
+    <Compile Include="Migrations\202010201613058_SimplificarIdentity.designer.cs">
+      <DependentUpon>202010201613058_SimplificarIdentity.cs</DependentUpon>
+    </Compile>
     <Compile Include="PushNewsModel.cs" />
     <Compile Include="Entidades\Aplicacion.cs" />
     <Compile Include="Entidades\AplicacionCaracteristica.cs" />
     <Compile Include="Entidades\Categoria.cs" />
-    <Compile Include="Entidades\Claim.cs" />
     <Compile Include="Entidades\Comunicacion.cs" />
     <Compile Include="Entidades\ComunicacionAcceso.cs" />
     <Compile Include="Entidades\Documento.cs" />
     <Compile Include="Entidades\Empresa.cs" />
     <Compile Include="Entidades\Localizacion.cs" />
     <Compile Include="Entidades\Parametro.cs" />
-    <Compile Include="Entidades\Perfil.cs" />
     <Compile Include="Entidades\Rol.cs" />
     <Compile Include="Entidades\Telefono.cs" />
     <Compile Include="Entidades\Terminal.cs" />
@@ -378,6 +380,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010180945530_QuitarAsociados2.resx">
       <DependentUpon>202010180945530_QuitarAsociados2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010201613058_SimplificarIdentity.resx">
+      <DependentUpon>202010201613058_SimplificarIdentity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

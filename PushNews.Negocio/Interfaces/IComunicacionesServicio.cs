@@ -17,7 +17,7 @@ namespace PushNews.Negocio.Interfaces
         /// <param name="timestamp">Especificar para limitar las comunicaciones a las que tengan un timestamp
         /// posterior al valor. Sirve para obtener sólo las comunicaciones cuya última versión ya se ha
         /// descargado.</param>
-        IEnumerable<Comunicacion> Publicadas(long? categoriaID = null, bool soloDestacadas = false, long? timestamp = null, bool incluirPrivadas = false);
+        IEnumerable<Comunicacion> Publicadas(long? categoriaID = null, bool soloDestacadas = false, long? timestamp = null);
 
         /// <summary>
         /// Obtiene las comunicaciones publicadas, esto es, visibles para los clientes. Estas comunicaciones
@@ -30,7 +30,7 @@ namespace PushNews.Negocio.Interfaces
         /// <param name="timestamp">Especificar para obtener sólo comunicaciones que tengan un timestamp
         /// posterior al valor. Sirve para obtener sólo las comunicaciones cuya última versión ya se ha
         /// descargado.</param>
-        Task<IEnumerable<Comunicacion>> PublicadasAsync(long? categoriaID = null, bool soloDestacadas = false, long? timestamp = null, bool incluirPrivadas = false);
+        Task<IEnumerable<Comunicacion>> PublicadasAsync(long? categoriaID = null, bool soloDestacadas = false, long? timestamp = null);
 
         Comunicacion ConsultarComunicacion(long comunicacionID, string uid, string ip);
     }

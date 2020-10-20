@@ -22,7 +22,7 @@ namespace PushNews.Dominio.Migrations
         {
 #if DEBUG
             // Inserción de datos de prueba
-            //SeedPrueba(context);
+            SeedPrueba(context);
 #else
             // Inserción de los datos de producción.
             //SeedProduccion(context);            
@@ -62,13 +62,9 @@ namespace PushNews.Dominio.Migrations
                 {
                     #region Lista de tablas de la base de datos
                     new Tuple<string, bool>("Empresas", context.Empresas.Any()),
-                    new Tuple<string, bool>("AplicacionesAplicacionesAmigas", false),
                     new Tuple<string, bool>("ComunicacionesAccesos", context.Accesos.Any()),
                     new Tuple<string, bool>("Comunicaciones", context.Comunicaciones.Any()),
-                    new Tuple<string, bool>("UsuariosPerfiles", false),
-                    new Tuple<string, bool>("PerfilesRoles", false),
                     new Tuple<string, bool>("Roles", context.Roles.Any()),
-                    new Tuple<string, bool>("Perfiles", context.Perfiles.Any()),
                     new Tuple<string, bool>("Terminales", context.Terminales.Any()),
                     new Tuple<string, bool>("UsuariosCategorias", false),
                     new Tuple<string, bool>("Categorias", context.Categorias.Any()),
@@ -89,10 +85,9 @@ namespace PushNews.Dominio.Migrations
                 }
                 context.SaveChanges();
                 var roles = Roles();
-                var perfiles = Perfiles(roles);
                 var caracteristicas = Caracteristicas();
                 var aplicaciones = Aplicaciones(caracteristicas);
-                var usuarios = Usuarios(perfiles, aplicaciones);
+                var usuarios = Usuarios(roles, aplicaciones);
                 var categorias = Categorias(usuarios);
                 var comunicaciones = Comunicaciones(usuarios, categorias);
                 var parametros = Parametros();
@@ -100,7 +95,6 @@ namespace PushNews.Dominio.Migrations
                 var localizaciones = Localizaciones(aplicaciones);
 
                 context.Roles.AddRange(roles);
-                context.Perfiles.AddRange(perfiles);
                 context.AplicacionesCaracteristicas.AddRange(caracteristicas);
                 context.Aplicaciones.AddRange(aplicaciones);
                 context.Usuarios.AddRange(usuarios);
@@ -257,7 +251,7 @@ namespace PushNews.Dominio.Migrations
                 new Parametro
                 {
                     Nombre = "SubdominioDepuracion",
-                    Valor = "santaella",
+                    Valor = "eps",
                     Descripcion = "Subdominio para depuración"
                 },
                 new Parametro
@@ -297,86 +291,8 @@ namespace PushNews.Dominio.Migrations
         {
             return new List<Rol>
             {
-                new Rol() { Nombre = "LeerComunicaciones", Modulo = "Comunicaciones" },
-                new Rol() { Nombre = "CrearComunicaciones", Modulo = "Comunicaciones" },
-                new Rol() { Nombre = "ModificarComunicaciones", Modulo = "Comunicaciones" },
-                new Rol() { Nombre = "EliminarComunicaciones", Modulo = "Comunicaciones" },
-                new Rol() { Nombre = "LeerCategorias", Modulo = "Categorias" },
-                new Rol() { Nombre = "CrearCategorias", Modulo = "Categorias" },
-                new Rol() { Nombre = "ModificarCategorias", Modulo = "Categorias" },
-                new Rol() { Nombre = "EliminarCategorias", Modulo = "Categorias" },
-                new Rol() { Nombre = "LeerAplicaciones", Modulo = "Aplicaciones" },
-                new Rol() { Nombre = "CrearAplicaciones", Modulo = "Aplicaciones" },
-                new Rol() { Nombre = "ModificarAplicaciones", Modulo = "Aplicaciones" },
-                new Rol() { Nombre = "EliminarAplicaciones", Modulo = "Aplicaciones" },
-                new Rol() { Nombre = "LeerTerminales", Modulo = "Terminales" },
-                new Rol() { Nombre = "CrearTerminales", Modulo = "Terminales" },
-                new Rol() { Nombre = "ModificarTerminales", Modulo = "Terminales" },
-                new Rol() { Nombre = "EliminarTerminales", Modulo = "Terminales" },
-                new Rol() { Nombre = "LeerAccesos", Modulo = "Accesos" },
-                new Rol() { Nombre = "CrearAccesos", Modulo = "Accesos" },
-                new Rol() { Nombre = "ModificarAccesos", Modulo = "Accesos" },
-                new Rol() { Nombre = "EliminarAccesos", Modulo = "Accesos" },
-                new Rol() { Nombre = "LeerParametros", Modulo = "Parametros" },
-                new Rol() { Nombre = "CrearParametros", Modulo = "Parametros" },
-                new Rol() { Nombre = "ModificarParametros", Modulo = "Parametros" },
-                new Rol() { Nombre = "EliminarParametros", Modulo = "Parametros" },
-                new Rol() { Nombre = "LeerUsuarios", Modulo = "Usuarios" },
-                new Rol() { Nombre = "CrearUsuarios", Modulo = "Usuarios" },
-                new Rol() { Nombre = "ModificarUsuarios", Modulo = "Usuarios" },
-                new Rol() { Nombre = "EliminarUsuarios", Modulo = "Usuarios" },
-                new Rol() { Nombre = "LeerPerfiles", Modulo = "Perfiles" },
-                new Rol() { Nombre = "CrearPerfiles", Modulo = "Perfiles" },
-                new Rol() { Nombre = "ModificarPerfiles", Modulo = "Perfiles" },
-                new Rol() { Nombre = "EliminarPerfiles", Modulo = "Perfiles" },
-                new Rol() { Nombre = "LeerTelefonos", Modulo = "Telefonos" },
-                new Rol() { Nombre = "CrearTelefonos", Modulo = "Telefonos" },
-                new Rol() { Nombre = "ModificarTelefonos", Modulo = "Telefonos" },
-                new Rol() { Nombre = "EliminarTelefonos", Modulo = "Telefonos" },
-                new Rol() { Nombre = "LeerLocalizaciones", Modulo = "Localizaciones" },
-                new Rol() { Nombre = "CrearLocalizaciones", Modulo = "Localizaciones" },
-                new Rol() { Nombre = "ModificarLocalizaciones", Modulo = "Localizaciones" },
-                new Rol() { Nombre = "EliminarLocalizaciones", Modulo = "Localizaciones" },
-                new Rol() { Nombre = "LeerAplicacionesCaracteristicas", Modulo = "AplicacionesCaracteristicas" },
-                //new Rol() { Nombre = "CrearAplicacionesCaracteristicas", Modulo = "AplicacionesCaracteristicas" },
-                //new Rol() { Nombre = "ModificarAplicacionesCaracteristicas", Modulo = "AplicacionesCaracteristicas" },
-                //new Rol() { Nombre = "EliminarAplicacionesCaracteristicas", Modulo = "AplicacionesCaracteristicas" },
-                new Rol() { Nombre = "LeerAsociados", Modulo = "Asociados" },
-                new Rol() { Nombre = "CrearAsociados", Modulo = "Asociados" },
-                new Rol() { Nombre = "ModificarAsociados", Modulo = "Asociados" },
-                new Rol() { Nombre = "EliminarAsociados", Modulo = "Asociados" },
-                new Rol() { Nombre = "LeerInfoPush", Modulo = "Comunicaciones" },
-                new Rol() { Nombre = "LeerEmpresas", Modulo = "Empresas" },
-                new Rol() { Nombre = "CrearEmpresas", Modulo = "Empresas" },
-                new Rol() { Nombre = "ModificarEmpresas", Modulo = "Empresas" },
-                new Rol() { Nombre = "EliminarEmpresas", Modulo = "Empresas" },
-                new Rol() { Nombre = "LeerHermandades", Modulo = "Hermandades" },
-                new Rol() { Nombre = "CrearHermandades", Modulo = "Hermandades" },
-                new Rol() { Nombre = "ModificarHermandades", Modulo = "Hermandades" },
-                new Rol() { Nombre = "EliminarHermandades", Modulo = "Hermandades" },
-                new Rol() { Nombre = "LeerGpss", Modulo = "Gpss" },
-                new Rol() { Nombre = "CrearGpss", Modulo = "Gpss" },
-                new Rol() { Nombre = "ModificarGpss", Modulo = "Gpss" },
-                new Rol() { Nombre = "EliminarGpss", Modulo = "Gpss" },
-                new Rol() { Nombre = "LeerRutas", Modulo = "Rutas" },
-                new Rol() { Nombre = "CrearRutas", Modulo = "Rutas" },
-                new Rol() { Nombre = "ModificarRutas", Modulo = "Rutas" },
-                new Rol() { Nombre = "EliminarRutas", Modulo = "Rutas" }
-            };
-        }
-
-        private IEnumerable<Perfil> Perfiles(IEnumerable<Rol> roles)
-        {
-            List<Rol> rolesEditor = roles
-                .Where(r => r.Modulo == "Categorias" || r.Modulo == "Comunicaciones"
-                         || r.Modulo == "Telefonos" || r.Modulo == "Localizaciones"
-                         || r.Modulo == "Empresas" || r.Modulo == "Hermandades")
-                .ToList();
-
-            return new List<Perfil>
-            {
-                new Perfil { Nombre = "Administrador", Activo = true, Roles = roles.ToList() },
-                new Perfil { Nombre = "Editor", Activo = true, Roles = rolesEditor },
+                new Rol { Nombre = "Administrador" },
+                new Rol { Nombre = "Editor" },
             };
         }
 
@@ -396,13 +312,22 @@ namespace PushNews.Dominio.Migrations
         {
             Aplicacion ap1 = new Aplicacion
             {
+                Nombre = "Escuela Politécnica Superior",
+                Version = "1.0.0.0",
+                Activo = true,
+                SubDominio = "eps",
+                Caracteristicas = caracteristicas.ToList()
+            };
+
+            Aplicacion ap2= new Aplicacion
+            {
                 Nombre = "Ayuntamiento de Santaella",
                 Version = "1.0.0.0",
                 Activo = true,
                 SubDominio = "santaella",
                 Caracteristicas = caracteristicas.ToList()
             };
-            Aplicacion ap2 = new Aplicacion
+            Aplicacion ap3 = new Aplicacion
             {
                 Nombre = "Mancomunidad Campiña Sur Cordobesa",
                 Version = "1.0.0.0",
@@ -410,10 +335,10 @@ namespace PushNews.Dominio.Migrations
                 SubDominio = "campinasur",
                 Caracteristicas = caracteristicas.ToList()
             };
-            return new List<Aplicacion> { ap1, ap2 };
+            return new List<Aplicacion> { ap1, ap2, ap3 };
         }
 
-        private IEnumerable<Usuario> Usuarios(IEnumerable<Perfil> perfiles, IEnumerable<Aplicacion> aplicaciones)
+        private IEnumerable<Usuario> Usuarios(IEnumerable<Rol> roles, IEnumerable<Aplicacion> aplicaciones)
         {
             return new List<Usuario>
             {
@@ -425,7 +350,7 @@ namespace PushNews.Dominio.Migrations
                     Activo = true,
                     Creado = DateTime.Now,
                     Actualizado = DateTime.Now,
-                    Perfiles = new List<Perfil>() { perfiles.SingleOrDefault(p => p.Nombre == "Administrador") },
+                    Rol = roles.SingleOrDefault(p => p.Name == "Administrador"),
                     Aplicaciones = aplicaciones.ToList(),
                     Nombre = "Fulano",
                     Apellidos = "de Copas"
@@ -438,7 +363,7 @@ namespace PushNews.Dominio.Migrations
                     Activo = true,
                     Creado = DateTime.Now,
                     Actualizado = DateTime.Now,
-                    Perfiles = new List<Perfil>() { perfiles.SingleOrDefault(p => p.Nombre == "Editor") },
+                    Rol = roles.SingleOrDefault(p => p.Name == "Editor"),
                     Aplicaciones = aplicaciones.Take(1).ToList(),
                     Nombre = "Mengano",
                     Apellidos = "de Oros"
@@ -451,7 +376,7 @@ namespace PushNews.Dominio.Migrations
                     Activo = true,
                     Creado = DateTime.Now,
                     Actualizado = DateTime.Now,
-                    Perfiles = new List<Perfil>() { perfiles.SingleOrDefault(p => p.Nombre == "Editor") },
+                    Rol = roles.SingleOrDefault(p => p.Name == "Editor"),
                     Aplicaciones = aplicaciones.ToList(),
                     Nombre = "Zutano",
                     Apellidos = "de Espadas"

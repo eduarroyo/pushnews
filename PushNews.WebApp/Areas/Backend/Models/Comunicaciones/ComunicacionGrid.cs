@@ -288,6 +288,5 @@ namespace PushNews.WebApp.Models.Comunicaciones
         public int Visualizaciones { get; set; }
 
         public bool EdicionPermitida { get; set; }
-        public bool Privada { get; set; }
     }
 }

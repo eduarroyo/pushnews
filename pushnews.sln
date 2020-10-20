@@ -19,8 +19,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PushNews.AppceleratorPush",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PushNews.PublicadorPush", "PushNews.PushMsg\PushNews.PublicadorPush\PushNews.PublicadorPush.csproj", "{832FCAA5-4F8B-4331-9B75-3856700FD7DC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PushNews.Pasarelas", "PushNews.Pasarelas", "{D43181AF-E152-4292-BBAD-2765005E6B57}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

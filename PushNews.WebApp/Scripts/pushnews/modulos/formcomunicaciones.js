@@ -91,18 +91,8 @@
                 }
             },
             cambioCategoria: function (ev) {
-                var categoriaSeleccionada = ev.sender.dataItem();
-                mostrarOcultarAyudaCategoriasPrivadas(categoriaSeleccionada && categoriaSeleccionada.Privada);
             }
         });
-
-        function mostrarOcultarAyudaCategoriasPrivadas(mostrar) {
-            if (mostrar) {
-                $("#filaAyudaPrivadas").show();
-            } else {
-                $("#filaAyudaPrivadas").hide();
-            }
-        }
 
         var contenedorCoordenadas, coordenadas;
 

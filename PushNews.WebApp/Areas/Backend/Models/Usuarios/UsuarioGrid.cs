@@ -26,8 +26,8 @@ namespace PushNews.WebApp.Models.Usuarios
                 ApellidosNombre = u.ApellidosNombre,
 
                 // Propiedades de entidades relacionadas.
-                PerfilNombre = u.Perfiles.FirstOrDefault()?.Nombre,
-                PerfilID = u.Perfiles.FirstOrDefault()?.PerfilID ?? 0,
+                PerfilNombre = u.Rol.Nombre,
+                PerfilID = u.Rol.RolID,
                 AplicacionesNombres = string.Join(separator: ", ", values: u.Aplicaciones.Select(cl => cl.Nombre)),
                 Aplicaciones = u.Aplicaciones.Select(p => p.AplicacionID).ToList(),
 

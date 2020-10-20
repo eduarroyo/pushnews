@@ -33,8 +33,8 @@ namespace PushNews.WebService.Controllers
             // Si categoriaID es -1, nos están pidiendo las publicaciones destacadas, sin filtrar por
             // categoría.
             IEnumerable<Comunicacion> comunicaciones = model.CategoriaID == -1
-                ? await srv.PublicadasAsync(categoriaID: null, soloDestacadas: true, timestamp: model.TimeStamp, incluirPrivadas: User.Identity.IsAuthenticated)
-                : await srv.PublicadasAsync(categoriaID: model.CategoriaID, timestamp: model.TimeStamp, incluirPrivadas: User.Identity.IsAuthenticated);
+                ? await srv.PublicadasAsync(categoriaID: null, soloDestacadas: true, timestamp: model.TimeStamp)
+                : await srv.PublicadasAsync(categoriaID: model.CategoriaID, timestamp: model.TimeStamp);
 
             return Ok(comunicaciones
                         .Select(ComunicacionDetalleModel.FromEntity)

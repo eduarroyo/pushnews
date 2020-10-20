@@ -142,15 +142,6 @@ namespace PushNews.WebApp.App_LocalResources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Privada.
-        /// </summary>
-        public static string Privada {
-            get {
-                return ResourceManager.GetString("Privada", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a Gestión de categorías.
         /// </summary>
         public static string Subtitulo {

@@ -337,7 +337,6 @@
     <Compile Include="Areas\Backend\Controllers\EscritorioController.cs" />
     <Compile Include="Areas\Backend\Controllers\LocalizacionesController.cs" />
     <Compile Include="Areas\Backend\Controllers\ParametrosController.cs" />
-    <Compile Include="Areas\Backend\Controllers\PerfilesController.cs" />
     <Compile Include="Areas\Backend\Controllers\BackendHomeController.cs" />
     <Compile Include="Areas\Backend\Controllers\TelefonosController.cs" />
     <Compile Include="Areas\Backend\Controllers\UsuariosController.cs" />
@@ -358,7 +357,6 @@
     <Compile Include="Areas\Backend\Models\Opciones\CulturaModel.cs" />
     <Compile Include="Areas\Backend\Models\Opciones\OpcionesModel.cs" />
     <Compile Include="Areas\Backend\Models\Parametros\ParametroGrid.cs" />
-    <Compile Include="Areas\Backend\Models\Perfiles\PerfilUsuarioModel.cs" />
     <Compile Include="Areas\Backend\Models\PlanitllasEmail\RestablecerClave.cs" />
     <Compile Include="Areas\Backend\Models\Telefonos\TelefonoModel.cs" />
     <Compile Include="Areas\Backend\Models\UI\BotonGridModel.cs" />

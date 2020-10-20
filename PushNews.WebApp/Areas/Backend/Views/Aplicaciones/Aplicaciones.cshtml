@@ -3,10 +3,10 @@
 @using PushNews.WebApp.Models.UI
 
 @{
-    bool permisoAgregar = User.IsInRole("CrearAplicaciones");
-    bool permisoModificar = User.IsInRole("ModificarAplicaciones");
-    //bool permisoEliminar = User.IsInRole("EliminarAplicaciones");
-    bool permisoExportar = User.IsInRole("ExportarAplicaciones");
+    bool permisoAgregar = User.IsInRole("Administrador");
+    bool permisoModificar = User.IsInRole("Administrador");
+    //bool permisoEliminar = User.IsInRole("Administrador");
+    bool permisoExportar = User.IsInRole("Administrador");
 
     var modeloCabecera = new CabeceraModel()
     {

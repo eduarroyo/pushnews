@@ -17,7 +17,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         public LocalizacionesController(): base()
         { }
 
-        [Authorize(Roles="LeerLocalizaciones")]
+        [Authorize]
         public ActionResult Index()
         {
             double[] coordenadas = CoordenadasPorDefecto();
@@ -26,7 +26,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
             return PartialView("Localizaciones");
         }
 
-        [Authorize(Roles = "LeerLocalizaciones")]
+        [Authorize]
         public ActionResult Leer([DataSourceRequest] DataSourceRequest request)
         {
             var srv = Servicios.LocalizacionesServicio();
@@ -37,7 +37,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "ExportarLocalizaciones")]
+        [Authorize]
         public ActionResult ExcelExportSave(string contentType, string base64, string fileName)
         {
             var fileContents = Convert.FromBase64String(base64);
@@ -45,7 +45,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "ModificarLocalizaciones")]
+        [Authorize]
         public async Task<ActionResult> Modificar([DataSourceRequest] DataSourceRequest request, LocalizacionModel model)
         {
             DataSourceResult result = new[] { model }.ToDataSourceResult(request, ModelState);
@@ -77,7 +77,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "EliminarLocalizaciones")]
+        [Authorize]
         public async Task<ActionResult> Eliminar([DataSourceRequest] DataSourceRequest request, LocalizacionModel model)
         {
             DataSourceResult result = new[] { model }.ToDataSourceResult(request, ModelState);
@@ -105,7 +105,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "CrearLocalizaciones")]
+        [Authorize]
         public async Task<ActionResult> Nuevo([DataSourceRequest] DataSourceRequest request, LocalizacionModel model)
         {
             DataSourceResult result = new[] { model }.ToDataSourceResult(request, ModelState);

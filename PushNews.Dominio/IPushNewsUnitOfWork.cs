@@ -10,9 +10,7 @@ namespace PushNews.Dominio
     public interface IPushNewsUnitOfWork : IEntityFrameworkUnitOfWork, IDisposable
     {
         DbSet<Usuario> Usuarios { get; set; }
-        DbSet<Claim> Claims { get; set; }
         DbSet<Parametro> Parametros { get; set; }
-        DbSet<Perfil> Perfiles { get; set; }
         DbSet<Rol> Roles { get; set; }
         DbSet<Comunicacion> Comunicaciones { get;set; }
         DbSet<ComunicacionAcceso> Accesos { get; set; }

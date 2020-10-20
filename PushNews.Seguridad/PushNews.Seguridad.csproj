@@ -55,7 +55,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IPushNewsRoleProfileStore.cs" />
     <Compile Include="IPushNewsUserStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoleStore.cs" />

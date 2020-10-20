@@ -27,7 +27,6 @@ namespace PushNews.PublicadorPush
         public string Icono { get; set; }
         public int Orden { get; set; }
         public bool Activo { get; set; }
-        public bool Privada { get; set; }
     
         public virtual Aplicacion Aplicacion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

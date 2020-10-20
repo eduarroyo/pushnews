@@ -30,7 +30,7 @@ namespace PushNews.Negocio
             // ninguna categoría de la aplicación (ni activa ni inactiva) o bien tener asignada la categoría
             // de la comunicación, que  pertenezca a la aplicación de trabajo y además que esté activa.
             var usuario = unitOfWork.Usuarios.SingleOrDefault(u => entity.UsuarioID == u.UsuarioID);
-            if (usuario.Perfiles.Any(p => p.Nombre == "Administrador") || 
+            if (usuario.Rol.Nombre == "Administrador" || 
                 !usuario.Categorias.Any(c => c.AplicacionID == aplicacion.AplicacionID) 
                 || usuario.Categorias.Any(c => c.AplicacionID == aplicacion.AplicacionID
                                                 && c.CategoriaID == entity.CategoriaID
@@ -70,9 +70,9 @@ namespace PushNews.Negocio
             }
         }
         
-        public IEnumerable<Comunicacion> Publicadas(long? categoriaID = null, bool soloDestacadas = false, long? timestamp = null, bool incluirPrivadas = false)
+        public IEnumerable<Comunicacion> Publicadas(long? categoriaID = null, bool soloDestacadas = false, long? timestamp = null)
         {
-            return Get(Filtro(categoriaID, soloDestacadas, timestamp, incluirPrivadas),
+            return Get(Filtro(categoriaID, soloDestacadas, timestamp),
                 pp => pp.OrderByDescending(p => p.Destacado) // destacadas primero
                         .ThenByDescending(p => p.FechaPublicacion)
                         .ThenBy(p => p.Categoria.Orden),
@@ -80,9 +80,9 @@ namespace PushNews.Negocio
             );
         }
 
-        public async Task<IEnumerable<Comunicacion>> PublicadasAsync(long? categoriaID = null, bool soloDestacadas = false, long? timestamp = null, bool incluirPrivadas = false)
+        public async Task<IEnumerable<Comunicacion>> PublicadasAsync(long? categoriaID = null, bool soloDestacadas = false, long? timestamp = null)
         {
-            return await GetAsync(Filtro(categoriaID, soloDestacadas, timestamp, incluirPrivadas),
+            return await GetAsync(Filtro(categoriaID, soloDestacadas, timestamp),
                 pp => pp.OrderByDescending(p => p.Destacado) // destacadas primero
                         .ThenByDescending(p => p.FechaPublicacion)
                         .ThenBy(p => p.Categoria.Orden),
@@ -90,7 +90,7 @@ namespace PushNews.Negocio
             );
         }
 
-        private Expression<Func<Comunicacion, bool>> Filtro(long? categoriaID = null, bool soloDestacadas = false, long? timestamp = null, bool incluirPrivadas = false)
+        private Expression<Func<Comunicacion, bool>> Filtro(long? categoriaID = null, bool soloDestacadas = false, long? timestamp = null)
         {
             DateTime ahora = DateTime.Now;
 
@@ -102,87 +102,41 @@ namespace PushNews.Negocio
                 {
                     if (timestamp.HasValue)
                     {
-                        if (incluirPrivadas)
-                        {
-                            // Comunicaciones activas, no borradas, con categoría activa, destacadas, con 
-                            // fecha de publicación anterior a la fecha actual, pertenecientes a la categoría
-                            // del parámetro y con timestamp posterior al del parámetro.
-                            filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo && p.Destacado
-                                       && p.FechaPublicacion <= ahora && p.CategoriaID == categoriaID.Value
-                                       && p.TimeStamp > timestamp;
-                        }
-                        else
-                        {
-                            // Comunicaciones activas, no borradas, con categoría activa y pública,
-                            // destacadas, con fecha de publicación anterior a la fecha actual, 
-                            // pertenecientes a la categoría del parámetro y con timestamp posterior al del
-                            // parámetro.
-                            filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo && p.Destacado
-                                       && p.FechaPublicacion <= ahora && p.CategoriaID == categoriaID.Value
-                                       && p.TimeStamp > timestamp;
-                        }
+                        // Comunicaciones activas, no borradas, con categoría activa y pública,
+                        // destacadas, con fecha de publicación anterior a la fecha actual, 
+                        // pertenecientes a la categoría del parámetro y con timestamp posterior al del
+                        // parámetro.
+                        filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo && p.Destacado
+                                    && p.FechaPublicacion <= ahora && p.CategoriaID == categoriaID.Value
+                                    && p.TimeStamp > timestamp;
                     }
                     else
                     {
-                        if (incluirPrivadas)
-                        {
-                            // Comunicaciones activas, no borradas, con categoría activa, destacadas, con
-                            // fecha de publicación anterior a la fecha actual y pertenecientes a la
-                            // categoría del parámetro.
-                            filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo && p.Destacado
-                                   && p.FechaPublicacion <= ahora && p.CategoriaID == categoriaID.Value;
-                        }
-                        else
-                        {
-                            // Comunicaciones activas, no borradas, con categoría activa y pública, 
-                            // destacadas, con fecha depublicación anterior a la fecha actual y 
-                            // pertenecientes a la categoría del parámetro.
-                            filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo && p.Destacado
-                                   && p.FechaPublicacion <= ahora && p.CategoriaID == categoriaID.Value;
-                        }
+                        // Comunicaciones activas, no borradas, con categoría activa y pública, 
+                        // destacadas, con fecha depublicación anterior a la fecha actual y 
+                        // pertenecientes a la categoría del parámetro.
+                        filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo && p.Destacado
+                                && p.FechaPublicacion <= ahora && p.CategoriaID == categoriaID.Value;
                     }
                 }
                 else
                 {
                     if (timestamp.HasValue)
                     {
-                        if(incluirPrivadas)
-                        {
-                            // Comunicaciones activas, no borradas, con categoría activa, con fecha de
-                            // publicación anterior a la fecha actual, pertenecientes a la categoría del 
-                            // parámetro y con timestamp posterior al del parámetro.
-                            filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo
-                                       && p.FechaPublicacion <= ahora && p.CategoriaID == categoriaID.Value
-                                       && p.TimeStamp > timestamp;
-                        }
-                        else
-                        {
-                            // Comunicaciones activas, no borradas, con categoría activa y pública, con fecha
-                            // de publicación anterior a la fecha actual, pertenecientes a la categoría del 
-                            // parámetro y con timestamp posterior al del parámetro.
-                            filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo
-                                       && p.FechaPublicacion <= ahora && p.CategoriaID == categoriaID.Value
-                                       && p.TimeStamp > timestamp;
-                        }
+                        // Comunicaciones activas, no borradas, con categoría activa y pública, con fecha
+                        // de publicación anterior a la fecha actual, pertenecientes a la categoría del 
+                        // parámetro y con timestamp posterior al del parámetro.
+                        filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo
+                                    && p.FechaPublicacion <= ahora && p.CategoriaID == categoriaID.Value
+                                    && p.TimeStamp > timestamp;
                     }
                     else
                     {
-                        if (incluirPrivadas)
-                        {
-                            // Comunicaciones activas, no borradas, con categoría activa, con fecha de
-                            // publicación anterior a la fecha actual y pertenecientes a la categoría del
-                            // parámetro.
-                            filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo
-                                   && p.FechaPublicacion <= ahora && p.CategoriaID == categoriaID.Value;
-                        }
-                        else
-                        {
-                            // Comunicaciones activas, no borradas, con categoría activa y pública, con fecha
-                            // de publicación anterior a la fecha actual y pertenecientes a la categoría del
-                            // parámetro.
-                            filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo
-                                   && p.FechaPublicacion <= ahora && p.CategoriaID == categoriaID.Value;
-                        }
+                        // Comunicaciones activas, no borradas, con categoría activa y pública, con fecha
+                        // de publicación anterior a la fecha actual y pertenecientes a la categoría del
+                        // parámetro.
+                        filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo
+                                && p.FechaPublicacion <= ahora && p.CategoriaID == categoriaID.Value;
                     }
                 }
             }
@@ -192,78 +146,36 @@ namespace PushNews.Negocio
                 {
                     if (timestamp.HasValue)
                     {
-                        if (incluirPrivadas)
-                        {
-                            // Comunicaciones activas, no borradas, con categoría activa, destacadas, con fecha
-                            // de publicación anterior a la fecha actual y con timestamp posterior al del
-                            // parámetro.
-                            filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo && p.Destacado
-                                       && p.FechaPublicacion <= ahora && p.TimeStamp > timestamp;
-                        }
-                        else
-                        {
-                            // Comunicaciones activas, no borradas, con categoría activa y pública, 
-                            // destacadas, con fecha de publicación anterior a la fecha actual y con
-                            // timestamp posterior al del parámetro.
-                            filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo && p.Destacado
-                                       && p.FechaPublicacion <= ahora && p.TimeStamp > timestamp;
-                        }
+                        // Comunicaciones activas, no borradas, con categoría activa y pública, 
+                        // destacadas, con fecha de publicación anterior a la fecha actual y con
+                        // timestamp posterior al del parámetro.
+                        filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo && p.Destacado
+                                    && p.FechaPublicacion <= ahora && p.TimeStamp > timestamp;
                     }
                     else
                     {
-                        if (incluirPrivadas)
-                        {
-                            // Comunicaciones activas, no borradas, destacadas, con categoría activa y con
-                            // fecha de publicaciónanterior a la fecha actual.
-                            filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo && p.Destacado
-                                   && p.FechaPublicacion <= ahora;
-                        }
-                        else
-                        {
-                            // Comunicaciones activas, no borradas, destacadas, con categoría activa y 
-                            // pública y con fecha de publicaciónanterior a la fecha actual.
-                            filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo && p.Destacado
-                                   && p.FechaPublicacion <= ahora;
-                        }
+                        // Comunicaciones activas, no borradas, destacadas, con categoría activa y 
+                        // pública y con fecha de publicaciónanterior a la fecha actual.
+                        filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo && p.Destacado
+                                && p.FechaPublicacion <= ahora;
                     }
                 }
                 else
                 {
                     if (timestamp.HasValue)
                     {
-                        if (incluirPrivadas)
-                        {
-                            // Comunicaciones activas, no borradas, con categoría activa, con fecha de
-                            // publicación anterior a la fecha actual y con timestamp posterior al del parámetro.
-                            filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo
-                                   && p.FechaPublicacion <= ahora && p.TimeStamp > timestamp;
-                        }
-                        else
-                        {
-
-                            // Comunicaciones activas, no borradas, con categoría activa y pública, con fecha
-                            // de publicación anterior a la fecha actual y con timestamp posterior al del
-                            // parámetro.
-                            filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo
-                                   && p.FechaPublicacion <= ahora && p.TimeStamp > timestamp;
-                        }
+                        // Comunicaciones activas, no borradas, con categoría activa y pública, con fecha
+                        // de publicación anterior a la fecha actual y con timestamp posterior al del
+                        // parámetro.
+                        filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo
+                                && p.FechaPublicacion <= ahora && p.TimeStamp > timestamp;
                     }
                     else
                     {
-                        if (incluirPrivadas)
-                        {
-                            // Comunicaciones activas, no borradas, con categoría activa y con fecha de
-                            // publicación anterior a la fecha actual.
-                            filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo
-                               && p.FechaPublicacion <= ahora;
-                        }
-                        else
-                        {
-                            // Comunicaciones activas, no borradas, con categoría activa y pública y con
-                            // fecha de publicación anterior a la fecha actual.
-                            filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo
-                               && p.FechaPublicacion <= ahora;
-                        }
+                        // Comunicaciones activas, no borradas, con categoría activa y pública y con
+                        // fecha de publicación anterior a la fecha actual.
+                        filtro = p => p.Activo && !p.Borrado && p.Categoria.Activo
+                            && p.FechaPublicacion <= ahora;
                     }
                 }
             }

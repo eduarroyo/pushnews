@@ -10,14 +10,13 @@ namespace PushNews.Dominio.Entidades
     {
         public Usuario()
         {
-            Perfiles = new List<Perfil>(0);
             Aplicaciones = new List<Aplicacion>(0);
-            Claims = new List<Claim>(0);
             Comunicaciones = new List<Comunicacion>(0);
             Categorias = new List<Categoria>(0);
         }
         
         public long UsuarioID { get; set; }
+        public long RolID { get; set; }
         public string Nombre { get; set; }
         public string Apellidos { get; set; }
         public string Movil { get; set; }
@@ -37,9 +36,8 @@ namespace PushNews.Dominio.Entidades
         public DateTime? UltimoLogin { get; set; }
         public string Locale { get; set; }
 
-        public virtual ICollection<Perfil> Perfiles { get; set; }
+        public virtual Rol Rol { get; set; }
         public virtual ICollection<Aplicacion> Aplicaciones { get; set; }
-        public virtual ICollection<Claim> Claims { get; set; }
         public virtual ICollection<Comunicacion> Comunicaciones { get; set; }
         public virtual ICollection<Categoria> Categorias { get; set; }
 

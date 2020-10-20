@@ -31,17 +31,10 @@ namespace PushNews.PublicadorPush
             log.Debug($"Tiempo cargar parámetros: {(instanteParametrosCargados - instantePrepararBd).TotalSeconds}");
             // Cargar el parámetro CanalPush. Si no se da un valor para este parámetro
             // en la tabla de parámetros, no se pueden enviar notificaciones push.
-            if (!parametrosGenerales.TryGetValue("CanalPush", out string canalPushPublico) || string.IsNullOrWhiteSpace(canalPushPublico))
+            if (!parametrosGenerales.TryGetValue("CanalPush", out string canal) || string.IsNullOrWhiteSpace(canal))
             {
                 log.Error("Imposible enviar notificaciones push: Falta el parámetro \"CanalPush\".");
                 return;
-            }
-
-            // Cargar el parámetro CanalPushPrivado. Si no se da un valor para este parámetro
-            // en la tabla de parámetros, no se pueden enviar notificaciones push de comunicaciones privadas.
-            if (!parametrosGenerales.TryGetValue("CanalPushPrivado", out string canalPushPrivado) || string.IsNullOrWhiteSpace(canalPushPrivado))
-            {
-                log.Error("Imposible enviar notificaciones push de comunicaciones privadas: Falta el parámetro \"CanalPushPrivado\".");
             }
 
             // Cargar el parámetro HorasEnvioPush. Este parámetro indica el intervalo en horas
@@ -151,8 +144,6 @@ namespace PushNews.PublicadorPush
                             string mensaje = c.Descripcion.Length > 50
                                 ? c.Descripcion.Substring(0, 50) + "..."
                                 : c.Descripcion;
-
-                            string canal = c.Categoria.Privada ? canalPushPrivado : canalPushPublico;
 
                             Respuesta respuesta = cp.EnviarMensaje(
                                 recordatorio ? c.RecordatorioTitulo : c.Titulo,

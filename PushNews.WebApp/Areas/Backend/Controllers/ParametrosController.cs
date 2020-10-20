@@ -21,7 +21,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         public ParametrosController(): base()
         { }
 
-        [Authorize(Roles="LeerParametros")]
+        [Authorize(Roles="Administrador")]
         public ActionResult Index()
         {
             IUsuariosServicio srv = Servicios.UsuariosServicio();
@@ -35,7 +35,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
             return PartialView("Parametros");
         }
 
-        [Authorize(Roles = "LeerParametros")]
+        [Authorize(Roles="Administrador")]
         public ActionResult Leer([DataSourceRequest] DataSourceRequest request)
         {
             var srv = Servicios.ParametrosServicio();
@@ -45,7 +45,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "ExportarParametros")]
+        [Authorize(Roles="Administrador")]
         public ActionResult ExcelExportSave(string contentType, string base64, string fileName)
         {
             var fileContents = Convert.FromBase64String(base64);
@@ -53,7 +53,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "EliminarParametros")]
+        [Authorize(Roles="Administrador")]
         public async Task<ActionResult> Eliminar([DataSourceRequest] DataSourceRequest request, ParametroGrid model)
         {
             DataSourceResult result = new[] { model }.ToDataSourceResult(request, ModelState);
@@ -81,7 +81,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "ModificarParametros")]
+        [Authorize(Roles="Administrador")]
         public async Task<ActionResult> Modificar([DataSourceRequest] DataSourceRequest request, ParametroGrid model)
         {
             DataSourceResult result = new[] { model }.ToDataSourceResult(request, ModelState);
@@ -118,7 +118,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "CrearParametros")]
+        [Authorize(Roles="Administrador")]
         public async Task<ActionResult> Nuevo([DataSourceRequest] DataSourceRequest request, ParametroGrid model)
         {
             DataSourceResult result = new[] { model }.ToDataSourceResult(request, ModelState);
@@ -151,7 +151,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         /// <summary>
         /// Proporciona un modelo para lista de selección de motivos de baja.
         /// </summary>
-        [Authorize(Roles = "LeerParametros")]
+        [Authorize(Roles="Administrador")]
         public ActionResult ListaParametros()
         {
             var srv = Servicios.ParametrosServicio();

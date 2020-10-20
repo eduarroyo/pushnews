@@ -7,6 +7,7 @@ using PushNews.Dominio;
 using PushNews.Negocio.Interfaces;
 using Txt = PushNews.WebApp.App_LocalResources;
 using PushNews.Dominio.Entidades;
+using Microsoft.AspNet.Identity;
 
 namespace PushNews.WebApp.Models.UI
 {
@@ -21,34 +22,34 @@ namespace PushNews.WebApp.Models.UI
 
             // Elementos del submenú Comunicaciones.
             var Comunicaciones = new List<ElementoMenu>();
-            Comunicaciones.Add(new ElementoMenu(Txt.Secciones.Comunicaciones, "Backend", "comunicaciones", "LeerComunicaciones", ""));
+            Comunicaciones.Add(new ElementoMenu(Txt.Secciones.Comunicaciones, "Backend", "comunicaciones", "", ""));
 
             if (!ocultarCategorias)
             {
-                Comunicaciones.Add(new ElementoMenu(Txt.Secciones.Categorias, "Backend", "categorias", "LeerCategorias", ""));
+                Comunicaciones.Add(new ElementoMenu(Txt.Secciones.Categorias, "Backend", "categorias", "", ""));
             }
 
             if (!ocultarTelefonos)
             {
-                Comunicaciones.Add(new ElementoMenu(Txt.Secciones.Telefonos, "Backend", "telefonos", "LeerTelefonos", ""));
+                Comunicaciones.Add(new ElementoMenu(Txt.Secciones.Telefonos, "Backend", "telefonos", "", ""));
             }
 
             if (!ocultarLocalizaciones)
             {
-                Comunicaciones.Add(new ElementoMenu(Txt.Secciones.Localizaciones, "Backend", "localizaciones", "LeerLocalizaciones", ""));
+                Comunicaciones.Add(new ElementoMenu(Txt.Secciones.Localizaciones, "Backend", "localizaciones", "", ""));
             }
 
             if (empresas)
             {
-                Comunicaciones.Add(new ElementoMenu(Txt.Secciones.Empresas, "Backend", "empresas", "LeerEmpresas", ""));
+                Comunicaciones.Add(new ElementoMenu(Txt.Secciones.Empresas, "Backend", "empresas", "", ""));
             }
 
             // Elementos del submenú Administración.
             var Administracion = new List<ElementoMenu>();
-            Administracion.Add(new ElementoMenu(Txt.Secciones.Aplicaciones, "Backend", "aplicaciones", "LeerAplicaciones", ""));
-            Administracion.Add(new ElementoMenu(Txt.Secciones.AplicacionesCaracteristicas, "Backend", "aplicacionesCaracteristicas", "LeerAplicacionesCaracteristicas", ""));
-            Administracion.Add(new ElementoMenu(Txt.Secciones.Usuarios, "Backend", "usuarios", "LeerUsuarios", ""));
-            Administracion.Add(new ElementoMenu(Txt.Secciones.Parametros, "Backend", "parametros", "LeerParametros", ""));
+            Administracion.Add(new ElementoMenu(Txt.Secciones.Aplicaciones, "Backend", "aplicaciones", "Administrador", ""));
+            Administracion.Add(new ElementoMenu(Txt.Secciones.AplicacionesCaracteristicas, "Backend", "aplicacionesCaracteristicas", "Administrador", ""));
+            Administracion.Add(new ElementoMenu(Txt.Secciones.Usuarios, "Backend", "usuarios", "Administrador", ""));
+            Administracion.Add(new ElementoMenu(Txt.Secciones.Parametros, "Backend", "parametros", "Administrador", ""));
 
             // Árbol del menú
             return new List<ElementoMenu>()
@@ -67,12 +68,6 @@ namespace PushNews.WebApp.Models.UI
             Aplicacion app = appSrv.GetSingle(a => a.AplicacionID == aplicacion.AplicacionID);
             IUsuariosServicio srv = servicios.UsuariosServicio();
 
-            List<string> roles = srv.GetSingle(e => e.UsuarioID == usuarioID)
-                .Perfiles.Select(p => p.Roles)
-                .SelectMany(r => r).Select(r => r.Nombre)
-                .Distinct()
-                .ToList();
-
             // Flags para ocultar categorías, teléfonos y localizaciones en el menú.
             // Los tres elementos se mostrarán siempre si el usuario es administrador, independientemente de
             // si tiene o no tiene categorías asignadas.
@@ -81,7 +76,7 @@ namespace PushNews.WebApp.Models.UI
             // aplicación acutal, los tres elementos se ocultan.
             IUsuariosServicio usuariosServicio = servicios.UsuariosServicio();
             Usuario usuario = usuariosServicio.GetSingle(u => u.UsuarioID == usuarioID);
-            bool usuarioEsAdmin = usuario.Perfiles.Any(p => p.Nombre == "Administrador");
+            bool usuarioEsAdmin = usuario.Rol.Nombre== "Administrador";
             bool ocultarCategorias = !usuarioEsAdmin && usuario.Categorias.Where(a => a.AplicacionID == aplicacion.AplicacionID).Any();
             bool ocultarTelefonos = !usuarioEsAdmin && ocultarCategorias ;
             bool ocultarLocalizaciones = !usuarioEsAdmin && ocultarCategorias;
@@ -92,17 +87,25 @@ namespace PushNews.WebApp.Models.UI
             List<ElementoMenu> menuCompleto = Elementos(caracteristicas, ocultarCategorias, ocultarTelefonos, ocultarLocalizaciones);
             var menuFiltrado = new List<ElementoMenu>();
 
-            foreach(var eActual in menuCompleto)
+            if(usuarioEsAdmin)
             {
-                if(eActual.Roles.Any(r => r.Length == 0 || roles.Contains(r)))
+                menuFiltrado = menuCompleto;
+            }
+            else
+            {
+                foreach (var eActual in menuCompleto)
                 {
-                    if(eActual.TieneHijos)
+                    if (eActual.Roles.Any(r => r.Length == 0 || usuario.Rol.Nombre == r))
                     {
-                        QuitarHijos(eActual, roles);
+                        if (eActual.TieneHijos)
+                        {
+                            QuitarHijos(eActual, new[] { "Editor" });
+                        }
+                        menuFiltrado.Add(eActual);
                     }
-                    menuFiltrado.Add(eActual);
                 }
             }
+            
 
             return menuFiltrado;
         }

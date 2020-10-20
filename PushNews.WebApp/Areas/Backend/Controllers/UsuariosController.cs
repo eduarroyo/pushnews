@@ -26,7 +26,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         [Authorize(Roles="LeerUsuarios")]
         public ActionResult Index()
         {
-            ViewBag.Perfiles = new SelectList(RoleManager.Perfiles(), "PerfilID", "Nombre");
+            ViewBag.Perfiles = new SelectList(RoleManager.Roles, "PerfilID", "Nombre");
             return PartialView("Usuarios");
         }
 
@@ -137,7 +137,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
                         if(ir.Succeeded)
                         {
                             usuarioActualizado = true;
-                            await UserManager.EstablecerPerfilesAsync(modificar, new[] { usuario.PerfilID });
+                            await UserManager.EstablecerRol(modificar, usuario.PerfilID);
                             result = new[] { UsuarioGrid.FromEntity(modificar) }.ToDataSourceResult(request, ModelState);
                         }
                         else
@@ -198,7 +198,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
                     {
                         result = new[] { UsuarioGrid.FromEntity(usuarioNuevo) }.ToDataSourceResult(request, ModelState);
                         usuarioActualizado = true;
-                        await UserManager.EstablecerPerfilesAsync(usuarioNuevo, new[] { usuario.PerfilID });
+                        await UserManager.EstablecerRol(usuarioNuevo, usuario.PerfilID);
                         result = new[] { UsuarioGrid.FromEntity(usuarioNuevo) }.ToDataSourceResult(request, ModelState);
                     }
                     else

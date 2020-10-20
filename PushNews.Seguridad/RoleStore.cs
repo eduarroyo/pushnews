@@ -13,16 +13,16 @@
  * WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE.
  */
 #endregion
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System;
+using Microsoft.AspNet.Identity;
 using PushNews.Dominio;
 using PushNews.Dominio.Entidades;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace PushNews.Seguridad
 {
-    public class RoleStore : IPushNewsRoleProfileStore<Rol, Perfil, long>
+    public class RoleStore : IQueryableRoleStore<Rol, long>
     {
         private IPushNewsUnitOfWork context;
         private readonly bool isDisposable;
@@ -74,7 +74,6 @@ namespace PushNews.Seguridad
 
             Rol rolModificar = context.Roles.Single(r => r.RolID == rol.RolID);
             rolModificar.Name = rol.Name;
-            rolModificar.Modulo = rol.Modulo;
             await context.SaveChangesAsync();
         }
 
@@ -102,7 +101,6 @@ namespace PushNews.Seguridad
 
         #endregion
 
-
         #region IQueryableRoleStore
 
         public IQueryable<Rol> Roles
@@ -112,92 +110,6 @@ namespace PushNews.Seguridad
 
         #endregion
 
-        #region IQueryableRoleProfileStore
-        public IQueryable<Perfil> Perfiles()
-        {
-            return context.Perfiles;
-        }
-
-        public Perfil Perfil(long perfilID)
-        {
-            return context.Perfiles.SingleOrDefault(p => p.PerfilID == perfilID);
-        }
-
-        public Perfil NuevoPerfil()
-        {
-            return context.Perfiles.Create();
-        }
-
-        public void NuevoPerfil(Perfil perfil)
-        {
-            context.Perfiles.Add(perfil);
-        }
-
-        public void EliminarPerfil(Perfil perfil)
-        {
-            context.Perfiles.Remove(perfil);
-        }
-
-        public void RenombrarPerfil(Perfil perfil, string nuevoNombre)
-        {
-            if (perfil == null)
-            {
-                throw new ArgumentNullException(paramName: "perfil");
-            }
-            if(string.IsNullOrWhiteSpace(nuevoNombre))
-            {
-                throw new ArgumentException(message: "El nuevo nombre para el perfil no es válido.",
-                                            paramName: "nuevoNombre");
-            }
-
-            if(perfil != null)
-            {
-                perfil.Nombre = nuevoNombre;
-            }
-        }
-
-        public void AniadirRol(Perfil perfil, long rolID)
-        {
-            Rol rol = context.Roles.Single(r => r.RolID == rolID);
-            perfil.Roles.Add(rol);
-        }
-
-        public void QuitarRol(Perfil perfil, long rolID)
-        {
-            if (perfil == null)
-            {
-                throw new ArgumentNullException(paramName: "perfil");
-            }
-
-            Rol rol = perfil.Roles.Single(r => r.RolID == rolID);
-            perfil.Roles.Remove(rol);
-        }
-
-        public void AniadirRoles(Perfil perfil, IEnumerable<long> roles)
-        {
-            if (perfil == null)
-            {
-                throw new ArgumentNullException(paramName: "perfil");
-            }
-            IQueryable<Rol> rolesNuevos = context.Roles.Where(r => roles.Contains(r.RolID));
-            foreach (var rol in rolesNuevos)
-            {
-                perfil.Roles.Add(rol);   
-            }
-        }
-
-        public void QuitarRoles(Perfil perfil, IEnumerable<long> roles)
-        {
-            foreach(var rolID in roles)
-            {
-                Rol rolQuitar = perfil.Roles.SingleOrDefault(r => r.RolID == rolID);
-                if(rolQuitar != null)
-                {
-                    perfil.Roles.Remove(rolQuitar);
-                }
-            }
-        }
-
         public async Task GuardarCambiosAsync()
         {
             await context.SaveChangesAsync();
@@ -205,65 +117,6 @@ namespace PushNews.Seguridad
 
         public void GuardarCambios()
         {
-            context.SaveChanges();
-        }
-
-        #endregion
-
-        public async Task ActualizarRolesAsync (Perfil perfil, IEnumerable<long> rolesAniadir, IEnumerable<long> rolesQuitar)
-        {
-            Perfil per = context.Perfiles.Single(e => e.PerfilID == perfil.PerfilID);
-
-            if (rolesQuitar != null && rolesQuitar.Any())
-            {
-                foreach (var rq in rolesQuitar)
-                {
-                    Rol rQuitar = per.Roles?.SingleOrDefault(p => p.RolID == rq);
-                    if (rQuitar != null)
-                    {
-                        per.Roles.Remove(rQuitar);
-                    }
-                }
-            }
-            if (rolesAniadir != null && rolesAniadir.Any())
-            {
-                IQueryable<Rol> rAniadir = context.Roles.Where(r => rolesAniadir.Contains(r.RolID));
-                foreach (var r in rAniadir)
-                {
-                    if(per.Roles == null)
-                    {
-                        per.Roles = new List<Rol>();
-                    }
-                    per.Roles.Add(r);
-                }
-            }
-            await context.SaveChangesAsync();
-        }
-
-        public void ActualizarRoles(Perfil perfil, IEnumerable<long> rolesAniadir, IEnumerable<long> rolesQuitar)
-        {
-            Perfil per = context.Perfiles.Single(e => e.PerfilID == perfil.PerfilID);
-
-            if (rolesQuitar != null && rolesQuitar.Any())
-            {
-                foreach (var rq in rolesQuitar)
-                {
-                    Rol rQuitar = per.Roles.SingleOrDefault(p => p.RolID == rq);
-                    if (rQuitar != null)
-                    {
-                        per.Roles.Remove(rQuitar);
-                    }
-                }
-            }
-            if (rolesAniadir != null && rolesAniadir.Any())
-            {
-                IQueryable<Rol> rAniadir = context.Roles.Where(r => rolesAniadir.Contains(r.RolID));
-                foreach (var r in rAniadir)
-                {
-                    per.Roles.Add(r);
-                }
-            }
-
             context.SaveChanges();
         }
     }

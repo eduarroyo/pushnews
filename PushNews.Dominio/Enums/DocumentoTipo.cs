@@ -2,6 +2,6 @@
 {
     public enum DocumentoTipo
     {
-        Imagen, Adjunto
+        Imagen = 1, Adjunto
     }
 }

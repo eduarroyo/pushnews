@@ -15,20 +15,16 @@
 #endregion
 
 using Microsoft.AspNet.Identity;
+using PushNews.Dominio;
+using PushNews.Dominio.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System;
-using PushNews.Dominio;
-using PushNews.Dominio.Entidades;
-using Claim = System.Security.Claims.Claim;
-using System.Data.Entity;
-using System.Diagnostics.CodeAnalysis;
 
 namespace PushNews.Seguridad
 {
-    public class UserStore :
-        IPushNewsUserStore<Usuario, Perfil, long>
+    public class UserStore : IPushNewsUserStore<Usuario, Rol, long>
     {
         private IPushNewsUnitOfWork context;
         private readonly bool isDisposable;
@@ -38,98 +34,14 @@ namespace PushNews.Seguridad
             this.context = context;
             isDisposable = false;
         }
-
-        #region IUsuariosClaimstore
-            
-        public void ActualizarPerfiles(Usuario usuario, IEnumerable<long> perfilesAniadir, IEnumerable<long> perfilesQuitar)
-        {
-            Usuario usr = context.Usuarios.Single(e => e.UsuarioID == usuario.UsuarioID);
-
-            if (perfilesQuitar != null && perfilesQuitar.Any())
-            {
-                foreach (var pq in perfilesQuitar)
-                {
-                    Perfil pQuitar = usr.Perfiles.SingleOrDefault(p => p.PerfilID == pq);
-                    if (pQuitar != null)
-                    {
-                        usr.Perfiles.Remove(pQuitar);
-                    }
-                }
-            }
-            if (perfilesAniadir != null && perfilesAniadir.Any())
-            {
-                IQueryable<Perfil> pAniadir = context.Perfiles.Where(p => perfilesAniadir.Contains(p.PerfilID));
-                foreach (var p in pAniadir)
-                {
-                    usr.Perfiles.Add(p);
-                }
-            }
-            //context.SaveChanges();
-        }
-
         public async Task<int> SaveChangesAsync()
         {
             return await context.SaveChangesAsync();
         }
-
         public int SaveChanges()
         {
             return context.SaveChanges();
         }
-
-        public async Task<IList<Claim>> GetClaimsAsync(Usuario user)
-        {
-            if (user == null)
-            {
-                throw new ArgumentNullException("user");
-            }
-
-            IList<PushNews.Dominio.Entidades.Claim> eclaims = await context.Claims
-                .Where(c => c.UsuarioID == user.Id)
-                .ToListAsync();
-
-            var sclaims = new List<Claim>();
-            foreach(var cl in eclaims)
-            {
-                sclaims.Add(new Claim(cl.Tipo, cl.Valor));
-            }
-
-            return sclaims;
-        }
-
-        public Task<int> AddClaimAsync(Usuario user, Claim claim) {
-            if (user == null) {
-                throw new ArgumentNullException("user");
-            }
-
-            if (claim == null) {
-                throw new ArgumentNullException("claim");
-            }
-
-            bool alreadyHasClaim = GetUserClaim(user, claim) != null;
-
-            if (!alreadyHasClaim) {
-                context.Claims.Add(new PushNews.Dominio.Entidades.Claim(user.Id, claim));
-            }
-            return context.SaveChangesAsync();
-        }
-
-        public Task RemoveClaimAsync(Usuario user, Claim claim) {
-            if (user == null) {
-                throw new ArgumentNullException("user");
-            }
-
-            if (claim == null) {
-                throw new ArgumentNullException("claim");
-            }
-
-            PushNews.Dominio.Entidades.Claim userClaim = GetUserClaim(user, claim);
-            context.Claims.Remove(userClaim);
-            return context.SaveChangesAsync();
-        }
-
-        #endregion
-
 
         #region IUserEmailStore
 
@@ -336,128 +248,19 @@ namespace PushNews.Seguridad
 
         #region IUserRoleStore
 
-        /// <summary>
-        /// Obligada por IUserRoleStore, aunque con la gestión de perfiles, lo que hace en realidad
-        /// es añadir un perfil a un usuario.
-        /// </summary>
-        /// <param name="user"></param>
-        /// <param name="perfil"></param>
-        /// <returns></returns>
-        public Task AddToRoleAsync(Usuario user, string perfil)
-        {
-            return AddProfileAsync(user, perfil);
-        }
-
-        public Task AddProfileAsync(Usuario user, string perfil)
+        public bool IsInRole(Usuario user, string roleName)
         {
             if (user == null)
             {
                 throw new ArgumentNullException("user");
             }
 
-            if (string.IsNullOrEmpty(perfil))
+            if (string.IsNullOrEmpty(roleName))
             {
-                throw new ArgumentException("perfil");
-            }
-
-            Perfil p = context.Perfiles.Single(perf => perf.Nombre == perfil);
-            return AddProfileAsync(user, p);
-        }
-
-        public Task AddProfileAsync(Usuario user, long perfilID)
-        {
-            if (user == null)
-            {
-                throw new ArgumentNullException("user");
-            }
-
-            if (perfilID < 1)
-            {
-                throw new ArgumentException("perfilID");
-            }
-
-            Perfil p = context.Perfiles.Single(perf => perf.PerfilID == perfilID);
-            return AddProfileAsync(user, p);
-        }
-
-        public Task<int> AddProfileAsync(Usuario user, Perfil perfil)
-        {
-            if (perfil != null && user.Perfiles.All(p => p.PerfilID != perfil.PerfilID)) {
-                user.Perfiles.Add(perfil);
-            }
-            return context.SaveChangesAsync();
-        }
-
-        public Task RemoveFromRoleAsync(Usuario user, string perfil)
-        {
-            return RemoveProfileAsync(user, perfil);
-        }
-
-        public Task RemoveProfileAsync(Usuario user, string profileName)
-        {
-            if (user == null)
-            {
-                throw new ArgumentNullException("user");
-            }
-            if (string.IsNullOrWhiteSpace(profileName))
-            {
-                throw new ArgumentNullException("profileName");
-            }
-
-            Perfil p = context.Perfiles.FirstOrDefault(r => r.Nombre == profileName);
-
-            return RemoveProfileAsync(user, p);
-        }
-
-        public Task RemoveProfileAsync(Usuario user, long profileID)
-        {
-            if (user == null)
-            {
-                throw new ArgumentNullException("user");
-            }
-            if (profileID < 1)
-            {
-                throw new ArgumentNullException("profileID");
-            }
-
-            Perfil p = context.Perfiles.FirstOrDefault(r => r.PerfilID == profileID);
-
-            return RemoveProfileAsync(user, p);
-        }
-
-        public Task RemoveProfileAsync(Usuario user, Perfil perfil)
-        {
-            if (perfil != null && user.Perfiles.Any(r => r.PerfilID == perfil.PerfilID))
-            {
-                user.Perfiles.Remove(perfil);
-            }
-            return context.SaveChangesAsync();
-        }
-
-        public Task<IList<string>> GetRolesAsync(Usuario user) {
-            if (user == null) {
-                throw new ArgumentNullException("user");
-            }
-
-            IEnumerable<string> rolesUnicos = user.Perfiles             // Lista de perfiles del usuario
-                                  .Select(p => p.Roles) // Lista de listas de roles de cada perfil
-                                  .SelectMany(x => x)   // Convertir a una lista de roles
-                                  .Select(x => x.Name)  // Nos quedamos sólo con el nombre del rol
-                                  .Distinct();          // Quitar duplicados
-
-            return Task.FromResult<IList<string>>(rolesUnicos.ToList());
-        }
-
-        public async Task<bool> IsInRoleAsync(Usuario user, string roleName) {
-            if (user == null) {
-                throw new ArgumentNullException("user");
-            }
-
-            if (string.IsNullOrEmpty(roleName)) {
                 throw new ArgumentNullException("roleName");
             }
 
-            bool isInRole = (await GetRolesAsync(user)).Any(r => r == roleName);
+            bool isInRole = user.Rol.Name == roleName;
             return isInRole;
         }
 
@@ -572,27 +375,54 @@ namespace PushNews.Seguridad
             return Task.FromResult(user.DosFactoresHabilitado);
         }
 
+        public void ActualizarPerfiles(Usuario usuario, IEnumerable<long> perfilesAniadir, IEnumerable<long> perfilesQuitar)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task CreateAsync(Rol role)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task UpdateAsync(Rol role)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task DeleteAsync(Rol role)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<Rol> IRoleStore<Rol, long>.FindByIdAsync(long roleId)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<Rol> IRoleStore<Rol, long>.FindByNameAsync(string roleName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AsignarRol(Usuario usuario, long rolId)
+        {
+            usuario.RolID = rolId;
+        }
+
         #endregion
 
 
         #region IQueryableUserStore
 
-        public IQueryable<Usuario> Users {
+        public IQueryable<Usuario> Users
+        {
             get { return context.Usuarios; }
         }
 
-        #endregion
-
-
-        #region Private functions
-
-        private PushNews.Dominio.Entidades.Claim GetUserClaim(IUser<long> user, Claim claim) {
-            return context.Claims.SingleOrDefault(c => c.Tipo == claim.Type && c.Valor == claim.Value && c.UsuarioID == user.Id);
-        }
-
-        Task IUserClaimStore<Usuario, long>.AddClaimAsync(Usuario user, Claim claim)
-        {
-            throw new NotImplementedException();
+        public IQueryable<Rol> Roles
+        { 
+            get { return context.Roles; }
         }
 
         #endregion

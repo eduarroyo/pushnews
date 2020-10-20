@@ -2,7 +2,7 @@
 {
     public enum AplicacionCaracteristica
     {
-        DirectorioComercial,
+        DirectorioComercial = 1,
         SincronizacionFacebook,
         SincronizacionTwitter,
         ImagenesMultiples,

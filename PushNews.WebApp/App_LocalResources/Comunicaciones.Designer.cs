@@ -106,15 +106,6 @@ namespace PushNews.WebApp.App_LocalResources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Ha seleccionado una categoría privada: sólo los usuarios autenticados podrán ver la comunicación..
-        /// </summary>
-        public static string AyudaPrivadas {
-            get {
-                return ResourceManager.GetString("AyudaPrivadas", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a Borrada.
         /// </summary>
         public static string Borrado {

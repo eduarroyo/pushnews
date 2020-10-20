@@ -22,13 +22,13 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         public AplicacionesCaracteristicasController(): base()
         { }
 
-        [Authorize(Roles="LeerAplicacionesCaracteristicas")]
+        [Authorize]
         public ActionResult Index()
         {
             return PartialView("AplicacionesCaracteristicas");
         }
 
-        [Authorize(Roles = "LeerAplicacionesCaracteristicas")]
+        [Authorize]
         public ActionResult Leer([DataSourceRequest] DataSourceRequest request)
         {
             var srv = Servicios.AplicacionesCaracteristicasServicio();
@@ -39,7 +39,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "ExportarAplicacionesCaracteristicas")]
+        [Authorize]
         public ActionResult ExcelExportSave(string contentType, string base64, string fileName)
         {
             var fileContents = Convert.FromBase64String(base64);
@@ -47,7 +47,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "ModificarAplicacionesCaracteristicas")]
+        [Authorize]
         public async Task<ActionResult> Modificar([DataSourceRequest] DataSourceRequest request, AplicacionCaracteristicaModel model)
         {
             DataSourceResult result = new[] { model }.ToDataSourceResult(request, ModelState);
@@ -86,7 +86,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         /// <summary>
         /// Proporciona un modelo para lista de selección de características de aplicaciones.
         /// </summary>
-        [Authorize(Roles = "LeerAplicacionesCaracteristicas")]
+        [Authorize]
         public ActionResult ListaAplicacionesCaracteristicas()
         {
             IAplicacionesCaracteristicasServicio srv = Servicios.AplicacionesCaracteristicasServicio();

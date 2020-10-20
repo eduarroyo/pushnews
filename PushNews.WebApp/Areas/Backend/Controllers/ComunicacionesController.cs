@@ -31,14 +31,14 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
             throw new Exception("Esta excepción es para probar el filtro global de errores");
         }
 
-        [Authorize(Roles = "LeerComunicaciones")]
+        [Authorize]
         public ActionResult Comunicacion(long comunicacionID)
         {
             ViewBag.ComunicacionID = comunicacionID;
             return PartialView("~/Areas/Backend/Views/Comunicaciones/ComunicacionDetalle.cshtml");
         }
 
-        [Authorize(Roles="LeerComunicaciones")]
+        [Authorize]
         public ActionResult Index()
         {
             ICategoriasServicio srv = Servicios.CategoriasServicio();
@@ -46,13 +46,13 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
             return PartialView("Comunicaciones");
         }
 
-        [Authorize(Roles = "LeerComunicaciones")]
+        [Authorize]
         public async Task<ActionResult> Leer([DataSourceRequest] DataSourceRequest request)
         {
             IComunicacionesServicio srv = Servicios.ComunicacionesServicio();            
             List<ComunicacionGrid> registros = new List<ComunicacionGrid>();
             var query = (await srv.GetAsync(c => !c.Borrado, includeProperties: "Categoria, Adjunto, Accesos"));
-            if (User.IsInRole("LeerInfoPush"))
+            if (User.Identity.IsAuthenticated)
             {
                 foreach (var c in query)
                 {
@@ -70,7 +70,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
             return Json(registros.ToDataSourceResult(request), JsonRequestBehavior.AllowGet);
         }
 
-        [Authorize(Roles = "LeerComunicaciones")]
+        [Authorize]
         public async Task<ActionResult> LeerUno(long comunicacionID)
         {
             IComunicacionesServicio srv = Servicios.ComunicacionesServicio();
@@ -86,7 +86,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
             }
         }
 
-        [Authorize(Roles = "LeerComunicaciones")]
+        [Authorize]
         public async Task<ActionResult> LeerUnoDetalle(long comunicacionID)
         {
             IComunicacionesServicio srv = Servicios.ComunicacionesServicio();
@@ -106,7 +106,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         /// restricciones de filtrado, ordenación y paginado.
         /// </summary>
         /// <returns>DataSourceResult para un componente telerik tipo Grid, ListView o similar.</returns>
-        [Authorize(Roles = "LeerComunicaciones")]
+        [Authorize]
         public ActionResult ComunicacionesPublicadas([DataSourceRequest] DataSourceRequest request)
         {
             IComunicacionesServicio srv = Servicios.ComunicacionesServicio();
@@ -123,7 +123,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "ExportarComunicaciones")]
+        [Authorize]
         public ActionResult ExcelExportSave(string contentType, string base64, string fileName)
         {
             var fileContents = Convert.FromBase64String(base64);
@@ -131,7 +131,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "EliminarComunicaciones")]
+        [Authorize]
         public async Task<ActionResult> Eliminar([DataSourceRequest] DataSourceRequest request, ComunicacionGrid model)
         {
             DataSourceResult result = new[] { model }.ToDataSourceResult(request, ModelState);
@@ -197,7 +197,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
             return Json(result);
         }
 
-        [Authorize(Roles = "ModificarComunicaciones")]
+        [Authorize]
         public ActionResult Editar(long? comunicacionID = null)
         {
             ViewBag.ComunicacionID = comunicacionID ?? 0;
@@ -205,7 +205,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "ModificarComunicaciones")]
+        [Authorize]
         public async Task<ActionResult> Modificar([DataSourceRequest] DataSourceRequest request, ComunicacionGrid model)
         {
             DataSourceResult result = new[] { model }.ToDataSourceResult(request, ModelState);
@@ -302,7 +302,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
         
         [HttpPost]
-        [Authorize(Roles = "ModificarComunicaciones")]
+        [Authorize]
         public async Task<ActionResult> ActivarDesactivar(long comunicacionId)
         {
             try
@@ -338,7 +338,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "CrearComunicaciones")]
+        [Authorize]
         public async Task<ActionResult> Nuevo([DataSourceRequest] DataSourceRequest request, ComunicacionGrid model)
         {
             DataSourceResult result = new[] { model }.ToDataSourceResult(request, ModelState);
@@ -396,7 +396,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
         
         [HttpPost]
-        [Authorize(Roles = "ModificarComunicaciones")]
+        [Authorize]
         public async Task<ActionResult> CrearModificar(ComunicacionGrid model)
         {
             object result;
@@ -535,7 +535,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         /// <summary>
         /// Proporciona un modelo para lista de selección de motivos de baja.
         /// </summary>
-        [Authorize(Roles = "LeerComunicaciones")]
+        [Authorize]
         public ActionResult ListaComunicaciones()
         {
             var srv = Servicios.ComunicacionesServicio();
@@ -564,7 +564,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
 
             try
             {
-                // Obtener el canal, según si la comunicación pertenece a una categoría pública o privada.
+                // Obtener el canal
                 IParametrosServicio pSrv = Servicios.ParametrosServicio();
                 string claveCanal = "CanalPush";
                 Parametro canal = pSrv.GetByName(claveCanal);
@@ -655,7 +655,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
             {
                 // Es administrador o no tiene categorías de la aplicación (ni activas ni inactivas).
                 return !Usuario.Categorias.Any(c => c.AplicacionID == Aplicacion.AplicacionID)
-                        || Usuario.Perfiles.Any(p => p.Nombre == "Administrador");
+                        || Usuario.Rol.Name == "Administrador";
             }
         }
     }

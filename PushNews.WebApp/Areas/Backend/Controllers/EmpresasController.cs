@@ -17,14 +17,14 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         public EmpresasController() : base()
         { }
 
-        [Authorize(Roles = "LeerEmpresas")]
+        [Authorize]
         public ActionResult Index()
         {
             ViewBag.UrlMapas = ObtenerPlantillaUrlMapas();
             return PartialView("Empresas");
         }
 
-        [Authorize(Roles = "LeerEmpresas")]
+        [Authorize]
         public ActionResult Leer([DataSourceRequest] DataSourceRequest request)
         {
             var srv = Servicios.EmpresasServicio();
@@ -35,7 +35,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "ExportarEmpresas")]
+        [Authorize]
         public ActionResult ExcelExportSave(string contentType, string base64, string fileName)
         {
             var fileContents = Convert.FromBase64String(base64);
@@ -43,7 +43,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "EliminarEmpresas")]
+        [Authorize]
         public async Task<ActionResult> Eliminar([DataSourceRequest] DataSourceRequest request, EmpresaModel model)
         {
             DataSourceResult result = new[] { model }.ToDataSourceResult(request, ModelState);
@@ -71,7 +71,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "ModificarEmpresas")]
+        [Authorize]
         public async Task<ActionResult> Modificar([DataSourceRequest] DataSourceRequest request, EmpresaModel model)
         {
             DataSourceResult result = new[] { model }.ToDataSourceResult(request, ModelState);
@@ -103,7 +103,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "CrearEmpresas")]
+        [Authorize]
         public async Task<ActionResult> Nuevo([DataSourceRequest] DataSourceRequest request, EmpresaModel model)
         {
             DataSourceResult result = new[] { model }.ToDataSourceResult(request, ModelState);

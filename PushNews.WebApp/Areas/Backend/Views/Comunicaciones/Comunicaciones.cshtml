@@ -4,11 +4,11 @@
 @using PushNews.WebApp.Models
 
 @{
-    bool permisoModificar = User.IsInRole("ModificarComunicaciones");
-    bool permisoExportar = User.IsInRole("ExportarComunicaciones");
-    bool permisoAgregar = User.IsInRole("CrearComunicaciones");
-    bool permisoEliminar = User.IsInRole("EliminarComunicaciones");
-    bool permisoVerPush = User.IsInRole("LeerInfoPush");
+    bool permisoModificar = User.Identity.IsAuthenticated;
+    bool permisoExportar = User.Identity.IsAuthenticated;
+    bool permisoAgregar = User.Identity.IsAuthenticated;
+    bool permisoEliminar = User.Identity.IsAuthenticated;
+    bool permisoVerPush = User.Identity.IsAuthenticated;
 
     var modeloCabecera = new CabeceraModel()
     {

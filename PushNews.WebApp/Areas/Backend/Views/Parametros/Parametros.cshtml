@@ -15,9 +15,9 @@
     };
 
     var modeloHerramientasInline = new HerramientasInlineModel(
-        User.IsInRole("ModificarParametros"), User.IsInRole("EliminarParametros"));
+        User.IsInRole("Administrador"), User.IsInRole("Administrador"));
 
-    BotonGridModel[] opExportar = User.IsInRole("ExportarParametros")
+    BotonGridModel[] opExportar = User.IsInRole("Administrador")
         ? new BotonGridModel[]
         {
             new BotonGridModel(Txt.Comun.Exportar, "fa fa-file-excel-o", "btExportar" ),
@@ -27,7 +27,7 @@
         : new BotonGridModel[0];
         
     var modeloToolbar = new GridToolbarModel(opExportar,
-        new[] { "Nombre", "Valor", "Descripcion", "Aplicacion" }, Txt.Parametros.Buscar, User.IsInRole("CrearParametros"));
+        new[] { "Nombre", "Valor", "Descripcion", "Aplicacion" }, Txt.Parametros.Buscar, User.IsInRole("Administrador"));
         
     string textosJson = Json.Encode(
        new

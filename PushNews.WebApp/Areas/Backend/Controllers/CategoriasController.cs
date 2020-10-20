@@ -20,13 +20,13 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         public CategoriasController(): base()
         { }
 
-        [Authorize(Roles="LeerCategorias")]
+        [Authorize]
         public ActionResult Index()
         {
             return PartialView("Categorias");
         }
 
-        [Authorize(Roles = "LeerCategorias")]
+        [Authorize]
         public ActionResult Leer([DataSourceRequest] DataSourceRequest request)
         {
             var srv = Servicios.CategoriasServicio();
@@ -37,7 +37,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "ExportarCategorias")]
+        [Authorize]
         public ActionResult ExcelExportSave(string contentType, string base64, string fileName)
         {
             var fileContents = Convert.FromBase64String(base64);
@@ -45,15 +45,14 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "ModificarCategorias")]
+        [Authorize]
         public async Task<ActionResult> Modificar([DataSourceRequest] DataSourceRequest request, CategoriaModel model)
         {
             DataSourceResult result = new[] { model }.ToDataSourceResult(request, ModelState); ;
 
             // Para poder modificar una categoría, el usuario debe ser administrador o bien no tener ninguna
             // categoría asignada de la aplicación.
-            if (Usuario.Perfiles.Any(p => p.Nombre == "Administrador")
-                || !Usuario.Categorias.Any(c => c.AplicacionID == Aplicacion.AplicacionID))
+            if (Usuario.Rol.Nombre == "Administrador" || !Usuario.Categorias.Any(c => c.AplicacionID == Aplicacion.AplicacionID))
             {
                 if (ModelState.IsValid)
                 {
@@ -93,7 +92,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "CrearCategorias")]
+        [Authorize]
         public async Task<ActionResult> Nuevo([DataSourceRequest] DataSourceRequest request, CategoriaModel model)
         {
             DataSourceResult result = new[] { model }.ToDataSourceResult(request, ModelState); ;
@@ -134,7 +133,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         /// <summary>
         /// Proporciona un modelo para lista de selección de categorías.
         /// </summary>
-        [Authorize(Roles = "LeerCategorias")]
+        [Authorize]
         public ActionResult ListaCategorias()
         {
             var srv = Servicios.CategoriasServicio();
@@ -148,7 +147,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         /// Proporciona la lista de categorías activas y autorizadas al usuario de la sesión.
         /// </summary>
         /// <returns></returns>
-        [Authorize(Roles = "LeerCategorias")]
+        [Authorize]
         public ActionResult CategoriasUsuario()
         {
             long aplicacionActualId = Aplicacion.AplicacionID;
@@ -158,7 +157,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
 
             // Si el usuario tiene alguna categoría asignada y no es administrador, hay que quedarse sólo con
             // las que estén activas.
-            if(registros.Any() && Usuario.Perfiles.All(p => p.Nombre != "Administrador"))
+            if(registros.Any() && Usuario.Rol.Nombre != "Administrador")
             {
                 registros = registros.Where(c => c.Activo);
             }
