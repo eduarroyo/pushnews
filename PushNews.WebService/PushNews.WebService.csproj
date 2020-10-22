@@ -196,10 +196,6 @@
       <Project>{e3990bde-faa2-40e0-aab1-0dbe567f7b99}</Project>
       <Name>PushNews.Negocio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PushNews.Seguridad\PushNews.Seguridad.csproj">
-      <Project>{1aa4f44a-8118-40f9-9b92-f712761d8c6e}</Project>
-      <Name>PushNews.Seguridad</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App_LocalResources\Account.resx">

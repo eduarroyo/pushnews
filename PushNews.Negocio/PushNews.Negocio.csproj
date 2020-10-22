@@ -76,6 +76,7 @@
       <DependentUpon>Mensajes.resx</DependentUpon>
     </Compile>
     <Compile Include="Excepciones\Parametros\AplicacionExisteException.cs" />
+    <Compile Include="Identity\UserStore.cs" />
     <Compile Include="Interfaces\IAplicacionesCaracteristicasServicio.cs" />
     <Compile Include="Interfaces\IAplicacionesServicio.cs" />
     <Compile Include="Interfaces\IBaseServicio.cs" />
@@ -114,10 +115,6 @@
     <ProjectReference Include="..\PushNews.Dominio\PushNews.Dominio.csproj">
       <Project>{f225c575-abd3-4e66-b713-f6062b3036bf}</Project>
       <Name>PushNews.Dominio</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PushNews.Seguridad\PushNews.Seguridad.csproj">
-      <Project>{1aa4f44a-8118-40f9-9b92-f712761d8c6e}</Project>
-      <Name>PushNews.Seguridad</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

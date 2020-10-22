@@ -16,21 +16,21 @@ using Txt = PushNews.WebApp.App_LocalResources;
 
 namespace PushNews.WebApp.Areas.Backend.Controllers
 {
-    [Authorize]
+    [Authorize(Roles="Administrador")]
     public class UsuariosController : BaseController
     {
         public UsuariosController(): base()
         { }
 
         // GET: Usuarios
-        [Authorize(Roles="LeerUsuarios")]
+        [Authorize(Roles="Administrador")]
         public ActionResult Index()
         {
-            ViewBag.Perfiles = new SelectList(RoleManager.Roles, "PerfilID", "Nombre");
+            //ViewBag.Perfiles = new SelectList(RoleManager.Roles, "PerfilID", "Nombre");
             return PartialView("Usuarios");
         }
 
-        [Authorize(Roles="LeerUsuarios")]
+        [Authorize(Roles="Administrador")]
         public ActionResult Leer([DataSourceRequest] DataSourceRequest request, long? aplicacionID = null)
         {
             IUsuariosServicio srv = Servicios.UsuariosServicio();
@@ -39,7 +39,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "ExportarUsuarios")]
+        [Authorize(Roles="Administrador")]
         public ActionResult ExcelExportSave(string contentType, string base64, string fileName)
         {
             byte[] fileContents = Convert.FromBase64String(base64);
@@ -47,7 +47,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
         
         [HttpPost]
-        [Authorize(Roles="ModificarUsuarios")]
+        [Authorize(Roles="Administrador")]
         public async Task<ActionResult> CambiarClave(CambiarClaveUsuarioModel model)
         {
             var result = new { errors = new List<string>() };
@@ -79,7 +79,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }        
 
         [HttpPost]
-        [Authorize(Roles = "ModificarUsuarios")]
+        [Authorize(Roles="Administrador")]
         public async Task<ActionResult> Modificar([DataSourceRequest] DataSourceRequest request,
             UsuarioGrid usuario)
         {
@@ -173,7 +173,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
         
         [HttpPost]
-        [Authorize(Roles = "CrearUsuarios")]
+        [Authorize(Roles="Administrador")]
         public async Task<ActionResult> Nuevo([DataSourceRequest] DataSourceRequest request, UsuarioGrid usuario)
         {
             if(usuario.CategoriasIDs == null)

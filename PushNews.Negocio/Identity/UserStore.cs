@@ -22,18 +22,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PushNews.Seguridad
+namespace PushNews.Negocio.Identity
 {
-    public class UserStore : IPushNewsUserStore<Usuario, Rol, long>
+    public class UserStore :
+        IUserPasswordStore<Usuario, long>,
+        IUserEmailStore<Usuario, long>,
+        IUserLockoutStore<Usuario, long>,
+        IUserTwoFactorStore<Usuario, long>,
+        IUserRoleStore<Usuario, long>
     {
         private IPushNewsUnitOfWork context;
-        private readonly bool isDisposable;
 
         public UserStore(IPushNewsUnitOfWork context)
         {
             this.context = context;
-            isDisposable = false;
         }
+
         public async Task<int> SaveChangesAsync()
         {
             return await context.SaveChangesAsync();
@@ -42,6 +46,47 @@ namespace PushNews.Seguridad
         {
             return context.SaveChanges();
         }
+
+        #region IUserPasswordStore
+        public Task SetPasswordHashAsync(Usuario user, string passwordHash)
+        {
+            if (user == null)
+            {
+                throw new ArgumentNullException("user");
+            }
+
+            user.Clave = passwordHash;
+
+            return Task.FromResult(0);
+        }
+
+        public Task<string> GetPasswordHashAsync(Usuario user)
+        {
+            if (user == null)
+            {
+                throw new ArgumentNullException("user");
+            }
+
+            return Task.FromResult(user.Clave);
+        }
+
+        public Task<bool> HasPasswordAsync(Usuario user)
+        {
+            if (user == null)
+            {
+                throw new ArgumentNullException("user");
+            }
+
+            bool hasPassword = !string.IsNullOrEmpty(user.Clave);
+
+            return Task.FromResult(hasPassword);
+        }
+
+        public void Dispose()
+        {
+        }
+        #endregion
+
 
         #region IUserEmailStore
 
@@ -172,39 +217,6 @@ namespace PushNews.Seguridad
         #endregion
 
 
-        #region IUserPasswordStore
-
-        public Task SetPasswordHashAsync(Usuario user, string passwordHash) {
-            if (user == null) {
-                throw new ArgumentNullException("user");
-            }
-
-            user.Clave= passwordHash;
-
-            return Task.FromResult(0);
-        }
-
-        public Task<string> GetPasswordHashAsync(Usuario user) {
-            if (user == null) {
-                throw new ArgumentNullException("user");
-            }
-
-            return Task.FromResult(user.Clave);
-        }
-
-        public Task<bool> HasPasswordAsync(Usuario user) {
-            if (user == null) {
-                throw new ArgumentNullException("user");
-            }
-
-            bool hasPassword = !string.IsNullOrEmpty(user.Clave);
-
-            return Task.FromResult(hasPassword);
-        }
-
-        #endregion
-
-
         #region IUserPhoneNumberStore
 
         public Task SetPhoneNumberAsync(Usuario user, string phoneNumber) {
@@ -260,8 +272,46 @@ namespace PushNews.Seguridad
                 throw new ArgumentNullException("roleName");
             }
 
-            bool isInRole = user.Rol.Name == roleName;
+            bool isInRole = GetRoles(user).Contains(roleName);
             return isInRole;
+        }
+
+        public async Task<bool> IsInRoleAsync(Usuario user, string roleName)
+        {
+            if (user == null)
+            {
+                throw new ArgumentNullException("user");
+            }
+
+            if (string.IsNullOrEmpty(roleName))
+            {
+                throw new ArgumentNullException("roleName");
+            }
+
+            bool isInRole = (await GetRolesAsync(user)).Any(r => r == roleName);
+            return isInRole;
+        }
+
+        public IList<string> GetRoles(Usuario user)
+        {
+            if (user == null)
+            {
+                throw new ArgumentNullException("user");
+            }
+
+            Rol r = context.Roles.Single(rr => rr.RolID == user.RolID);
+            return new List<string> { r.Name };
+        }
+
+        public Task<IList<string>> GetRolesAsync(Usuario user)
+        {
+            if (user == null)
+            {
+                throw new ArgumentNullException("user");
+            }
+
+            Rol r = context.Roles.Single(rr => rr.RolID == user.RolID);
+            return Task.FromResult<IList<string>>(new List<string> { r.Name });
         }
 
         #endregion
@@ -291,18 +341,6 @@ namespace PushNews.Seguridad
 
 
         #region IUserStore
-
-        public void Dispose() {
-            if (context == null) {
-                return;
-            }
-
-            if (isDisposable) {
-                ((IDisposable) context).Dispose();
-            }
-
-            context = null;
-        }
 
         public Task CreateAsync(Usuario user) {
             if (user == null) {
@@ -404,6 +442,16 @@ namespace PushNews.Seguridad
             usuario.RolID = r.RolID;
             await SaveChangesAsync();
             return IdentityResult.Success;
+        }
+
+        public Task AddToRoleAsync(Usuario user, string roleName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task RemoveFromRoleAsync(Usuario user, string roleName)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

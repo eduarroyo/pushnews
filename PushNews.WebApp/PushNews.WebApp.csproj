@@ -397,7 +397,6 @@
     <Compile Include="Models\ComunicacionModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
-    <Compile Include="Services\ApplicationRoleManager.cs" />
     <Compile Include="Services\ApplicationSignInManager.cs" />
     <Compile Include="Services\ApplicationUserManager.cs" />
     <Compile Include="Services\EmailService.cs" />
@@ -3195,10 +3194,6 @@
     <ProjectReference Include="..\PushNews.PushMsg\PushNews.AppceleratorPush\PushNews.AppceleratorPush.csproj">
       <Project>{c3a78c88-653d-4194-9bd9-f3b75e710f5e}</Project>
       <Name>PushNews.AppceleratorPush</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PushNews.Seguridad\PushNews.Seguridad.csproj">
-      <Project>{1aa4f44a-8118-40f9-9b92-f712761d8c6e}</Project>
-      <Name>PushNews.Seguridad</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

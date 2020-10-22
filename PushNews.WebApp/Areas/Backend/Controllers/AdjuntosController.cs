@@ -13,6 +13,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
     public class AdjuntosController : BaseController
     {
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult> NuevoDocumento(HttpPostedFileBase DocumentoAdjunto)
         {
             Documento nuevo = null;
@@ -35,6 +36,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult> NuevaImagen(HttpPostedFileBase ImagenAdjunta)
         {
             Documento nuevo = null;
@@ -57,6 +59,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult> NuevoLogotipo(HttpPostedFileBase LogotipoAdjunto)
         {
             Documento nuevo = null;
@@ -79,6 +82,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult> NuevoBanner(HttpPostedFileBase BannerAdjunto)
         {
             Documento nuevo = null;
@@ -101,6 +105,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [OutputCache(VaryByParam = "id")]
+        [Authorize]
         public async Task<ActionResult> AdjuntoSinEnlazar(long id, bool descargar = false)
         {
 
@@ -131,6 +136,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [OutputCache(VaryByParam = "id")]
+        [Authorize]
         public async Task<ActionResult> ImagenSinEnlazar(long id)
         {
             IDocumentosServicio srv = Servicios.DocumentosServicio();

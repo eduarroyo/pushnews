@@ -13,6 +13,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
     [Authorize]
     public class EscritorioController : BaseController
     {
+        [Authorize]
         public ActionResult Index()
         {
             double[] coordenadas = CoordenadasPorDefecto();
@@ -21,6 +22,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
             return PartialView("Escritorio");
         }
 
+        [Authorize]
         public ActionResult Estadisticas()
         {
             EstadisticasModel resul = new EstadisticasModel();
@@ -39,6 +41,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
             return Json(resul, JsonRequestBehavior.AllowGet);
         }
 
+        [Authorize]
         public ActionResult UltimasComunicaciones()
         {
             IComunicacionesServicio srv = Servicios.ComunicacionesServicio();

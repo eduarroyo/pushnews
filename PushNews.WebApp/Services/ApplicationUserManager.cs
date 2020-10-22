@@ -1,14 +1,12 @@
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.DataProtection;
 using PushNews.Dominio;
-using PushNews.Seguridad;
 using PushNews.Dominio.Entidades;
+using PushNews.Negocio.Identity;
 using System;
-using System.Drawing.Imaging;
+using System.Threading.Tasks;
 
 namespace PushNews.WebApp.Services
 {
@@ -17,15 +15,15 @@ namespace PushNews.WebApp.Services
     // Configure el administrador de inicios de sesión que se usa en esta aplicación.
     public class ApplicationUserManager : UserManager<Usuario, long>
     {
-        private IPushNewsUserStore<Usuario, Rol, long> PushNewsUserStore
+        private UserStore PushNewsUserStore
         {
             get
             {
-                return (IPushNewsUserStore<Usuario, Rol, long>)Store;
+                return (UserStore)Store;
             }
         }
 
-        public ApplicationUserManager(IPushNewsUserStore<Usuario, Rol, long> store) : base(store)
+        public ApplicationUserManager(UserStore store) : base(store)
         {
         }
 

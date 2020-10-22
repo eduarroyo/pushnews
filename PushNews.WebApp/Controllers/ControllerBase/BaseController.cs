@@ -24,7 +24,6 @@ namespace PushNews.WebApp.Controllers
     {
         private IServiciosFactoria servicios;
         private ApplicationUserManager userManager;
-        private ApplicationRoleManager roleManager;
         private IFileManager fileManager;
         protected readonly ILog log;
         private Aplicacion aplicacion;
@@ -73,18 +72,6 @@ namespace PushNews.WebApp.Controllers
             }
         }
 
-        protected ApplicationRoleManager RoleManager
-        {
-            get
-            {
-                if (roleManager == null)
-                {
-                    roleManager = HttpContext.GetOwinContext().Get<ApplicationRoleManager>();
-                }
-                return roleManager;
-            }
-        }
-
         private EmailService emailService;
         protected EmailService EmailService
         {
@@ -129,7 +116,7 @@ namespace PushNews.WebApp.Controllers
                 if (usuario == null && User.Identity.IsAuthenticated)
                 {
                     long usuarioID = long.Parse(User.Identity.GetUserId());
-                    usuario = UserManager.Users.Single(u => u.UsuarioID == usuarioID);
+                    usuario = UserManager.FindById(usuarioID);
                 }
                 return usuario;
             }

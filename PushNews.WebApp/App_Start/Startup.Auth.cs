@@ -42,7 +42,6 @@ namespace PushNews.WebApp
             // administrador de roles para usar una única instancia por solicitud
             app.CreatePerOwinContext<IPushNewsUnitOfWork>(CreateModel);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
-            app.CreatePerOwinContext<ApplicationRoleManager>(ApplicationRoleManager.Create);
 
             // Permitir que la aplicación use una cookie para almacenar información para el usuario que inicia sesión
             app.UseCookieAuthentication(new CookieAuthenticationOptions

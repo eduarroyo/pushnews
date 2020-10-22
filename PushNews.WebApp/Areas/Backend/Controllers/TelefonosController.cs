@@ -17,13 +17,13 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         public TelefonosController(): base()
         { }
 
-        [Authorize(Roles="LeerTelefonos")]
+        [Authorize]
         public ActionResult Index()
         {
             return PartialView("Telefonos");
         }
 
-        [Authorize(Roles = "LeerTelefonos")]
+        [Authorize]
         public ActionResult Leer([DataSourceRequest] DataSourceRequest request)
         {
             var srv = Servicios.TelefonosServicio();
@@ -34,7 +34,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "ExportarTelefonos")]
+        [Authorize]
         public ActionResult ExcelExportSave(string contentType, string base64, string fileName)
         {
             var fileContents = Convert.FromBase64String(base64);
@@ -42,7 +42,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "EliminarTelefonos")]
+        [Authorize]
         public async Task<ActionResult> Eliminar([DataSourceRequest] DataSourceRequest request, TelefonoModel model)
         {
             DataSourceResult result = new[] { model }.ToDataSourceResult(request, ModelState);
@@ -70,7 +70,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "ModificarTelefonos")]
+        [Authorize]
         public async Task<ActionResult> Modificar([DataSourceRequest] DataSourceRequest request, TelefonoModel model)
         {
             DataSourceResult result = new[] { model }.ToDataSourceResult(request, ModelState);
@@ -102,7 +102,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "CrearTelefonos")]
+        [Authorize]
         public async Task<ActionResult> Nuevo([DataSourceRequest] DataSourceRequest request, TelefonoModel model)
         {
             DataSourceResult result = new[] { model }.ToDataSourceResult(request, ModelState);
