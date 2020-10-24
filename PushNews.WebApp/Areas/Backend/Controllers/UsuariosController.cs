@@ -27,7 +27,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         public ActionResult Index()
         {
             IRolesServicio srv = Servicios.RolesServicio();
-            ViewBag.Perfiles = new SelectList(srv.Get(), "PerfilID", "Nombre");
+            ViewBag.Perfiles = new SelectList(srv.Get(), "RolID", "Nombre");
             return PartialView("Usuarios");
         }
 

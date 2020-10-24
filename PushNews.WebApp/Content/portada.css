@@ -41,11 +41,11 @@ a:active {
 }
 
 .logotipo {
-    margin-top: 30px;
+    margin-top: 0px;
 }
 
 .logotipo-img {
-    max-height: 100px;
+    max-height: 120px;
 }
 
 @media(min-width:768px) {

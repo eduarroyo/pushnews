@@ -335,6 +335,7 @@
     <Compile Include="Areas\Backend\Controllers\ComunicacionesController.cs" />
     <Compile Include="Areas\Backend\Controllers\EmpresasController.cs" />
     <Compile Include="Areas\Backend\Controllers\EscritorioController.cs" />
+    <Compile Include="Areas\Backend\Controllers\ListasController.cs" />
     <Compile Include="Areas\Backend\Controllers\LocalizacionesController.cs" />
     <Compile Include="Areas\Backend\Controllers\ParametrosController.cs" />
     <Compile Include="Areas\Backend\Controllers\BackendHomeController.cs" />
@@ -3063,6 +3064,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Backend\Data\" />
+    <Folder Include="Areas\Backend\Views\Listas\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
