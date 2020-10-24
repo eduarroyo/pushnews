@@ -14,6 +14,7 @@ namespace PushNews.Negocio.Interfaces
         ILocalizacionesServicio LocalizacionesServicio();
         IAplicacionesCaracteristicasServicio AplicacionesCaracteristicasServicio();
         IEmpresasServicio EmpresasServicio();
+        IRolesServicio RolesServicio();
 
         // Cuando se crea un nuevo servicio tenemos que declarar un método aquí para obtenerlo e
         // escribirlo en las implementaciones de esta interfaz.

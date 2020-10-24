@@ -80,5 +80,10 @@ namespace PushNews.Negocio
         {
             return new EmpresasServicio(db, aplicacion);
         }
+
+        public IRolesServicio RolesServicio()
+        {
+            return new RolesServicio(db);
+        }
     }
 }
