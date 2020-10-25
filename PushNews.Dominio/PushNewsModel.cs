@@ -98,10 +98,6 @@ namespace PushNews.Dominio
             tabla.HasRequired(c => c.Aplicacion)
                 .WithMany(a => a.Categorias)
                 .HasForeignKey(c => c.AplicacionID);
-
-            tabla.HasRequired(c => c.Creador)
-                .WithMany()
-                .HasForeignKey(c => c.UsuarioID);
         }
 
         private void MapAplicaciones(DbModelBuilder modelBuilder)

@@ -64,13 +64,13 @@ namespace PushNews.Dominio.Migrations
                     new Tuple<string, bool>("Empresas", context.Empresas.Any()),
                     new Tuple<string, bool>("ComunicacionesAccesos", context.Accesos.Any()),
                     new Tuple<string, bool>("Comunicaciones", context.Comunicaciones.Any()),
-                    new Tuple<string, bool>("Roles", context.Roles.Any()),
                     new Tuple<string, bool>("Terminales", context.Terminales.Any()),
                     new Tuple<string, bool>("UsuariosCategorias", false),
                     new Tuple<string, bool>("Categorias", context.Categorias.Any()),
                     new Tuple<string, bool>("AplicacionesUsuarios", false),
                     new Tuple<string, bool>("Parametros", context.Parametros.Any()),
                     new Tuple<string, bool>("Usuarios", context.Usuarios.Any()),
+                    new Tuple<string, bool>("Roles", context.Roles.Any()),
                     new Tuple<string, bool>("Documentos", context.Documentos.Any()),
                     new Tuple<string, bool>("Telefonos", context.Telefonos.Any()),
                     new Tuple<string, bool>("Localizaciones", context.Localizaciones.Any()),
@@ -393,7 +393,6 @@ namespace PushNews.Dominio.Migrations
             {
                 new Categoria
                 {
-                    Creador = editor1,
                     Aplicacion = editor1.Aplicaciones.First(),
                     Nombre = "Eventos",
                     Orden = 3,
@@ -402,7 +401,6 @@ namespace PushNews.Dominio.Migrations
                 },
                 new Categoria
                 {
-                    Creador = editor1,
                     Aplicacion = editor1.Aplicaciones.First(),
                     Nombre = "Noticias",
                     Orden = 2,
@@ -411,7 +409,6 @@ namespace PushNews.Dominio.Migrations
                 },
                 new Categoria
                 {
-                    Creador = editor1,
                     Aplicacion = editor1.Aplicaciones.First(),
                     Nombre = "Oficial",
                     Orden = 1,
@@ -420,7 +417,6 @@ namespace PushNews.Dominio.Migrations
                 },
                 new Categoria
                 {
-                    Creador = editor2,
                     Aplicacion = editor2.Aplicaciones.Last(),
                     Nombre = "Sucesos",
                     Orden = 3,
@@ -429,7 +425,6 @@ namespace PushNews.Dominio.Migrations
                 },
                 new Categoria
                 {
-                    Creador = editor2,
                     Aplicacion = editor2.Aplicaciones.Last(),
                     Nombre = "Ultima hora",
                     Orden = 2,
@@ -438,7 +433,6 @@ namespace PushNews.Dominio.Migrations
                 },
                 new Categoria
                 {
-                    Creador = editor2,
                     Aplicacion = editor2.Aplicaciones.Last(),
                     Nombre = "Comunicados",
                     Orden = 1,

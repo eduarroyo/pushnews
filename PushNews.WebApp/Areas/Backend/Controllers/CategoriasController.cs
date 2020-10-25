@@ -11,6 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using Txt = PushNews.WebApp.App_LocalResources;
+using PushNews.Negocio.Interfaces;
 
 namespace PushNews.WebApp.Areas.Backend.Controllers
 {
@@ -107,10 +108,9 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
                 {
                     try
                     {
-                        var srv = Servicios.CategoriasServicio();
-                        var nuevo = srv.Create();
+                        ICategoriasServicio srv = Servicios.CategoriasServicio();
+                        Categoria nuevo = srv.Create();
                         model.ActualizarEntidad(nuevo);
-                        nuevo.UsuarioID = CurrentUserID();
                         srv.Insert(nuevo);
                         await srv.ApplyChangesAsync();
                         result = new[] { CategoriaModel.FromEntity(nuevo) }.ToDataSourceResult(request, ModelState);
