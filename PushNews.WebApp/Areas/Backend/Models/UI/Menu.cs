@@ -77,9 +77,9 @@ namespace PushNews.WebApp.Models.UI
             IUsuariosServicio usuariosServicio = servicios.UsuariosServicio();
             Usuario usuario = usuariosServicio.GetSingle(u => u.UsuarioID == usuarioID);
             bool usuarioEsAdmin = usuario.Rol.Nombre== "Administrador";
-            bool ocultarCategorias = !usuarioEsAdmin && usuario.Categorias.Where(a => a.AplicacionID == aplicacion.AplicacionID).Any();
-            bool ocultarTelefonos = !usuarioEsAdmin && ocultarCategorias ;
-            bool ocultarLocalizaciones = !usuarioEsAdmin && ocultarCategorias;
+            bool ocultarCategorias = false;
+            bool ocultarTelefonos = false;
+            bool ocultarLocalizaciones = false;
 
             IEnumerable<Dominio.Enums.AplicacionCaracteristica> caracteristicas = app.Caracteristicas
                 .Where(c => c.Activo)
@@ -116,7 +116,7 @@ namespace PushNews.WebApp.Models.UI
 
             foreach(var hijo in submenu.Hijos)
             {
-                if(hijo.Roles.Any(r => roles.Contains(r)))
+                if(hijo.Roles.Any(r => System.String.IsNullOrEmpty(r) || roles.Contains(r)))
                 {
                     if(hijo.TieneHijos)
                     {
