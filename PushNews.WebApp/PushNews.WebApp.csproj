@@ -227,6 +227,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Comunicaciones.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_LocalResources\Coordenadas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Coordenadas.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_LocalResources\Culturas.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -3102,6 +3107,11 @@
     <EmbeddedResource Include="App_LocalResources\Comunicaciones.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Comunicaciones.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_LocalResources\Coordenadas.resx">
+      <BrowseToURL>PublicResXFileCodeGenerator</BrowseToURL>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Coordenadas.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="App_LocalResources\Culturas.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
