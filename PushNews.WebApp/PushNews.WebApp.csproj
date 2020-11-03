@@ -360,8 +360,6 @@
     <Compile Include="Areas\Backend\Models\Empresas\EmpresaModel.cs" />
     <Compile Include="Areas\Backend\Models\Escritorio\EstadisticasModel.cs" />
     <Compile Include="Areas\Backend\Models\Localizaciones\LocalizacionModel.cs" />
-    <Compile Include="Areas\Backend\Models\Opciones\CulturaModel.cs" />
-    <Compile Include="Areas\Backend\Models\Opciones\OpcionesModel.cs" />
     <Compile Include="Areas\Backend\Models\Parametros\ParametroGrid.cs" />
     <Compile Include="Areas\Backend\Models\PlanitllasEmail\RestablecerClave.cs" />
     <Compile Include="Areas\Backend\Models\Telefonos\TelefonoModel.cs" />

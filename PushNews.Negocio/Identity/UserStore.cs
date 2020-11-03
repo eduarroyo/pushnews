@@ -27,8 +27,6 @@ namespace PushNews.Negocio.Identity
     public class UserStore :
         IUserPasswordStore<Usuario, long>,
         IUserEmailStore<Usuario, long>,
-        IUserLockoutStore<Usuario, long>,
-        IUserTwoFactorStore<Usuario, long>,
         IUserRoleStore<Usuario, long>
     {
         private IPushNewsUnitOfWork context;
@@ -138,126 +136,6 @@ namespace PushNews.Negocio.Identity
 
         #endregion
 
-
-        #region IUserLockoutStore
-
-        public Task<DateTimeOffset> GetLockoutEndDateAsync(Usuario user) {
-            if (user == null) {
-                throw new ArgumentNullException("user");
-            }
-
-            if(user.FinalBloqueoUtc.HasValue){
-                return Task.FromResult(new DateTimeOffset(DateTime.SpecifyKind(user.FinalBloqueoUtc.Value, DateTimeKind.Utc)));
-            }
-
-            return Task.FromResult(new DateTimeOffset());
-        }
-
-        public Task SetLockoutEndDateAsync(Usuario user, DateTimeOffset lockoutEnd) {
-            if (user == null) {
-                throw new ArgumentNullException("user");
-            }
-
-            if (lockoutEnd == DateTimeOffset.MinValue) {
-                user.FinalBloqueoUtc = null;
-            }
-            else {
-                user.FinalBloqueoUtc = lockoutEnd.UtcDateTime;
-            }
-
-            return Task.FromResult(0);
-        }
-
-        public Task<int> IncrementAccessFailedCountAsync(Usuario user) {
-            if (user == null) {
-                throw new ArgumentNullException("user");
-            }
-
-            user.AccesosFallidos++;
-
-            return Task.FromResult(user.AccesosFallidos);
-        }
-
-        public Task ResetAccessFailedCountAsync(Usuario user) {
-            if (user == null) {
-                throw new ArgumentNullException("user");
-            }
-
-            user.AccesosFallidos = 0;
-
-            return Task.FromResult(0);
-        }
-
-        public Task<int> GetAccessFailedCountAsync(Usuario user) {
-            if (user == null) {
-                throw new ArgumentNullException("user");
-            }
-
-            return Task.FromResult(user.AccesosFallidos);
-        }
-
-        public Task<bool> GetLockoutEnabledAsync(Usuario user) {
-            if (user == null) {
-                throw new ArgumentNullException("user");
-            }
-
-            return Task.FromResult(user.Activo);
-        }
-
-        public Task SetLockoutEnabledAsync(Usuario user, bool enabled) {
-            if (user == null) {
-                throw new ArgumentNullException("user");
-            }
-
-            user.Activo = enabled;
-
-            return Task.FromResult(0);
-        }
-
-        #endregion
-
-
-        #region IUserPhoneNumberStore
-
-        public Task SetPhoneNumberAsync(Usuario user, string phoneNumber) {
-            if (user == null) {
-                throw new ArgumentNullException("user");
-            }
-            
-            user.Movil = phoneNumber;
-            
-            return Task.FromResult(0);
-        }
-
-        public Task<string> GetPhoneNumberAsync(Usuario user) {
-            if (user == null) {
-                throw new ArgumentNullException("user");
-            }
-
-            return Task.FromResult(user.Movil);
-        }
-
-        public Task<bool> GetPhoneNumberConfirmedAsync(Usuario user) {
-            if (user == null) {
-                throw new ArgumentNullException("user");
-            }
-
-            return Task.FromResult(user.MovilConfirmado);
-        }
-
-        public Task SetPhoneNumberConfirmedAsync(Usuario user, bool confirmed) {
-            if (user == null) {
-                throw new ArgumentNullException("user");
-            }
-
-            user.MovilConfirmado = confirmed;
-
-            return Task.FromResult(0);
-        }
-
-        #endregion
-
-
         #region IUserRoleStore
 
         public bool IsInRole(Usuario user, string roleName)
@@ -314,27 +192,60 @@ namespace PushNews.Negocio.Identity
             return Task.FromResult<IList<string>>(new List<string> { r.Name });
         }
 
-        #endregion
 
-
-        #region IUserSecurityStampStore
-
-        public Task SetSecurityStampAsync(Usuario user, string stamp) {
-            if (user == null) {
-                throw new ArgumentNullException("user");
+        public async Task<IdentityResult> AsignarRol(long usuarioId, long rolId)
+        {
+            Usuario u = await FindByIdAsync(usuarioId);
+            if (u == null)
+            {
+                return IdentityResult.Failed("Usuario no encontrado");
             }
-
-            user.MarcaSeguridad = stamp;
-
-            return Task.FromResult(0);
+            return await AsignarRol(u, rolId);
         }
 
-        public Task<string> GetSecurityStampAsync(Usuario user) {
-            if (user == null) {
-                throw new ArgumentNullException("user");
+        public async Task<IdentityResult> AsignarRol(Usuario usuario, long rolId)
+        {
+            usuario.RolID = rolId;
+            await SaveChangesAsync();
+            return IdentityResult.Success;
+        }
+
+        public async Task<IdentityResult> AsignarRol(Usuario usuario, string rol)
+        {
+            Rol r = context.Roles.SingleOrDefault(rr => rr.Nombre == rol);
+
+            if (rol == null)
+            {
+                return IdentityResult.Failed("Rol no encontrado");
             }
 
-            return Task.FromResult(user.MarcaSeguridad);
+            usuario.RolID = r.RolID;
+            await SaveChangesAsync();
+            return IdentityResult.Success;
+        }
+
+        public Task AddToRoleAsync(Usuario user, string roleName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task RemoveFromRoleAsync(Usuario user, string roleName)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+        #region IQueryableUserStore
+
+        public IQueryable<Usuario> Users
+        {
+            get { return context.Usuarios; }
+        }
+
+        public IQueryable<Rol> Roles
+        {
+            get { return context.Roles; }
         }
 
         #endregion
@@ -389,84 +300,6 @@ namespace PushNews.Negocio.Identity
 
             Usuario user = context.Usuarios.FirstOrDefault(u => u.Email == userName);            
             return Task.FromResult(user);
-        }
-
-        #endregion
-
-
-        #region IUserTwoFactorStore
-
-        public Task SetTwoFactorEnabledAsync(Usuario user, bool enabled) {
-            if (user == null) {
-                throw new ArgumentNullException("user");
-            }
-
-            user.DosFactoresHabilitado = enabled;
-            return Task.FromResult(0);
-        }
-
-        public Task<bool> GetTwoFactorEnabledAsync(Usuario user) {
-            if (user == null) {
-                throw new ArgumentNullException("user");
-            }
-
-            return Task.FromResult(user.DosFactoresHabilitado);
-        }
-
-        public async Task<IdentityResult> AsignarRol(long usuarioId, long rolId)
-        {
-            Usuario u = await FindByIdAsync(usuarioId);
-            if(u == null)
-            {
-                return IdentityResult.Failed("Usuario no encontrado");
-            }
-            return await AsignarRol(u, rolId);
-        }
-
-        public async Task<IdentityResult> AsignarRol(Usuario usuario, long rolId)
-        {
-            usuario.RolID = rolId;
-            await SaveChangesAsync();
-            return IdentityResult.Success;
-        }
-
-        public async Task<IdentityResult> AsignarRol(Usuario usuario, string rol)
-        {
-            Rol r = context.Roles.SingleOrDefault(rr => rr.Nombre == rol);
-
-            if(rol == null)
-            {
-                return IdentityResult.Failed("Rol no encontrado");
-            }
-
-            usuario.RolID = r.RolID;
-            await SaveChangesAsync();
-            return IdentityResult.Success;
-        }
-
-        public Task AddToRoleAsync(Usuario user, string roleName)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task RemoveFromRoleAsync(Usuario user, string roleName)
-        {
-            throw new NotImplementedException();
-        }
-
-        #endregion
-
-
-        #region IQueryableUserStore
-
-        public IQueryable<Usuario> Users
-        {
-            get { return context.Usuarios; }
-        }
-
-        public IQueryable<Rol> Roles
-        { 
-            get { return context.Roles; }
         }
 
         #endregion

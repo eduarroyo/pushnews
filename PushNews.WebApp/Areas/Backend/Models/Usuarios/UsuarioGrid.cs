@@ -18,7 +18,6 @@ namespace PushNews.WebApp.Models.Usuarios
                 UsuarioID = u.UsuarioID,
                 Nombre = u.Nombre,
                 Apellidos = u.Apellidos,
-                Movil = u.Movil,
                 Email = u.Email,
                 Activo = u.Activo,
                 Clave = "foobar",
@@ -38,7 +37,6 @@ namespace PushNews.WebApp.Models.Usuarios
             entidad.Nombre = Nombre;
             entidad.Apellidos = Util.AsegurarNulos(Apellidos);
             entidad.Activo = Activo;
-            entidad.Movil = Movil;
 
             // La clave no se actualiza aquí porque se cambia mediante una acción específica.
         }
@@ -69,10 +67,6 @@ namespace PushNews.WebApp.Models.Usuarios
         [Display(ResourceType = typeof(Txt.Usuarios), Name = "Nombre")]
         public string ApellidosNombre { get; private set; }
         
-        [Display(ResourceType = typeof(Txt.Usuarios), Name = "Movil")]
-        [StringLength(50, ErrorMessageResourceType = typeof(Txt.Validacion), ErrorMessageResourceName = "CadenaLongitudMaxima")]
-        public string Movil { get; set; }
-
         [Display(ResourceType = typeof(Txt.Comun), Name = "Activo")]
         [HiddenInput(DisplayValue = false)]
         public bool Activo { get; set; }

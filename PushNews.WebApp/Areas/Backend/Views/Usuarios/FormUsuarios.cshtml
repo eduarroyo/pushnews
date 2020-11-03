@@ -108,20 +108,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-4 col-lg-offset-0 bloque-form bloque-form-2">
-                    <h3>@Txt.Usuarios.SeccionContacto</h3>
-                    <div class="row">
-                        <div class="form-group col-xs-12 col-sm-6">
-                            <div class="control-label">
-                                @Html.LabelFor(model => model.Movil)
-                            </div>
-                            @(Html.Kendo().TextBoxFor(model => model.Movil)
-                                .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value:Movil" })
-                            )
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
 

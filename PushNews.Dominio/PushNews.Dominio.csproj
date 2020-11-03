@@ -87,6 +87,10 @@
     <Compile Include="Migrations\202011031751406_QuitarRelacionUsuarioCategoria.designer.cs">
       <DependentUpon>202011031751406_QuitarRelacionUsuarioCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011031836063_SimplificarUsuarios.cs" />
+    <Compile Include="Migrations\202011031836063_SimplificarUsuarios.designer.cs">
+      <DependentUpon>202011031836063_SimplificarUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="PushNewsModel.cs" />
     <Compile Include="Entidades\Aplicacion.cs" />
     <Compile Include="Entidades\AplicacionCaracteristica.cs" />
@@ -390,6 +394,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011031751406_QuitarRelacionUsuarioCategoria.resx">
       <DependentUpon>202011031751406_QuitarRelacionUsuarioCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011031836063_SimplificarUsuarios.resx">
+      <DependentUpon>202011031836063_SimplificarUsuarios.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

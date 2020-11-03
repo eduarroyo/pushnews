@@ -241,16 +241,8 @@ namespace PushNews.Dominio
                 .HasMaxLength(150);
 
             tabla
-                .Property(c => c.Movil)
-                .HasMaxLength(50);
-
-            tabla
                 .Property(c => c.Email)
                 .HasMaxLength(250);
-
-            tabla
-                .Property(c => c.Locale)
-                .HasMaxLength(20);
 
             tabla
                 .Ignore(e => e.Id)

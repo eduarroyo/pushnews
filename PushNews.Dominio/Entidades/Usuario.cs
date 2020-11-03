@@ -18,22 +18,14 @@ namespace PushNews.Dominio.Entidades
         public long RolID { get; set; }
         public string Nombre { get; set; }
         public string Apellidos { get; set; }
-        public string Movil { get; set; }
         public string Email { get; set; }
         public string Clave { get; set; }
         public string MarcaSeguridad { get; set; }
         public bool Activo { get; set; }
         public bool EmailConfirmado { get; set; }
-        public bool MovilConfirmado { get; set; }
-        public int AccesosFallidos { get; set; }
         public bool Externo { get; set; }
         public DateTime Creado { get; set; }
         public DateTime Actualizado { get; set; }
-        public DateTime? FinalBloqueoUtc { get; set; }
-        public bool DosFactoresHabilitado { get; set; }
-        public long? ProveedorID { get; set; }
-        public DateTime? UltimoLogin { get; set; }
-        public string Locale { get; set; }
 
         public virtual Rol Rol { get; set; }
         public virtual ICollection<Aplicacion> Aplicaciones { get; set; }
