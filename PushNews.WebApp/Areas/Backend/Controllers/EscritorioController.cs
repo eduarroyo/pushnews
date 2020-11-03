@@ -52,7 +52,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
                 .Take(10);
 
             List<ComunicacionGrid> ultimas = new List<ComunicacionGrid>();
-            var categoriasPermitidas = Usuario.Categorias.Select(c => c.CategoriaID);
+            var categoriasPermitidas = Aplicacion.Categorias.Select(c => c.CategoriaID);
             foreach(var c in ultimas1)
             {
                 ultimas.Add(ComunicacionGrid.FromEntity(c, categoriasPermitidas, PeriodoEnvioPushHoras));

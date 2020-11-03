@@ -51,38 +51,33 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         {
             DataSourceResult result = new[] { model }.ToDataSourceResult(request, ModelState); ;
 
-            // Para poder modificar una categoría, el usuario debe ser administrador o bien no tener ninguna
-            // categoría asignada de la aplicación.
-            if (Usuario.Rol.Nombre == "Administrador" || !Usuario.Categorias.Any(c => c.AplicacionID == Aplicacion.AplicacionID))
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
+                try
                 {
-                    try
+                    var srv = Servicios.CategoriasServicio();
+                    var modificar = srv.GetSingle(p => p.CategoriaID == model.CategoriaID);
+                    if (modificar != null)
                     {
-                        var srv = Servicios.CategoriasServicio();
-                        var modificar = srv.GetSingle(p => p.CategoriaID == model.CategoriaID);
-                        if (modificar != null)
-                        {
-                            srv.CambiarOrdenCategoria(model.CategoriaID, model.Orden);
-                            model.ActualizarEntidad(modificar);
-                            await srv.ApplyChangesAsync();
-                            result = new[] { CategoriaModel.FromEntity(modificar) }.ToDataSourceResult(request, ModelState);
-                        }
-                        else
-                        {
-                            result.Errors = new[] { string.Format(Txt.ErroresComunes.NoExiste, Txt.Categorias.ArtEntidad).Frase() };
-                        }
+                        srv.CambiarOrdenCategoria(model.CategoriaID, model.Orden);
+                        model.ActualizarEntidad(modificar);
+                        await srv.ApplyChangesAsync();
+                        result = new[] { CategoriaModel.FromEntity(modificar) }.ToDataSourceResult(request, ModelState);
                     }
-                    catch (CategoriaExisteException cee)
+                    else
                     {
-                        log.Error($"Error al modificar {Txt.Categorias.ArtEntidad}. Usuario: {CurrentUserID()}", cee);
-                        result.Errors = new[] { string.Format(Txt.ErroresComunes.Modificar + cee.Message, Txt.Categorias.ArtEntidad).Frase() };
+                        result.Errors = new[] { string.Format(Txt.ErroresComunes.NoExiste, Txt.Categorias.ArtEntidad).Frase() };
                     }
-                    catch (Exception e)
-                    {
-                        log.Error("Error al modificar el categoría con id=" + model.CategoriaID, e);
-                        result.Errors = new[] { string.Format(Txt.ErroresComunes.Modificar, Txt.Categorias.ArtEntidad).Frase() };
-                    }
+                }
+                catch (CategoriaExisteException cee)
+                {
+                    log.Error($"Error al modificar {Txt.Categorias.ArtEntidad}. Usuario: {CurrentUserID()}", cee);
+                    result.Errors = new[] { string.Format(Txt.ErroresComunes.Modificar + cee.Message, Txt.Categorias.ArtEntidad).Frase() };
+                }
+                catch (Exception e)
+                {
+                    log.Error("Error al modificar el categoría con id=" + model.CategoriaID, e);
+                    result.Errors = new[] { string.Format(Txt.ErroresComunes.Modificar, Txt.Categorias.ArtEntidad).Frase() };
                 }
             }
             else
@@ -97,34 +92,26 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         public async Task<ActionResult> Nuevo([DataSourceRequest] DataSourceRequest request, CategoriaModel model)
         {
             DataSourceResult result = new[] { model }.ToDataSourceResult(request, ModelState); ;
-            if (Usuario.Categorias.Any())
+            if (ModelState.IsValid)
             {
-                result.Errors = new[] { Txt.Categorias.NoPermitido };
-            }
-            else
-            {
-
-                if (ModelState.IsValid)
+                try
                 {
-                    try
-                    {
-                        ICategoriasServicio srv = Servicios.CategoriasServicio();
-                        Categoria nuevo = srv.Create();
-                        model.ActualizarEntidad(nuevo);
-                        srv.Insert(nuevo);
-                        await srv.ApplyChangesAsync();
-                        result = new[] { CategoriaModel.FromEntity(nuevo) }.ToDataSourceResult(request, ModelState);
-                    }
-                    catch (CategoriaExisteException cee)
-                    {
-                        log.Error($"Error al añadir {Txt.Categorias.ArtEntidad}. Usuario: {CurrentUserID()}", cee);
-                        result.Errors = new[] { string.Format(Txt.ErroresComunes.Modificar + cee.Message, Txt.Categorias.ArtEntidad).Frase() };
-                    }
-                    catch (Exception e)
-                    {
-                        log.Error("Error al añadir el categoría " + model.Nombre, e);
-                        result.Errors = new[] { string.Format(Txt.ErroresComunes.Aniadir, Txt.Categorias.ArtEntidad).Frase() };
-                    }
+                    ICategoriasServicio srv = Servicios.CategoriasServicio();
+                    Categoria nuevo = srv.Create();
+                    model.ActualizarEntidad(nuevo);
+                    srv.Insert(nuevo);
+                    await srv.ApplyChangesAsync();
+                    result = new[] { CategoriaModel.FromEntity(nuevo) }.ToDataSourceResult(request, ModelState);
+                }
+                catch (CategoriaExisteException cee)
+                {
+                    log.Error($"Error al añadir {Txt.Categorias.ArtEntidad}. Usuario: {CurrentUserID()}", cee);
+                    result.Errors = new[] { string.Format(Txt.ErroresComunes.Modificar + cee.Message, Txt.Categorias.ArtEntidad).Frase() };
+                }
+                catch (Exception e)
+                {
+                    log.Error("Error al añadir el categoría " + model.Nombre, e);
+                    result.Errors = new[] { string.Format(Txt.ErroresComunes.Aniadir, Txt.Categorias.ArtEntidad).Frase() };
                 }
             }
             return Json(result);
@@ -150,28 +137,9 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         [Authorize]
         public ActionResult CategoriasUsuario()
         {
-            long aplicacionActualId = Aplicacion.AplicacionID;
-            // Categorias del usuario y la aplicación actual, activas e inactivas.
-            IEnumerable<Categoria> registros = Usuario.Categorias
-                .Where(c => c.AplicacionID == aplicacionActualId);
-
-            // Si el usuario tiene alguna categoría asignada y no es administrador, hay que quedarse sólo con
-            // las que estén activas.
-            if(registros.Any() && Usuario.Rol.Nombre != "Administrador")
-            {
-                registros = registros.Where(c => c.Activo);
-            }
-
-            // Si no tiene ninguna categoría asignada (activa o inactiva) o bien es administrador, significa
-            // que puede usar cualquiera, siempre que esté activa.
-            else
-            {
-                var srv = Servicios.CategoriasServicio();
-                registros = srv.ListaCategorias();
-            }
-
-            IEnumerable<CategoriaModel> categorias = registros
-                .Select(CategoriaModel.FromEntity);
+            var srv = Servicios.CategoriasServicio();
+            IEnumerable<Categoria> registros = srv.ListaCategorias();
+            IEnumerable<CategoriaModel> categorias = registros.Select(CategoriaModel.FromEntity);
             return Json(categorias, JsonRequestBehavior.AllowGet);
         }
     }

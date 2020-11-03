@@ -12,7 +12,6 @@ namespace PushNews.Dominio.Entidades
         {
             Aplicaciones = new List<Aplicacion>(0);
             Comunicaciones = new List<Comunicacion>(0);
-            Categorias = new List<Categoria>(0);
         }
         
         public long UsuarioID { get; set; }
@@ -39,7 +38,6 @@ namespace PushNews.Dominio.Entidades
         public virtual Rol Rol { get; set; }
         public virtual ICollection<Aplicacion> Aplicaciones { get; set; }
         public virtual ICollection<Comunicacion> Comunicaciones { get; set; }
-        public virtual ICollection<Categoria> Categorias { get; set; }
 
         /// <summary>
         /// Obligado por la interfaz IUser. Esta propiedad es un envoltorio de UsuarioID.

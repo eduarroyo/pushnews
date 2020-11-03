@@ -270,16 +270,6 @@ namespace PushNews.Dominio
             tabla.HasRequired(c => c.Rol)
                 .WithMany()
                 .HasForeignKey(u => u.RolID);
-
-            tabla
-                .HasMany(c => c.Categorias)
-                .WithMany()
-                .Map(c =>
-                {
-                    c.ToTable("UsuariosCategorias");
-                    c.MapLeftKey("UsuarioID");
-                    c.MapRightKey("CategoriaID");
-                });
         }
 
         private void MapParametros(DbModelBuilder modelBuilder)

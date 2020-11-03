@@ -83,25 +83,6 @@
                             )
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="form-group col-xs-12">
-                            <div class="control-label">
-                                @Html.LabelFor(model => model.CategoriasIDs)
-                            </div>
-                            @(Html.Kendo().MultiSelectFor(m => m.CategoriasIDs)
-                                    .Name("CategoriasIDs")
-                                    .Placeholder(Txt.Usuarios.CategoriasPlaceholder)
-                                    .DataValueField("CategoriaID")
-                                    .DataTextField("Nombre")
-                                    .ValuePrimitive(true)
-                                    .DataSource(ds => ds.Read("ListaCategorias", "Categorias"))
-                                    .HtmlAttributes(new { @class = "form-control campo-form", data_bind = "value: CategoriasIDs" })
-                                    .ItemTemplate(@"<i class=""fa fa-2x #= Icono #""></i> &nbsp; #= Nombre #")
-                                    .TagTemplate(@"<i class=""fa #= Icono #""></i> &nbsp; #= Nombre #")
-                            )
-                        </div>
-                    </div>
                 </div>
 
                 <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0 col-lg-4 bloque-form bloque-form-3">

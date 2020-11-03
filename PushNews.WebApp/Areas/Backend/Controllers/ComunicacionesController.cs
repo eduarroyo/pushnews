@@ -631,9 +631,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
                     else
                     {
                         // Categorías asociadas al usuario, que estén activas y que pertenezcan al a aplicación actual.
-                        _categoriasUsuario = Usuario.Categorias
-                                .Where(c => c.AplicacionID == Aplicacion.AplicacionID && c.Activo)
-                                .ToList();
+                        _categoriasUsuario = Aplicacion.Categorias.Where(c => c.Activo).ToList();
                     }
                 }
 
@@ -654,8 +652,7 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
             get
             {
                 // Es administrador o no tiene categorías de la aplicación (ni activas ni inactivas).
-                return !Usuario.Categorias.Any(c => c.AplicacionID == Aplicacion.AplicacionID)
-                        || Usuario.Rol.Name == "Administrador";
+                return Usuario.Rol.Name == "Administrador";
             }
         }
     }

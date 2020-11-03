@@ -94,28 +94,8 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
                     Usuario modificar = srv.GetSingle(u => u.UsuarioID == usuario.UsuarioID);
                     if (modificar != null)
                     {
-                        if (usuario.CategoriasIDs == null) { usuario.CategoriasIDs = new long[0]; }
                         if (usuario.Aplicaciones == null) { usuario.Aplicaciones = new long[0]; }
-
                         usuario.ActualizarEntidad(modificar);
-
-                        IEnumerable<long> categoriasActuales = modificar.Categorias.Select(cat => cat.CategoriaID);
-                        IEnumerable<long> categoriasAniadirIDs = usuario.CategoriasIDs.Where(cat => !categoriasActuales.Contains(cat));
-                        IEnumerable<long> categoriasEliminar = categoriasActuales
-                            .Where(cat => !usuario.CategoriasIDs.Contains(cat)).ToArray();
-                        foreach (var e in categoriasEliminar)
-                        {
-                            Categoria cEliminar = modificar.Categorias
-                                .Single(eID => eID.CategoriaID == e);
-                            modificar.Categorias.Remove(cEliminar);
-                        }
-
-                        // Añadir las categorías que vengan en el array de ids de categorías y que no 
-                        // tenga ya el usuario.
-                        ICategoriasServicio srvCategorias = Servicios.CategoriasServicio();
-                        modificar.Categorias
-                            .AddRange(srvCategorias.Get(cl => categoriasAniadirIDs.Contains(cl.CategoriaID)));
-
 
                         IEnumerable<long> aplicacionesActuales = modificar.Aplicaciones.Select(cl => cl.AplicacionID);
                         IEnumerable<long> aplicacionesAniadirIDs = usuario.Aplicaciones.Where(cl => !aplicacionesActuales.Contains(cl));
@@ -177,10 +157,6 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
         [Authorize(Roles="Administrador")]
         public async Task<ActionResult> Nuevo([DataSourceRequest] DataSourceRequest request, UsuarioGrid usuario)
         {
-            if(usuario.CategoriasIDs == null)
-            {
-                usuario.CategoriasIDs = new long[0];
-            }
             DataSourceResult result = new[] { usuario }.ToDataSourceResult(request, ModelState);
             if (ModelState.IsValid)
             {
@@ -193,7 +169,6 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
                     Usuario usuarioNuevo = empSrv.Create();
                     usuario.ActualizarEntidad(usuarioNuevo);
                     usuarioNuevo.Aplicaciones = apSrv.Get(cl => usuario.Aplicaciones.Contains(cl.AplicacionID)).ToList();
-                    usuarioNuevo.Categorias = carSrv.Get(cat => usuario.CategoriasIDs.Contains(cat.CategoriaID)).ToList();
                     IdentityResult ir = await UserManager.CreateAsync(usuarioNuevo, usuario.Clave);
                     if (ir.Succeeded)
                     {

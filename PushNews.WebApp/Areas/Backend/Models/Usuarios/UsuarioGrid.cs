@@ -30,8 +30,6 @@ namespace PushNews.WebApp.Models.Usuarios
                 PerfilID = u.Rol.RolID,
                 AplicacionesNombres = string.Join(separator: ", ", values: u.Aplicaciones.Select(cl => cl.Nombre)),
                 Aplicaciones = u.Aplicaciones.Select(p => p.AplicacionID).ToList(),
-
-                CategoriasIDs = u.Categorias.Select(c => c.CategoriaID),
             };
 
         public void ActualizarEntidad(Entity entidad)
@@ -102,8 +100,5 @@ namespace PushNews.WebApp.Models.Usuarios
 
         [Display(ResourceType = typeof(Txt.Usuarios), Name = "Aplicaciones")]
         public IEnumerable<long> Aplicaciones { get; set; }
-
-        [Display(ResourceType = typeof(Txt.Usuarios), Name = "Categorias")]
-        public IEnumerable<long> CategoriasIDs { get; set; }
     }
 }

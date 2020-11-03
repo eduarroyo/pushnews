@@ -65,7 +65,6 @@ namespace PushNews.Dominio.Migrations
                     new Tuple<string, bool>("ComunicacionesAccesos", context.Accesos.Any()),
                     new Tuple<string, bool>("Comunicaciones", context.Comunicaciones.Any()),
                     new Tuple<string, bool>("Terminales", context.Terminales.Any()),
-                    new Tuple<string, bool>("UsuariosCategorias", false),
                     new Tuple<string, bool>("Categorias", context.Categorias.Any()),
                     new Tuple<string, bool>("AplicacionesUsuarios", false),
                     new Tuple<string, bool>("Parametros", context.Parametros.Any()),
@@ -88,7 +87,7 @@ namespace PushNews.Dominio.Migrations
                 var caracteristicas = Caracteristicas();
                 var aplicaciones = Aplicaciones(caracteristicas);
                 var usuarios = Usuarios(roles, aplicaciones);
-                var categorias = Categorias(usuarios);
+                var categorias = Categorias(aplicaciones);
                 var comunicaciones = Comunicaciones(usuarios, categorias);
                 var parametros = Parametros();
                 var telefonos = Telefonos(aplicaciones);
@@ -384,16 +383,13 @@ namespace PushNews.Dominio.Migrations
             };
         }
 
-        private IEnumerable<Categoria> Categorias(IEnumerable<Usuario> editores)
+        private IEnumerable<Categoria> Categorias(IEnumerable<Aplicacion> aplicaciones)
         {
-            Usuario editor1 = editores.Single(u => u.Email == "editor1@pushnews.com");
-            Usuario editor2 = editores.Single(u => u.Email == "editor2@pushnews.com");
-
             return new List<Categoria>
             {
                 new Categoria
                 {
-                    Aplicacion = editor1.Aplicaciones.First(),
+                    Aplicacion = aplicaciones.First(),
                     Nombre = "Eventos",
                     Orden = 3,
                     Activo = true,
@@ -401,7 +397,7 @@ namespace PushNews.Dominio.Migrations
                 },
                 new Categoria
                 {
-                    Aplicacion = editor1.Aplicaciones.First(),
+                    Aplicacion = aplicaciones.First(),
                     Nombre = "Noticias",
                     Orden = 2,
                     Activo = true,
@@ -409,7 +405,7 @@ namespace PushNews.Dominio.Migrations
                 },
                 new Categoria
                 {
-                    Aplicacion = editor1.Aplicaciones.First(),
+                    Aplicacion = aplicaciones.First(),
                     Nombre = "Oficial",
                     Orden = 1,
                     Activo = true,
@@ -417,7 +413,7 @@ namespace PushNews.Dominio.Migrations
                 },
                 new Categoria
                 {
-                    Aplicacion = editor2.Aplicaciones.Last(),
+                    Aplicacion = aplicaciones.Last(),
                     Nombre = "Sucesos",
                     Orden = 3,
                     Activo = true,
@@ -425,7 +421,7 @@ namespace PushNews.Dominio.Migrations
                 },
                 new Categoria
                 {
-                    Aplicacion = editor2.Aplicaciones.Last(),
+                    Aplicacion = aplicaciones.Last(),
                     Nombre = "Ultima hora",
                     Orden = 2,
                     Activo = true,
@@ -433,7 +429,7 @@ namespace PushNews.Dominio.Migrations
                 },
                 new Categoria
                 {
-                    Aplicacion = editor2.Aplicaciones.Last(),
+                    Aplicacion = aplicaciones.Last(),
                     Nombre = "Comunicados",
                     Orden = 1,
                     Activo = true,

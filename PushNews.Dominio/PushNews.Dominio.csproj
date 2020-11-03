@@ -83,9 +83,9 @@
     <Compile Include="Migrations\202010201613058_SimplificarIdentity.designer.cs">
       <DependentUpon>202010201613058_SimplificarIdentity.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202010251017372_QuitarCreadorDeCategoria.cs" />
-    <Compile Include="Migrations\202010251017372_QuitarCreadorDeCategoria.designer.cs">
-      <DependentUpon>202010251017372_QuitarCreadorDeCategoria.cs</DependentUpon>
+    <Compile Include="Migrations\202011031751406_QuitarRelacionUsuarioCategoria.cs" />
+    <Compile Include="Migrations\202011031751406_QuitarRelacionUsuarioCategoria.designer.cs">
+      <DependentUpon>202011031751406_QuitarRelacionUsuarioCategoria.cs</DependentUpon>
     </Compile>
     <Compile Include="PushNewsModel.cs" />
     <Compile Include="Entidades\Aplicacion.cs" />
@@ -388,8 +388,8 @@
     <EmbeddedResource Include="Migrations\202010201613058_SimplificarIdentity.resx">
       <DependentUpon>202010201613058_SimplificarIdentity.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010251017372_QuitarCreadorDeCategoria.resx">
-      <DependentUpon>202010251017372_QuitarCreadorDeCategoria.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202011031751406_QuitarRelacionUsuarioCategoria.resx">
+      <DependentUpon>202011031751406_QuitarRelacionUsuarioCategoria.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

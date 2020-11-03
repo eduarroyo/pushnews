@@ -26,24 +26,9 @@ namespace PushNews.Negocio
 
         public override void Insert(Comunicacion entity)
         {
-            // Para crear una comunicación, el usuario debe ser administrador, o bien no tener asignada
-            // ninguna categoría de la aplicación (ni activa ni inactiva) o bien tener asignada la categoría
-            // de la comunicación, que  pertenezca a la aplicación de trabajo y además que esté activa.
-            var usuario = unitOfWork.Usuarios.SingleOrDefault(u => entity.UsuarioID == u.UsuarioID);
-            if (usuario.Rol.Nombre == "Administrador" || 
-                !usuario.Categorias.Any(c => c.AplicacionID == aplicacion.AplicacionID) 
-                || usuario.Categorias.Any(c => c.AplicacionID == aplicacion.AplicacionID
-                                                && c.CategoriaID == entity.CategoriaID
-                                                && c.Activo))
-            {
                 entity.Activo = true;
                 entity.FechaCreacion = DateTime.Now;
                 base.Insert(entity);
-            }
-            else
-            {
-                throw new Exception("La categoría de la comunicación no está disponible para el usuario.");
-            }
 
         }
 
