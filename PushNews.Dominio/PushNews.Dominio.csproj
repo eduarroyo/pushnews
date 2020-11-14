@@ -91,6 +91,10 @@
     <Compile Include="Migrations\202011031836063_SimplificarUsuarios.designer.cs">
       <DependentUpon>202011031836063_SimplificarUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011141055588_QuitarMarcaSeguridad.cs" />
+    <Compile Include="Migrations\202011141055588_QuitarMarcaSeguridad.designer.cs">
+      <DependentUpon>202011141055588_QuitarMarcaSeguridad.cs</DependentUpon>
+    </Compile>
     <Compile Include="PushNewsModel.cs" />
     <Compile Include="Entidades\Aplicacion.cs" />
     <Compile Include="Entidades\AplicacionCaracteristica.cs" />
@@ -397,6 +401,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011031836063_SimplificarUsuarios.resx">
       <DependentUpon>202011031836063_SimplificarUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011141055588_QuitarMarcaSeguridad.resx">
+      <DependentUpon>202011141055588_QuitarMarcaSeguridad.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
