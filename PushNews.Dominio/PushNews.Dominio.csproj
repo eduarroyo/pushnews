@@ -91,9 +91,9 @@
     <Compile Include="Migrations\202011031836063_SimplificarUsuarios.designer.cs">
       <DependentUpon>202011031836063_SimplificarUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011141055588_QuitarMarcaSeguridad.cs" />
-    <Compile Include="Migrations\202011141055588_QuitarMarcaSeguridad.designer.cs">
-      <DependentUpon>202011141055588_QuitarMarcaSeguridad.cs</DependentUpon>
+    <Compile Include="Migrations\202012201026101_AumentarLongitudDocumento.cs" />
+    <Compile Include="Migrations\202012201026101_AumentarLongitudDocumento.designer.cs">
+      <DependentUpon>202012201026101_AumentarLongitudDocumento.cs</DependentUpon>
     </Compile>
     <Compile Include="PushNewsModel.cs" />
     <Compile Include="Entidades\Aplicacion.cs" />
@@ -402,8 +402,8 @@
     <EmbeddedResource Include="Migrations\202011031836063_SimplificarUsuarios.resx">
       <DependentUpon>202011031836063_SimplificarUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011141055588_QuitarMarcaSeguridad.resx">
-      <DependentUpon>202011141055588_QuitarMarcaSeguridad.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012201026101_AumentarLongitudDocumento.resx">
+      <DependentUpon>202012201026101_AumentarLongitudDocumento.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

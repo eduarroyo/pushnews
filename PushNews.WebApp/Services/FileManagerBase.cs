@@ -138,9 +138,15 @@ namespace PushNews.WebApp.Services
 
         protected string GenerarNombreNuevo(string nombreArchivo)
         {
-            return Path.GetFileNameWithoutExtension(nombreArchivo)
-                                + "_" + Util.GenerarCadenaAleatoria(longitud: 5)
-                                + Path.GetExtension(nombreArchivo);
+            string nombreSinExtension = Path.GetFileNameWithoutExtension(nombreArchivo);
+            string extension = Path.GetExtension(nombreArchivo);
+            string sufijoAleatorio = "_" + Util.GenerarCadenaAleatoria(longitud: 5);
+            int longitudTotal = nombreSinExtension.Length + extension.Length + sufijoAleatorio.Length;
+            if(longitudTotal > 50)
+            {
+                nombreSinExtension = nombreSinExtension.Substring(0, nombreSinExtension.Length - (longitudTotal - 50));
+            }
+            return nombreSinExtension + sufijoAleatorio + extension;
         }
     }
 }

@@ -631,7 +631,8 @@ namespace PushNews.WebApp.Areas.Backend.Controllers
                     else
                     {
                         // Categorías asociadas al usuario, que estén activas y que pertenezcan al a aplicación actual.
-                        _categoriasUsuario = Aplicacion.Categorias.Where(c => c.Activo).ToList();
+                        ICategoriasServicio catSrv = base.Servicios.CategoriasServicio();
+                        _categoriasUsuario = catSrv.Get(c => c.Activo).ToList();
                     }
                 }
 

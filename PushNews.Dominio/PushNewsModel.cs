@@ -304,7 +304,7 @@ namespace PushNews.Dominio
 
             modelBuilder.Entity<Documento>()
                 .Property(dt => dt.Nombre)
-                .HasMaxLength(50);
+                .HasMaxLength(255);
 
             modelBuilder.Entity<Documento>()
                 .Property(dt => dt.Ruta)
